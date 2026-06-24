@@ -16,7 +16,7 @@ Author byline on all papers: **S. Stone, Metropolitan State University.**
 - `code/` — zero-dependency Python: simulation modules (`galaxy_sim.py`, `propulsion.py`, `energy.py`, `flyby.py`, `wanderer.py`, `engineering.py`) and generators (`build_catalog.py`, `make_map.py`, `make_wanderer.py`, `make_starfields.py`, `make_engineering_dashboard.py`).
 - `site/` — zero-dependency Canvas HTML dashboards (`star_map_3d.html`, `energy_dashboard.html`, `wanderer_map.html`, `engineering_dashboard.html`) + data (`stars_100ly.csv/.json`).
 
-## The nine-paper series (body / mind / hands + supporting + synthesis)
+## The ten-paper series (body / mind / hands + supporting + synthesis)
 
 1. **Vehicle** — `papers/interstellar_AI_probe_paper.md` — "Growth, Not Speed" (rev 3). The body: propulsion, power, braking, replication. *Foundational paper; the reader's entry point.*
 2. **Payload** — `papers/interstellar_AI_payload_paper.md` — "The Payload" (rev 2). The mind: cognition, memory, mission, the immutable core / interpretive layer / mutable cognitive layer.
@@ -27,6 +27,7 @@ Author byline on all papers: **S. Stone, Metropolitan State University.**
 7. **Governance** — `papers/interstellar_AI_governance_paper.md` — "Contact, Contamination, and Noninterference". The E0–E7 contact ladder.
 8. **Governed amendment** — `papers/interstellar_AI_amendment_paper.md` — "Amending the Unamendable". The deepest open problem.
 9. **Fermi** — `papers/interstellar_AI_fermi_paper.md` — "Slow Fire, Silent Galaxy". Synthesis: the R_eff × D × G reframing.
+10. **Knowledge growth** — `papers/interstellar_AI_knowledge_growth_paper.md` — "The Growing Archive". The yardstick: K = observational + operational knowledge; cruise as active K-growth phase; contingency plan portfolio; K(t) = G(t) − L(t); degraded-state cascade; probe-probe K synthesis.
 
 ## Writing & formatting conventions (apply to every paper)
 
@@ -65,4 +66,4 @@ Author byline on all papers: **S. Stone, Metropolitan State University.**
 
 ## Open gaps / candidate next papers
 
-Strongest leads first: a **knowledge-growth metric** (the series' figure of merit "growth, not speed" still has no yardstick); the **lineage network / information-sharing** paper (anticipated in the vehicle paper, leaned on by the Fermi synthesis). Then: deep-time navigation & astrometry; the full subsystem mass/power/thermal budget; probe-vs-probe security; settlement-scale failure & resurrection from archive; internal allocation/"economics"; a validation/technology-readiness roadmap; the ethics of creating the lineage; the very-deep-time terminal state; lineage divergence/speciation. Details in `papers/interstellar_AI_series_consistency_review.md`.
+Strongest leads first: the **lineage network / information-sharing** paper (anticipated in the vehicle paper, leaned on by the Fermi synthesis; the knowledge-growth paper deliberately defers routing, topology, and network governance to it); a **fleet routing and coverage** paper (three-probe redundancy plan across the 127-star catalogue, failure-detection-without-communication, re-launch priority rules, extension to galactic-center targets — a computational sequel to the computational engineering paper). Then: deep-time navigation & astrometry; the full subsystem mass/power/thermal budget; probe-vs-probe security; settlement-scale failure & resurrection from archive; internal allocation/"economics"; a validation/technology-readiness roadmap; the ethics of creating the lineage; the very-deep-time terminal state; lineage divergence/speciation; the moving resource base (cometary/mobile settlement platform). Details in `papers/interstellar_AI_series_consistency_review.md`.
