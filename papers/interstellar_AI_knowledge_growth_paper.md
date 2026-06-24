@@ -136,7 +136,7 @@ The ordering K_active ≤ K_accessible ≤ K_total holds for any individual node
 **K packet structure.** A unit of transmitted knowledge carries enough metadata for the receiving node to integrate it into its ledger without ambiguity. Each K packet specifies:
 - an identifier and type (observation, model, operational update, meta-knowledge, governance, or archive pointer)
 - source node and creation time
-- a provenance chain linking back to raw observations
+- a provenance chain linking back to raw observations, tracking why and where each item originated (Buneman, Khanna & Tan 2001)
 - confidence level and validation status (quarantine / single-node-confirmed / independent-confirmed)
 - mission weight w_j and current replication count r_j
 - dependencies on other K packets
@@ -418,7 +418,7 @@ Finally, K_net grows with N_settled, which grows with R_eff. A lineage at R_eff 
 
 **The moving resource base.** A cometary nucleus or captured body as a mobile industrial platform offers powerful archival and replication options in cometary-rich, planet-poor environments. The configuration space — from a cold archive depot on a resource-limited comet through a full mobile settlement launching child probes over tens of thousands of years — is rich enough to warrant dedicated treatment.
 
-**K framework grounding in information theory and decision theory.** The formal K definition draws on Shannon entropy reduction and mission-relative weighting. A fuller treatment would connect it to Bayesian experimental design (which observation most reduces K-relevant uncertainty?), value-of-information theory (when is collecting more K worth its resource cost?), and active learning (how should the probe select its science program to maximize expected K gain?). These connections strengthen the framework's scholarly grounding and are anticipated rather than developed here.
+**K framework grounding in information theory and decision theory.** The formal K definition draws on Shannon entropy reduction and mission-relative weighting. A fuller treatment would connect it to Bayesian experimental design (Chaloner & Verdinelli 1995) — which observation most reduces K-relevant uncertainty? — value-of-information theory (Howard 1966) — when is collecting more K worth its resource cost? — and active learning (Settles 2012) — how should the probe select its science program to maximize expected K gain? These connections strengthen the framework's scholarly grounding and are anticipated rather than developed here.
 
 ---
 
@@ -438,9 +438,13 @@ K and the demographic reproduction model R_eff = Σ p_i V_i are explicitly coupl
 
 ## References
 
+Buneman, P., Khanna, S., & Tan, W. C. (2001). Why and where: A characterization of data provenance. In *Proceedings of the 8th International Conference on Database Theory* (pp. 316–330). Springer.
+
 Burleigh, S., Hooke, A., Torgerson, L., Fall, K., Cerf, V., Durst, B., Scott, K., & Weiss, H. (2003). Delay-tolerant networking: An approach to interplanetary Internet. *IEEE Communications Magazine*, 41(6), 128–136.
 
 Cerf, V., Burleigh, S., Hooke, A., Torgerson, L., Durst, R., Scott, K., Fall, K., & Weiss, H. (2007). *Delay-Tolerant Networking Architecture* (RFC 4838). Internet Engineering Task Force.
+
+Chaloner, K., & Verdinelli, I. (1995). Bayesian experimental design: A review. *Statistical Science*, 10(3), 273–304.
 
 Freitas, R. A. (1980). A self-reproducing interstellar probe. *Journal of the British Interplanetary Society*, 33, 251–264.
 
@@ -450,6 +454,8 @@ Gaia Collaboration; Vallenari, A., et al. (2023). Gaia Data Release 3: Summary o
 
 Harris, T. E. (1963). *The Theory of Branching Processes.* Springer.
 
+Howard, R. A. (1966). Information value theory. *IEEE Transactions on Systems Science and Cybernetics*, 2, 22–26.
+
 Lamport, L., Shostak, R., & Pease, M. (1982). The Byzantine Generals Problem. *ACM Transactions on Programming Languages and Systems*, 4(3), 382–401.
 
 Merkle, R. C. (1987). A digital signature based on a conventional encryption function. In *Advances in Cryptology — CRYPTO '87* (pp. 369–378). Springer.
@@ -457,6 +463,8 @@ Merkle, R. C. (1987). A digital signature based on a conventional encryption fun
 Metzger, P. T., Muscatello, A., Mueller, R. P., & Mantovani, J. (2013). Affordable, rapid bootstrapping of the space industry and solar system civilization. *Journal of Aerospace Engineering*, 26(1), 18–29.
 
 Schmidhuber, J. (2007). Gödel machines: Fully self-referential optimal universal self-improvers. In B. Goertzel & C. Pennachin (Eds.), *Artificial General Intelligence* (pp. 199–226). Springer.
+
+Settles, B. (2012). *Active Learning.* Morgan & Claypool Publishers.
 
 Shannon, C. E. (1948). A mathematical theory of communication. *Bell System Technical Journal*, 27(3), 379–423.
 
