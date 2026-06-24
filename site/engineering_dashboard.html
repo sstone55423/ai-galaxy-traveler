@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI Galaxy Traveler - Engineering Closure Dashboard</title>
+<style>
+  :root{ --bg0:#05060d; --panel:#0e1226; --line:rgba(120,150,220,.18); --txt:#dfe6ff;
+         --dim:#93a0c8; --accent:#7fb3ff; --gold:#ffd35e; --green:#7af0a8; --red:#ff7a8a; }
+  *{box-sizing:border-box}
+  body{margin:0;background:radial-gradient(1200px 800px at 60% -10%,#0b1022,#05060d);
+    color:var(--txt);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;padding:18px;font-size:14px}
+  h1{font-size:18px;margin:0 0 2px} .sub{color:var(--dim);font-size:12px;margin-bottom:14px}
+  .wrap{display:flex;gap:16px;flex-wrap:wrap;align-items:flex-start}
+  .panel{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:15px}
+  #controls{width:300px;flex:none}
+  #controls h2{font-size:11px;text-transform:uppercase;letter-spacing:.6px;color:var(--dim);margin:14px 0 8px}
+  #controls h2:first-child{margin-top:0}
+  .fld{margin-bottom:11px}
+  .fld label{display:flex;justify-content:space-between;font-size:12px;color:var(--dim);margin-bottom:4px}
+  .fld label b{color:var(--txt)}
+  input[type=range]{width:100%;accent-color:var(--accent)}
+  #right{flex:1;min-width:440px;display:flex;flex-direction:column;gap:14px}
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .card h3{margin:0 0 8px;font-size:12px;text-transform:uppercase;letter-spacing:.5px;color:var(--dim)}
+  .big{font-size:30px;font-weight:700;font-variant-numeric:tabular-nums}
+  .verdict{display:inline-block;margin-left:8px;font-size:13px;padding:2px 10px;border-radius:20px;vertical-align:middle}
+  .row{display:flex;justify-content:space-between;padding:2px 0;color:var(--dim);font-size:12.5px}
+  .row b{color:var(--txt);font-variant-numeric:tabular-nums}
+  canvas{width:100%;display:block}
+  .chartttl{font-size:12px;color:var(--dim);margin:0 0 8px}
+  .legend{display:flex;gap:14px;font-size:11px;color:var(--dim);margin-top:6px;flex-wrap:wrap}
+  .legend i{display:inline-block;width:11px;height:3px;border-radius:2px;margin-right:5px;vertical-align:middle}
+  .note{font-size:11.5px;color:var(--dim);line-height:1.5;margin-top:6px}
+</style></head><body>
+<h1>Engineering Closure &mdash; explore the knife-edge</h1>
+<div class="sub">Four interlocking budgets for the self-replicating wanderer. R_eff is computed live across the real 127-star catalogue.</div>
+
+<div class="wrap">
+  <div id="controls" class="panel">
+    <h2>Reproduction</h2>
+    <div class="fld"><label>Offspring per node <b><span id="offV">3</span></b></label>
+      <input type="range" id="off" min="1" max="5" step="1" value="3"></div>
+    <div class="fld"><label>Per-leg reliability <b><span id="pV">0.90</span></b></label>
+      <input type="range" id="p" min="0.70" max="1.00" step="0.01" value="0.90"></div>
+    <div class="fld"><label>Cruise survival / ly <b><span id="crV">0.99</span></b></label>
+      <input type="range" id="cr" min="0.95" max="1.00" step="0.005" value="0.99"></div>
+    <div class="fld"><label>Ordinary-dwarf viability <b><span id="vdV">0.70</span></b></label>
+      <input type="range" id="vd" min="0.30" max="1.00" step="0.05" value="0.70"></div>
+
+    <h2>Braking &amp; seed</h2>
+    <div class="fld"><label>Seed mass <b><span id="mV">3,700</span> kg</b></label>
+      <input type="range" id="m" min="3" max="7" step="0.05" value="3.568"></div>
+    <div class="fld"><label>Magsail radius <b><span id="RV">100</span> km</b></label>
+      <input type="range" id="R" min="10" max="200" step="5" value="100"></div>
+    <div class="fld"><label>Cruise speed <b><span id="vV">450</span> km/s</b></label>
+      <input type="range" id="v" min="50" max="600" step="10" value="450"></div>
+
+    <h2>Power &amp; closure</h2>
+    <div class="fld"><label>Electric power <b><span id="kwV">14</span> kW</b></label>
+      <input type="range" id="kw" min="0.6" max="3" step="0.02" value="1.146"></div>
+    <div class="fld"><label>ISRU plant mass <b><span id="isruV">2,000</span> kg</b></label>
+      <input type="range" id="isru" min="2.3" max="6" step="0.05" value="3.301"></div>
+    <div class="fld"><label>Closure ratio <b><span id="clV">0.97</span></b></label>
+      <input type="range" id="cl" min="0.50" max="1.00" step="0.01" value="0.97"></div>
+  </div>
+
+  <div id="right">
+    <div class="panel card">
+      <h3>Reproduction &mdash; R_eff across the real catalogue</h3>
+      <div><span class="big" id="reff">0.00</span><span class="verdict" id="verdict"></span></div>
+      <div class="row">Nodes with R_eff &gt; 1 <b id="frac">0%</b></div>
+      <div class="row">Mean per-node extinction probability <b id="ext">0.00</b></div>
+      <p class="chartttl" style="margin-top:12px">Knife-edge: mean R_eff vs per-leg reliability</p>
+      <canvas id="chart" width="640" height="220"></canvas>
+      <div class="legend">
+        <span><i style="background:#7af0a8"></i>offspring 4</span>
+        <span><i style="background:#7fb3ff"></i>offspring 3</span>
+        <span><i style="background:#ffd35e"></i>offspring 2</span>
+        <span><i style="background:#ff7a8a"></i>R_eff = 1 (extinction threshold)</span>
+        <span><i style="background:#fff"></i>your setting</span>
+      </div>
+    </div>
+    <div class="grid">
+      <div class="panel card">
+        <h3>Braking (magsail vs ISM)</h3>
+        <div class="row">Stopping distance <b id="bd">0 ly</b></div>
+        <div class="row">Braking time <b id="bt">0 yr</b></div>
+        <div class="row">Peak deceleration <b id="bg">0 g</b></div>
+        <div class="row">Sail for 0.01 ly stop <b id="bsail">0 km</b></div>
+        <p class="note">Stopping distance d = m/(2&rho;A) is independent of cruise speed; only time scales with it.</p>
+      </div>
+      <div class="panel card">
+        <h3>Seed mass budget</h3>
+        <div class="row">Total seed mass <b id="mtot">0 kg</b></div>
+        <div class="row">Dominant subsystem <b id="mdom">&mdash;</b></div>
+        <div class="row">Radiator area <b id="mrad">0 m&sup2;</b></div>
+        <div class="row">Reactor + conversion <b id="mreac">0 kg</b></div>
+        <p class="note" id="mnote"></p>
+      </div>
+      <div class="panel card">
+        <h3>Closure</h3>
+        <div class="row">Vitamin fraction <b id="cvf">0%</b></div>
+        <div class="row">Vitamin mass carried <b id="cvm">0 kg</b></div>
+        <div class="row">Material margin <b id="cmm">0&times;</b></div>
+        <div class="row">Energy margin <b id="cem">0&times;</b></div>
+        <p class="note">Material and energy never bind; capability (closure) does.</p>
+      </div>
+      <div class="panel card">
+        <h3>Verdict</h3>
+        <p class="note" id="bigverdict"></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+const STARS = [{"x":0.0,"y":0.0,"z":0.0,"c":"sun"},{"x":-1.55,"y":-1.18,"z":-3.77,"c":"planet-host"},{"x":-1.62,"y":-1.36,"z":-3.79,"c":"named"},{"x":-1.62,"y":-1.36,"z":-3.79,"c":"named"},{"x":-0.06,"y":-5.94,"z":0.49,"c":"planet-host"},{"x":-7.5,"y":2.14,"z":0.96,"c":"nearest"},{"x":-6.52,"y":1.65,"z":4.88,"c":"planet-host"},{"x":-1.61,"y":8.08,"z":-2.47,"c":"named"},{"x":-1.61,"y":8.08,"z":-2.47,"c":"white-dwarf"},{"x":7.54,"y":3.47,"z":-2.69,"c":"nearest"},{"x":7.54,"y":3.47,"z":-2.69,"c":"nearest"},{"x":1.92,"y":-8.67,"z":-3.92,"c":"nearest"},{"x":7.36,"y":-0.58,"z":7.18,"c":"nearest"},{"x":6.19,"y":8.28,"z":-1.72,"c":"planet-host"},{"x":8.47,"y":-2.04,"z":-6.29,"c":"planet-host"},{"x":-10.99,"y":0.58,"z":0.15,"c":"planet-host"},{"x":10.04,"y":-3.72,"z":-2.93,"c":"nearest"},{"x":6.46,"y":-6.11,"z":7.14,"c":"named"},{"x":6.47,"y":-6.11,"z":7.14,"c":"named"},{"x":-4.79,"y":10.36,"z":1.04,"c":"named"},{"x":-4.79,"y":10.36,"z":1.04,"c":"white-dwarf"},{"x":1.08,"y":-5.73,"z":9.94,"c":"nearest"},{"x":1.08,"y":-5.73,"z":9.94,"c":"nearest"},{"x":8.33,"y":0.67,"z":8.08,"c":"planet-host"},{"x":8.33,"y":0.67,"z":8.08,"c":"nearest"},{"x":-6.34,"y":8.28,"z":5.26,"c":"nearest"},{"x":5.68,"y":-3.17,"z":-9.93,"c":"planet-host"},{"x":10.29,"y":5.02,"z":-3.27,"c":"planet-host"},{"x":5.02,"y":6.91,"z":-8.4,"c":"planet-host"},{"x":11.03,"y":3.61,"z":-3.55,"c":"planet-host"},{"x":-4.58,"y":11.41,"z":1.12,"c":"planet-host"},{"x":8.71,"y":8.19,"z":3.63,"c":"planet-host"},{"x":1.08,"y":-5.41,"z":-11.29,"c":"nearest"},{"x":1.9,"y":8.87,"z":-9.08,"c":"planet-host"},{"x":7.64,"y":-6.57,"z":-8.12,"c":"nearest"},{"x":6.47,"y":-2.75,"z":11.11,"c":"nearest"},{"x":6.47,"y":-2.75,"z":11.11,"c":"nearest"},{"x":-9.61,"y":3.11,"z":-8.45,"c":"nearest"},{"x":-1.71,"y":13.22,"z":-0.66,"c":"nearest"},{"x":-5.23,"y":-12.67,"z":-3.08,"c":"planet-host"},{"x":13.68,"y":2.98,"z":1.32,"c":"white-dwarf"},{"x":11.26,"y":0.27,"z":-8.6,"c":"nearest"},{"x":-13.99,"y":-2.05,"z":2.24,"c":"nearest"},{"x":12.3,"y":7.12,"z":3.29,"c":"nearest"},{"x":-0.56,"y":-5.43,"z":13.75,"c":"planet-host"},{"x":-13.81,"y":4.47,"z":-2.89,"c":"nearest"},{"x":-1.38,"y":-10.02,"z":-10.81,"c":"planet-host"},{"x":5.04,"y":-9.3,"z":10.37,"c":"nearest"},{"x":5.04,"y":-9.3,"z":10.37,"c":"nearest"},{"x":-6.39,"y":0.4,"z":-13.63,"c":"white-dwarf"},{"x":14.15,"y":-4.24,"z":-3.75,"c":"planet-host"},{"x":15.17,"y":0.44,"z":-2.01,"c":"planet-host"},{"x":-7.12,"y":2.43,"z":-13.68,"c":"nearest"},{"x":-11.16,"y":2.7,"z":10.9,"c":"nearest"},{"x":-11.16,"y":2.7,"z":10.9,"c":"nearest"},{"x":-9.19,"y":4.71,"z":12.08,"c":"named"},{"x":-13.58,"y":6.36,"z":5.42,"c":"named"},{"x":8.51,"y":-6.32,"z":-12.2,"c":"planet-host"},{"x":-1.17,"y":-11.62,"z":-11.4,"c":"nearest"},{"x":7.14,"y":14.53,"z":-2.18,"c":"planet-host"},{"x":7.14,"y":14.53,"z":-2.18,"c":"white-dwarf"},{"x":7.14,"y":14.53,"z":-2.18,"c":"nearest"},{"x":11.18,"y":-3.7,"z":11.51,"c":"nearest"},{"x":0.4,"y":-16.57,"z":0.72,"c":"named"},{"x":0.4,"y":-16.57,"z":0.72,"c":"named"},{"x":7.68,"y":-14.64,"z":2.58,"c":"named"},{"x":2.67,"y":-5.97,"z":17.63,"c":"named"},{"x":-12.77,"y":-12.74,"z":-6.95,"c":"named"},{"x":10.11,"y":2.2,"z":16.44,"c":"named"},{"x":-3.36,"y":-17.1,"z":-8.73,"c":"named"},{"x":9.26,"y":11.03,"z":-13.46,"c":"planet-host"},{"x":4.28,"y":-6.81,"z":-18.22,"c":"named"},{"x":-13.02,"y":-15.43,"z":-2.74,"c":"planet-host"},{"x":19.03,"y":-2.34,"z":6.96,"c":"nearest"},{"x":11.29,"y":-2.32,"z":17.86,"c":"planet-host"},{"x":11.34,"y":-2.34,"z":17.94,"c":"planet-host"},{"x":-15.16,"y":-14.07,"z":7.16,"c":"named"},{"x":-3.44,"y":-19.04,"z":-13.55,"c":"planet-host"},{"x":5.33,"y":0.6,"z":-23.73,"c":"named"},{"x":20.61,"y":9.86,"z":8.44,"c":"named"},{"x":13.51,"y":4.15,"z":20.13,"c":"named"},{"x":20.29,"y":-5.81,"z":-13.37,"c":"named"},{"x":3.13,"y":-19.27,"z":15.68,"c":"named"},{"x":21.04,"y":-5.87,"z":-12.42,"c":"planet-host"},{"x":0.7,"y":-7.77,"z":25.11,"c":"named"},{"x":7.87,"y":24.91,"z":3.19,"c":"named"},{"x":13.43,"y":6.26,"z":-22.14,"c":"named"},{"x":-20.51,"y":-3.04,"z":18.26,"c":"named"},{"x":-24.9,"y":-8.87,"z":-8.74,"c":"planet-host"},{"x":11.85,"y":1.04,"z":-25.36,"c":"named"},{"x":0.64,"y":26.5,"z":9.79,"c":"named"},{"x":14.22,"y":-21.25,"z":-13.04,"c":"planet-host"},{"x":1.81,"y":27.02,"z":-11.19,"c":"named"},{"x":-23.48,"y":0.72,"z":18.17,"c":"named"},{"x":-25.18,"y":-8.17,"z":14.0,"c":"named"},{"x":9.87,"y":-7.82,"z":-27.46,"c":"named"},{"x":-28.32,"y":2.2,"z":14.29,"c":"planet-host"},{"x":-11.32,"y":-29.8,"z":-1.24,"c":"named"},{"x":-0.39,"y":8.7,"z":-31.93,"c":"named"},{"x":-13.23,"y":26.73,"z":15.87,"c":"planet-host"},{"x":15.13,"y":16.37,"z":26.2,"c":"named"},{"x":-34.71,"y":1.66,"z":9.03,"c":"named"},{"x":32.67,"y":8.44,"z":13.12,"c":"planet-host"},{"x":-17.92,"y":-30.01,"z":9.8,"c":"named"},{"x":18.11,"y":15.6,"z":27.72,"c":"named"},{"x":-28.76,"y":-19.34,"z":12.06,"c":"giant"},{"x":-30.81,"y":-16.84,"z":11.68,"c":"named"},{"x":-37.46,"y":-6.88,"z":-0.96,"c":"named"},{"x":-9.36,"y":-15.45,"z":-36.13,"c":"named"},{"x":39.4,"y":-9.37,"z":-3.57,"c":"planet-host"},{"x":-22.74,"y":32.91,"z":-8.97,"c":"planet-host"},{"x":-24.72,"y":26.37,"z":19.49,"c":"planet-host"},{"x":-13.18,"y":-29.76,"z":-26.54,"c":"planet-host"},{"x":5.6,"y":29.27,"z":30.86,"c":"giant"},{"x":30.1,"y":13.52,"z":29.1,"c":"planet-host"},{"x":21.41,"y":-38.92,"z":4.99,"c":"named"},{"x":9.58,"y":-0.87,"z":43.86,"c":"planet-host"},{"x":-33.73,"y":9.11,"z":29.77,"c":"planet-host"},{"x":-9.21,"y":-46.42,"z":4.11,"c":"planet-host"},{"x":-5.18,"y":-47.15,"z":10.57,"c":"named"},{"x":46.27,"y":9.19,"z":-12.88,"c":"planet-host"},{"x":45.43,"y":-12.71,"z":17.89,"c":"planet-host"},{"x":-17.37,"y":39.67,"z":26.94,"c":"named"},{"x":-43.41,"y":-21.96,"z":15.3,"c":"planet-host"},{"x":30.32,"y":14.74,"z":-45.96,"c":"planet-host"},{"x":0.88,"y":9.85,"z":-58.88,"c":"planet-host"},{"x":29.85,"y":-51.47,"z":24.9,"c":"planet-host"}];
+const RHO=0.2e6*1.674e-27, C=299792458.0, LY=9.4607e15, YEAR=3.15576e7, SIGMA=5.670374e-8;
+const BELT=3.0e21, U=8.2e13;
+// precompute nearest-6 neighbours per node (positions fixed)
+const NB = STARS.map((s,i)=>{
+  const a=[]; for(let j=0;j<STARS.length;j++){ if(j===i)continue; const t=STARS[j];
+    a.push({d:Math.hypot(s.x-t.x,s.y-t.y,s.z-t.z),c:t.c}); }
+  a.sort((x,y)=>x.d-y.d); return a.slice(0,6);
+});
+const viab=(c,vd)=> (c==='giant'||c==='white-dwarf')?0.2 : c==='planet-host'?1.0 : vd;
+const legSurv=(d,p,cr)=> p*p*p*p*Math.pow(cr,d);
+function extinct(sl){ let q=0; for(let k=0;k<400;k++){ let f=1; for(const s of sl) f*=(1-s+s*q);
+  if(Math.abs(f-q)<1e-12)break; q=f; } return q; }
+function repro(off,p,cr,vd){
+  let sum=0,above=0,esum=0,n=STARS.length;
+  for(let i=0;i<n;i++){ const sl=[]; for(let k=0;k<off&&k<NB[i].length;k++){ const o=NB[i][k];
+      sl.push(legSurv(o.d,p,cr)*viab(o.c,vd)); }
+    const r=sl.reduce((a,b)=>a+b,0); sum+=r; if(r>1)above++; esum+=extinct(sl); }
+  return {mean:sum/n, frac:above/n, ext:esum/n};
+}
+function braking(m,Rkm,vkms){ const A=Math.PI*Math.pow(Rkm*1000,2), v=vkms*1000;
+  return {d:m/(2*RHO*A)/LY, t:m/(RHO*v*A)/YEAR, g:(RHO*v*v*A/m)/9.80665, A}; }
+function sailFor(m,dly){ const A=m/(2*RHO*dly*LY); return Math.sqrt(A/Math.PI)/1000; }
+function massBudget(kW,isru){ const reactor=8*kW, fuel=16.5,
+  rad=(kW*1000)/(0.9*SIGMA*Math.pow(400,4)), radiators=rad*3, ship=400+300+200;
+  const subs={fuel,reactor,radiators,shield:400,sail:300,pay:200,isru};
+  let core=fuel+reactor+radiators+400+300+200+isru; const struct=0.2*core;
+  const total=core+struct;
+  const named={fuel:fuel,'reactor+conversion':reactor,radiators:radiators,shielding:400,
+    'magsail structure':300,'computation+payload':200,'ISRU+manufacturing plant':isru,'structure/integration':struct};
+  let dom='',dm=0; for(const k in named) if(named[k]>dm){dm=named[k];dom=k;}
+  return {total,reactor,radArea:rad,dom}; }
+function closure(childKg,kW,cr){ const vf=1-cr; const t=1e4*YEAR;
+  return {vf, vk:vf*childKg, mm:BELT/childKg, em:(kW*1000*t)/(5e8*childKg)}; }
+
+// ---- chart (knife-edge) ----
+function chart(){
+  const cv=document.getElementById('chart'),dpr=Math.min(window.devicePixelRatio||1,2);
+  const W=cv.clientWidth||640,H=220; cv.width=W*dpr;cv.height=H*dpr; const x=cv.getContext('2d'); x.setTransform(dpr,0,0,dpr,0,0);
+  x.clearRect(0,0,W,H);
+  const ml=40,mr=12,mt=8,mb=22,pw=W-ml-mr,ph=H-mt-mb;
+  const xmin=0.70,xmax=1.0,ymax=3.0;
+  const X=p=>ml+pw*(p-xmin)/(xmax-xmin), Y=r=>mt+ph*(1-Math.min(r,ymax)/ymax);
+  x.strokeStyle='rgba(120,150,220,.15)';x.fillStyle='#93a0c8';x.font='10px sans-serif';x.lineWidth=1;
+  for(let r=0;r<=3;r++){const py=Y(r);x.beginPath();x.moveTo(ml,py);x.lineTo(W-mr,py);x.stroke();x.fillText(r.toFixed(0),6,py+3);}
+  for(let p=0.7;p<=1.001;p+=0.1){const px=X(p);x.fillText(p.toFixed(1),px-7,H-7);}
+  // R_eff=1 threshold
+  x.strokeStyle='rgba(255,122,138,.8)';x.setLineDash([5,4]);x.beginPath();x.moveTo(ml,Y(1));x.lineTo(W-mr,Y(1));x.stroke();x.setLineDash([]);
+  const cr=parseFloat(cr_i.value),vd=parseFloat(vd_i.value);
+  const cols={2:'#ffd35e',3:'#7fb3ff',4:'#7af0a8'};
+  for(const off of [2,3,4]){ x.beginPath(); x.strokeStyle=cols[off]; x.lineWidth=2;
+    for(let i=0;i<=60;i++){ const p=xmin+(xmax-xmin)*i/60; const r=repro(off,p,cr,vd).mean;
+      const px=X(p),py=Y(r); i?x.lineTo(px,py):x.moveTo(px,py);} x.stroke(); }
+  // current setting marker
+  const off=parseInt(off_i.value),p=parseFloat(p_i.value),r=repro(off,p,cr,vd).mean;
+  x.fillStyle='#fff';x.beginPath();x.arc(X(p),Y(r),4,0,Math.PI*2);x.fill();
+}
+
+const $=id=>document.getElementById(id);
+const off_i=$('off'),p_i=$('p'),cr_i=$('cr'),vd_i=$('vd'),m_i=$('m'),R_i=$('R'),v_i=$('v'),kw_i=$('kw'),isru_i=$('isru'),cl_i=$('cl');
+function render(){
+  const off=parseInt(off_i.value),p=parseFloat(p_i.value),cr=parseFloat(cr_i.value),vd=parseFloat(vd_i.value);
+  const m=Math.pow(10,parseFloat(m_i.value)),R=parseFloat(R_i.value),v=parseFloat(v_i.value);
+  const kW=Math.pow(10,parseFloat(kw_i.value)),isru=Math.pow(10,parseFloat(isru_i.value)),clr=parseFloat(cl_i.value);
+  // labels
+  $('offV').textContent=off; $('pV').textContent=p.toFixed(2); $('crV').textContent=cr.toFixed(3); $('vdV').textContent=vd.toFixed(2);
+  $('mV').textContent=Math.round(m).toLocaleString(); $('RV').textContent=R; $('vV').textContent=v;
+  $('kwV').textContent=Math.round(kW); $('isruV').textContent=Math.round(isru).toLocaleString(); $('clV').textContent=clr.toFixed(2);
+  // reproduction
+  const rr=repro(off,p,cr,vd);
+  $('reff').textContent=rr.mean.toFixed(2);
+  const exp=rr.mean>1;
+  const vd2=$('verdict'); vd2.textContent=exp?'EXPANDS':'extinction-prone';
+  vd2.style.background=exp?'rgba(122,240,168,.16)':'rgba(255,122,138,.16)';
+  vd2.style.color=exp?'#7af0a8':'#ff7a8a';
+  $('frac').textContent=Math.round(rr.frac*100)+'%'; $('ext').textContent=rr.ext.toFixed(2);
+  // braking
+  const b=braking(m,R,v);
+  $('bd').textContent=b.d<0.001?(b.d*LY/1.496e11).toFixed(0)+' AU':b.d.toFixed(3)+' ly';
+  $('bt').textContent=b.t<1000?Math.round(b.t)+' yr':(b.t/1e3).toFixed(1)+' kyr';
+  $('bg').textContent=b.g.toExponential(1)+' g'; $('bsail').textContent=Math.round(sailFor(m,0.01))+' km';
+  // mass
+  const mb=massBudget(kW,isru);
+  $('mtot').textContent=Math.round(mb.total).toLocaleString()+' kg';
+  $('mdom').textContent=mb.dom; $('mrad').textContent=mb.radArea.toFixed(0)+' m²'; $('mreac').textContent=Math.round(mb.reactor)+' kg';
+  $('mnote').textContent='A minimal bootstrap seed shrinks the ISRU plant; a full factory grows it toward ~10⁷ kg.';
+  // closure
+  const cc=closure(m,kW,clr);
+  $('cvf').textContent=Math.round(cc.vf*100)+'%'; $('cvm').textContent=Math.round(cc.vk).toLocaleString()+' kg';
+  $('cmm').textContent=cc.mm.toExponential(1)+'×'; $('cem').textContent=cc.em.toExponential(1)+'×';
+  // big verdict
+  $('bigverdict').innerHTML = exp
+    ? `At these settings the lineage <b style="color:#7af0a8">expands</b> (R_eff = ${rr.mean.toFixed(2)} &gt; 1): each settled node yields more than one successful child, so the front spreads as a branching process.`
+    : `At these settings the lineage is <b style="color:#ff7a8a">extinction-prone</b> (R_eff = ${rr.mean.toFixed(2)} &le; 1): too many children fail or reach sterile targets. Raise offspring or per-leg reliability to cross R_eff = 1.`;
+  chart();
+}
+[off_i,p_i,cr_i,vd_i,m_i,R_i,v_i,kw_i,isru_i,cl_i].forEach(el=>el.addEventListener('input',render));
+window.addEventListener('resize',chart);
+render();
+</script></body></html>

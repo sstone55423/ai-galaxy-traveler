@@ -1,0 +1,128 @@
+name,common_name,ra_hours,dec_deg,dist_ly,spectral,vmag,notable,category,x,y,z,color
+Sun,Sun,0.0,0.0,0.0,G2V,-26.7,True,sun,0.0,0.0,0.0,#fff4ea
+Proxima Centauri,Proxima Centauri,14.4956,-62.6794,4.246,M5.5Ve,11.13,True,planet-host,-1.5474,-1.1846,-3.7724,#ffb56c
+Alpha Centauri A,Rigil Kentaurus,14.6601,-60.834,4.344,G2V,0.01,True,named,-1.6241,-1.358,-3.7932,#fff4ea
+Alpha Centauri B,Toliman,14.6601,-60.837,4.344,K1V,1.33,True,named,-1.6239,-1.3579,-3.7933,#ffd2a1
+Barnard's Star,Barnard's Star,17.9634,4.6933,5.963,M4.0Ve,9.53,True,planet-host,-0.0569,-5.9427,0.4879,#ffb56c
+Wolf 359,Wolf 359,10.9385,7.0144,7.856,M6.0V,13.54,True,nearest,-7.4981,2.1391,0.9594,#ffb56c
+Lalande 21185,Lalande 21185,11.0556,35.9698,8.307,M2.0V,7.52,True,planet-host,-6.5186,1.6454,4.8792,#ffb56c
+Sirius A,Sirius,6.7525,-16.7161,8.601,A1V,-1.46,True,named,-1.6124,8.0782,-2.4739,#cad7ff
+Sirius B,Sirius B,6.7525,-16.7161,8.601,DA2,8.44,True,white-dwarf,-1.6124,8.0782,-2.4739,#e8f0ff
+Luyten 726-8 A,BL Ceti,1.6492,-17.9572,8.728,M5.5V,12.54,False,nearest,7.5409,3.4745,-2.6909,#ffb56c
+Luyten 726-8 B,UV Ceti,1.6492,-17.9572,8.728,M6.0V,12.99,False,nearest,7.5409,3.4745,-2.6909,#ffb56c
+Ross 154,Ross 154,18.8311,-23.8367,9.706,M3.5Ve,10.43,False,nearest,1.9165,-8.6688,-3.9225,#ffb56c
+Ross 248,Ross 248,23.6979,44.1772,10.3,M5.0V,12.29,False,nearest,7.3639,-0.5836,7.1779,#ffb56c
+Epsilon Eridani,Ran,3.5483,-9.4583,10.475,K2V,3.73,True,planet-host,6.1859,8.2763,-1.7214,#ffd2a1
+Lacaille 9352,Lacaille 9352,23.0983,-35.8531,10.742,M0.5V,7.34,True,planet-host,8.4652,-2.0363,-6.2917,#ffb56c
+Ross 128,Ross 128,11.7975,0.8003,11.007,M4.0V,11.13,True,planet-host,-10.9905,0.5832,0.1537,#ffb56c
+EZ Aquarii A,EZ Aquarii,22.6431,-15.2961,11.103,M5.0V,13.33,False,nearest,10.041,-3.7249,-2.9291,#ffb56c
+61 Cygni A,61 Cygni A,21.1075,38.7508,11.403,K5.0V,5.21,True,named,6.4627,-6.1088,7.1375,#ffd2a1
+61 Cygni B,61 Cygni B,21.11,38.7419,11.403,K7.0V,6.03,True,named,6.4675,-6.1053,7.1361,#ffd2a1
+Procyon A,Procyon,7.655,5.225,11.464,F5IV-V,0.34,True,named,-4.7931,10.3614,1.044,#f8f7ff
+Procyon B,Procyon B,7.655,5.225,11.464,DQZ,10.7,True,white-dwarf,-4.7931,10.3614,1.044,#e8f0ff
+Struve 2398 A,Gliese 725 A,18.7128,59.6281,11.525,M3.0V,8.9,False,nearest,1.0811,-5.726,9.9433,#ffb56c
+Struve 2398 B,Gliese 725 B,18.7128,59.6281,11.525,M3.5V,9.69,False,nearest,1.0811,-5.726,9.9433,#ffb56c
+Groombridge 34 A,GX Andromedae,0.3069,44.0228,11.624,M1.5V,8.08,True,planet-host,8.3314,0.6708,8.078,#ffb56c
+Groombridge 34 B,GQ Andromedae,0.3069,44.0231,11.624,M3.5V,11.06,False,nearest,8.3314,0.6708,8.0781,#ffb56c
+DX Cancri,DX Cancri,8.4972,26.7767,11.68,M6.5V,14.78,False,nearest,-6.3418,8.2774,5.262,#ffb56c
+Epsilon Indi A,Epsilon Indi,22.0575,-56.7858,11.867,K5Ve,4.69,True,planet-host,5.6778,-3.1651,-9.9283,#ffd2a1
+Tau Ceti,Tau Ceti,1.7344,-15.9375,11.912,G8.5V,3.5,True,planet-host,10.2935,5.024,-3.2709,#fff4ea
+GJ 1061,GJ 1061,3.5994,-44.5108,11.984,M5.5V,13.09,True,planet-host,5.0243,6.9131,-8.4013,#ffb56c
+YZ Ceti,YZ Ceti,1.2089,-16.9939,12.132,M4.5V,12.02,True,planet-host,11.026,3.611,-3.5458,#ffb56c
+Luyten's Star,Gliese 273,7.4569,5.2253,12.348,M3.5V,9.86,True,planet-host,-4.5773,11.413,1.1246,#ffb56c
+Teegarden's Star,Teegarden's Star,2.8831,16.8797,12.497,M7.0V,15.4,True,planet-host,8.7108,8.1933,3.6287,#ffb56c
+SCR 1845-6357,SCR 1845-6357,18.7503,-63.9583,12.571,M8.5V,17.4,False,nearest,1.0771,-5.4129,-11.2947,#ffb56c
+Kapteyn's Star,Kapteyn's Star,5.1947,-45.0181,12.832,sdM1,8.85,True,planet-host,1.8982,8.8699,-9.0765,#ffb56c
+Lacaille 8760,AX Microscopii,21.2881,-38.8672,12.945,M0.0V,6.69,True,nearest,7.6437,-6.5696,-8.1232,#ffb56c
+Kruger 60 A,Kruger 60 A,22.4667,57.6969,13.149,M3.0V,9.79,False,nearest,6.4682,-2.7455,11.114,#ffb56c
+Kruger 60 B,Kruger 60 B,22.4667,57.6969,13.149,M4.0V,11.41,False,nearest,6.4682,-2.7455,11.114,#ffb56c
+DEN 1048-3956,DEN 1048-3956,10.8033,-39.9392,13.169,M8.5V,17.39,False,nearest,-9.6055,3.1119,-8.4542,#ffb56c
+Ross 614 A,Gliese 234 A,6.49,-2.8264,13.349,M4.5V,11.15,False,nearest,-1.7057,13.2232,-0.6582,#ffb56c
+Wolf 1061,Gliese 628,16.505,-12.6614,14.05,M3.0V,10.07,True,planet-host,-5.2294,-12.6717,-3.0796,#ffb56c
+Van Maanen's Star,Van Maanen 2,0.8197,5.3897,14.066,DZ8,12.38,True,white-dwarf,13.6826,2.9822,1.3212,#e8f0ff
+Gliese 1,Gliese 1,0.0903,-37.3575,14.17,M1.5V,8.55,False,nearest,11.2601,0.2662,-8.5982,#ffb56c
+Wolf 424 A,Wolf 424,12.5553,9.0114,14.312,M5.5V,13.18,False,nearest,-13.9862,-2.0477,2.2417,#ffb56c
+TZ Arietis,Gliese 83.1,2.0028,13.0506,14.591,M4.5V,12.27,False,nearest,12.3046,7.1161,3.2948,#ffb56c
+Gliese 687,Gliese 687,17.6072,68.3589,14.793,M3.0V,9.17,True,planet-host,-0.56,-5.4267,13.7503,#ffb56c
+LHS 292,LHS 292,10.8033,-11.2647,14.805,M6.5V,15.73,False,nearest,-13.813,4.4749,-2.892,#ffb56c
+Gliese 674,Gliese 674,17.4783,-46.8992,14.809,M3.0V,9.38,True,planet-host,-1.3777,-10.0245,-10.8128,#ffb56c
+Gliese 1245 A,Gliese 1245 A,19.8981,44.425,14.812,M5.5V,13.46,False,nearest,5.0429,-9.2989,10.368,#ffb56c
+Gliese 1245 B,Gliese 1245 B,19.8981,44.4253,14.812,M6.0V,14.01,False,nearest,5.0429,-9.2988,10.3681,#ffb56c
+LP 145-141,Gliese 440,11.7619,-64.8425,15.06,DQ6,11.5,True,white-dwarf,-6.3897,0.3988,-13.6314,#e8f0ff
+Gliese 876,Ross 780,22.8881,-14.2625,15.238,M3.5V,10.17,True,planet-host,14.147,-4.2385,-3.7541,#ffb56c
+GJ 1002,GJ 1002,0.1119,-7.535,15.313,M5.5V,13.76,True,planet-host,15.1743,0.4447,-2.008,#ffb56c
+LHS 288,Luyten 143-23,10.7422,-61.2003,15.61,M5.5V,13.92,False,nearest,-7.1161,2.4318,-13.6792,#ffb56c
+Gliese 412 A,Gliese 412 A,11.0925,43.5267,15.832,M1.0V,8.77,False,nearest,-11.1566,2.7016,10.9034,#ffb56c
+Gliese 412 B,WX Ursae Majoris,11.0925,43.5236,15.832,M6.0V,14.43,False,nearest,-11.1572,2.7018,10.9028,#ffb56c
+Groombridge 1618,Gliese 380,10.1897,49.4669,15.89,K7.0V,6.59,True,named,-9.1885,4.713,12.0769,#ffd2a1
+AD Leonis,Gliese 388,10.3272,19.87,15.942,M3.0V,9.32,True,named,-13.578,6.3581,5.4185,#ffb56c
+Gliese 832,Gliese 832,21.5603,-49.0089,16.163,M1.5V,8.66,True,planet-host,8.512,-6.3205,-12.2,#ffb56c
+Gliese 682,Gliese 682,17.6181,-44.3094,16.327,M4.0V,10.96,False,nearest,-1.1662,-11.6249,-11.4049,#ffb56c
+40 Eridani A,Keid,4.2553,-7.6528,16.335,K0.5V,4.43,True,planet-host,7.1403,14.5298,-2.1753,#ffd2a1
+40 Eridani B,Keid B,4.2553,-7.6528,16.335,DA4,9.52,True,white-dwarf,7.1403,14.5298,-2.1753,#e8f0ff
+40 Eridani C,Keid C,4.2553,-7.6531,16.335,M4.5V,11.17,False,nearest,7.1403,14.5298,-2.1754,#ffb56c
+EV Lacertae,Gliese 873,22.7806,44.3331,16.467,M3.5V,10.09,False,nearest,11.1835,-3.6967,11.5076,#ffb56c
+70 Ophiuchi A,70 Ophiuchi,18.0922,2.5006,16.587,K0V,4.03,True,named,0.4,-16.5664,0.7237,#ffd2a1
+70 Ophiuchi B,70 Ophiuchi B,18.0922,2.5,16.587,K5V,6.0,False,named,0.4,-16.5664,0.7235,#ffd2a1
+Altair,Altair,19.8464,8.8683,16.73,A7V,0.76,True,named,7.6828,-14.6361,2.5792,#cad7ff
+Sigma Draconis,Alsafi,19.6053,69.6611,18.798,K0V,4.67,True,named,2.6658,-5.9651,17.626,#ffd2a1
+Gliese 570 A,Gliese 570,14.9961,-21.0667,19.327,K4V,5.72,False,named,-12.7659,-12.7398,-6.9472,#ffd2a1
+Eta Cassiopeiae A,Achird,0.8181,57.8156,19.42,G0V,3.45,True,named,10.1076,2.1986,16.4359,#fff4ea
+36 Ophiuchi A,36 Ophiuchi,17.2581,-26.6006,19.494,K2V,5.07,True,named,-3.3643,-17.1028,-8.7288,#ffd2a1
+82 Eridani,82 G. Eridani,3.3322,-43.0697,19.71,G8V,4.26,True,planet-host,9.2585,11.0272,-13.4597,#fff4ea
+Delta Pavonis,Delta Pavonis,20.1453,-66.1819,19.92,G8IV,3.56,True,named,4.2842,-6.8086,-18.2235,#fff4ea
+Gliese 581,Gliese 581,15.3231,-7.7228,20.376,M3.0V,10.56,True,planet-host,-13.02,-15.4325,-2.7381,#ffb56c
+EQ Pegasi A,EQ Pegasi,23.5319,19.9342,20.4,M4.0V,10.3,False,nearest,19.0339,-2.3443,6.9552,#ffb56c
+HD 219134,Gliese 892 (HD 219134),23.2261,57.1697,21.25,K3V,5.57,True,planet-host,11.2851,-2.3182,17.856,#ffd2a1
+HR 8832,Gliese 892,23.2225,57.1697,21.354,K3V,5.57,True,planet-host,11.3381,-2.3403,17.9433,#ffd2a1
+Xi Bootis A,Xi Bootis,14.8567,19.1006,21.89,G7V,4.55,True,named,-15.1647,-14.0675,7.163,#fff4ea
+Gliese 667 C,Gliese 667 C,17.3164,-34.9986,23.62,M1.5V,10.22,True,planet-host,-3.4443,-19.0397,-13.5474,#ffb56c
+Beta Hydri,Beta Hydri,0.4292,-77.2542,24.33,G2IV,2.8,True,named,5.334,0.6019,-23.7305,#fff4ea
+107 Piscium,107 Piscium,1.705,20.2722,24.36,K1V,5.24,False,named,20.6121,9.8646,8.4403,#ffd2a1
+Mu Cassiopeiae,Marfak,1.1392,54.9181,24.6,G5VI,5.17,True,named,13.5146,4.1545,20.131,#fff4ea
+TW Piscis Austrini,Fomalhaut B,22.9347,-32.3464,24.98,K4Ve,6.48,False,named,20.2884,-5.8097,-13.3652,#ffd2a1
+Vega,Vega,18.6156,38.7836,25.04,A0V,0.03,True,named,3.1322,-19.2662,15.6846,#cad7ff
+Fomalhaut,Fomalhaut,22.9608,-29.6222,25.13,A3V,1.16,True,planet-host,21.0421,-5.8703,-12.4212,#cad7ff
+Chi Draconis,Chi Draconis,18.3439,72.7339,26.3,F7V,3.57,False,named,0.7019,-7.7745,25.1148,#f8f7ff
+Pi3 Orionis,Tabit,4.8311,6.9611,26.32,F6V,3.19,True,named,7.8708,24.9122,3.1899,#f8f7ff
+p Eridani A,p Eridani,1.665,-56.1986,26.64,K2V,5.76,False,named,13.4344,6.2574,-22.1371,#ffd2a1
+Chara,Beta Canum Venaticorum,12.5622,41.3578,27.63,G0V,4.26,True,named,-20.5148,-3.0414,18.2568,#fff4ea
+61 Virginis,61 Virginis,13.3067,-18.2978,27.84,G6V,4.74,True,planet-host,-24.9007,-8.867,-8.7405,#fff4ea
+Zeta Tucanae,Zeta Tucanae,0.3347,-64.8742,28.01,F9.5V,4.23,True,named,11.8476,1.0408,-25.3596,#f8f7ff
+Chi1 Orionis,Chi1 Orionis,5.9072,20.2761,28.26,G0V,4.39,False,named,0.644,26.501,9.7933,#fff4ea
+HD 192310,Gliese 785,20.2536,-27.0203,28.7,K2V,5.73,True,planet-host,14.2244,-21.245,-13.0386,#ffd2a1
+Gamma Leporis,Gamma Leporis,5.7444,-22.4481,29.3,F6V,3.59,False,named,1.8107,27.0192,-11.1881,#f8f7ff
+Groombridge 1830,Groombridge 1830,11.8825,37.7186,29.7,G8V,6.42,True,named,-23.4823,0.7226,18.17,#fff4ea
+Beta Comae Berenices,Beta Comae,13.1981,27.8783,29.95,G0V,4.26,True,named,-25.1824,-8.1684,14.0045,#fff4ea
+Gamma Pavonis,Gamma Pavonis,21.4419,-65.3661,30.21,F9V,4.22,True,named,9.8722,-7.8166,-27.4606,#f8f7ff
+Gliese 436,Gliese 436,11.7036,26.7064,31.8,M2.5V,10.61,True,planet-host,-28.3221,2.2021,14.2915,#ffb56c
+12 Ophiuchi,12 Ophiuchi,16.6128,-2.2256,31.9,K2V,5.77,False,named,-11.3235,-29.7969,-1.2388,#ffd2a1
+Alpha Mensae,Alpha Mensae,6.1717,-74.7536,33.1,G7V,5.09,False,named,-0.3911,8.6955,-31.935,#fff4ea
+Pollux,Pollux,7.7553,28.0264,33.78,K0III,1.14,True,planet-host,-13.2256,26.7252,15.8725,#ffd2a1
+Iota Persei,Iota Persei,3.15,49.6131,34.4,G0V,4.05,False,named,15.13,16.3676,26.202,#fff4ea
+Denebola,Beta Leonis,11.8178,14.5719,35.9,A3V,2.11,True,named,-34.7057,1.6567,9.0323,#cad7ff
+54 Piscium,54 Piscium,0.9656,21.2436,36.2,K0.5V,5.88,True,planet-host,32.6678,8.4387,13.1165,#ffd2a1
+Gamma Serpentis,Gamma Serpentis,15.9442,15.6619,36.3,F6V,3.85,False,named,-17.9164,-30.011,9.7996,#f8f7ff
+Theta Persei A,Theta Persei,2.7156,49.2286,36.6,F8V,4.1,False,named,18.1112,15.5968,27.718,#f8f7ff
+Arcturus,Arcturus,14.2611,19.1825,36.7,K1.5III,-0.05,True,giant,-28.7646,-19.341,12.0588,#ffd2a1
+Eta Bootis,Muphrid,13.9111,18.3975,37.0,G0IV,2.68,True,named,-30.8055,-16.8421,11.6775,#fff4ea
+Gamma Virginis A,Porrima,12.6942,-1.4494,38.1,F0V,2.74,True,named,-37.4605,-6.8841,-0.9637,#f8f7ff
+Beta Trianguli Australis,Beta TrA,15.9192,-63.4306,40.4,F1V,2.83,False,named,-9.3641,-15.4546,-36.1335,#f8f7ff
+TRAPPIST-1,TRAPPIST-1,23.1083,-5.0414,40.66,M8.0V,18.8,True,planet-host,39.4041,-9.3696,-3.573,#ffb56c
+HD 69830,HD 69830,8.3097,-12.6364,41.0,K0V,5.95,True,planet-host,-22.7438,32.9131,-8.9693,#ffd2a1
+55 Cancri A,Copernicus (55 Cnc),8.8769,28.3306,41.06,K0IV-V,5.95,True,planet-host,-24.7195,26.3665,19.4854,#ffd2a1
+HD 147513,HD 147513,16.4072,-39.1936,42.0,G1V,5.37,True,planet-host,-13.1835,-29.7614,-26.5416,#fff4ea
+Capella Aa,Capella,5.2781,45.9981,42.9,G3III,0.08,True,giant,5.5989,29.2712,30.8587,#fff4ea
+Upsilon Andromedae,Titawin,1.6128,41.4056,44.0,F8V,4.1,True,planet-host,30.1037,13.5241,29.1009,#f8f7ff
+Beta Aquilae,Alshain,19.9214,6.4069,44.7,G8IV,3.71,True,named,21.4142,-38.9184,4.988,#fff4ea
+Gamma Cephei,Errai,23.6558,77.6322,44.9,K1IV,3.21,True,planet-host,9.578,-0.8654,43.858,#ffd2a1
+47 Ursae Majoris,Chalawan,10.9925,40.4314,45.9,G1V,5.03,True,planet-host,-33.73,9.1089,29.7679,#fff4ea
+Gliese 1214,Gliese 1214,17.2517,4.9636,47.5,M4.5V,14.71,True,planet-host,-9.2114,-46.4167,4.1098,#ffb56c
+Rasalhague,Alpha Ophiuchi,17.5822,12.56,48.6,A5III,2.08,True,named,-5.1783,-47.1535,10.5686,#cad7ff
+LHS 1140,LHS 1140,0.7489,-15.2728,48.9,M4.5V,14.18,True,planet-host,46.2692,9.1897,-12.881,#ffb56c
+51 Pegasi,Helvetios,22.9581,20.7686,50.45,G2IV,5.49,True,planet-host,45.4278,-12.708,17.8893,#fff4ea
+Castor A,Castor,7.5764,31.8883,51.0,A1V,1.58,True,named,-17.3682,39.6674,26.9415,#cad7ff
+Tau Bootis A,Tau Bootis,13.7892,17.4569,51.0,F7V,4.5,True,planet-host,-43.4107,-21.9645,15.2994,#f8f7ff
+HD 10647,Gliese 65.1,1.7283,-53.7411,57.0,F9V,5.52,True,planet-host,30.3194,14.7383,-45.9621,#f8f7ff
+Pi Mensae,Pi Mensae,5.6606,-80.4694,59.7,G0V,5.65,True,planet-host,0.8772,9.8458,-58.876,#fff4ea
+HD 189733,HD 189733,20.0078,22.7108,64.5,K1.5V,7.65,True,planet-host,29.8547,-51.4668,24.9022,#ffd2a1
