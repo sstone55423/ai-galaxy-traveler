@@ -1,11 +1,11 @@
 # Deep-Time Interstellar AI Probe Series — Consistency Review and Gap Analysis
 
 **Prepared for S. Stone, Metropolitan State University**
-*A cross-paper audit of the nine-paper series: do the papers fit together coherently, where do they conflict, and what is missing. All nine papers were read in full and cross-checked for numeric drift, terminology mismatch, broken cross-references, and citation inconsistency. Issues are prioritized for repair main-papers-first, then supplementary papers. A gap analysis follows.*
+*A cross-paper audit of the ten-paper series: do the papers fit together coherently, where do they conflict, and what is missing. The original nine papers were read in full and cross-checked for numeric drift, terminology mismatch, broken cross-references, and citation inconsistency. The knowledge-growth paper was added after the review was prepared; see the gap-analysis section. Issues are prioritized for repair main-papers-first, then supplementary papers. A gap analysis follows.*
 
 ---
 
-## The nine papers, and their roles
+## The ten papers, and their roles
 
 **Main (the conceptual triad — body / mind / hands):**
 
@@ -13,17 +13,18 @@
 2. **Payload** — `interstellar_AI_payload_paper.md` — "The Payload" (rev 2)
 3. **Bootstrapping** — `interstellar_AI_bootstrap_paper.md` — "From Seed to Factory"
 
-**Supplementary (quantitative, memory, ethics):**
+**Supplementary (quantitative, memory, ethics, knowledge):**
 
 4. **Analytical engineering** — `interstellar_AI_engineering_paper.md` — "Engineering Closure"
 5. **Computational engineering** — `interstellar_AI_computational_paper.md` — "Engineering Closure, Computed"
 6. **DNA mission-ledger** — `interstellar_AI_dna_ledger_paper.md` — "DNA Mission Ledgers"
 7. **Governance** — `interstellar_AI_governance_paper.md` — "Contact, Contamination, and Noninterference"
 8. **Governed amendment** — `interstellar_AI_amendment_paper.md` — "Amending the Unamendable"
+9. **Knowledge growth** — `interstellar_AI_knowledge_growth_paper.md` — "The Growing Archive" *(added after this review was prepared)*
 
 **Synthesis:**
 
-9. **Fermi** — `interstellar_AI_fermi_paper.md` — "Slow Fire, Silent Galaxy"
+10. **Fermi** — `interstellar_AI_fermi_paper.md` — "Slow Fire, Silent Galaxy"
 
 ---
 
@@ -128,11 +129,13 @@ Two classes: themes the series already anticipates but has not written, and them
 
 ---
 
-## Recommended execution order
+## Status and recommended execution order
 
-1. **Tier 1 first (main papers):** C1, C2, C3 (the series-framing and contact-policy fixes that make the triad read as part of one series), then C4, C5.
-2. **Tier 2 (cross-cutting):** C6 naming standardization, C7 engineering-paper labels, C8 fuel mass — these touch several papers and are best done as one sweep.
-3. **Tier 3 (supplementary):** C9–C13.
-4. **Tier 4 (cosmetic/housekeeping):** C14–C18 as desired.
+**All Tier 1–3 items (C1–C13) are resolved.** The Tier 4 cosmetic items remain optional.
 
-Most of Tiers 1–3 are light prose edits; none requires re-running any computation or changing a result. The gap items are new-paper proposals, not fixes — the strongest near-term candidates are the **lineage-network paper** (already promised, the Fermi synthesis leans on it, and the knowledge-growth paper defers routing to it) and the **fleet-routing and coverage paper** (a direct computational sequel to the computational engineering paper using the same 127-star catalogue).
+- **Tier 1 (C1–C5):** Done. Series framing updated to ten papers; payload §7 contact ladder trimmed to pointer; vehicle deferral language updated; braking factor unified at ~67×; bootstrapping DNA pointer added.
+- **Tier 2 (C6–C8):** Done. DNA mission-ledger paper named consistently across all siblings; engineering papers distinguished by their canonical labels throughout; nuclear fuel mass unified at ~16.5 kg.
+- **Tier 3 (C9–C13):** Done. Order-of-magnitude range stated consistently (14–18) in both analytical engineering paper locations; 127-star catalogue carries its "within 100 light-years" qualifier; braking placeholder attributed to the vehicle paper by name; 30 km-sail distance unified at 0.056 ly across both engineering papers; payload quotation in the amendment paper attributed to the correct section rather than "closing pages."
+- **Tier 4 (C14–C18):** Optional cosmetic fixes — see individual entries above.
+
+The gap items are new-paper proposals, not fixes. The strongest near-term candidates are the **lineage-network paper** (already promised, the Fermi synthesis leans on it, and the knowledge-growth paper defers routing to it) and the **fleet-routing and coverage paper** (a direct computational sequel to the computational engineering paper using the same 127-star catalogue).
