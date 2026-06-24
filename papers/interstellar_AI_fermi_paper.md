@@ -88,20 +88,9 @@ The second parameter is detectability, D. A lineage can be widespread yet diffic
 
 The usual technosignature imagination often emphasizes large energy use: Dyson spheres, stellar engineering, powerful beacons, waste heat, planetary-scale industry, or broad radio leakage. A slow archival probe architecture does not require these. Its settled nodes may be small by planetary standards. They may operate in asteroid belts, cometary reservoirs, or outer-system environments. Their energy systems may be nuclear or locally solar, but not necessarily large enough to alter stellar spectra. Their communication may be narrow-beam optical or radio, directed between known nodes rather than broadcast omnidirectionally. Bulk transfer may occur through messenger probes rather than continuous high-power links.
 
-The strongest potential signatures are likely to be local and ambiguous:
+The strongest potential signatures are likely to be local and ambiguous: small-body industrial anomalies (unusual mining patterns, refined-material concentrations, non-natural thermal emission), propulsion and communication infrastructure (launch hardware, transient narrow beams), messenger probes indistinguishable from natural interstellar objects, and long-lived archive sites in cold shielded environments. Section 8 develops the signature catalogue in detail.
 
-1. anomalous mining patterns in small-body populations;
-2. artificial concentrations of refined materials;
-3. non-natural thermal sources in asteroid or Kuiper-belt-like regions;
-4. narrow-band or pulsed communication beams seen only by chance;
-5. anomalous object trajectories inconsistent with natural dynamics;
-6. debris from launch infrastructure or failed probes;
-7. long-lived archive structures in cold, shielded environments;
-8. chemical or isotopic anomalies from industrial processing;
-9. unexplained coordinated changes across multiple small bodies;
-10. artificial objects in dynamically stable or resource-rich niches.
-
-Most of these are hard to detect across interstellar distances. Even within the Solar System, small cold artificial objects in the outer system would be difficult to distinguish from natural bodies unless they maneuvered, transmitted, reflected unusually, or emitted waste heat above background. A mature archival node designed to minimize interference might deliberately avoid high-visibility behavior.
+These signatures are hard to detect across interstellar distances. Even within the Solar System, small cold artificial objects in the outer system would be difficult to distinguish from natural bodies unless they maneuvered, transmitted, reflected unusually, or emitted waste heat above background. A mature archival node designed to minimize interference might deliberately avoid high-visibility behavior.
 
 This does not make detectability zero. Any physical system that mines, manufactures, computes, stores, launches, or communicates dissipates energy and rearranges matter. A galaxy filled with such nodes may leave statistical signatures. The problem is that the signatures are not necessarily the ones classical SETI emphasized. The search target shifts from "large civilization broadcasting" to "distributed low-duty autonomous industry."
 
