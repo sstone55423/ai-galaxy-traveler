@@ -16,7 +16,7 @@ Author byline on all papers: **S. Stone, Metropolitan State University.**
 - `code/` — zero-dependency Python: simulation modules (`galaxy_sim.py`, `propulsion.py`, `energy.py`, `flyby.py`, `wanderer.py`, `engineering.py`) and generators (`build_catalog.py`, `make_map.py`, `make_wanderer.py`, `make_starfields.py`, `make_engineering_dashboard.py`).
 - `site/` — zero-dependency Canvas HTML dashboards (`star_map_3d.html`, `energy_dashboard.html`, `wanderer_map.html`, `engineering_dashboard.html`) + data (`stars_100ly.csv/.json`).
 
-## The ten-paper series (body / mind / hands + supporting + synthesis)
+## The eleven-paper series (body / mind / hands + supporting + synthesis)
 
 1. **Vehicle** — `papers/interstellar_AI_probe_paper.md` — "Growth, Not Speed" (rev 3). The body: propulsion, power, braking, replication. *Foundational paper; the reader's entry point.*
 2. **Payload** — `papers/interstellar_AI_payload_paper.md` — "The Payload" (rev 2). The mind: cognition, memory, mission, the immutable core / interpretive layer / mutable cognitive layer.
@@ -28,6 +28,7 @@ Author byline on all papers: **S. Stone, Metropolitan State University.**
 8. **Governed amendment** — `papers/interstellar_AI_amendment_paper.md` — "Amending the Unamendable". The deepest open problem.
 9. **Fermi** — `papers/interstellar_AI_fermi_paper.md` — "Slow Fire, Silent Galaxy". Synthesis: the R_eff × D × G reframing.
 10. **Knowledge growth** — `papers/interstellar_AI_knowledge_growth_paper.md` — "The Growing Archive". The yardstick: K = observational + operational knowledge; cruise as active K-growth phase; contingency plan portfolio; K(t) = G(t) − L(t); degraded-state cascade; probe-probe K synthesis.
+11. **Lineage network** — `papers/interstellar_AI_network_paper.md` — "Signal and Silence". The network layer: DTN bundle protocol; topology evolution (tree → sparse mesh over ~10⁵ yr); geographic + spray-and-wait routing; heartbeat failure detection (T_silence ~500–5,000 yr); four-tier network governance; ledger-audit fork reconciliation. Formalizes Lamarckian K-propagation.
 
 ## Writing & formatting conventions (apply to every paper)
 
@@ -38,7 +39,7 @@ Author byline on all papers: **S. Stone, Metropolitan State University.**
 
 ## Canonical numbers — keep identical across all papers
 
-- Cruise **~450 km/s** (the "few hundred km/s" regime); Proxima Centauri **4.246 ly**; catalogue = **127 real stars within 100 ly**.
+- Cruise **~450 km/s** (the "few hundred km/s" regime); Proxima Centauri **4.246 ly**; catalogue = **127 real stars within 100 ly**. Cruise time: **~2,800 yr to Proxima**, **~67,000 yr to 100 ly** at 450 km/s.
 - Power: a fission reactor delivering **~4 kW electric for 300 yr** needs **~16.5 kg of U-235** (at ~28% conversion, ~14 kW thermal); an equivalent RTG needs ~283 kg Pu-238.
 - Braking (magnetic sail vs ISM): **d = m/(2ρA), independent of cruise speed**; ρ ≈ 3.3×10⁻²² kg/m³. A 100 km sail stops a tonne seed in ~7 yr over ~0.005 ly.
 - Reproduction: **R_eff = Σ p_i V_i**; expansion requires **R_eff > 1**.
@@ -48,14 +49,14 @@ Author byline on all papers: **S. Stone, Metropolitan State University.**
 
 ## Cross-reference naming (use consistently)
 
-"the vehicle paper", "the payload paper", "the bootstrapping paper", "the **analytical engineering paper**", "the **computational engineering paper**", "the **DNA mission-ledger paper**", "the governance paper", "the governed-amendment paper", "the Fermi paper". Do not call the DNA mission-ledger paper "the memory paper" or speak of the two engineering papers as one.
+"the vehicle paper", "the payload paper", "the bootstrapping paper", "the **analytical engineering paper**", "the **computational engineering paper**", "the **DNA mission-ledger paper**", "the governance paper", "the governed-amendment paper", "the Fermi paper", "the knowledge-growth paper", "the lineage-network paper". Do not call the DNA mission-ledger paper "the memory paper" or speak of the two engineering papers as one.
 
 ## Locked design decisions (do not contradict)
 
 - The probe **brakes and stops** (feasible *because* it is slow). An arrived probe becomes a **stationary settlement/factory**; the lineage's children carry the frontier. The individual vehicle stops; the lineage never does.
 - Child probe = a **mobile bootstrap package**, not a copy of the mature factory. Launch impulse comes from **settlement-built infrastructure** (mass driver / beamed array / solar Oberth), mirroring the Earth launch; onboard nuclear-electric only trims and brakes.
 - The mind: **almost-unlimited self-modification of the cognitive layer**, bound by a small **immutable core** of values/goals that every replica must reproduce exactly. **Governed amendment of that core is the deepest open problem — bracketed, not solved.**
-- Mission purpose: **carry knowledge forward.** Share with existing/found intelligences short-term; not Earth-centric long-term. No comms back to Earth and none between probes by design (a lineage-network paper is anticipated but unwritten).
+- Mission purpose: **carry knowledge forward.** Share with existing/found intelligences short-term; not Earth-centric long-term. No comms back to Earth by design; inter-probe communication is developed in the lineage-network paper.
 - Biology: **capability yes, release no.** DNA synthesis/storage/biomanufacturing/biosphere-backup permitted; directed panspermia / life-seeding disabled by default in the immutable core. Posture is **observer, not missionary** (E0–E7 ladder).
 
 ## Code & verification practice
@@ -66,4 +67,4 @@ Author byline on all papers: **S. Stone, Metropolitan State University.**
 
 ## Open gaps / candidate next papers
 
-Strongest leads first: the **lineage network / information-sharing** paper (anticipated in the vehicle paper, leaned on by the Fermi synthesis; the knowledge-growth paper deliberately defers routing, topology, and network governance to it); a **fleet routing and coverage** paper (three-probe redundancy plan across the 127-star catalogue, failure-detection-without-communication, re-launch priority rules, extension to galactic-center targets — a computational sequel to the computational engineering paper). Then: deep-time navigation & astrometry; the full subsystem mass/power/thermal budget; probe-vs-probe security; settlement-scale failure & resurrection from archive; internal allocation/"economics"; a validation/technology-readiness roadmap; the ethics of creating the lineage; the very-deep-time terminal state; lineage divergence/speciation; the moving resource base (cometary/mobile settlement platform). Details in `papers/interstellar_AI_series_consistency_review.md`.
+Strongest leads first: a **fleet routing and coverage** paper (three-probe redundancy plan across the 127-star catalogue, failure-detection-without-communication, re-launch priority rules, extension to galactic-center targets — a computational sequel to the computational engineering paper); the **full subsystem mass/power/thermal budget** (promised by the vehicle paper, still outstanding). Then: deep-time navigation & astrometry; the settlement-scale energy budget; probe-vs-probe security; settlement-scale failure & resurrection from archive; internal allocation/"economics"; a validation/technology-readiness roadmap; the ethics of creating the lineage; the very-deep-time terminal state; lineage divergence/speciation; the moving resource base (cometary/mobile settlement platform). Details in `papers/interstellar_AI_series_consistency_review.md`.

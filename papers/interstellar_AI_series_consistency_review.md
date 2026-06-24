@@ -1,11 +1,11 @@
 # Deep-Time Interstellar AI Probe Series — Consistency Review and Gap Analysis
 
 **Prepared for S. Stone, Metropolitan State University**
-*A cross-paper audit of the ten-paper series: do the papers fit together coherently, where do they conflict, and what is missing. The original nine papers were read in full and cross-checked for numeric drift, terminology mismatch, broken cross-references, and citation inconsistency. The knowledge-growth paper was added after the review was prepared; see the gap-analysis section. Issues are prioritized for repair main-papers-first, then supplementary papers. A gap analysis follows.*
+*A cross-paper audit of the eleven-paper series: do the papers fit together coherently, where do they conflict, and what is missing. The original nine papers were read in full and cross-checked for numeric drift, terminology mismatch, broken cross-references, and citation inconsistency. The knowledge-growth paper and lineage-network paper were added after the review was prepared; see the gap-analysis section. Issues are prioritized for repair main-papers-first, then supplementary papers. A gap analysis follows.*
 
 ---
 
-## The ten papers, and their roles
+## The eleven papers, and their roles
 
 **Main (the conceptual triad — body / mind / hands):**
 
@@ -21,10 +21,11 @@
 7. **Governance** — `interstellar_AI_governance_paper.md` — "Contact, Contamination, and Noninterference"
 8. **Governed amendment** — `interstellar_AI_amendment_paper.md` — "Amending the Unamendable"
 9. **Knowledge growth** — `interstellar_AI_knowledge_growth_paper.md` — "The Growing Archive" *(added after this review was prepared)*
+10. **Lineage network** — `interstellar_AI_network_paper.md` — "Signal and Silence" *(added after this review was prepared)*
 
 **Synthesis:**
 
-10. **Fermi** — `interstellar_AI_fermi_paper.md` — "Slow Fire, Silent Galaxy"
+11. **Fermi** — `interstellar_AI_fermi_paper.md` — "Slow Fire, Silent Galaxy"
 
 ---
 
@@ -105,11 +106,10 @@ Two classes: themes the series already anticipates but has not written, and them
 
 ### Already written since this review
 
-- **Knowledge growth** — `interstellar_AI_knowledge_growth_paper.md`, "The Growing Archive." Proposes K as the yardstick for "growth, not speed," with observational and operational components, a two-tier K₀ architecture, a contingency plan portfolio across resource environments, the first-order K(t) = G(t) − L(t) model with explicit loss term, a degraded-state cascade, and probe-probe K synthesis. Deliberately defers network routing and topology to the lineage-network paper.
+- **Knowledge growth** — `interstellar_AI_knowledge_growth_paper.md`, "The Growing Archive." Proposes K as the yardstick for "growth, not speed," with observational and operational components, a two-tier K₀ architecture, a contingency plan portfolio across resource environments, the first-order K(t) = G(t) − L(t) model with explicit loss term, a degraded-state cascade, and probe-probe K synthesis. Defers network routing and topology to the lineage-network paper.
+- **Lineage network** — `interstellar_AI_network_paper.md`, "Signal and Silence." Develops the network layer deferred by the payload paper and knowledge-growth paper: DTN bundle protocol adapted to interstellar constraints; topology evolution from parent-child tree to sparse mesh over ~10⁵ yr; geographic + spray-and-wait routing under stale partially-observed topology; heartbeat-manifest failure detection with T_silence of ~500–5,000 yr for the 127-star catalog; four-tier network governance (scientific K / operational K / engineering designs / replication blueprints); and ledger-audit reconciliation at lineage reconnection. Formalizes the Lamarckian K-propagation property the payload paper named.
 
 ### Already anticipated, still unwritten
-
-- **The lineage network / information-sharing paper.** The vehicle paper (§7/§9) explicitly flags it as "a natural subject for a subsequent paper," the payload paper sketches the delay-tolerant galactic network and Lamarckian propagation, and the knowledge-growth paper defers routing, topology, and network governance to it. This is the most-anticipated missing sibling.
 - **Fleet routing and coverage.** The computational engineering paper evaluates R_eff across the 127-star catalogue but assumes probes are dispatched optimally. No paper develops a systematic coverage strategy: a three-probe redundancy plan ensuring every target is attempted at least three times, failure-detection-without-communication (absence of a second or third settlement signals mission loss and triggers re-launch priority), and extension of the coverage plan to stars beyond 100 ly toward the galactic center. This is a direct computational sequel to the computational engineering paper using the same catalogue and demographic model.
 - **Deep-time navigation and astrometry.** The vehicle paper (§9) notes that a mature model "should propagate target stars through a Galactic potential rather than treating the stellar substrate as static," but no paper treats how the probe actually targets and routes to systems whose positions drift over millennia.
 - **The full subsystem mass / power / thermal / radiator budget.** The vehicle paper (§9) explicitly promises "a dedicated engineering paper" for the per-subsystem bill of mass; both engineering papers still defer it. The promise is outstanding.
@@ -138,4 +138,4 @@ Two classes: themes the series already anticipates but has not written, and them
 - **Tier 3 (C9–C13):** Done. Order-of-magnitude range stated consistently (14–18) in both analytical engineering paper locations; 127-star catalogue carries its "within 100 light-years" qualifier; braking placeholder attributed to the vehicle paper by name; 30 km-sail distance unified at 0.056 ly across both engineering papers; payload quotation in the amendment paper attributed to the correct section rather than "closing pages."
 - **Tier 4 (C14–C18):** Done. C14: the vehicle paper's 14 kW radiator was already explained inline as the thermal output at 28% conversion — no edit needed. C15: vehicle paper now calls Freitas's mass estimate a "full-factory reference design" and labels the architecture's preferred range a "bootstrap package" where both masses appear together. C16: the Fermi paper §5's 10-item signature list (which duplicated §8's catalogue) replaced with a 2-sentence summary and explicit pointer to §8. C17: no superseded Fermi draft was present in the repository — already clean. C18: complementary ledger citations across papers are accurate and non-contradictory — no edit needed.
 
-The gap items are new-paper proposals, not fixes. The strongest near-term candidates are the **lineage-network paper** (already promised, the Fermi synthesis leans on it, and the knowledge-growth paper defers routing to it) and the **fleet-routing and coverage paper** (a direct computational sequel to the computational engineering paper using the same 127-star catalogue).
+The two papers added since this review — knowledge growth and lineage network — were each verified consistent with the series on completion. The strongest remaining new-paper candidates are the **fleet-routing and coverage paper** (a direct computational sequel to the computational engineering paper using the same 127-star catalogue) and the **full subsystem mass/power/thermal budget paper** (promised by the vehicle paper and still outstanding after both engineering papers).
