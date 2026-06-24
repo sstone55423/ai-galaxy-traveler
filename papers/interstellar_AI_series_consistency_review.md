@@ -1,11 +1,11 @@
 # Deep-Time Interstellar AI Probe Series — Consistency Review and Gap Analysis
 
 **Prepared for S. Stone, Metropolitan State University**
-*A cross-paper audit of the twelve-paper series: do the papers fit together coherently, where do they conflict, and what is missing. The original nine papers were read in full and cross-checked for numeric drift, terminology mismatch, broken cross-references, and citation inconsistency. The knowledge-growth paper, lineage-network paper, and subsystem budget paper were added after the review was prepared; see the gap-analysis section. Issues are prioritized for repair main-papers-first, then supplementary papers. A gap analysis follows.*
+*A cross-paper audit of the thirteen-paper series: do the papers fit together coherently, where do they conflict, and what is missing. The original nine papers were read in full and cross-checked for numeric drift, terminology mismatch, broken cross-references, and citation inconsistency. The knowledge-growth paper, lineage-network paper, subsystem budget paper, and fleet routing paper were added after the review was prepared; see the gap-analysis section. Issues are prioritized for repair main-papers-first, then supplementary papers. A gap analysis follows.*
 
 ---
 
-## The twelve papers, and their roles
+## The thirteen papers, and their roles
 
 **Main (the conceptual triad — body / mind / hands):**
 
@@ -23,10 +23,11 @@
 9. **Knowledge growth** — `interstellar_AI_knowledge_growth_paper.md` — "The Growing Archive" *(added after this review was prepared)*
 10. **Lineage network** — `interstellar_AI_network_paper.md` — "Signal and Silence" *(added after this review was prepared)*
 11. **Subsystem budget** — `interstellar_AI_subsystem_paper.md` — "A Subsystem Mass, Power, and Thermal Budget for a Minimal Self-Replicating Interstellar Seed" *(added after this review was prepared)*
+12. **Fleet routing** — `interstellar_AI_routing_paper.md` — "Three Dispatches" *(added after this review was prepared)*
 
 **Synthesis:**
 
-12. **Fermi** — `interstellar_AI_fermi_paper.md` — "Slow Fire, Silent Galaxy"
+13. **Fermi** — `interstellar_AI_fermi_paper.md` — "Slow Fire, Silent Galaxy"
 
 ---
 
@@ -110,9 +111,9 @@ Two classes: themes the series already anticipates but has not written, and them
 - **Knowledge growth** — `interstellar_AI_knowledge_growth_paper.md`, "The Growing Archive." Proposes K as the yardstick for "growth, not speed," with observational and operational components, a two-tier K₀ architecture, a contingency plan portfolio across resource environments, the first-order K(t) = G(t) − L(t) model with explicit loss term, a degraded-state cascade, and probe-probe K synthesis. Defers network routing and topology to the lineage-network paper.
 - **Lineage network** — `interstellar_AI_network_paper.md`, "Signal and Silence." Develops the network layer deferred by the payload paper and knowledge-growth paper: DTN bundle protocol adapted to interstellar constraints; topology evolution from parent-child tree to sparse mesh over ~10⁵ yr; geographic + spray-and-wait routing under stale partially-observed topology; heartbeat-manifest failure detection with T_silence of ~500–5,000 yr for the 127-star catalog; four-tier network governance (scientific K / operational K / engineering designs / replication blueprints); and ledger-audit reconciliation at lineage reconnection. Formalizes the Lamarckian K-propagation property the payload paper named.
 - **Subsystem budget** — `interstellar_AI_subsystem_paper.md`, "A Subsystem Mass, Power, and Thermal Budget for a Minimal Self-Replicating Interstellar Seed." Delivers the per-subsystem budget the vehicle paper's §9 explicitly promises. Second-level decomposition of the ~3,700 kg reference seed: shadow shield (~400 kg), ISRU/manufacturing plant (~2,000 kg) broken down by L1–L5 closure rung, magnetic sail (~300 kg including HTS loop and control), computation and archival (~200 kg), and structure/integration (~600 kg). Cruise-mode power budget (4 kW). Central two-mode thermal result: cruise radiators ~11 m² / ~30 kg are carried; manufacturing radiators growing to hundreds–thousands of m² are built in situ. Mass-coupling analysis establishes the manufacturing fraction (54%) as the dominant design lever and shows cognition (~5%) is mass-free.
+- **Fleet routing** — `interstellar_AI_routing_paper.md`, "Three Dispatches." Fleet routing and catalogue coverage as a computational sequel to the computational engineering paper. Reachability graph over the 127-star catalogue: 65% reachable at 10 ly hop, 93% at 20 ly; 5–9 articulation points at practical hop distances (Mu Cassiopeiae and Beta Comae Berenices each control 3 stars at h=15 ly). The three-dispatch rule: 3 independent dispatch attempts per target achieves P_cover 0.90–0.95 for planet-hosts within 20 ly. Coverage-first dispatch strategy reaches 90% coverage in 168 kyr vs 230 kyr for nearest-first (62 kyr faster). Adds routing.py to the code base.
 
 ### Already anticipated, still unwritten
-- **Fleet routing and coverage.** The computational engineering paper evaluates R_eff across the 127-star catalogue but assumes probes are dispatched optimally. No paper develops a systematic coverage strategy: a three-probe redundancy plan ensuring every target is attempted at least three times, failure-detection-without-communication (absence of a second or third settlement signals mission loss and triggers re-launch priority), and extension of the coverage plan to stars beyond 100 ly toward the galactic center. This is a direct computational sequel to the computational engineering paper using the same catalogue and demographic model.
 - **Deep-time navigation and astrometry.** The vehicle paper (§9) notes that a mature model "should propagate target stars through a Galactic potential rather than treating the stellar substrate as static," but no paper treats how the probe actually targets and routes to systems whose positions drift over millennia.
 
 ### Newly evident on review
@@ -139,4 +140,4 @@ Two classes: themes the series already anticipates but has not written, and them
 - **Tier 3 (C9–C13):** Done. Order-of-magnitude range stated consistently (14–18) in both analytical engineering paper locations; 127-star catalogue carries its "within 100 light-years" qualifier; braking placeholder attributed to the vehicle paper by name; 30 km-sail distance unified at 0.056 ly across both engineering papers; payload quotation in the amendment paper attributed to the correct section rather than "closing pages."
 - **Tier 4 (C14–C18):** Done. C14: the vehicle paper's 14 kW radiator was already explained inline as the thermal output at 28% conversion — no edit needed. C15: vehicle paper now calls Freitas's mass estimate a "full-factory reference design" and labels the architecture's preferred range a "bootstrap package" where both masses appear together. C16: the Fermi paper §5's 10-item signature list (which duplicated §8's catalogue) replaced with a 2-sentence summary and explicit pointer to §8. C17: no superseded Fermi draft was present in the repository — already clean. C18: complementary ledger citations across papers are accurate and non-contradictory — no edit needed.
 
-The three papers added since this review — knowledge growth, lineage network, and subsystem budget — were each verified consistent with the series on completion. The strongest remaining new-paper candidate is the **fleet-routing and coverage paper** (a direct computational sequel to the computational engineering paper using the same 127-star catalogue).
+The four papers added since this review — knowledge growth, lineage network, subsystem budget, and fleet routing — were each verified consistent with the series on completion. The leading remaining candidate papers are deep-time navigation and astrometry, the settlement-scale energy budget, and the ethics of creating the lineage.

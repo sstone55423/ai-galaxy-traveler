@@ -4,7 +4,7 @@ Standing context for working in this repo. Read this first.
 
 ## What this project is
 
-A realistic simulation and an accompanying twelve-paper academic series on a **slow, self-replicating interstellar AI probe** launched from Earth that travels, brakes, settles, repairs itself, reproduces, and carries knowledge forward across deep time.
+A realistic simulation and an accompanying thirteen-paper academic series on a **slow, self-replicating interstellar AI probe** launched from Earth that travels, brakes, settles, repairs itself, reproduces, and carries knowledge forward across deep time.
 
 **The overriding rule, stated everywhere and never to be broken: realistic physical constraints, not science fiction.** Models are first-order and meant to fix orders of magnitude and design direction, not to be engineering specs. When the honest answer is "this barely helps," "this is the hard part," or "this can't yet be known," say so.
 
@@ -12,11 +12,11 @@ Author byline on all papers: **S. Stone, Metropolitan State University.**
 
 ## Repository structure
 
-- `papers/` — the academic papers (Markdown). The twelve active papers plus the consistency review, two superseded drafts (bootstrap proposal, DNA-storage outline), and `revision_plan.md`.
+- `papers/` — the academic papers (Markdown). The thirteen active papers plus the consistency review, two superseded drafts (bootstrap proposal, DNA-storage outline), and `revision_plan.md`.
 - `code/` — zero-dependency Python: simulation modules (`galaxy_sim.py`, `propulsion.py`, `energy.py`, `flyby.py`, `wanderer.py`, `engineering.py`) and generators (`build_catalog.py`, `make_map.py`, `make_wanderer.py`, `make_starfields.py`, `make_engineering_dashboard.py`).
 - `site/` — zero-dependency Canvas HTML dashboards (`star_map_3d.html`, `energy_dashboard.html`, `wanderer_map.html`, `engineering_dashboard.html`) + data (`stars_100ly.csv/.json`).
 
-## The twelve-paper series (body / mind / hands + supporting + synthesis)
+## The thirteen-paper series (body / mind / hands + supporting + synthesis)
 
 1. **Vehicle** — `papers/interstellar_AI_probe_paper.md` — "Growth, Not Speed" (rev 3). The body: propulsion, power, braking, replication. *Foundational paper; the reader's entry point.*
 2. **Payload** — `papers/interstellar_AI_payload_paper.md` — "The Payload" (rev 2). The mind: cognition, memory, mission, the immutable core / interpretive layer / mutable cognitive layer.
@@ -30,6 +30,7 @@ Author byline on all papers: **S. Stone, Metropolitan State University.**
 10. **Knowledge growth** — `papers/interstellar_AI_knowledge_growth_paper.md` — "The Growing Archive". The yardstick: K = observational + operational knowledge; cruise as active K-growth phase; contingency plan portfolio; K(t) = G(t) − L(t); degraded-state cascade; probe-probe K synthesis.
 11. **Lineage network** — `papers/interstellar_AI_network_paper.md` — "Signal and Silence". The network layer: DTN bundle protocol; topology evolution (tree → sparse mesh over ~10⁵ yr); geographic + spray-and-wait routing; heartbeat failure detection (T_silence ~500–5,000 yr); four-tier network governance; ledger-audit fork reconciliation. Formalizes Lamarckian K-propagation.
 12. **Subsystem budget** — `papers/interstellar_AI_subsystem_paper.md` — "A Subsystem Mass, Power, and Thermal Budget for a Minimal Self-Replicating Interstellar Seed". Second-level decomposition of the ~3,700 kg reference seed: per-subsystem mass (L1–L5 manufacturing plant breakdown, shadow shield, magnetic sail, computation, radiators); cruise-mode power budget (4 kW); two-mode thermal analysis — cruise radiators ~11 m² / ~30 kg carried vs manufacturing radiators hundreds–thousands m² built in situ. Central result: mass coupling runs through the manufacturing fraction (54% of seed); cognition is mass-free at ~5%.
+13. **Fleet routing** — `papers/interstellar_AI_routing_paper.md` — "Three Dispatches". Coverage and dispatch strategy for the lineage network: reachability graph over the 127-star catalogue (65% reachable at 10 ly hop, 93% at 20 ly); 5–9 articulation points at practical hop distances; the three-dispatch rule (3 independent attempts per target gives P_cover 0.90–0.95 within 20 ly); coverage-first dispatch strategy reaches 90% coverage 62,000 yr faster than nearest-first; robustness analysis under node failure. Adds routing.py to the code base.
 
 ## Writing & formatting conventions (apply to every paper)
 
@@ -50,7 +51,7 @@ Author byline on all papers: **S. Stone, Metropolitan State University.**
 
 ## Cross-reference naming (use consistently)
 
-"the vehicle paper", "the payload paper", "the bootstrapping paper", "the **analytical engineering paper**", "the **computational engineering paper**", "the **DNA mission-ledger paper**", "the governance paper", "the governed-amendment paper", "the Fermi paper", "the knowledge-growth paper", "the lineage-network paper", "the **subsystem budget paper**". Do not call the DNA mission-ledger paper "the memory paper" or speak of the two engineering papers as one.
+"the vehicle paper", "the payload paper", "the bootstrapping paper", "the **analytical engineering paper**", "the **computational engineering paper**", "the **DNA mission-ledger paper**", "the governance paper", "the governed-amendment paper", "the Fermi paper", "the knowledge-growth paper", "the lineage-network paper", "the **subsystem budget paper**", "the **routing paper**". Do not call the DNA mission-ledger paper "the memory paper" or speak of the two engineering papers as one.
 
 ## Locked design decisions (do not contradict)
 
@@ -68,4 +69,4 @@ Author byline on all papers: **S. Stone, Metropolitan State University.**
 
 ## Open gaps / candidate next papers
 
-Strongest leads first: a **fleet routing and coverage** paper (three-probe redundancy plan across the 127-star catalogue, failure-detection-without-communication, re-launch priority rules, extension to galactic-center targets — a computational sequel to the computational engineering paper). Then: deep-time navigation & astrometry; the settlement-scale energy budget; probe-vs-probe security; settlement-scale failure & resurrection from archive; internal allocation/"economics"; a validation/technology-readiness roadmap; the ethics of creating the lineage; the very-deep-time terminal state; lineage divergence/speciation; the moving resource base (cometary/mobile settlement platform). Details in `papers/interstellar_AI_series_consistency_review.md`.
+Strongest remaining leads: deep-time navigation & astrometry; the settlement-scale energy budget; probe-vs-probe security; settlement-scale failure & resurrection from archive; internal allocation/"economics"; a validation/technology-readiness roadmap; the ethics of creating the lineage; the very-deep-time terminal state; lineage divergence/speciation; the moving resource base (cometary/mobile settlement platform). Details in `papers/interstellar_AI_series_consistency_review.md`.
