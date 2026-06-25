@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Deep Time AI — Slow interstellar AI probe research</title>
+  <meta name="description" content="Deep Time AI explores slow self-replicating interstellar probes, visual tools, and research papers for deep-time AI missions.">
+  <style>
+    :root {
+      color-scheme: dark;
+      color: #e9eefb;
+      background: #070a14;
+      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.6;
+      font-size: 16px;
+    }
+    *{box-sizing:border-box}
+    html, body {margin:0;min-height:100%;}
+    body {background: radial-gradient(circle at top, #121d35 0%, #06090f 48%, #020408 100%);}
+    a {color:#8cc3ff; text-decoration:none;}
+    a:hover {text-decoration:underline;}
+    .page {max-width:1040px;margin:0 auto;padding:28px 20px 60px;}
+    header{display:grid;gap:18px;padding:18px 0 26px}
+    .brand{display:flex;align-items:center;gap:14px}
+    .logo{width:52px;height:52px;border-radius:18px;background:linear-gradient(135deg,#5aa5ff,#9da8ff);display:flex;align-items:center;justify-content:center;font-weight:700;color:#071928;font-size:22px;}
+    .brand h1{margin:0;font-size:2rem;letter-spacing:-0.03em;}
+    .brand p{margin:4px 0 0;color:#9cb1d9;max-width:640px;}
+    nav{display:flex;flex-wrap:wrap;gap:10px;font-size:.95rem;}
+    nav a{padding:10px 15px;border:1px solid rgba(140,195,255,.18);border-radius:999px;background:rgba(12,18,34,.68);}
+    .hero{display:grid;gap:18px;padding:22px 0 16px;border-top:1px solid rgba(140,195,255,.14);border-bottom:1px solid rgba(140,195,255,.14);}
+    .hero p{max-width:740px;color:#c8d5ea;}
+    .grid{display:grid;gap:18px;margin-top:18px;}
+    .card{border:1px solid rgba(140,195,255,.16);border-radius:24px;background:rgba(12,18,34,.76);padding:22px;min-height:180px;display:flex;flex-direction:column;justify-content:space-between;}
+    .card h2{margin:0 0 10px;font-size:1.15rem;}
+    .card p{margin:0 0 18px;color:#b4c2df;flex:1;}
+    .card a{font-weight:700;color:#d7e5ff;}
+    .section{margin-top:44px;}
+    .section h2{margin:0 0 10px;font-size:1.45rem;}
+    .blurb{color:#c3d1eb;max-width:720px;}
+    .list{display:grid;gap:12px;margin-top:16px;}
+    .list-item{padding:16px 18px;border:1px solid rgba(140,195,255,.12);border-radius:18px;background:rgba(7,12,22,.9);}
+    .list-item strong{display:block;color:#edf2ff;margin-bottom:6px;}
+    footer{margin-top:54px;padding-top:28px;border-top:1px solid rgba(140,195,255,.12);color:#7d8fbc;font-size:.95rem;}
+    .highlight{color:#a7c8ff;font-weight:700;}
+    .footer-links{display:flex;flex-wrap:wrap;gap:14px;margin-top:12px;}
+    @media (min-width:820px){.grid{grid-template-columns:repeat(3,minmax(0,1fr));}}
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <div class="brand">
+        <div class="logo">AI</div>
+        <div>
+          <h1>Deep Time AI</h1>
+          <p>Explore slow interstellar AI probes, self-replication, and deep-time research with interactive tools and papers.</p>
+        </div>
+      </div>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="papers.html">Papers</a>
+        <a href="code.html">Tools</a>
+        <a href="site/star_map_3d.html">Star map</a>
+        <a href="site/wanderer_map.html">Fleet map</a>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <p class="blurb">This site is a prototype home for the research in the repository: a deep-time AI probe architecture that moves slowly, stops, reproduces, and grows a lineage of settlements across nearby stars.</p>
+      <div class="grid">
+        <article class="card">
+          <div>
+            <h2>Paper library</h2>
+            <p>Browse the research series on the vehicle, payload, bootstrapping, governance, and the slow self-replicating fleet concept.</p>
+          </div>
+          <a href="papers.html">Open the papers</a>
+        </article>
+        <article class="card">
+          <div>
+            <h2>Interactive demos</h2>
+            <p>Launch the local star map and the wanderer fleet visualization, plus the power and redundancy dashboard.</p>
+          </div>
+          <a href="site/star_map_3d.html">Try the demos</a>
+        </article>
+        <article class="card">
+          <div>
+            <h2>Code tools</h2>
+            <p>Use the repository’s Python engines for routing, propulsion, energy, and the deep-time wanderer simulator.</p>
+          </div>
+          <a href="code.html">See the code</a>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Why GitHub Pages</h2>
+      <p class="blurb">GitHub Pages is a great fit for this repo: no server required, easy to update from VS Code, and it can publish directly from the repository root with a custom domain.</p>
+      <div class="list">
+        <div class="list-item"><strong>Fast setup</strong> — add simple HTML pages and push to GitHub; Pages serves them immediately.</div>
+        <div class="list-item"><strong>Works with existing assets</strong> — the `site/` interactive HTML files are already browser-ready.</div>
+        <div class="list-item"><strong>Custom domain ready</strong> — a `CNAME` file is included for `deep-time-ai.org`.</div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Quick links</h2>
+      <div class="list">
+        <div class="list-item"><strong>Real paper source</strong><br>All papers are stored in `papers/` as Markdown, preserving the repository source.</div>
+        <div class="list-item"><strong>Interactive site pages</strong><br><a href="site/energy_dashboard.html">Power &amp; redundancy dashboard</a> · <a href="site/wanderer_map.html">Wanderer fleet map</a></div>
+        <div class="list-item"><strong>Repository tools</strong><br><a href="code/galaxy_sim.py">galaxy_sim.py</a> · <a href="code/propulsion.py">propulsion.py</a> · <a href="code/wanderer.py">wanderer.py</a></div>
+      </div>
+    </section>
+
+    <footer>
+      <div>To publish this as a GitHub Pages site, push the repository to GitHub, enable Pages from the main branch root, and point `deep-time-ai.org` DNS to GitHub Pages.</div>
+      <div class="footer-links">
+        <span class="highlight">Recommended host:</span>
+        <span>GitHub Pages</span>
+        <span>Custom domain: deep-time-ai.org</span>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>
