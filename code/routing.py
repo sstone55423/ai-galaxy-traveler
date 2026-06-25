@@ -278,9 +278,9 @@ def run_trials(cat, strategy, n_trials=30, **kwargs):
 # Demo
 # ===========================================================================
 def _demo():
-    # The CSV lives in site/ relative to the repo root; try that first.
+    # The CSV lives in docs/ relative to the repo root; try that first.
     _here = os.path.dirname(os.path.abspath(__file__))
-    _csv  = os.path.join(_here, "..", "site", "stars_100ly.csv")
+    _csv  = os.path.join(_here, "..", "docs", "stars_100ly.csv")
     cat = gs.Catalog(_csv if os.path.exists(_csv) else None)
     stars = cat.stars
     n = len(stars)

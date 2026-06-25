@@ -14,7 +14,7 @@ Author byline on all papers: **S. Stone, Metropolitan State University.**
 
 - `papers/` — the academic papers (Markdown). The fourteen active papers plus the consistency review, two superseded drafts (bootstrap proposal, DNA-storage outline), and `revision_plan.md`.
 - `code/` — zero-dependency Python: simulation modules (`galaxy_sim.py`, `propulsion.py`, `energy.py`, `flyby.py`, `wanderer.py`, `engineering.py`) and generators (`build_catalog.py`, `make_map.py`, `make_wanderer.py`, `make_starfields.py`, `make_engineering_dashboard.py`).
-- `site/` — zero-dependency Canvas HTML dashboards (`star_map_3d.html`, `energy_dashboard.html`, `wanderer_map.html`, `engineering_dashboard.html`) + data (`stars_100ly.csv/.json`).
+- `docs/` — zero-dependency Canvas HTML dashboards (`star_map_3d.html`, `energy_dashboard.html`, `wanderer_map.html`, `engineering_dashboard.html`) + data (`stars_100ly.csv/.json`).
 
 ## The fourteen-paper series (body / mind / hands + supporting + synthesis)
 
