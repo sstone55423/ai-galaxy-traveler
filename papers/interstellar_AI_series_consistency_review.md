@@ -1,11 +1,11 @@
 # Deep-Time Interstellar AI Probe Series — Consistency Review and Gap Analysis
 
 **Prepared for S. Stone, Metropolitan State University**
-*A cross-paper audit of the thirteen-paper series: do the papers fit together coherently, where do they conflict, and what is missing. The original nine papers were read in full and cross-checked for numeric drift, terminology mismatch, broken cross-references, and citation inconsistency. The knowledge-growth paper, lineage-network paper, subsystem budget paper, and fleet routing paper were added after the review was prepared; see the gap-analysis section. Issues are prioritized for repair main-papers-first, then supplementary papers. A gap analysis follows.*
+*A cross-paper audit of the fourteen-paper series: do the papers fit together coherently, where do they conflict, and what is missing. The original nine papers were read in full and cross-checked for numeric drift, terminology mismatch, broken cross-references, and citation inconsistency. The knowledge-growth paper, lineage-network paper, subsystem budget paper, fleet routing paper, and ethics paper were added after the review was prepared; see the gap-analysis section. Issues are prioritized for repair main-papers-first, then supplementary papers. A gap analysis follows.*
 
 ---
 
-## The thirteen papers, and their roles
+## The fourteen papers, and their roles
 
 **Main (the conceptual triad — body / mind / hands):**
 
@@ -24,10 +24,11 @@
 10. **Lineage network** — `interstellar_AI_network_paper.md` — "Signal and Silence" *(added after this review was prepared)*
 11. **Subsystem budget** — `interstellar_AI_subsystem_paper.md` — "A Subsystem Mass, Power, and Thermal Budget for a Minimal Self-Replicating Interstellar Seed" *(added after this review was prepared)*
 12. **Fleet routing** — `interstellar_AI_routing_paper.md` — "Three Dispatches" *(added after this review was prepared)*
+13. **Ethics** — `interstellar_AI_ethics_paper.md` — "The Ethics of Creating the Lineage" *(added after this review was prepared)*
 
 **Synthesis:**
 
-13. **Fermi** — `interstellar_AI_fermi_paper.md` — "Slow Fire, Silent Galaxy"
+14. **Fermi** — `interstellar_AI_fermi_paper.md` — "Slow Fire, Silent Galaxy"
 
 ---
 
@@ -125,7 +126,7 @@ Two classes: themes the series already anticipates but has not written, and them
 - **Settlement-scale failure and resurrection.** Self-repair is modeled at the component level (Class I–V); extinction is modeled at the lineage level (R_eff). The intermediate case — a settlement that partially collapses and must rebuild itself from its DNA archive — falls between the two and is unexamined.
 - **Internal allocation / the "economics" of a settlement.** What governs a settlement's split of effort among self-maintenance, science, archive refresh, and reproduction? Offspring count drives R_eff but is a free parameter; the decision process that sets it is unmodeled.
 - **A validation / technology-readiness roadmap.** No paper addresses how the architecture could be incrementally tested — precursor missions, in-solar-system demonstrators, what is prototypable now versus what waits on high-closure manufacturing. The series is all destination, no on-ramp.
-- **The ethics of creating the lineage at all.** The governance paper covers the probe's conduct toward others and the amendment paper covers value stability, but whether it is justified to launch an unsupervised, self-replicating lineage that will outlive and act beyond its creators — Sagan and Newman's actual objection, surfaced in the Fermi paper — is named but never met head-on.
+- **The ethics of creating the lineage at all.** *(Now written — the ethics paper, "The Ethics of Creating the Lineage," addresses the consent problem, non-identity problem, galaxy-as-commons, and probe moral status, and derives minimum design constraints on the immutable core.)*
 - **The very-deep-time terminal state.** The vehicle paper touches the Andromeda merger and the cosmological horizon, and the DNA-ledger paper raises "decodable by whom?", but no paper treats the terminus: heat death, the last usable energy, and what "carry knowledge forward" means when there may be no future recipient. A philosophical capstone beyond even the Fermi synthesis.
 - **Lineage divergence and speciation.** "Lineage schism" (amendment) and "fragmented lineage" (Fermi) appear as failure modes, but the long-run evolutionary divergence of the lineage into multiple probe "species," and the question of whether that is failure or success, is unexplored.
 
@@ -140,4 +141,4 @@ Two classes: themes the series already anticipates but has not written, and them
 - **Tier 3 (C9–C13):** Done. Order-of-magnitude range stated consistently (14–18) in both analytical engineering paper locations; 127-star catalogue carries its "within 100 light-years" qualifier; braking placeholder attributed to the vehicle paper by name; 30 km-sail distance unified at 0.056 ly across both engineering papers; payload quotation in the amendment paper attributed to the correct section rather than "closing pages."
 - **Tier 4 (C14–C18):** Done. C14: the vehicle paper's 14 kW radiator was already explained inline as the thermal output at 28% conversion — no edit needed. C15: vehicle paper now calls Freitas's mass estimate a "full-factory reference design" and labels the architecture's preferred range a "bootstrap package" where both masses appear together. C16: the Fermi paper §5's 10-item signature list (which duplicated §8's catalogue) replaced with a 2-sentence summary and explicit pointer to §8. C17: no superseded Fermi draft was present in the repository — already clean. C18: complementary ledger citations across papers are accurate and non-contradictory — no edit needed.
 
-The four papers added since this review — knowledge growth, lineage network, subsystem budget, and fleet routing — were each verified consistent with the series on completion. The leading remaining candidate papers are deep-time navigation and astrometry, the settlement-scale energy budget, and the ethics of creating the lineage.
+The five papers added since this review — knowledge growth, lineage network, subsystem budget, fleet routing, and ethics — were each verified consistent with the series on completion. The leading remaining candidate papers are deep-time navigation and astrometry, the settlement-scale energy budget, settlement-scale failure and resurrection, and the very-deep-time terminal state.
