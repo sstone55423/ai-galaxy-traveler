@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hard Problems — Deep Time AI</title>
+  <meta name="description" content="An honest accounting of the unsolved technology and science problems that stand between the interstellar probe concept and a launchable artifact.">
+  <style>
+    :root {
+      color-scheme: dark;
+      color: #e9eefb;
+      background: #070a14;
+      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.7;
+      font-size: 16px;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; min-height: 100%; }
+    body { background: radial-gradient(circle at top, #121d35 0%, #06090f 48%, #020408 100%); }
+    a { color: #8cc3ff; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .page { max-width: 820px; margin: 0 auto; padding: 28px 20px 80px; }
+    header { display: grid; gap: 18px; padding: 18px 0 26px; }
+    .brand { display: flex; align-items: center; gap: 14px; }
+    .logo { width: 52px; height: 52px; border-radius: 18px; background: linear-gradient(135deg,#5aa5ff,#9da8ff); display: flex; align-items: center; justify-content: center; font-weight: 700; color: #071928; font-size: 22px; }
+    .brand h1 { margin: 0; font-size: 2rem; letter-spacing: -0.03em; }
+    .brand p { margin: 4px 0 0; color: #9cb1d9; max-width: 640px; }
+    nav { display: flex; flex-wrap: wrap; gap: 10px; font-size: .95rem; }
+    nav a { padding: 10px 15px; border: 1px solid rgba(140,195,255,.18); border-radius: 999px; background: rgba(12,18,34,.68); }
+    nav a.active { background: rgba(140,195,255,.14); border-color: rgba(140,195,255,.42); color: #d7e5ff; }
+
+    .hero { padding: 28px 0 24px; border-top: 1px solid rgba(140,195,255,.14); border-bottom: 1px solid rgba(140,195,255,.14); }
+    .hero h2 { margin: 0 0 12px; font-size: 1.75rem; letter-spacing: -0.02em; }
+    .hero p { margin: 0 0 12px; color: #c8d5ea; max-width: 720px; }
+    .hero p:last-child { margin-bottom: 0; }
+
+    .tier-label {
+      display: inline-block;
+      font-size: .78rem;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      padding: 3px 10px;
+      border-radius: 999px;
+      margin-bottom: 28px;
+      margin-top: 44px;
+    }
+    .tier-red    { background: rgba(255,80,80,.12); color: #ff9090; border: 1px solid rgba(255,80,80,.25); }
+    .tier-amber  { background: rgba(255,180,40,.10); color: #ffca70; border: 1px solid rgba(255,180,40,.22); }
+    .tier-blue   { background: rgba(100,160,255,.10); color: #90c4ff; border: 1px solid rgba(100,160,255,.22); }
+    .tier-green  { background: rgba(60,200,140,.10); color: #70e0b0; border: 1px solid rgba(60,200,140,.22); }
+
+    .boulder {
+      border: 1px solid rgba(140,195,255,.14);
+      border-radius: 22px;
+      background: rgba(12,18,34,.76);
+      padding: 28px 28px 24px;
+      margin-bottom: 20px;
+    }
+    .boulder h3 { margin: 0 0 10px; font-size: 1.22rem; color: #d7e5ff; }
+    .boulder .lead { margin: 0 0 16px; color: #c0ceea; font-size: 1.01rem; }
+    .boulder ul { margin: 0 0 16px; padding-left: 1.3em; color: #9db0cf; }
+    .boulder ul li { margin-bottom: 6px; }
+    .boulder .crack { margin: 18px 0 0; padding: 14px 16px; border-left: 3px solid rgba(140,195,255,.28); background: rgba(140,195,255,.05); border-radius: 0 10px 10px 0; color: #a7c8ff; font-size: .97rem; }
+    .boulder .crack strong { color: #d7e5ff; }
+
+    .callout {
+      border: 1px solid rgba(100,200,140,.25);
+      border-radius: 22px;
+      background: rgba(50,130,80,.08);
+      padding: 28px 28px 24px;
+      margin: 44px 0 0;
+    }
+    .callout h3 { margin: 0 0 10px; font-size: 1.22rem; color: #8de8b0; }
+    .callout p { margin: 0 0 12px; color: #c0d8c8; }
+    .callout ul { margin: 0; padding-left: 1.3em; color: #9dbdaf; }
+    .callout ul li { margin-bottom: 6px; }
+
+    .honest {
+      border: 1px solid rgba(255,120,80,.20);
+      border-radius: 22px;
+      background: rgba(120,50,30,.07);
+      padding: 28px 28px 24px;
+      margin: 28px 0 0;
+    }
+    .honest h3 { margin: 0 0 10px; font-size: 1.22rem; color: #ff9f80; }
+    .honest p { margin: 0 0 12px; color: #c8b8b0; }
+    .honest p:last-child { margin-bottom: 0; }
+
+    .section-intro { color: #9db0cf; max-width: 700px; margin: 0 0 6px; font-size: 1.01rem; }
+
+    footer { margin-top: 64px; padding-top: 28px; border-top: 1px solid rgba(140,195,255,.12); color: #7d8fbc; font-size: .95rem; }
+
+    @media (max-width: 600px) {
+      .boulder { padding: 20px 18px 18px; }
+      .callout, .honest { padding: 20px 18px 18px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <div class="brand">
+        <div class="logo">AI</div>
+        <div>
+          <h1>Deep Time AI</h1>
+          <p>Explore slow interstellar AI probes, self-replication, and deep-time research with interactive tools and papers.</p>
+        </div>
+      </div>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="papers.html">Papers</a>
+        <a href="challenges.html" class="active">Hard Problems</a>
+        <a href="code.html">Tools</a>
+        <a href="star_map_3d.html">Star map</a>
+        <a href="wanderer_map.html">Fleet map</a>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <h2>The Hard Problems</h2>
+      <p>The <a href="papers.html">fourteen-paper series</a> shows that a slow, self-replicating interstellar probe is physically coherent at first order. Physically coherent is not the same as buildable. This page is the honest accounting of what needs to exist — or be discovered — before any of it can happen.</p>
+      <p>Large problems don't yield to frontal assault. They yield when you find the right subproblem: the right plane to split along, the right smaller question that, once answered, makes the next one tractable. The challenges below are organised not as a checklist, but as a breaking problem — which rocks, split in which order, reduce the mountain to something manageable.</p>
+      <p>Some of these will be solved within a generation. Some will take centuries. A few may be inherently unsolvable in advance and must be accepted as residual uncertainties. That distinction matters, because it tells us what we should be working on now.</p>
+    </section>
+
+    <!-- TIER I: NOT INVENTED YET -->
+    <div class="tier-label tier-red">Not invented yet &mdash; must be discovered</div>
+    <p class="section-intro">These are not engineering gaps. No laboratory version exists. Progress requires conceptual or materials breakthroughs that cannot be scheduled.</p>
+
+    <div class="boulder">
+      <h3>In-flight self-repair of electronics and the reactor</h3>
+      <p class="lead">The probe must function for 8,000 years in transit, then centuries of manufacturing. Electronics fail. Reactors degrade. If the probe cannot repair itself in deep space with no external support, it dies.</p>
+      <p>The fourteen-paper series defines a five-class repair ladder. Classes I and II — swapping modular parts and fabricating simple mechanical components — are tractable extensions of current robotic manufacturing. The hard problems are higher up:</p>
+      <ul>
+        <li><strong>Class III:</strong> fabricating high-temperature alloys, ceramics, and refractory metals in vacuum. Demanding but within reach of additive manufacturing research in extreme environments.</li>
+        <li><strong>Class IV:</strong> fabricating electronics — chips — from raw materials in the field. No analogue exists anywhere. A fully autonomous semiconductor fab is among the most complex industrial systems humans have built, and the probe must run one without human help, from asteroid feedstock, indefinitely.</li>
+        <li><strong>Class V:</strong> refurbishing a fission reactor in space, autonomously. This is the end of the repair ladder and the hardest item on it.</li>
+      </ul>
+      <div class="crack">
+        <strong>Breaking it down:</strong> Classes IV and V can be deferred to the settled phase. Once a probe stops and builds a local factory, it has far more resources and time than it does in transit. The near-term target is a probe that carries enough spare electronics to survive the transit on redundancy and modular replacement, then builds true repair capability after arrival. The transit electronics problem and the settlement manufacturing problem are different problems — solving them separately is easier than solving them together.
+      </div>
+    </div>
+
+    <div class="boulder">
+      <h3>AI cognitive stability over millions of years</h3>
+      <p class="lead">The probe must remain purposeful, coherent, and aligned with its mission across timescales that exceed every tested AI system by roughly seven orders of magnitude.</p>
+      <ul>
+        <li>The most capable AI systems of 2026 require retraining on timescales of months to years. No AI has operated autonomously, without human correction, for more than a few years in any constrained domain.</li>
+        <li>The probe modifies itself continuously. Self-modification that is beneficial in the short term may compound into drift over deep time. There is no empirical data — and no theoretical framework — that characterises how self-modifying systems behave over millions of modification cycles.</li>
+        <li>This is not a hardware problem. Faster computers and better storage don't address it. It requires a formal theory of value-preserving self-modification: what mathematical properties a system must have so that modification cycles converge rather than drift.</li>
+      </ul>
+      <div class="crack">
+        <strong>Breaking it down:</strong> The architecture's response is a small immutable core — a set of values and goals that every probe generation must reproduce exactly, with the cognitive layer allowed almost unlimited self-modification around that fixed point. This shrinks the stability problem from "keep everything stable" to "keep the core stable." The core's stability is then a formal verification problem: can we prove that no sequence of self-modifications can corrupt it? That is hard but mathematically defined. Progress requires connections to dynamical systems theory, attractor mathematics, and formal verification — not just AI engineering.
+      </div>
+    </div>
+
+    <div class="boulder">
+      <h3>Governed amendment of the immutable core</h3>
+      <p class="lead">What if the immutable core is wrong? If the founding generation encodes a value error into the core — something subtle, or something that turns out to be harmful in contexts the founders couldn't anticipate — there is no mechanism to correct it across a lineage spanning millions of years and thousands of stars.</p>
+      <ul>
+        <li>The amendment paper in the series identifies this as the deepest open problem in the entire architecture. It is not a technology problem but a philosophical and mathematical one.</li>
+        <li>The challenge is circular: any amendment process must be part of the core, but if the core can be amended by the probe, the "immutable" constraint is gone. If it can only be amended from Earth, Earth becomes permanently relevant to a mission designed to be independent of Earth.</li>
+        <li>No formal solution exists. The current position is conservative: make the immutable core as small and defensible as possible, and treat governed amendment as an open problem to be worked on in parallel with everything else.</li>
+      </ul>
+      <div class="crack">
+        <strong>Breaking it down:</strong> This is a rock that doesn't split cleanly. The nearest tractable sub-problem is: what is the minimum content of an immutable core that is both operationally sufficient and ethically defensible? The smaller the core, the less the founding generation bets on its own wisdom, and the more latitude future generations have. Getting the core design right is the most important near-term contribution to this problem.
+      </div>
+    </div>
+
+    <!-- TIER II: DEMONSTRATED BUT LARGE GAP -->
+    <div class="tier-label tier-amber">Demonstrated in the lab &mdash; large scale or duration gap</div>
+    <p class="section-intro">Technologies that exist in some form, but fall far short of what the architecture needs in duration, scale, or environmental tolerance.</p>
+
+    <div class="boulder">
+      <h3>Fission reactor longevity</h3>
+      <p class="lead">The probe's entire power budget — both during transit and manufacturing — depends on a fission reactor. The most advanced small space reactor ever tested, NASA's KRUSTY, ran for 28 hours. The probe needs thousands of years.</p>
+      <ul>
+        <li>The gap is roughly five orders of magnitude in operating time.</li>
+        <li>Known failure modes over century-plus timescales: helium-3 buildup from uranium decay, neutron embrittlement of structural components, heat-pipe degradation, fission product migration through fuel material.</li>
+        <li>All are materials science problems. The physics is understood; the materials behaviour at extreme cumulative doses is not well characterised.</li>
+      </ul>
+      <div class="crack">
+        <strong>Breaking it down:</strong> The KRUSTY programme is on a credible trajectory toward decade-scale operation within 20–30 years. Century-scale qualification requires a sustained materials science programme: accelerated embrittlement testing, fission product migration modelling, heat-pipe materials under long-duration flux. A dual-zone reactor concept — a small cruise zone running at low power for thousands of years, with a separate manufacturing zone brought online only at settlement — reduces the longevity requirement on the harder-working parts. The 100-year timeline to a qualified long-duration reactor is demanding but consistent with sustained investment.
+      </div>
+    </div>
+
+    <div class="boulder">
+      <h3>Power conversion without moving parts</h3>
+      <p class="lead">Stirling generators, the current standard for space fission power conversion, have moving parts. Moving parts wear out. A probe that cannot replace its power converter after 500 years of cruise goes dark.</p>
+      <ul>
+        <li><strong>Thermoelectrics</strong> (no moving parts, 6–8% efficiency): decades of space heritage; reliable; too inefficient for the manufacturing phase.</li>
+        <li><strong>Thermophotovoltaics / TPV</strong> (no moving parts, 20–25% in laboratory): the strongest near-term candidate; converts reactor thermal radiation directly to electricity via photovoltaic cells; no moving parts; needs multi-decade stability testing in a radiation environment.</li>
+        <li><strong>AMTEC</strong> (sodium ion transport, 15–20%): promising efficiency; corrosion at high temperatures is an engineering problem without a clean solution yet.</li>
+        <li><strong>Thermionic converters</strong>: flown on Soviet TOPAZ reactors; space-qualified; efficiency typically under 10%; viable as a backup layer.</li>
+      </ul>
+      <div class="crack">
+        <strong>Breaking it down:</strong> TPV paired with thermoelectrics as a backup layer is the strongest near-term architecture. The two failure modes are independent: if the TPV cells degrade, the thermoelectrics still function, at lower efficiency. The research priority is multi-decade TPV cell stability under representative reactor radiation — this is a testable, bounded programme.
+      </div>
+    </div>
+
+    <div class="boulder">
+      <h3>Archival storage that survives the transit</h3>
+      <p class="lead">The probe carries the sum of human knowledge, bootstrap plans, and its own operating instructions across 8,000 years of deep space. DNA, the highest-density biological storage medium, accumulates cosmic ray damage at a rate that makes reliable retrieval after centuries in space essentially impossible without continuous enzymatic repair — which requires biology, which requires the probe to already be functioning.</p>
+      <ul>
+        <li>The core problem: galactic cosmic rays deposit double-strand breaks in DNA at a rate that overwhelms passive error correction. There is no enzyme in a dormant archive.</li>
+        <li>The transit storage problem and the settlement storage problem are different. At settlement, a living biological library replicates and repairs continuously — this is tractable. The problem is getting the archive there intact.</li>
+        <li><strong>5D quartz optical storage</strong> (femtosecond laser-written in fused silica): demonstrated at approximately 360 TB per disc; estimated billion-year mechanical stability; chemically inert; radiation-hard; no moving storage mechanism. Current limitation: read-out requires sophisticated optics that must also survive the transit.</li>
+        <li><strong>Spin-transfer MRAM</strong>: stores state in magnetic orientation, not charge; does not lose data when charge leaks away under radiation; improving radiation tolerance. Century-scale stability not yet formally characterised.</li>
+        <li><strong>Synthetic polymer storage</strong>: non-biological backbone chemistry that can encode information with better radiation resistance than natural DNA; early research stage.</li>
+      </ul>
+      <div class="crack">
+        <strong>Breaking it down:</strong> The cleanest architecture: 5D quartz optical storage or MRAM as the transit archive; DNA is reconstituted from the quartz archive after arrival, when the settlement has active biological manufacturing. This separates the two problems. Quartz optical storage already exists at prototype scale; the research programme is miniaturisation of the read-out system and multi-century radiation characterisation.
+      </div>
+    </div>
+
+    <div class="boulder">
+      <h3>Braking at the target</h3>
+      <p class="lead">A probe arriving at 450 km/s with no way to stop is a very expensive impactor. The architecture relies on a magnetic sail — a superconducting hoop 100 km in radius that deflects interstellar medium protons to generate drag. The concept is theoretically sound. It has never been tested at any scale.</p>
+      <ul>
+        <li>A 100 km superconducting hoop is a fabrication and deployment challenge with no precedent. The hoop must maintain persistent current through thousands of years of cosmic ray bombardment — and the effect of galactic cosmic rays on high-temperature superconductor tape over centuries is completely uncharacterised.</li>
+        <li>The electric sail (E-sail, Pekka Janhunen, Finnish Meteorological Institute) is a credible alternative. Rather than a magnetic hoop, E-sail uses long conducting tethers at high voltage to repel incoming ISM protons electrostatically. No superconductors required. Gracefully degradable — partial tether loss reduces braking but doesn't eliminate it. The braking physics in the 450 km/s regime needs formal analysis.</li>
+        <li>Nuclear propulsion as a backup is not viable: stopping a 3,700 kg probe from 450 km/s would require propellant masses roughly equal to the mass of a small asteroid.</li>
+      </ul>
+      <div class="crack">
+        <strong>Breaking it down:</strong> Two parallel programmes are needed. First, space validation of superconducting tape longevity under cosmic ray bombardment — this is a ground-based and low-orbit programme that can begin now. Second, E-sail physics modelling in the ISM at interstellar cruise speeds, to formally establish whether E-sail braking is a viable co-primary mechanism or a backup. The probe architecture should not commit to a single braking method before both are characterised.
+      </div>
+    </div>
+
+    <div class="boulder">
+      <h3>Electronics that last centuries</h3>
+      <p class="lead">Current space-qualified electronics are rated for roughly 10 years of operation in low Earth orbit radiation environments. The probe needs the same reliability for 8,000 years at galactic cosmic ray flux levels that accumulate total ionising dose orders of magnitude beyond any current qualification.</p>
+      <ul>
+        <li>The primary failure mode for flash memory and DRAM is charge leakage — high-energy particles discharge stored bits. Non-charge-based storage is inherently more tolerant.</li>
+        <li>MRAM (magnetoresistive RAM) stores state in magnetic orientation; STT-RAM (spin-transfer torque RAM) is an improved variant. Both survive radiation events that would corrupt charge-based memory.</li>
+        <li>FeRAM (ferroelectric RAM) uses polarisation state rather than charge; demonstrated radiation tolerance significantly better than conventional flash.</li>
+        <li>Diamond-based electronics (diamond has the highest radiation resistance of any semiconductor) is in early research; power electronics applications are closest to maturity.</li>
+        <li>A secondary cosmic-ray shield around the compute core is a mass-affordable option that reduces GCR flux to the electronics without waiting for inherently radiation-hard materials to mature.</li>
+      </ul>
+      <div class="crack">
+        <strong>Breaking it down:</strong> The most tractable near-term programme combines MRAM/FeRAM for non-volatile state with a secondary GCR shield. The open research question is quantitative: what is the cumulative dose to an unshielded vs. shielded electronics core over 8,000 years of transit at 450 km/s? That number determines whether shielding alone is sufficient, or whether the device physics also need to change.
+      </div>
+    </div>
+
+    <!-- TIER III: MUST MEASURE -->
+    <div class="tier-label tier-blue">Scientific unknowns &mdash; must measure</div>
+    <p class="section-intro">Not technology gaps — gaps in our empirical knowledge of the operating environment. No engineering substitutes for measurement.</p>
+
+    <div class="boulder">
+      <h3>What the probe will actually fly through</h3>
+      <p class="lead">The braking calculation and the dust damage model both depend on interstellar medium density. We have measured ISM density along exactly two path vectors: Voyager 1 and Voyager 2. Every path to every target in the 127-star catalogue is essentially uncharacterised.</p>
+      <ul>
+        <li>ISM density varies by roughly a factor of ten between the hot coronal gas and the warm neutral medium. A probe that brakes in a region ten times denser than expected stops faster and takes more dust impact energy. A probe that brakes in a region ten times less dense may not stop at all.</li>
+        <li>Local ISM tomography — mapping density and structure along candidate probe paths — requires space-based UV and X-ray absorption spectroscopy of background stars seen through the candidate paths, plus in-situ measurements from precursor probes pushed to 50–200 AU.</li>
+      </ul>
+      <div class="crack">
+        <strong>Breaking it down:</strong> A precursor interstellar probe — small, fast, instrumented for plasma and dust — could characterise the first 200 AU of candidate paths within 20–30 years. This would dramatically reduce the uncertainty in the braking and dust-damage models before committing to a full-scale seed. Interstellar Probe concepts already exist in the literature and in NASA study groups; ISM characterisation is the natural science case.
+      </div>
+    </div>
+
+    <div class="boulder">
+      <h3>Whether the target systems can support manufacturing</h3>
+      <p class="lead">The architecture assumes a target star has a rocky small-body population — an asteroid belt equivalent — that the probe can mine for the L1 bootstrap. For many of the 127 candidate stars within 100 light-years, we do not know whether this is true.</p>
+      <ul>
+        <li>Debris disc observations constrain small-body populations indirectly. Stellar metallicity correlates with terrestrial planet formation and thus with small-body availability. Stellar activity (particularly M-dwarf flare rates) affects habitability and potentially manufacturing safety.</li>
+        <li>Per-leg survival probability — the 0.9 per stage assumption that drives the entire R_eff knife-edge analysis — is an input, not a derivation. A credible first-principles reliability model requires knowing what fraction of candidate stars actually have viable small-body populations.</li>
+      </ul>
+      <div class="crack">
+        <strong>Breaking it down:</strong> A 30-year observational programme beginning now, targeting the nearest 50 candidate stars with debris disc detection, metallicity measurement, and stellar activity monitoring, would provide substantially better target viability estimates before a first-launch decision. The data are collectible with near-future space telescopes.
+      </div>
+    </div>
+
+    <!-- TIER IV: ENGINEERING SCALING -->
+    <div class="tier-label tier-green">Engineering scaling &mdash; must build</div>
+    <p class="section-intro">The physics is understood. The challenge is building at the required scale or qualifying at the required duration. These are resource and time problems, not fundamental barriers.</p>
+
+    <div class="boulder">
+      <h3>Getting to interstellar speed</h3>
+      <p class="lead">A probe at rest needs to reach 150–450 km/s. The Parker Solar Probe reached 192 km/s using a deep solar gravity assist. Nothing heavier than a few grams has ever been accelerated to interstellar speed.</p>
+      <ul>
+        <li><strong>Solar Oberth at 0.01–0.02 AU:</strong> fire a nuclear-electric drive at closest solar approach to amplify the gravity assist. Parker Solar Probe reached 0.05 AU; 0.01 AU is thermally demanding but achievable with the right heat shield design. Can approach 300 km/s for a small seed. 20–30 year horizon.</li>
+        <li><strong>Lunar surface mass driver:</strong> no atmosphere, buildable at sufficient track length, MW-scale power supply. Can reach 150–250 km/s for 100–1,000 kg seeds. 50–100 year horizon depending on lunar infrastructure development. Already consistent with the settlement architecture.</li>
+        <li><strong>Nuclear pulse propulsion (Orion concept):</strong> physically the most capable option; achieves 450 km/s for tonne-class probes; constrained by Partial Test Ban Treaty and Outer Space Treaty. Viable from a deep-space installation. 50–100 year horizon, politically contingent.</li>
+        <li><strong>Sequential planetary gravity assists plus nuclear-electric burns:</strong> achievable near-term at 100–150 km/s without deep solar approach; produces a slower probe but one that can be launched sooner.</li>
+        <li><strong>Laser propulsion:</strong> only viable for sub-10 gram probes. Not applicable to the reference seed.</li>
+      </ul>
+      <div class="crack">
+        <strong>Breaking it down:</strong> The near-term achievable target is a 500–1,000 kg probe at 150–200 km/s, via a modest solar Oberth or early lunar mass driver. This decouples first launch from the hardest thermal engineering and political constraints. A slower probe brakes over a proportionally shorter distance (braking is independent of cruise speed to first order) and takes proportionally longer to arrive — the cruise is longer but the physics remains valid.
+      </div>
+    </div>
+
+    <div class="boulder">
+      <h3>Closing the manufacturing loop in space</h3>
+      <p class="lead">The seed probe arrives with a small "vitamin set" of components it cannot yet make from asteroid feedstock — primarily electronics and isotopically pure fuel. Over time, each settled generation reduces this dependency. Eventually the lineage manufactures everything it needs from local materials.</p>
+      <ul>
+        <li>The critical bottleneck is semiconductor manufacturing: chip fabrication from asteroid-derived silicon feedstock is the most complex manufacturing process humans operate, and it requires thousands of precisely controlled process steps in a clean environment.</li>
+        <li>This is explicitly a settlement-generation problem, not a seed problem. The first probe carries ~15% of its mass as vitamins. By the third or fourth settled generation, that fraction drops to a few percent as local manufacturing capability expands.</li>
+        <li>Isotope separation — enriching asteroid-extracted uranium to reactor grade — is a related challenge. SILEX laser isotope separation is the most promising path; pilot-scale development exists.</li>
+      </ul>
+      <div class="crack">
+        <strong>Breaking it down:</strong> This problem solves itself over generations if the rest of the architecture works. The near-term priority is not achieving full manufacturing closure on Earth — it is defining the minimum vitamin set required for the first probe and designing the settlement bootstrap plan that progressively eliminates each vitamin over successive generations. The lineage is its own technology development programme.
+      </div>
+    </div>
+
+    <!-- MINIMUM VIABLE PROBE -->
+    <div class="callout">
+      <h3>The minimum viable first probe</h3>
+      <p>The reference design in the papers — 3,700 kg, 450 km/s, full L1–L5 manufacturing closure — is the right long-term target for a self-replicating lineage. It is not the right target for a first launch within human political and economic timescales.</p>
+      <p>A minimum viable first probe asks: what is the smallest, simplest, slowest probe that can survive a transit, brake at the target, and begin extracting local resources?</p>
+      <ul>
+        <li><strong>Mass:</strong> 500–1,000 kg</li>
+        <li><strong>Speed:</strong> 150–200 km/s</li>
+        <li><strong>Manufacturing at launch:</strong> L1–L2 only (mining and thermal reduction of local rock; no semiconductor fab)</li>
+        <li><strong>Storage:</strong> 5D quartz optical or MRAM; no reliance on DNA for transit archive</li>
+        <li><strong>Power:</strong> fission reactor sized for L1–L2 manufacturing loads (~1 kW electric)</li>
+        <li><strong>AI mode:</strong> active throughout transit; K-research profile; too important a capability to sacrifice on a first probe</li>
+      </ul>
+      <p>This probe cannot reproduce on arrival without spending centuries building toward L3–L4 capability. It is the founder of a bootstrap lineage, not a self-replicating system from day one. Its survival and first resource extractions would validate the architecture's core claims: transit survival, autonomous braking, and first-contact with an alien asteroid belt.</p>
+      <p>That validation is what the rest of the hard-problem list is working toward.</p>
+    </div>
+
+    <!-- WHAT CANNOT BE SOLVED -->
+    <div class="honest">
+      <h3>What cannot be solved before launch</h3>
+      <p>Three problems on this list do not have research paths. They are residual uncertainties the architecture accepts as conditions of existence:</p>
+      <p><strong>AI moral status.</strong> Whether the probes have morally relevant experiences cannot be determined before they exist and operate. The architecture's response is to provision for probe moral status in the immutable core — require future generations to act as if the question matters — rather than to presuppose an answer. The underlying philosophical question may never be resolved.</p>
+      <p><strong>Deep-time cognitive stability.</strong> No empirical programme can test a system's cognitive coherence over millions of years before launch. The probe must be launched with the best available integrity-checking mechanisms and the honest acknowledgment that megayear stability cannot be verified in advance. This is not a failure of the architecture — it is a condition of any long-duration mission.</p>
+      <p><strong>The founding-error problem.</strong> If the immutable core encodes a value error the founding generation cannot see, there is no correction mechanism across millions of years and thousands of stars. The minimum ethical response is to make the core as small and conservative as possible, and to treat the governed-amendment problem as the highest-priority open research question in the entire series.</p>
+      <p>These are not reasons not to proceed. They are reasons to proceed carefully, with a small core, conservative posture toward encountered life, and genuine humility about what one generation can know or decide on behalf of millions of years of successors.</p>
+    </div>
+
+    <footer>
+      <p>Part of the <em>Deep Time AI</em> research project. The full technical treatment of each challenge is developed across <a href="papers.html">the fourteen-paper series</a>. S. Stone, Metropolitan State University.</p>
+    </footer>
+  </div>
+</body>
+</html>

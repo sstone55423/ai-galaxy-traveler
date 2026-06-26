@@ -152,7 +152,7 @@ The meta-knowledge database is part of the active working memory and is updated 
 
 ## 4. Cruise-Phase Observational K: The Moving Observatory
 
-The transit from Earth to Proxima Centauri at ~450 km/s takes roughly 2,800 years. More distant targets in the 127-star catalogue take proportionally longer — a target at 50 light-years takes approximately 33,000 years at cruise speed. These are not delays to be minimized. They are the first and longest active K-growth phases of the mission.
+The transit from Earth to Proxima Centauri at ~450 km/s takes roughly 2,800 years. More distant targets in the 127-star catalogue take proportionally longer — a target at 50 light-years takes approximately 33,000 years at cruise speed. For standard K-research missions — the majority of all dispatches — these transits are not delays to be minimized. They are the first and longest active K-growth phases of the mission. A minority of probes, dispatched on a range-maximizer profile toward denser stellar regions near the galactic centre, hibernate all non-essential systems for approximately 98% of transit at roughly 50 W total draw; for these probes the transit is deliberately not an active K-growth phase, a tradeoff accepted to reach more distant relay nodes that subsequent K-research probes can use as their starting points. The analysis in this section applies to the standard profile.
 
 The probe's moving vantage provides several observational advantages that no fixed instrument can replicate. For each, the principal feasibility constraints are noted alongside the K contribution.
 
@@ -170,7 +170,7 @@ The probe's moving vantage provides several observational advantages that no fix
 
 ## 5. Cruise-Phase Operational K: AI Self-Improvement
 
-During transit the mutable cognitive layer — which the payload paper defines as open to almost unlimited self-modification — has time, power, and data to improve. The probe does not arrive with the same cognitive architecture it departed with.
+During transit — on the standard K-research profile — the mutable cognitive layer has time, power, and data to improve. The probe does not arrive with the same cognitive architecture it departed with. Range-maximizer probes, hibernating for 98% of transit with the AI dormant, accumulate negligible operational K during cruise; their cognitive self-improvement resumes during the pre-arrival wakeup (the final 2% of transit, representing decades to over a century of active operation) and continues through settlement.
 
 Two kinds of improvement occur. The first is **model improvement**: the probe's models of stellar formation, planetary system architecture, ISM physics, and mission-critical processes (reactor degradation, sail performance, dust erosion) are continuously updated against incoming observations. Models built on Earth's theoretical foundation are tested against direct measurements that no Earth instrument could supply. By the end of a 2,800-year transit, the probe's internal models are observationally calibrated in ways impossible at departure.
 

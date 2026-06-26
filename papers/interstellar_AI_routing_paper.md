@@ -31,11 +31,11 @@ We model the catalogue as an undirected graph: two nodes are connected by an edg
 
 **Connectivity results.** The catalogue's connectivity as a function of h reveals a significant tension between braking feasibility and network coverage:
 
-At h = 8 ly, the graph fragments into 44 connected components, and the Sun reaches only 57 of 126 non-solar stars (44%). Short hops mean easy braking — the stopping distance d = m/(2ρA) scales with sail area, and a smaller effective range allows a smaller, lighter sail — but they sacrifice coverage.
+At h = 8 ly, the graph fragments into 44 connected components, and the Sun reaches only 57 of 126 non-solar stars (44%). Short hops sacrifice coverage.
 
-At h = 10 ly, 36 components remain, and the Sun reaches 83 stars (65%). This is roughly the range a tonne-scale seed with a 100 km magnetic sail can reach before braking becomes marginal (stopping distance ~0.02 ly, braking time ~25 years for the reference 3,700 kg seed).
+At h = 10 ly, 36 components remain, and the Sun reaches 83 stars (65%). Braking is not the constraint at this distance: the stopping distance d = m/(2ρA) for the reference 3,700 kg seed with a 100 km magnetic sail is ~0.02 ly, achieved in about 7 years — a negligible fraction of any hop beyond ~0.1 ly. The practical constraint at 10 ly has been fuel duration: on the standard K-research power profile (~150 W cruise draw), the baseline ²³⁵U fuel charge sustains roughly 8,000 years of cruise, corresponding to ~12 ly. For shorter hops or range-maximizer profiles (~50 W hibernation), the unassisted range extends to ~36 ly; for longer standard-profile hops, supplementary fuel costs less than 0.4% of seed mass per 10 ly. Hop range is therefore not physically constrained at any of the distances evaluated here.
 
-At h = 15 ly, the graph consolidates to 19 components, and the Sun reaches 107 stars (84%). This is achievable for a seed with a slightly larger sail or somewhat lighter mass.
+At h = 15 ly, the graph consolidates to 19 components, and the Sun reaches 107 stars (84%).
 
 At h = 20 ly, 10 components remain, covering 118 stars (93%) reachable from the Sun. The graph's mean degree rises to 31 — each star can directly reach, on average, 31 others within a single hop — providing substantial routing redundancy within the connected component.
 
