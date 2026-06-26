@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Gravity Assist — Deep Time AI</title>
+  <style>
+    :root{color:#e9eefb;background:#070a14;font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.6;font-size:16px;}
+    *{box-sizing:border-box}
+    html,body{margin:0;min-height:100%;}
+    body{background:radial-gradient(circle at top,#121d35 0%,#06090f 48%,#020408 100%);}
+    a{color:#8cc3ff;text-decoration:none;}
+    a:hover{text-decoration:underline;}
+    .page{max-width:1000px;margin:0 auto;padding:28px 20px 80px;}
+    header{display:grid;gap:18px;padding:18px 0 26px;}
+    .brand{display:flex;align-items:center;gap:14px;}
+    .logo{width:52px;height:52px;border-radius:18px;background:linear-gradient(135deg,#5aa5ff,#9da8ff);display:flex;align-items:center;justify-content:center;font-weight:700;color:#071928;font-size:22px;}
+    .brand h1{margin:0;font-size:2rem;letter-spacing:-0.03em;}
+    .brand p{margin:4px 0 0;color:#9cb1d9;max-width:640px;}
+    nav{display:flex;flex-wrap:wrap;gap:10px;font-size:.95rem;}
+    nav a{padding:10px 15px;border:1px solid rgba(140,195,255,.18);border-radius:999px;background:rgba(12,18,34,.68);}
+    nav a.active{background:rgba(140,195,255,.14);border-color:rgba(140,195,255,.42);color:#d7e5ff;}
+    .hero{padding:22px 0 18px;border-top:1px solid rgba(140,195,255,.14);border-bottom:1px solid rgba(140,195,255,.14);}
+    .hero h2{margin:0 0 8px;font-size:1.6rem;letter-spacing:-0.02em;}
+    .hero p{margin:0;color:#c0ceea;max-width:740px;}
+
+    /* controls */
+    .control-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin:24px 0;}
+    @media(max-width:640px){.control-grid{grid-template-columns:1fr;}}
+    .ctrl-panel{border:1px solid rgba(140,195,255,.14);border-radius:18px;background:rgba(8,12,26,.9);padding:20px;}
+    .ctrl-panel h3{margin:0 0 14px;font-size:1rem;font-weight:700;color:#d0dcf8;}
+    .slider-row{margin-bottom:14px;}
+    .slider-row .slabel{display:flex;justify-content:space-between;font-size:.87rem;color:#8090b0;margin-bottom:4px;}
+    .slider-row .slabel span{color:#c0ceea;font-weight:600;}
+    .slider-row input[type=range]{width:100%;accent-color:#5aa5ff;}
+    .body-btns{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:4px;}
+    .bbtn{padding:6px 14px;border:1px solid rgba(140,195,255,.22);border-radius:999px;background:rgba(12,18,34,.7);color:#8cc3ff;font-size:.86rem;cursor:pointer;}
+    .bbtn.sel{background:rgba(140,195,255,.18);color:#d7e5ff;border-color:rgba(140,195,255,.5);}
+
+    /* verdict */
+    .verdict{display:flex;align-items:center;gap:10px;margin:6px 0 14px;padding:12px 16px;border-radius:12px;font-weight:700;font-size:1rem;}
+    .verdict.yes{background:rgba(60,200,100,.10);border:1px solid rgba(60,200,100,.25);color:#70e090;}
+    .verdict.no {background:rgba(255,70,70,.08);border:1px solid rgba(255,70,70,.20);color:#ff8888;}
+
+    /* chart */
+    .chart-wrap{border:1px solid rgba(140,195,255,.14);border-radius:18px;background:rgba(8,12,26,.9);padding:20px;margin-bottom:24px;}
+    .chart-wrap h3{margin:0 0 12px;font-size:1rem;color:#d0dcf8;}
+    canvas{display:block;width:100%;border-radius:6px;}
+
+    /* metric grid */
+    .metric-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:24px;}
+    @media(max-width:640px){.metric-grid{grid-template-columns:1fr;}}
+    .mcard{border:1px solid rgba(140,195,255,.13);border-radius:16px;background:rgba(10,15,30,.85);padding:16px 18px;}
+    .mcard .mlabel{font-size:.82rem;color:#7a90b8;margin-bottom:4px;}
+    .mcard .mval{font-size:1.3rem;font-weight:700;color:#d7e5ff;}
+    .mcard .msub{font-size:.82rem;color:#6a82a8;margin-top:2px;}
+
+    /* scoop section */
+    .scoop-section{border:1px solid rgba(140,195,255,.12);border-radius:18px;background:rgba(8,12,26,.9);padding:20px;margin-bottom:24px;}
+    .scoop-section h3{margin:0 0 12px;font-size:1rem;color:#d0dcf8;}
+    .scoop-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;}
+    @media(max-width:640px){.scoop-grid{grid-template-columns:1fr 1fr;}}
+    .scoop-card{background:rgba(140,195,255,.05);border-radius:12px;padding:12px 14px;}
+    .scoop-card .sc-lbl{font-size:.8rem;color:#6a82a8;margin-bottom:4px;}
+    .scoop-card .sc-val{font-size:1.05rem;font-weight:600;color:#c0ceea;}
+
+    /* callout */
+    .callout-green{border:1px solid rgba(100,200,140,.22);border-radius:18px;background:rgba(40,100,60,.07);padding:18px 20px;margin-bottom:20px;}
+    .callout-green h3{margin:0 0 8px;color:#8de8b0;font-size:1rem;}
+    .callout-green p{margin:0;color:#a0c0b0;font-size:.92rem;}
+    .callout-red{border:1px solid rgba(255,100,80,.18);border-radius:18px;background:rgba(100,40,30,.07);padding:18px 20px;}
+    .callout-red h3{margin:0 0 8px;color:#ff9f80;font-size:1rem;}
+    .callout-red p{margin:0;color:#c0a8a0;font-size:.92rem;}
+
+    footer{margin-top:56px;padding-top:24px;border-top:1px solid rgba(140,195,255,.12);color:#7d8fbc;font-size:.93rem;}
+  </style>
+</head>
+<body>
+<div class="page">
+  <header>
+    <div class="brand">
+      <div class="logo">AI</div>
+      <div>
+        <h1>Deep Time AI</h1>
+        <p>Explore slow interstellar AI probes, self-replication, and deep-time research with interactive tools and papers.</p>
+      </div>
+    </div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="papers.html">Papers</a>
+      <a href="challenges.html">Hard Problems</a>
+      <a href="code.html" class="active">Tools</a>
+      <a href="star_map_3d.html">Star map</a>
+      <a href="wanderer_map.html">Fleet map</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h2>Gravity Assist &amp; Stellar Scoop: Where Physics Draws the Line</h2>
+    <p>Gravity assists work brilliantly in the solar system. At interstellar cruise speeds they mostly fail — the faster you go, the less a star can bend your path. Drag the speed slider to see exactly where the line is, and how it shifts between a normal star, a white dwarf, and a neutron star.</p>
+  </section>
+
+  <!-- controls -->
+  <div class="control-grid">
+    <div class="ctrl-panel">
+      <h3>Probe cruise speed</h3>
+      <div class="slider-row">
+        <div class="slabel">Speed <span id="speedLbl">450 km/s (0.15 %c)</span></div>
+        <input type="range" id="speedSlider" min="-3" max="-0.7" step="0.01" value="-2.524" oninput="onSpeedSlide()">
+      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:7px;margin-top:4px;">
+        <button class="bbtn" onclick="setSpeed(450,'Our probe 450 km/s')">Our probe 450 km/s</button>
+        <button class="bbtn" onclick="setSpeed(3000,'1 %c')">1% c (3,000 km/s)</button>
+        <button class="bbtn" onclick="setSpeed(30000,'10 %c')">10% c (30,000 km/s)</button>
+        <button class="bbtn" onclick="setSpeed(60000,'20 %c')">20% c (60,000 km/s)</button>
+      </div>
+    </div>
+    <div class="ctrl-panel">
+      <h3>Body type</h3>
+      <div class="body-btns">
+        <button class="bbtn sel" onclick="setBody('Sun',this)">Sun (G-type)</button>
+        <button class="bbtn" onclick="setBody('White dwarf',this)">White dwarf</button>
+        <button class="bbtn" onclick="setBody('Neutron star',this)">Neutron star</button>
+      </div>
+      <div id="bodyDesc" style="font-size:.84rem;color:#7a90b8;margin-top:10px;line-height:1.5;"></div>
+      <div class="slider-row" style="margin-top:14px;">
+        <div class="slabel">Perihelion distance <span id="perihLbl">1.0 AU</span></div>
+        <input type="range" id="perihSlider" min="-2" max="2" step="0.05" value="0" oninput="onPerihSlide()">
+      </div>
+    </div>
+  </div>
+
+  <!-- verdict + metrics -->
+  <div id="verdictBox" class="verdict no">
+    <span id="verdictText">—</span>
+  </div>
+
+  <div class="metric-grid">
+    <div class="mcard">
+      <div class="mlabel">Deflection angle</div>
+      <div class="mval" id="deflAngle">—</div>
+      <div class="msub">at grazing pass</div>
+    </div>
+    <div class="mcard">
+      <div class="mlabel">Focal impact parameter</div>
+      <div class="mval" id="focalB">—</div>
+      <div class="msub">for 90° turn</div>
+    </div>
+    <div class="mcard">
+      <div class="mlabel">Star radius</div>
+      <div class="mval" id="starRadius">—</div>
+      <div class="msub">focal point vs radius</div>
+    </div>
+    <div class="mcard">
+      <div class="mlabel">Star escape velocity</div>
+      <div class="mval" id="escVel">—</div>
+      <div class="msub">surface escape</div>
+    </div>
+    <div class="mcard">
+      <div class="mlabel">Speed ratio v / v_esc</div>
+      <div class="mval" id="speedRatio">—</div>
+      <div class="msub">&lt; 1 needed for big turns</div>
+    </div>
+    <div class="mcard">
+      <div class="mlabel">Oberth boost</div>
+      <div class="mval" id="oberthBoost">—</div>
+      <div class="msub">upper bound at perihelion</div>
+    </div>
+  </div>
+
+  <!-- deflection chart -->
+  <div class="chart-wrap">
+    <h3>Deflection angle vs cruise speed (grazing pass)</h3>
+    <canvas id="deflChart" height="260"></canvas>
+  </div>
+
+  <!-- scoop section -->
+  <div class="scoop-section">
+    <h3>Stellar wind scoop — one close pass (1 km² sail area)</h3>
+    <div class="scoop-grid">
+      <div class="scoop-card"><div class="sc-lbl">Hydrogen swept</div><div class="sc-val" id="scoopH">—</div></div>
+      <div class="scoop-card"><div class="sc-lbl">Helium swept</div><div class="sc-val" id="scoopHe">—</div></div>
+      <div class="scoop-card"><div class="sc-lbl">He-3 swept</div><div class="sc-val" id="scoopHe3">—</div></div>
+      <div class="scoop-card"><div class="sc-lbl">Heat flux at perihelion</div><div class="sc-val" id="scoopFlux">—</div></div>
+    </div>
+    <div style="font-size:.84rem;color:#6a82a8;margin-top:12px;line-height:1.5;" id="scoopNote"></div>
+  </div>
+
+  <!-- verdicts -->
+  <div class="callout-green">
+    <h3>Where gravity assists do work for this architecture</h3>
+    <p>The probe in this series cruises at ~450 km/s — slow enough that a close pass by a solar-mass star deflects its path by a few degrees. More importantly, a powered burn at closest approach (the Oberth maneuver) is the primary launch mechanism from Earth's solar system: dive to 0.01–0.02 AU, fire the drive at perihelion, and the depth in the gravity well multiplies every unit of propellant. The vehicle paper uses this as the baseline Earth departure strategy. At 450 km/s the Sun's escape velocity (~618 km/s at the surface) is comparable to cruise speed, so gravity assists remain useful for steering and launch — just not at relativistic cruise.</p>
+  </div>
+
+  <div class="callout-red" style="margin-top:16px;">
+    <h3>Where they fail</h3>
+    <p>Above a few percent of lightspeed, the focal point of a 90° gravitational turn falls inside every ordinary star — the geometry becomes impossible. White dwarfs help slightly (smaller radius, same mass); only neutron stars can turn a relativistic probe, and none lie within 100 light-years of Earth. The scoop is similarly limited: close passes yield grams of bulk hydrogen per pass, not fusion fuel, and the heat flux at 0.1 AU during a 10%-of-c flyby exceeds 10 MW/m² — enough to destroy any practical collector.</p>
+  </div>
+
+  <footer>
+    <p>Physics ported directly from <code>code/flyby.py</code>. All calculations run in the browser. · <a href="propulsion_dashboard.html">Propulsion comparison</a> · <a href="code.html">Back to tools</a></p>
+  </footer>
+</div>
+
+<script>
+// =====================================================================
+//  Constants
+// =====================================================================
+const C = 299792458;
+const G = 6.674e-11;
+const Msun = 1.989e30;
+const Rsun = 6.957e8;
+const Lsun = 3.828e26;
+const AU   = 1.496e11;
+const M_P  = 1.674e-27;
+
+const BODIES = {
+  "Sun":          { M: 1.0*Msun, R: Rsun,    L: Lsun,    desc: "Solar-mass G-type star. The nearest examples (Alpha Centauri A/B) are in our closest target system. Escape velocity 618 km/s at the surface." },
+  "White dwarf":  { M: 0.6*Msun, R: 7.0e6,   L: 0.001*Lsun, desc: "Typical white dwarf: similar mass to the Sun but Earth-sized radius (~7,000 km). Surface escape velocity ~8,000 km/s — still too low for relativistic steering." },
+  "Neutron star": { M: 1.4*Msun, R: 1.2e4,   L: 0,       desc: "~12 km radius, mass 1.4 solar. Escape velocity ~200,000 km/s (67% c). Can deflect a relativistic probe — but none lie within 100 ly, and the environment is lethal." }
+};
+
+let cruiseV = 450e3;      // m/s
+let bodyKey = "Sun";
+let perihAU = 1.0;
+
+// =====================================================================
+//  Physics (ported from flyby.py)
+// =====================================================================
+function escapeV(M, R) { return Math.sqrt(2*G*M/R); }
+
+function deflectionDeg(M, bM, v) {
+  return 180 / Math.PI * 2 * Math.atan(G*M / (bM * v * v));
+}
+
+function focalImpactKm(M, v) {
+  return G*M / (v*v) / 1000;
+}
+
+function oberthKms(M, rM) {
+  return escapeV(M, rM) / 1000;
+}
+
+function scoopPass(perihAU_, areaKm2, n0=7) {
+  const b = perihAU_ * AU;
+  const n0m3 = n0 * 1e6;
+  const col = Math.PI * n0m3 * AU * AU / b;   // atoms / m^2
+  const A = areaKm2 * 1e6;
+  const H_atoms = col * A;
+  const H_g = H_atoms * M_P * 1000;
+  const He_g  = H_g * 0.085 * 4;
+  const He3_mg = H_atoms * 0.085 * 2e-4 * 5.008e-27 * 1e6;
+  return { H_g, He_g, He3_mg };
+}
+
+function perifFlux(rM, L) {
+  return L / (4 * Math.PI * rM * rM) / 1000;  // kW/m^2
+}
+
+// =====================================================================
+//  Formatting
+// =====================================================================
+function fmtKms(v) {
+  return (v/1000).toFixed(0) + " km/s";
+}
+function fmtDeg(d) {
+  if (d >= 0.01) return d.toFixed(2) + "°";
+  return d.toExponential(1) + "°";
+}
+function fmtKm(km) {
+  if (km > 1e6) return (km/1e6).toFixed(2) + " M km";
+  if (km > 1000) return (km/1000).toFixed(0) + " kkm";
+  return km.toFixed(0) + " km";
+}
+function fmtG(g) {
+  if (g < 1e-3)   return (g*1e6).toFixed(2) + " µg";
+  if (g < 1)      return (g*1000).toFixed(2) + " mg";
+  if (g < 1000)   return g.toFixed(2) + " g";
+  return (g/1000).toFixed(2) + " kg";
+}
+
+// =====================================================================
+//  Update
+// =====================================================================
+function update() {
+  const body = BODIES[bodyKey];
+  const v = cruiseV;
+  const b = perihAU;
+  const rM = body.R;
+  const M  = body.M;
+
+  // deflection at grazing pass (b = radius)
+  const deflGrazing = deflectionDeg(M, rM, v);
+  // focal point
+  const focalKm = focalImpactKm(M, v);
+  const focalInsideStar = focalKm < rM / 1000;
+  const canSteer = deflGrazing >= 10 && !focalInsideStar;
+  const escV = escapeV(M, rM);
+  const ratio = v / escV;
+
+  // update verdict
+  const vbox = document.getElementById("verdictBox");
+  vbox.className = "verdict " + (canSteer ? "yes" : "no");
+  document.getElementById("verdictText").textContent = canSteer
+    ? "✓ Gravity assist can significantly bend this probe's path"
+    : "✗ Gravity assist delivers negligible steering at this speed";
+
+  // metrics
+  document.getElementById("deflAngle").textContent    = fmtDeg(deflGrazing);
+  document.getElementById("focalB").textContent       = fmtKm(focalKm) + " needed for 90°";
+  document.getElementById("starRadius").textContent   = fmtKm(rM/1000);
+  document.getElementById("escVel").textContent       = fmtKms(escV);
+  document.getElementById("speedRatio").textContent   = ratio.toFixed(2) + " (v / v_esc)";
+  document.getElementById("oberthBoost").textContent  = oberthKms(M, b * AU).toFixed(0) + " km/s";
+
+  // body description
+  document.getElementById("bodyDesc").textContent = body.desc;
+
+  // scoop
+  const s = scoopPass(b, 1.0);
+  const flux = perifFlux(b * AU, body.L || 0.001 * Lsun);
+  document.getElementById("scoopH").textContent   = fmtG(s.H_g);
+  document.getElementById("scoopHe").textContent  = fmtG(s.He_g);
+  document.getElementById("scoopHe3").textContent = fmtG(s.He3_mg / 1000) + " (mg: " + s.He3_mg.toFixed(2) + ")";
+  document.getElementById("scoopFlux").textContent = flux > 1e6 ? (flux/1e6).toFixed(1)+" GW/m²" : flux.toFixed(0)+" kW/m²";
+
+  const note = focalInsideStar
+    ? `The focal point for a 90° turn (${fmtKm(focalKm)}) lies inside the ${bodyKey.toLowerCase()} (radius ${fmtKm(rM/1000)}). Physically impossible to achieve a large deflection.`
+    : `The focal point for a 90° turn (${fmtKm(focalKm)}) is outside the ${bodyKey.toLowerCase()} (radius ${fmtKm(rM/1000)}). Geometrically feasible — but the probe must survive the close pass.`;
+  document.getElementById("scoopNote").textContent = note;
+
+  drawChart();
+}
+
+// =====================================================================
+//  Chart: deflection angle vs speed
+// =====================================================================
+function drawChart() {
+  const canvas = document.getElementById("deflChart");
+  const W = canvas.offsetWidth;
+  canvas.width  = W * devicePixelRatio;
+  canvas.height = 260 * devicePixelRatio;
+  const ctx = canvas.getContext("2d");
+  ctx.scale(devicePixelRatio, devicePixelRatio);
+  const cW = W, cH = 260;
+
+  const PAD = { top: 20, right: 30, bottom: 44, left: 72 };
+  const PW = cW - PAD.left - PAD.right;
+  const PH = cH - PAD.top  - PAD.bottom;
+
+  // log x-axis: 10 km/s to 200,000 km/s
+  const vMin = 10e3, vMax = 200e3 * 1e3;  // m/s
+  const yMin = 0.001, yMax = 180;
+
+  function xPx(v)  { return PAD.left + (Math.log10(v) - Math.log10(vMin)) / (Math.log10(vMax) - Math.log10(vMin)) * PW; }
+  function yPx(deg){ return PAD.top + (1 - (Math.log10(Math.max(deg,yMin)) - Math.log10(yMin)) / (Math.log10(yMax) - Math.log10(yMin))) * PH; }
+
+  // grid
+  ctx.strokeStyle = "rgba(140,195,255,.08)";
+  ctx.lineWidth = 1;
+  const xTicks = [10e3, 100e3, 1e6, 10e6, 100e6, 1e9];
+  xTicks.forEach(v => {
+    const px = xPx(v);
+    ctx.beginPath(); ctx.moveTo(px, PAD.top); ctx.lineTo(px, PAD.top + PH); ctx.stroke();
+    ctx.fillStyle = "rgba(140,195,255,.4)";
+    ctx.font = "10px Inter,system-ui,sans-serif";
+    ctx.textAlign = "center";
+    const lbl = v < 1e6 ? (v/1000).toFixed(0)+" km/s" : v < 1e9 ? (v/1e6).toFixed(0)+" Mm/s" : (v/C*100).toFixed(0)+"%c";
+    ctx.fillText(lbl, px, PAD.top + PH + 16);
+  });
+  // %c ticks
+  [0.001,0.01,0.1,0.2].forEach(frac => {
+    const v = frac * C;
+    const px = xPx(v);
+    ctx.fillStyle = "rgba(140,195,255,.3)";
+    ctx.textAlign = "center";
+    ctx.fillText(frac*100+"%c", px, PAD.top + PH + 28);
+  });
+  const yTicks = [0.01, 0.1, 1, 10, 90, 180];
+  yTicks.forEach(d => {
+    const py = yPx(d);
+    ctx.strokeStyle = "rgba(140,195,255,.08)";
+    ctx.beginPath(); ctx.moveTo(PAD.left, py); ctx.lineTo(PAD.left + PW, py); ctx.stroke();
+    ctx.fillStyle = "rgba(140,195,255,.4)";
+    ctx.textAlign = "right";
+    ctx.font = "10px Inter,system-ui,sans-serif";
+    ctx.fillText(d+"°", PAD.left - 6, py + 3);
+  });
+
+  // steering threshold line at 10°
+  ctx.strokeStyle = "rgba(255,200,60,.25)";
+  ctx.lineWidth = 1;
+  ctx.setLineDash([4,3]);
+  const py10 = yPx(10);
+  ctx.beginPath(); ctx.moveTo(PAD.left, py10); ctx.lineTo(PAD.left + PW, py10); ctx.stroke();
+  ctx.setLineDash([]);
+  ctx.fillStyle = "rgba(255,200,60,.5)";
+  ctx.font = "10px Inter,system-ui,sans-serif";
+  ctx.textAlign = "left";
+  ctx.fillText("10° — useful steering", PAD.left + 4, py10 - 4);
+
+  // body curves
+  const COLORS = { "Sun": "#ffdd88", "White dwarf": "#aaddff", "Neutron star": "#ff88cc" };
+  Object.entries(BODIES).forEach(([name, body]) => {
+    ctx.strokeStyle = COLORS[name];
+    ctx.lineWidth = name === bodyKey ? 2.5 : 1.2;
+    ctx.globalAlpha = name === bodyKey ? 1 : 0.4;
+    ctx.beginPath();
+    let first = true;
+    for (let i = 0; i <= 300; i++) {
+      const logV = Math.log10(vMin) + i / 300 * (Math.log10(vMax) - Math.log10(vMin));
+      const v = Math.pow(10, logV);
+      const d = deflectionDeg(body.M, body.R, v);
+      if (d < yMin) continue;
+      const px = xPx(v), py = yPx(d);
+      if (first) { ctx.moveTo(px, py); first = false; }
+      else        ctx.lineTo(px, py);
+    }
+    ctx.stroke();
+    ctx.globalAlpha = 1;
+  });
+
+  // current speed marker
+  const curX = xPx(cruiseV);
+  ctx.strokeStyle = "rgba(255,255,255,.5)";
+  ctx.lineWidth = 1.5;
+  ctx.setLineDash([5,3]);
+  ctx.beginPath(); ctx.moveTo(curX, PAD.top); ctx.lineTo(curX, PAD.top + PH); ctx.stroke();
+  ctx.setLineDash([]);
+  ctx.fillStyle = "rgba(255,255,255,.7)";
+  ctx.font = "10px Inter,system-ui,sans-serif";
+  ctx.textAlign = curX > cW/2 ? "right" : "left";
+  const speedLabel = cruiseV < 1e6 ? (cruiseV/1000).toFixed(0)+" km/s" : (cruiseV/C*100).toFixed(1)+"%c";
+  ctx.fillText(speedLabel, curX + (curX > cW/2 ? -6 : 6), PAD.top + 14);
+
+  // legend
+  let lx = PAD.left + 10, lyi = PAD.top + 10;
+  Object.entries(COLORS).forEach(([name, col]) => {
+    ctx.fillStyle = col;
+    ctx.fillRect(lx, lyi, 18, 2.5);
+    ctx.fillStyle = "rgba(220,230,255,.7)";
+    ctx.font = "10px Inter,system-ui,sans-serif";
+    ctx.textAlign = "left";
+    ctx.fillText(name, lx + 24, lyi + 4);
+    lyi += 16;
+  });
+
+  // axis labels
+  ctx.fillStyle = "rgba(140,195,255,.45)";
+  ctx.font = "11px Inter,system-ui,sans-serif";
+  ctx.textAlign = "center";
+  ctx.fillText("Cruise speed (log scale)", PAD.left + PW/2, cH - 3);
+  ctx.save();
+  ctx.translate(12, PAD.top + PH/2);
+  ctx.rotate(-Math.PI/2);
+  ctx.fillText("Deflection angle (°, log)", 0, 0);
+  ctx.restore();
+}
+
+// =====================================================================
+//  Slider handlers
+// =====================================================================
+function onSpeedSlide() {
+  const logV = +document.getElementById("speedSlider").value;
+  cruiseV = Math.pow(10, logV) * 1000;  // slider in log10(km/s), convert to m/s
+  updateSpeedLabel();
+  update();
+}
+
+function updateSpeedLabel() {
+  const kms = cruiseV / 1000;
+  const frac = cruiseV / C;
+  document.getElementById("speedLbl").textContent =
+    kms.toFixed(0) + " km/s (" + (frac*100).toFixed(3) + " %c)";
+}
+
+function setSpeed(kms, lbl) {
+  cruiseV = kms * 1000;
+  document.getElementById("speedSlider").value = Math.log10(kms);
+  updateSpeedLabel();
+  update();
+}
+
+function onPerihSlide() {
+  const logAU = +document.getElementById("perihSlider").value;
+  perihAU = Math.pow(10, logAU);
+  document.getElementById("perihLbl").textContent = perihAU < 0.1
+    ? perihAU.toFixed(3) + " AU"
+    : perihAU.toFixed(2) + " AU";
+  update();
+}
+
+function setBody(key, btn) {
+  bodyKey = key;
+  document.querySelectorAll(".bbtn").forEach(b => b.classList.remove("sel"));
+  if (btn) btn.classList.add("sel");
+  update();
+}
+
+// =====================================================================
+//  Init
+// =====================================================================
+window.addEventListener("load", () => { update(); });
+window.addEventListener("resize", drawChart);
+</script>
+</body>
+</html>

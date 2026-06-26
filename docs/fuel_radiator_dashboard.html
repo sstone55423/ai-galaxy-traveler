@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fuel &amp; Radiators — Deep Time AI</title>
+<style>
+:root{color:#e9eefb;background:#070a14;font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.6;font-size:16px;}
+*{box-sizing:border-box}html,body{margin:0;min-height:100%;}
+body{background:radial-gradient(circle at top,#121d35 0%,#06090f 48%,#020408 100%);}
+a{color:#8cc3ff;text-decoration:none;}a:hover{text-decoration:underline;}
+.page{max-width:980px;margin:0 auto;padding:28px 20px 80px;}
+header{display:grid;gap:18px;padding:18px 0 26px;}
+.brand{display:flex;align-items:center;gap:14px;}
+.logo{width:52px;height:52px;border-radius:18px;background:linear-gradient(135deg,#5aa5ff,#9da8ff);display:flex;align-items:center;justify-content:center;font-weight:700;color:#071928;font-size:22px;}
+.brand h1{margin:0;font-size:2rem;letter-spacing:-0.03em;}
+.brand p{margin:4px 0 0;color:#9cb1d9;max-width:640px;}
+nav{display:flex;flex-wrap:wrap;gap:10px;font-size:.95rem;}
+nav a{padding:10px 15px;border:1px solid rgba(140,195,255,.18);border-radius:999px;background:rgba(12,18,34,.68);}
+nav a.active{background:rgba(140,195,255,.14);border-color:rgba(140,195,255,.42);color:#d7e5ff;}
+.hero{padding:22px 0 18px;border-top:1px solid rgba(140,195,255,.14);border-bottom:1px solid rgba(140,195,255,.14);}
+.hero h2{margin:0 0 8px;font-size:1.5rem;letter-spacing:-0.02em;}
+.hero p{margin:0;color:#c0ceea;max-width:720px;}
+.panel{border:1px solid rgba(140,195,255,.14);border-radius:20px;background:rgba(8,12,26,.9);padding:22px;margin:20px 0;}
+.panel h3{margin:0 0 14px;font-size:1.05rem;color:#d0dcf8;}
+.srow{margin-bottom:14px;}
+.srow .sl{display:flex;justify-content:space-between;font-size:.87rem;color:#8090b0;margin-bottom:4px;}
+.srow .sl span{color:#c0ceea;font-weight:600;}
+.srow input[type=range]{width:100%;accent-color:#5aa5ff;}
+.metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:18px 0;}
+@media(max-width:620px){.metrics{grid-template-columns:1fr;}}
+.mc{border:1px solid rgba(140,195,255,.13);border-radius:16px;background:rgba(10,15,30,.85);padding:14px 16px;}
+.mc .ml{font-size:.82rem;color:#7a90b8;margin-bottom:4px;}
+.mc .mv{font-size:1.25rem;font-weight:700;color:#d7e5ff;}
+.mc .ms{font-size:.8rem;color:#6a82a8;margin-top:2px;}
+.co{border:1px solid rgba(100,200,140,.22);border-radius:16px;background:rgba(40,100,60,.07);padding:16px 18px;margin:16px 0;}
+.co h4{margin:0 0 6px;color:#8de8b0;font-size:.95rem;}
+.co p{margin:0;color:#a0c0b0;font-size:.9rem;}
+.co-warn{border:1px solid rgba(255,150,60,.22);border-radius:16px;background:rgba(100,60,20,.07);padding:16px 18px;margin:16px 0;}
+.co-warn h4{margin:0 0 6px;color:#ffb070;font-size:.95rem;}
+.co-warn p{margin:0;color:#c0a880;font-size:.9rem;}
+canvas{display:block;width:100%;}
+footer{margin-top:56px;padding-top:24px;border-top:1px solid rgba(140,195,255,.12);color:#7d8fbc;font-size:.9rem;}
+
+/* Mode buttons */
+.mode-btns{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px;}
+.mode-btn{padding:8px 16px;border-radius:999px;border:1px solid rgba(140,195,255,.22);background:rgba(12,18,34,.8);color:#8090b0;font-size:.88rem;cursor:pointer;transition:all .18s;}
+.mode-btn:hover{border-color:rgba(140,195,255,.5);color:#c0ceea;}
+.mode-btn.active{background:rgba(90,165,255,.18);border-color:rgba(90,165,255,.6);color:#a8d4ff;font-weight:600;}
+
+/* canvas wrapper */
+.chart-wrap{position:relative;margin:16px 0;}
+.chart-label{font-size:.78rem;color:#6070a0;margin-top:6px;text-align:center;}
+</style>
+</head>
+<body>
+<div class="page">
+
+<header>
+  <div class="brand">
+    <div class="logo">AI</div>
+    <div>
+      <h1>Deep Time AI</h1>
+      <p>Explore slow interstellar AI probes, self-replication, and deep-time research with interactive tools and papers.</p>
+    </div>
+  </div>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="papers.html">Papers</a>
+    <a href="challenges.html">Hard Problems</a>
+    <a href="code.html" class="active">Tools</a>
+    <a href="star_map_3d.html">Star map</a>
+    <a href="wanderer_map.html">Fleet map</a>
+  </nav>
+</header>
+
+<div class="hero">
+  <h2>Fuel &amp; Radiators</h2>
+  <p>Two findings from the subsystem budget: supplementary fuel for longer hops costs under 1% of seed mass per 10 ly — range is cheap. Radiator area needed during cruise is tiny compared to manufacturing mode, yet the same hardware serves both.</p>
+</div>
+
+<!-- ========== SECTION 1: FUEL SCALING ========== -->
+<div class="panel">
+  <h3>Section 1 — Fuel Scaling</h3>
+
+  <p style="color:#9cb1d9;font-size:.92rem;margin:0 0 16px;">U-235 fission fuel mass as a function of hop distance and cruise power mode. At 450 km/s, each light-year takes ~665 yr. Fuel mass scales linearly with both distance and power.</p>
+
+  <div>
+    <div style="font-size:.87rem;color:#8090b0;margin-bottom:8px;">Cruise power mode</div>
+    <div class="mode-btns">
+      <button class="mode-btn active" id="btn50" onclick="setMode(50)">50 W — range maximizer</button>
+      <button class="mode-btn" id="btn150" onclick="setMode(150)">150 W — standard K-research</button>
+      <button class="mode-btn" id="btn4000" onclick="setMode(4000)">4000 W — full (settlement only)</button>
+    </div>
+  </div>
+
+  <div class="srow">
+    <div class="sl">
+      <span>Hop distance</span>
+      <span id="distVal">12 ly</span>
+    </div>
+    <input type="range" id="distSlider" min="5" max="65" value="12" step="1" oninput="onDistChange()">
+    <div style="display:flex;justify-content:space-between;font-size:.75rem;color:#5060a0;margin-top:2px;"><span>5 ly</span><span>65 ly</span></div>
+  </div>
+
+  <div class="chart-wrap">
+    <canvas id="fuelChart" height="320"></canvas>
+    <div class="chart-label">Hop distance (ly) vs U-235 fuel mass (kg). Secondary axis shows % of 3,700 kg reference seed.</div>
+  </div>
+
+  <div class="metrics" id="fuelMetrics">
+    <div class="mc">
+      <div class="ml">Fuel mass</div>
+      <div class="mv" id="fuelMass">—</div>
+      <div class="ms">kg U-235 required</div>
+    </div>
+    <div class="mc">
+      <div class="ml">Seed fraction</div>
+      <div class="mv" id="fuelFrac">—</div>
+      <div class="ms">% of 3,700 kg seed</div>
+    </div>
+    <div class="mc">
+      <div class="ml">Cruise duration</div>
+      <div class="mv" id="cruiseDur">—</div>
+      <div class="ms">yr at 450 km/s</div>
+    </div>
+  </div>
+
+  <div class="co">
+    <h4>Range is cheap</h4>
+    <p>At 150 W cruise and a 36 ly hop, the probe needs only 49.5 kg of U-235 — 1.34% of seed mass. Doubling the hop distance doubles the fuel, but both numbers are small. The constraint on range is not fuel mass; it is reliability over time and the probability of a viable host at destination.</p>
+  </div>
+</div>
+
+<!-- ========== SECTION 2: RADIATOR SIZING ========== -->
+<div class="panel">
+  <h3>Section 2 — Radiator Area</h3>
+
+  <p style="color:#9cb1d9;font-size:.92rem;margin:0 0 16px;">Radiator area from the Stefan-Boltzmann law at T = 400 K and emissivity 0.90. The carried 11 m&sup2; radiator is sized for full-power pulse events at settlement, not for steady cruise.</p>
+
+  <div class="srow">
+    <div class="sl">
+      <span>Electric power</span>
+      <span id="radPowVal">150 W</span>
+    </div>
+    <input type="range" id="radSlider" min="0" max="1000" value="420" step="1" oninput="onRadChange()">
+    <div style="display:flex;justify-content:space-between;font-size:.75rem;color:#5060a0;margin-top:2px;"><span>50 W</span><span>14,000 W</span></div>
+  </div>
+
+  <div class="chart-wrap">
+    <canvas id="radChart" height="320"></canvas>
+    <div class="chart-label">Electric power (W, log scale) vs required radiator area (m&sup2;, log scale). Three operating points marked. Horizontal reference: carried 11 m&sup2; radiator.</div>
+  </div>
+
+  <div class="metrics">
+    <div class="mc">
+      <div class="ml">Radiator area</div>
+      <div class="mv" id="radArea">—</div>
+      <div class="ms">m&sup2; required</div>
+    </div>
+    <div class="mc">
+      <div class="ml">Radiator mass</div>
+      <div class="mv" id="radMass">—</div>
+      <div class="ms">kg at 3 kg/m&sup2;</div>
+    </div>
+    <div class="mc">
+      <div class="ml">Thermal power</div>
+      <div class="mv" id="radThermal">—</div>
+      <div class="ms">W waste heat to reject</div>
+    </div>
+  </div>
+
+  <div class="co-warn">
+    <h4>Two regimes, one carried hardware</h4>
+    <p>The 11 m&sup2; carried radiator is sized for full-power pulse events at settlement, not cruise. At 150 W cruise, only 0.52 m&sup2; is needed. At settlement manufacturing scale (14 kW thermal), hundreds to thousands of m&sup2; are built in situ from local material. Two regimes, one carried hardware.</p>
+  </div>
+</div>
+
+<footer>
+  Based on the subsystem budget paper. <a href="code.html">Back to tools</a>
+</footer>
+</div>
+
+<script>
+// ============================================================
+// PHYSICS CONSTANTS
+// ============================================================
+const EFFICIENCY   = 0.28;
+const YEAR_S       = 31557600;
+const U235_J_PER_KG = 8.2e13;
+const BURNUP       = 0.10;
+const SEED_KG      = 3700;
+const KM_PER_S     = 450e3;
+const LY_M         = 9.46e15;
+const YR_PER_LY    = LY_M / (KM_PER_S * YEAR_S); // ~665 yr/ly
+
+const EMISSIVITY   = 0.90;
+const SIGMA        = 5.670374e-8;
+const T_RAD        = 400; // K
+const CARRIED_RAD  = 11;  // m^2
+
+function fuelKg(P_e, dist_ly) {
+  const t_s = dist_ly * YR_PER_LY * YEAR_S;
+  return (P_e / EFFICIENCY) * t_s / (U235_J_PER_KG * BURNUP);
+}
+
+function radAreaM2(P_e) {
+  const P_th = P_e / EFFICIENCY;
+  return P_th / (EMISSIVITY * SIGMA * Math.pow(T_RAD, 4));
+}
+
+// ============================================================
+// STATE
+// ============================================================
+let currentMode = 150;
+let currentDist = 12;
+// log-scale slider: slider position 0-1000 maps to log(50) to log(14000)
+const RAD_LOG_MIN = Math.log10(50);
+const RAD_LOG_MAX = Math.log10(14000);
+
+function sliderToPower(v) {
+  return Math.pow(10, RAD_LOG_MIN + (v / 1000) * (RAD_LOG_MAX - RAD_LOG_MIN));
+}
+function powerToSlider(p) {
+  return Math.round(((Math.log10(p) - RAD_LOG_MIN) / (RAD_LOG_MAX - RAD_LOG_MIN)) * 1000);
+}
+
+let currentRadPow = 150;
+
+// ============================================================
+// SECTION 1 CHART
+// ============================================================
+const fuelCanvas = document.getElementById('fuelChart');
+const fuelCtx    = fuelCanvas.getContext('2d');
+
+const MODES = [
+  {w: 50,   color: '#5fd878', dash: []},
+  {w: 150,  color: '#5aa5ff', dash: []},
+  {w: 4000, color: '#ff7a50', dash: []}
+];
+
+function drawFuelChart() {
+  const dpr = window.devicePixelRatio || 1;
+  const W = fuelCanvas.parentElement.clientWidth;
+  const H = 320;
+  fuelCanvas.style.width  = W + 'px';
+  fuelCanvas.style.height = H + 'px';
+  fuelCanvas.width  = W * dpr;
+  fuelCanvas.height = H * dpr;
+  const ctx = fuelCtx;
+  ctx.scale(dpr, dpr);
+
+  const PAD_L = 64, PAD_R = 72, PAD_T = 18, PAD_B = 40;
+  const CW = W - PAD_L - PAD_R;
+  const CH = H - PAD_T - PAD_B;
+
+  const X_MAX = 65, Y_MAX = 100;
+
+  function xp(d) { return PAD_L + (d / X_MAX) * CW; }
+  function yp(k) { return PAD_T + CH - (k / Y_MAX) * CH; }
+
+  // Background
+  ctx.fillStyle = 'rgba(8,12,26,0)';
+  ctx.fillRect(0, 0, W, H);
+
+  // Grid lines
+  ctx.strokeStyle = 'rgba(140,195,255,.08)';
+  ctx.lineWidth = 1;
+  for (let y = 0; y <= 100; y += 20) {
+    ctx.beginPath(); ctx.moveTo(xp(0), yp(y)); ctx.lineTo(xp(65), yp(y)); ctx.stroke();
+  }
+  for (let x = 0; x <= 65; x += 13) {
+    ctx.beginPath(); ctx.moveTo(xp(x), yp(0)); ctx.lineTo(xp(x), yp(100)); ctx.stroke();
+  }
+
+  // Reference line at 16.5 kg
+  const REF_KG = 16.5;
+  ctx.strokeStyle = 'rgba(255,200,80,.4)';
+  ctx.lineWidth = 1.5;
+  ctx.setLineDash([5, 4]);
+  ctx.beginPath(); ctx.moveTo(xp(0), yp(REF_KG)); ctx.lineTo(xp(65), yp(REF_KG)); ctx.stroke();
+  ctx.setLineDash([]);
+  ctx.fillStyle = '#c8a840';
+  ctx.font = '11px Inter,sans-serif';
+  ctx.textAlign = 'left';
+  ctx.fillText('Reference design (16.5 kg)', xp(1), yp(REF_KG) - 5);
+
+  // Three curves
+  MODES.forEach(function(m) {
+    const isActive = (m.w === currentMode);
+    ctx.strokeStyle = m.color;
+    ctx.lineWidth = isActive ? 2.5 : 1.2;
+    ctx.globalAlpha = isActive ? 1.0 : 0.3;
+    ctx.beginPath();
+    for (let d = 0; d <= 65; d += 0.5) {
+      const kg = fuelKg(m.w, d);
+      const py = yp(Math.min(kg, Y_MAX));
+      if (d === 0) ctx.moveTo(xp(d), py);
+      else ctx.lineTo(xp(d), py);
+    }
+    ctx.stroke();
+    ctx.globalAlpha = 1.0;
+  });
+
+  // Current point
+  const selKg = fuelKg(currentMode, currentDist);
+  const selMode = MODES.find(function(m){ return m.w === currentMode; });
+  ctx.fillStyle = selMode.color;
+  ctx.beginPath();
+  ctx.arc(xp(currentDist), yp(Math.min(selKg, Y_MAX)), 5, 0, 2*Math.PI);
+  ctx.fill();
+
+  // Axis labels
+  ctx.fillStyle = '#6070a0';
+  ctx.font = '11px Inter,sans-serif';
+  ctx.textAlign = 'center';
+  for (let x = 0; x <= 65; x += 13) {
+    ctx.fillText(x + ' ly', xp(x), H - PAD_B + 16);
+  }
+  ctx.textAlign = 'right';
+  for (let y = 0; y <= 100; y += 20) {
+    ctx.fillText(y, PAD_L - 6, yp(y) + 4);
+  }
+  // Y axis title
+  ctx.save();
+  ctx.translate(12, PAD_T + CH / 2);
+  ctx.rotate(-Math.PI / 2);
+  ctx.textAlign = 'center';
+  ctx.fillStyle = '#5a6a90';
+  ctx.font = '11px Inter,sans-serif';
+  ctx.fillText('Fuel (kg)', 0, 0);
+  ctx.restore();
+
+  // Secondary Y axis — % of seed
+  ctx.fillStyle = '#5a6a90';
+  ctx.font = '11px Inter,sans-serif';
+  ctx.textAlign = 'left';
+  for (let y = 0; y <= 100; y += 20) {
+    const pct = (y / SEED_KG * 100).toFixed(1);
+    ctx.fillText(pct + '%', W - PAD_R + 6, yp(y) + 4);
+  }
+  ctx.save();
+  ctx.translate(W - 10, PAD_T + CH / 2);
+  ctx.rotate(Math.PI / 2);
+  ctx.textAlign = 'center';
+  ctx.fillStyle = '#5a6a90';
+  ctx.font = '11px Inter,sans-serif';
+  ctx.fillText('% of seed', 0, 0);
+  ctx.restore();
+
+  // Legend
+  const legX = PAD_L + 8;
+  const legY = PAD_T + 8;
+  MODES.forEach(function(m, i) {
+    ctx.globalAlpha = (m.w === currentMode) ? 1.0 : 0.45;
+    ctx.strokeStyle = m.color;
+    ctx.lineWidth = 2;
+    ctx.beginPath();
+    ctx.moveTo(legX, legY + i * 18 + 6);
+    ctx.lineTo(legX + 22, legY + i * 18 + 6);
+    ctx.stroke();
+    ctx.fillStyle = m.color;
+    ctx.textAlign = 'left';
+    ctx.font = '11px Inter,sans-serif';
+    const label = m.w < 1000 ? m.w + ' W' : (m.w/1000).toFixed(0) + ' kW';
+    ctx.fillText(label, legX + 26, legY + i * 18 + 10);
+    ctx.globalAlpha = 1.0;
+  });
+}
+
+function updateFuelMetrics() {
+  const kg = fuelKg(currentMode, currentDist);
+  const frac = (kg / SEED_KG * 100);
+  const dur = (currentDist * YR_PER_LY);
+  document.getElementById('fuelMass').textContent = kg.toFixed(1) + ' kg';
+  document.getElementById('fuelFrac').textContent = frac.toFixed(2) + '%';
+  document.getElementById('cruiseDur').textContent = Math.round(dur).toLocaleString() + ' yr';
+  document.getElementById('distVal').textContent = currentDist + ' ly';
+}
+
+function setMode(w) {
+  currentMode = w;
+  document.querySelectorAll('.mode-btn').forEach(function(b) { b.classList.remove('active'); });
+  document.getElementById('btn' + w).classList.add('active');
+  drawFuelChart();
+  updateFuelMetrics();
+}
+
+function onDistChange() {
+  currentDist = parseInt(document.getElementById('distSlider').value);
+  drawFuelChart();
+  updateFuelMetrics();
+}
+
+// ============================================================
+// SECTION 2 CHART
+// ============================================================
+const radCanvas = document.getElementById('radChart');
+const radCtx    = radCanvas.getContext('2d');
+
+const OP_POINTS = [
+  {w: 50,    label: '50 W', color: '#5fd878'},
+  {w: 150,   label: '150 W', color: '#5aa5ff'},
+  {w: 14000, label: '14 kW\n(settlement)', color: '#ff7a50'}
+];
+
+function drawRadChart() {
+  const dpr = window.devicePixelRatio || 1;
+  const W = radCanvas.parentElement.clientWidth;
+  const H = 320;
+  radCanvas.style.width  = W + 'px';
+  radCanvas.style.height = H + 'px';
+  radCanvas.width  = W * dpr;
+  radCanvas.height = H * dpr;
+  const ctx = radCtx;
+  ctx.scale(dpr, dpr);
+
+  const PAD_L = 60, PAD_R = 24, PAD_T = 18, PAD_B = 40;
+  const CW = W - PAD_L - PAD_R;
+  const CH = H - PAD_T - PAD_B;
+
+  const LOG_X_MIN = Math.log10(50);
+  const LOG_X_MAX = Math.log10(14000);
+  const LOG_Y_MIN = Math.log10(0.05);
+  const LOG_Y_MAX = Math.log10(200);
+
+  function xp(pw) { return PAD_L + ((Math.log10(pw) - LOG_X_MIN) / (LOG_X_MAX - LOG_X_MIN)) * CW; }
+  function yp(a)  { return PAD_T + CH - ((Math.log10(a)  - LOG_Y_MIN) / (LOG_Y_MAX - LOG_Y_MIN)) * CH; }
+
+  // Background
+  ctx.clearRect(0, 0, W, H);
+
+  // Grid
+  ctx.strokeStyle = 'rgba(140,195,255,.08)';
+  ctx.lineWidth = 1;
+  [50, 100, 200, 500, 1000, 2000, 5000, 10000, 14000].forEach(function(pw) {
+    if (pw > 14000) return;
+    ctx.beginPath(); ctx.moveTo(xp(pw), yp(0.05)); ctx.lineTo(xp(pw), yp(200)); ctx.stroke();
+  });
+  [0.1, 0.2, 0.5, 1, 2, 5, 10, 20, 50, 100, 200].forEach(function(a) {
+    ctx.beginPath(); ctx.moveTo(xp(50), yp(a)); ctx.lineTo(xp(14000), yp(a)); ctx.stroke();
+  });
+
+  // Carried radiator reference line at 11 m^2
+  ctx.strokeStyle = 'rgba(255,200,80,.5)';
+  ctx.lineWidth = 1.5;
+  ctx.setLineDash([5, 4]);
+  ctx.beginPath(); ctx.moveTo(xp(50), yp(CARRIED_RAD)); ctx.lineTo(xp(14000), yp(CARRIED_RAD)); ctx.stroke();
+  ctx.setLineDash([]);
+  ctx.fillStyle = '#c8a840';
+  ctx.font = '11px Inter,sans-serif';
+  ctx.textAlign = 'left';
+  ctx.fillText('Carried radiator: 11 m²', xp(55), yp(CARRIED_RAD) - 5);
+
+  // Main curve
+  ctx.strokeStyle = '#7ab8ff';
+  ctx.lineWidth = 2;
+  ctx.beginPath();
+  let first = true;
+  for (let lx = LOG_X_MIN; lx <= LOG_X_MAX + 0.001; lx += 0.01) {
+    const pw = Math.pow(10, lx);
+    const a = radAreaM2(pw);
+    const la = Math.log10(a);
+    if (la < LOG_Y_MIN || la > LOG_Y_MAX) continue;
+    if (first) { ctx.moveTo(xp(pw), yp(a)); first = false; }
+    else ctx.lineTo(xp(pw), yp(a));
+  }
+  ctx.stroke();
+
+  // Current power point
+  const curA = radAreaM2(currentRadPow);
+  if (curA >= Math.pow(10, LOG_Y_MIN) && curA <= Math.pow(10, LOG_Y_MAX)) {
+    ctx.fillStyle = '#5aa5ff';
+    ctx.beginPath();
+    ctx.arc(xp(currentRadPow), yp(curA), 5, 0, 2*Math.PI);
+    ctx.fill();
+  }
+
+  // Operating points
+  OP_POINTS.forEach(function(op) {
+    const a = radAreaM2(op.w);
+    ctx.fillStyle = op.color;
+    ctx.strokeStyle = op.color;
+    ctx.lineWidth = 1.5;
+    ctx.beginPath();
+    ctx.arc(xp(op.w), yp(a), 6, 0, 2*Math.PI);
+    ctx.fill();
+    // label
+    const lines = op.label.split('\n');
+    ctx.font = '10.5px Inter,sans-serif';
+    ctx.textAlign = 'center';
+    let labelY = yp(a) - 10;
+    if (a > 5) labelY = yp(a) + 20;
+    lines.forEach(function(line, i) {
+      ctx.fillText(line, xp(op.w), labelY + i * 13);
+    });
+  });
+
+  // X axis ticks + labels
+  ctx.fillStyle = '#6070a0';
+  ctx.font = '11px Inter,sans-serif';
+  ctx.textAlign = 'center';
+  [{v:50,l:'50 W'},{v:100,l:'100 W'},{v:500,l:'500 W'},{v:1000,l:'1 kW'},{v:5000,l:'5 kW'},{v:14000,l:'14 kW'}].forEach(function(t) {
+    ctx.fillText(t.l, xp(t.v), H - PAD_B + 16);
+  });
+
+  // Y axis ticks + labels
+  ctx.textAlign = 'right';
+  [0.1, 0.5, 1, 5, 11, 50, 100].forEach(function(a) {
+    const lbl = a < 1 ? a.toFixed(1) : a.toFixed(0);
+    ctx.fillText(lbl + ' m²', PAD_L - 6, yp(a) + 4);
+  });
+
+  // Y axis title
+  ctx.save();
+  ctx.translate(12, PAD_T + CH / 2);
+  ctx.rotate(-Math.PI / 2);
+  ctx.textAlign = 'center';
+  ctx.fillStyle = '#5a6a90';
+  ctx.font = '11px Inter,sans-serif';
+  ctx.fillText('Area (m²)', 0, 0);
+  ctx.restore();
+}
+
+function updateRadMetrics() {
+  const a   = radAreaM2(currentRadPow);
+  const mkg = a * 3;
+  const pth = currentRadPow / EFFICIENCY;
+  document.getElementById('radArea').textContent    = a < 10 ? a.toFixed(2) + ' m²' : a.toFixed(1) + ' m²';
+  document.getElementById('radMass').textContent    = mkg < 10 ? mkg.toFixed(2) + ' kg' : mkg.toFixed(1) + ' kg';
+  document.getElementById('radThermal').textContent = pth < 1000 ? Math.round(pth) + ' W' : (pth/1000).toFixed(2) + ' kW';
+  const dispPow = currentRadPow < 1000 ? currentRadPow.toFixed(0) + ' W' : (currentRadPow/1000).toFixed(2) + ' kW';
+  document.getElementById('radPowVal').textContent  = dispPow;
+}
+
+function onRadChange() {
+  const v = parseInt(document.getElementById('radSlider').value);
+  currentRadPow = sliderToPower(v);
+  drawRadChart();
+  updateRadMetrics();
+}
+
+// ============================================================
+// INIT & RESIZE
+// ============================================================
+function init() {
+  // set slider to 150 W
+  document.getElementById('radSlider').value = powerToSlider(150);
+  currentRadPow = 150;
+
+  drawFuelChart();
+  updateFuelMetrics();
+  drawRadChart();
+  updateRadMetrics();
+}
+
+window.addEventListener('resize', function() {
+  drawFuelChart();
+  drawRadChart();
+});
+
+init();
+</script>
+</body>
+</html>

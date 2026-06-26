@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Knowledge Growth — Deep Time AI</title>
+<style>
+:root{color:#e9eefb;background:#070a14;font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.6;font-size:16px;}
+*{box-sizing:border-box}html,body{margin:0;min-height:100%;}
+body{background:radial-gradient(circle at top,#121d35 0%,#06090f 48%,#020408 100%);}
+a{color:#8cc3ff;text-decoration:none;}a:hover{text-decoration:underline;}
+.page{max-width:980px;margin:0 auto;padding:28px 20px 80px;}
+header{display:grid;gap:18px;padding:18px 0 26px;}
+.brand{display:flex;align-items:center;gap:14px;}
+.logo{width:52px;height:52px;border-radius:18px;background:linear-gradient(135deg,#5aa5ff,#9da8ff);display:flex;align-items:center;justify-content:center;font-weight:700;color:#071928;font-size:22px;}
+.brand h1{margin:0;font-size:2rem;letter-spacing:-0.03em;}
+.brand p{margin:4px 0 0;color:#9cb1d9;max-width:640px;}
+nav{display:flex;flex-wrap:wrap;gap:10px;font-size:.95rem;}
+nav a{padding:10px 15px;border:1px solid rgba(140,195,255,.18);border-radius:999px;background:rgba(12,18,34,.68);}
+nav a.active{background:rgba(140,195,255,.14);border-color:rgba(140,195,255,.42);color:#d7e5ff;}
+.hero{padding:22px 0 18px;border-top:1px solid rgba(140,195,255,.14);border-bottom:1px solid rgba(140,195,255,.14);}
+.hero h2{margin:0 0 8px;font-size:1.5rem;letter-spacing:-0.02em;}
+.hero p{margin:0;color:#c0ceea;max-width:720px;}
+.panel{border:1px solid rgba(140,195,255,.14);border-radius:20px;background:rgba(8,12,26,.9);padding:22px;margin:20px 0;}
+.panel h3{margin:0 0 14px;font-size:1.05rem;color:#d0dcf8;}
+.srow{margin-bottom:14px;}
+.srow .sl{display:flex;justify-content:space-between;font-size:.87rem;color:#8090b0;margin-bottom:4px;}
+.srow .sl span{color:#c0ceea;font-weight:600;}
+.srow input[type=range]{width:100%;accent-color:#5aa5ff;}
+.metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:18px 0;}
+@media(max-width:620px){.metrics{grid-template-columns:1fr;}}
+.mc{border:1px solid rgba(140,195,255,.13);border-radius:16px;background:rgba(10,15,30,.85);padding:14px 16px;}
+.mc .ml{font-size:.82rem;color:#7a90b8;margin-bottom:4px;}
+.mc .mv{font-size:1.25rem;font-weight:700;color:#d7e5ff;}
+.mc .ms{font-size:.8rem;color:#6a82a8;margin-top:2px;}
+.co{border:1px solid rgba(100,200,140,.22);border-radius:16px;background:rgba(40,100,60,.07);padding:16px 18px;margin:16px 0;}
+.co h4{margin:0 0 6px;color:#8de8b0;font-size:.95rem;}
+.co p{margin:0;color:#a0c0b0;font-size:.9rem;}
+.co-warn{border:1px solid rgba(255,150,60,.22);border-radius:16px;background:rgba(100,60,20,.07);padding:16px 18px;margin:16px 0;}
+.co-warn h4{margin:0 0 6px;color:#ffb070;font-size:.95rem;}
+.co-warn p{margin:0;color:#c0a880;font-size:.9rem;}
+canvas{display:block;width:100%;}
+footer{margin-top:56px;padding-top:24px;border-top:1px solid rgba(140,195,255,.12);color:#7d8fbc;font-size:.9rem;}
+#chart-wrap{position:relative;width:100%;}
+#chart-wrap canvas{display:block;width:100%;height:auto;}
+.legend{display:flex;gap:22px;font-size:.88rem;color:#9cb1d9;margin-bottom:10px;flex-wrap:wrap;}
+.legend-item{display:flex;align-items:center;gap:7px;}
+.legend-swatch{width:28px;height:3px;border-radius:2px;display:inline-block;}
+</style>
+</head>
+<body>
+<div class="page">
+
+<header>
+  <div class="brand">
+    <div class="logo">AI</div>
+    <div>
+      <h1>Deep Time AI</h1>
+      <p>Explore slow interstellar AI probes, self-replication, and deep-time research with interactive tools and papers.</p>
+    </div>
+  </div>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="papers.html">Papers</a>
+    <a href="challenges.html">Hard Problems</a>
+    <a href="code.html" class="active">Tools</a>
+    <a href="star_map_3d.html">Star map</a>
+    <a href="wanderer_map.html">Fleet map</a>
+  </nav>
+</header>
+
+<div class="hero">
+  <h2>Knowledge Growth — K(t) = G(t) - L(t)</h2>
+  <p>Simulate how a probe's knowledge base evolves over 2,000,000 years: accumulating during transit (standard mode) or dormant until arrival (range-maximizer). Adjust cruise distance, gain rates, and loss parameters to explore the trade-off.</p>
+</div>
+
+<!-- SLIDERS -->
+<div class="panel">
+  <h3>Parameters</h3>
+
+  <div class="srow">
+    <div class="sl">
+      <label for="sl-dist">Cruise distance</label>
+      <span id="lbl-dist">12 ly</span>
+    </div>
+    <input type="range" id="sl-dist" min="1" max="100" step="1" value="12">
+  </div>
+
+  <div class="srow">
+    <div class="sl">
+      <label for="sl-gain">Cruise gain rate</label>
+      <span id="lbl-gain">0.003 K-units/yr</span>
+    </div>
+    <input type="range" id="sl-gain" min="0.001" max="0.010" step="0.0005" value="0.003">
+  </div>
+
+  <div class="srow">
+    <div class="sl">
+      <label for="sl-half">Archive half-life</label>
+      <span id="lbl-half">10,000 yr</span>
+    </div>
+    <!-- log slider: stores ln value, mapped from ln(500) to ln(100000) -->
+    <input type="range" id="sl-half" min="0" max="1000" step="1" value="565">
+  </div>
+
+  <div class="srow">
+    <div class="sl">
+      <label for="sl-ctx">Context loss rate</label>
+      <span id="lbl-ctx">0.000500 /yr</span>
+    </div>
+    <!-- log slider: stored 0-1000 mapped from ln(0.00005) to ln(0.002) -->
+    <input type="range" id="sl-ctx" min="0" max="1000" step="1" value="624">
+  </div>
+</div>
+
+<!-- CHART -->
+<div class="panel">
+  <h3>K(t) over deep time</h3>
+  <div class="legend">
+    <div class="legend-item">
+      <span class="legend-swatch" style="background:#5ad1ff;"></span>
+      Standard (cruise learning)
+    </div>
+    <div class="legend-item">
+      <span class="legend-swatch" style="background:#70dd90;"></span>
+      Range-maximizer (dormant transit)
+    </div>
+    <div class="legend-item">
+      <span class="legend-swatch" style="background:rgba(255,200,80,.6);width:14px;height:14px;border-radius:2px;"></span>
+      Arrival
+    </div>
+  </div>
+  <div id="chart-wrap">
+    <canvas id="chart" height="420"></canvas>
+  </div>
+</div>
+
+<!-- METRICS -->
+<div class="metrics">
+  <div class="mc">
+    <div class="ml">K(Standard) at arrival</div>
+    <div class="mv" id="m-std-arr">—</div>
+    <div class="ms">K-units (includes burst)</div>
+  </div>
+  <div class="mc">
+    <div class="ml">K(Range-maximizer) at arrival</div>
+    <div class="mv" id="m-rm-arr">—</div>
+    <div class="ms">K-units (burst only)</div>
+  </div>
+  <div class="mc">
+    <div class="ml">Transit K gain (Standard)</div>
+    <div class="mv" id="m-transit">—</div>
+    <div class="ms">K at arrival minus burst</div>
+  </div>
+  <div class="mc">
+    <div class="ml">K(Standard) at 100,000 yr</div>
+    <div class="mv" id="m-std-100k">—</div>
+    <div class="ms">K-units</div>
+  </div>
+  <div class="mc">
+    <div class="ml">K(Range-maximizer) at 100,000 yr</div>
+    <div class="mv" id="m-rm-100k">—</div>
+    <div class="ms">K-units</div>
+  </div>
+  <div class="mc">
+    <div class="ml">Arrival time</div>
+    <div class="mv" id="m-arrive-yr">—</div>
+    <div class="ms">yr at 450 km/s</div>
+  </div>
+</div>
+
+<!-- CALLOUT -->
+<div class="co">
+  <h4>Interpretation</h4>
+  <p>The standard K-research probe accumulates observational and operational knowledge throughout the transit — refined navigation data, pre-arrival system characterization, improved bootstrap plans. The range-maximizer arrives faster but starts its knowledge clock at zero. For distant targets, the transit K-gain in standard mode can rival the arrival burst itself.</p>
+</div>
+
+<div class="co-warn">
+  <h4>Model scope</h4>
+  <p>This is a first-order model to fix orders of magnitude and design direction. K is a dimensionless index. Loss parameters (archive half-life, context drift rate) are illustrative; their real values are unknown. The gain rate post-arrival is set at 5x cruise gain as a placeholder for high-data-rate in-situ observation. See the knowledge-growth paper for the full K(t) = G(t) - L(t) framework.</p>
+</div>
+
+<footer>
+  Based on the knowledge-growth paper. <a href="code.html">Back to tools</a>
+</footer>
+
+</div><!-- .page -->
+
+<script>
+(function(){
+  "use strict";
+
+  // ── Constants ──────────────────────────────────────────────────────────────
+  var DT = 500;           // yr per step
+  var STEPS = 4000;       // 2,000,000 yr total
+  var K_BURST = 50;       // K-units at arrival
+  var GAIN_MULT_POST = 5; // post-arrival gain multiplier
+
+  // ── Log-slider helpers ─────────────────────────────────────────────────────
+  // Archive half-life: 500 to 100000 yr (log)
+  var HL_MIN = Math.log(500);
+  var HL_MAX = Math.log(100000);
+  function sliderToHalflife(v){ return Math.exp(HL_MIN + (v/1000)*(HL_MAX - HL_MIN)); }
+  function halflifeToSlider(h){ return Math.round(((Math.log(h)-HL_MIN)/(HL_MAX-HL_MIN))*1000); }
+
+  // Context loss: 0.00005 to 0.002 /yr (log)
+  var CTX_MIN = Math.log(0.00005);
+  var CTX_MAX = Math.log(0.002);
+  function sliderToCtx(v){ return Math.exp(CTX_MIN + (v/1000)*(CTX_MAX - CTX_MIN)); }
+  function ctxToSlider(c){ return Math.round(((Math.log(c)-CTX_MIN)/(CTX_MAX-CTX_MIN))*1000); }
+
+  // ── DOM refs ───────────────────────────────────────────────────────────────
+  var slDist  = document.getElementById('sl-dist');
+  var slGain  = document.getElementById('sl-gain');
+  var slHalf  = document.getElementById('sl-half');
+  var slCtx   = document.getElementById('sl-ctx');
+  var lblDist = document.getElementById('lbl-dist');
+  var lblGain = document.getElementById('lbl-gain');
+  var lblHalf = document.getElementById('lbl-half');
+  var lblCtx  = document.getElementById('lbl-ctx');
+
+  var mStdArr  = document.getElementById('m-std-arr');
+  var mRmArr   = document.getElementById('m-rm-arr');
+  var mTransit = document.getElementById('m-transit');
+  var mStd100k = document.getElementById('m-std-100k');
+  var mRm100k  = document.getElementById('m-rm-100k');
+  var mArriveYr= document.getElementById('m-arrive-yr');
+
+  var canvas = document.getElementById('chart');
+  var ctx    = canvas.getContext('2d');
+
+  // ── Read params ────────────────────────────────────────────────────────────
+  function getParams(){
+    var dist     = parseFloat(slDist.value);
+    var gainRate = parseFloat(slGain.value);
+    var halflife = sliderToHalflife(parseInt(slHalf.value));
+    var ctxRate  = sliderToCtx(parseInt(slCtx.value));
+    // arrival time: dist_ly * 9.46e15 / (450000 * 31557600)
+    var arriveYr = dist * 9.46e15 / (450000 * 31557600);
+    return { dist:dist, gainRate:gainRate, halflife:halflife, ctxRate:ctxRate, arriveYr:arriveYr };
+  }
+
+  // ── Update labels ──────────────────────────────────────────────────────────
+  function updateLabels(p){
+    lblDist.textContent = p.dist + ' ly';
+    lblGain.textContent = p.gainRate.toFixed(4) + ' K-units/yr';
+    lblHalf.textContent = Math.round(p.halflife).toLocaleString() + ' yr';
+    lblCtx.textContent  = p.ctxRate.toFixed(6) + ' /yr';
+  }
+
+  // ── Simulation ─────────────────────────────────────────────────────────────
+  function simulate(p){
+    var arriveStep = Math.round(p.arriveYr / DT);
+    if(arriveStep >= STEPS) arriveStep = STEPS - 1;
+
+    // archive decay rate per step (from half-life): λ = ln(2)/halflife
+    var archiveLambda = Math.log(2) / p.halflife;
+
+    var stdK  = new Float64Array(STEPS);
+    var rmK   = new Float64Array(STEPS);
+    var times = new Float64Array(STEPS);
+
+    var kStd = 0;
+    var kRm  = 0;
+
+    for(var i = 0; i < STEPS; i++){
+      times[i] = (i + 1) * DT; // time at end of step (1-indexed yr)
+
+      var inTransit = (i < arriveStep);
+      var isArrival = (i === arriveStep);
+
+      // gain this step
+      var gStd = inTransit ? p.gainRate : p.gainRate * GAIN_MULT_POST;
+      var gRm  = inTransit ? 0          : p.gainRate * GAIN_MULT_POST;
+
+      // loss rates (combined)
+      // archive_loss = K * (1 - exp(-lambda*dt)) ≈ K * lambda * dt for small lambda*dt
+      // context_loss = K * ctx_rate * dt
+      // Combined fractional loss per step:
+      var archFrac = 1 - Math.exp(-archiveLambda * DT);
+      var ctxFrac  = p.ctxRate * DT;
+
+      var lossStd = kStd * archFrac + kStd * ctxFrac;
+      var lossRm  = kRm  * archFrac + kRm  * ctxFrac;
+
+      kStd = kStd + gStd * DT - lossStd;
+      kRm  = kRm  + gRm  * DT - lossRm;
+
+      if(kStd < 0) kStd = 0;
+      if(kRm  < 0) kRm  = 0;
+
+      // arrival burst applied at arrival step (after loss/gain this step)
+      if(isArrival){
+        kStd += K_BURST;
+        kRm  += K_BURST;
+      }
+
+      stdK[i] = kStd;
+      rmK[i]  = kRm;
+    }
+
+    return { times:times, stdK:stdK, rmK:rmK, arriveStep:arriveStep };
+  }
+
+  // ── Number formatting ──────────────────────────────────────────────────────
+  function fmt(v){
+    if(v >= 1e6)  return (v/1e6).toFixed(2) + 'M';
+    if(v >= 1e3)  return (v/1e3).toFixed(1) + 'k';
+    return v.toFixed(1);
+  }
+
+  function fmtYr(v){
+    if(v >= 1e6)  return (v/1e6).toFixed(2) + 'M yr';
+    if(v >= 1e3)  return Math.round(v/100)*100 + ' yr';
+    return Math.round(v) + ' yr';
+  }
+
+  // ── Chart drawing ──────────────────────────────────────────────────────────
+  // Log x-axis: 1 yr to 2,000,000 yr
+  var X_MIN_LOG = Math.log10(1);
+  var X_MAX_LOG = Math.log10(2000000);
+
+  function xToCanvas(t, W, PAD_L, PAD_R){
+    var logT = Math.log10(Math.max(t, 1));
+    return PAD_L + (logT - X_MIN_LOG) / (X_MAX_LOG - X_MIN_LOG) * (W - PAD_L - PAD_R);
+  }
+  function yToCanvas(k, kMax, H, PAD_T, PAD_B){
+    if(kMax <= 0) return H - PAD_B;
+    return PAD_T + (1 - k/kMax) * (H - PAD_T - PAD_B);
+  }
+
+  function drawChart(sim, p){
+    // Sizing: set canvas resolution to 2x for sharpness
+    var wrap = canvas.parentNode;
+    var cssW = wrap.clientWidth || 900;
+    var cssH = 420;
+    var DPR  = window.devicePixelRatio || 1;
+    canvas.width  = Math.round(cssW * DPR);
+    canvas.height = Math.round(cssH * DPR);
+    canvas.style.width  = cssW + 'px';
+    canvas.style.height = cssH + 'px';
+    ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
+
+    var W = cssW, H = cssH;
+    var PAD_L = 68, PAD_R = 24, PAD_T = 22, PAD_B = 46;
+
+    // Clear
+    ctx.clearRect(0, 0, W, H);
+
+    // Background
+    ctx.fillStyle = 'rgba(8,12,26,0)';
+    ctx.fillRect(0, 0, W, H);
+
+    // Determine y-max
+    var kMax = 0;
+    for(var i = 0; i < sim.stdK.length; i++){
+      if(sim.stdK[i] > kMax) kMax = sim.stdK[i];
+      if(sim.rmK[i]  > kMax) kMax = sim.rmK[i];
+    }
+    if(kMax <= 0) kMax = 1;
+    // round up to nice number
+    var magnitude = Math.pow(10, Math.floor(Math.log10(kMax)));
+    kMax = Math.ceil(kMax / magnitude) * magnitude;
+
+    // Grid lines (log x)
+    var xTicks = [1, 10, 100, 1000, 10000, 100000, 1000000, 2000000];
+    var xLabels= ['1', '10', '100', '1k', '10k', '100k', '1M', '2M'];
+
+    ctx.strokeStyle = 'rgba(140,195,255,0.07)';
+    ctx.lineWidth = 1;
+    for(var t = 0; t < xTicks.length; t++){
+      var xc = xToCanvas(xTicks[t], W, PAD_L, PAD_R);
+      ctx.beginPath();
+      ctx.moveTo(xc, PAD_T);
+      ctx.lineTo(xc, H - PAD_B);
+      ctx.stroke();
+    }
+
+    // Y grid (5 lines)
+    var yTicks = 5;
+    ctx.strokeStyle = 'rgba(140,195,255,0.06)';
+    for(var yi = 0; yi <= yTicks; yi++){
+      var yv = (yi / yTicks) * kMax;
+      var yc = yToCanvas(yv, kMax, H, PAD_T, PAD_B);
+      ctx.beginPath();
+      ctx.moveTo(PAD_L, yc);
+      ctx.lineTo(W - PAD_R, yc);
+      ctx.stroke();
+    }
+
+    // Arrival line
+    var arrT = (sim.arriveStep + 1) * DT;
+    var arrX = xToCanvas(arrT, W, PAD_L, PAD_R);
+    ctx.save();
+    ctx.strokeStyle = 'rgba(255,200,80,0.55)';
+    ctx.lineWidth = 1.5;
+    ctx.setLineDash([5, 4]);
+    ctx.beginPath();
+    ctx.moveTo(arrX, PAD_T);
+    ctx.lineTo(arrX, H - PAD_B);
+    ctx.stroke();
+    ctx.setLineDash([]);
+    ctx.restore();
+
+    // Arrival label
+    ctx.font = '11px Inter,system-ui,sans-serif';
+    ctx.fillStyle = 'rgba(255,200,80,0.85)';
+    ctx.textAlign = 'left';
+    var arrLabel = 'Arrival (' + fmtYr(arrT) + ')';
+    var labelX = arrX + 5;
+    // If too close to right edge, flip
+    if(labelX + ctx.measureText(arrLabel).width > W - PAD_R - 4){
+      ctx.textAlign = 'right';
+      labelX = arrX - 5;
+    }
+    ctx.fillText(arrLabel, labelX, PAD_T + 14);
+    ctx.textAlign = 'left';
+
+    // Draw curves
+    function drawCurve(kArr, color){
+      ctx.beginPath();
+      ctx.strokeStyle = color;
+      ctx.lineWidth = 2;
+      var first = true;
+      for(var i = 0; i < sim.times.length; i++){
+        var xp = xToCanvas(sim.times[i], W, PAD_L, PAD_R);
+        var yp = yToCanvas(kArr[i], kMax, H, PAD_T, PAD_B);
+        if(xp < PAD_L) { first = true; continue; }
+        if(first){ ctx.moveTo(xp, yp); first = false; }
+        else      { ctx.lineTo(xp, yp); }
+      }
+      ctx.stroke();
+    }
+
+    drawCurve(sim.stdK,  '#5ad1ff');
+    drawCurve(sim.rmK,   '#70dd90');
+
+    // Arrival burst markers (dots at arrival point for each curve)
+    var arrStep = sim.arriveStep;
+    function dotAt(kArr, color){
+      var xp = xToCanvas(sim.times[arrStep], W, PAD_L, PAD_R);
+      var yp = yToCanvas(kArr[arrStep], kMax, H, PAD_T, PAD_B);
+      ctx.beginPath();
+      ctx.arc(xp, yp, 5, 0, 2*Math.PI);
+      ctx.fillStyle = color;
+      ctx.fill();
+      ctx.strokeStyle = '#070a14';
+      ctx.lineWidth = 1.5;
+      ctx.stroke();
+    }
+    dotAt(sim.stdK, '#5ad1ff');
+    dotAt(sim.rmK,  '#70dd90');
+
+    // Axes
+    ctx.strokeStyle = 'rgba(140,195,255,0.25)';
+    ctx.lineWidth = 1;
+    ctx.beginPath();
+    ctx.moveTo(PAD_L, PAD_T);
+    ctx.lineTo(PAD_L, H - PAD_B);
+    ctx.lineTo(W - PAD_R, H - PAD_B);
+    ctx.stroke();
+
+    // X tick labels
+    ctx.font = '11px Inter,system-ui,sans-serif';
+    ctx.fillStyle = '#6a80a8';
+    ctx.textAlign = 'center';
+    for(var t2 = 0; t2 < xTicks.length; t2++){
+      var xc2 = xToCanvas(xTicks[t2], W, PAD_L, PAD_R);
+      if(xc2 < PAD_L || xc2 > W - PAD_R) continue;
+      ctx.fillText(xLabels[t2], xc2, H - PAD_B + 16);
+    }
+    // X axis label
+    ctx.fillStyle = '#8090b0';
+    ctx.font = '12px Inter,system-ui,sans-serif';
+    ctx.fillText('Time (yr, log scale)', PAD_L + (W - PAD_L - PAD_R)/2, H - 4);
+
+    // Y tick labels
+    ctx.textAlign = 'right';
+    ctx.fillStyle = '#6a80a8';
+    ctx.font = '11px Inter,system-ui,sans-serif';
+    for(var yi2 = 0; yi2 <= yTicks; yi2++){
+      var yv2 = (yi2 / yTicks) * kMax;
+      var yc2 = yToCanvas(yv2, kMax, H, PAD_T, PAD_B);
+      ctx.fillText(fmt(yv2), PAD_L - 6, yc2 + 4);
+    }
+    // Y axis label
+    ctx.save();
+    ctx.translate(13, PAD_T + (H - PAD_T - PAD_B)/2);
+    ctx.rotate(-Math.PI/2);
+    ctx.textAlign = 'center';
+    ctx.fillStyle = '#8090b0';
+    ctx.font = '12px Inter,system-ui,sans-serif';
+    ctx.fillText('K (K-units)', 0, 0);
+    ctx.restore();
+  }
+
+  // ── Metrics update ─────────────────────────────────────────────────────────
+  function updateMetrics(sim, p){
+    var arrStep = sim.arriveStep;
+    var stdAtArr = sim.stdK[arrStep];
+    var rmAtArr  = sim.rmK[arrStep];
+    var transitGain = stdAtArr - K_BURST;
+    if(transitGain < 0) transitGain = 0;
+
+    // Find step closest to 100,000 yr
+    var step100k = Math.round(100000 / DT) - 1;
+    if(step100k < 0) step100k = 0;
+    if(step100k >= STEPS) step100k = STEPS - 1;
+
+    var std100k = sim.stdK[step100k];
+    var rm100k  = sim.rmK[step100k];
+
+    mStdArr.textContent  = fmt(stdAtArr) + ' K';
+    mRmArr.textContent   = fmt(rmAtArr)  + ' K';
+    mTransit.textContent = fmt(transitGain) + ' K';
+    mStd100k.textContent = fmt(std100k)  + ' K';
+    mRm100k.textContent  = fmt(rm100k)   + ' K';
+    mArriveYr.textContent= fmtYr(p.arriveYr);
+  }
+
+  // ── Main update ────────────────────────────────────────────────────────────
+  function update(){
+    var p   = getParams();
+    updateLabels(p);
+    var sim = simulate(p);
+    drawChart(sim, p);
+    updateMetrics(sim, p);
+  }
+
+  // ── Slider wiring ──────────────────────────────────────────────────────────
+  slDist.addEventListener('input', update);
+  slGain.addEventListener('input', update);
+  slHalf.addEventListener('input', update);
+  slCtx.addEventListener('input',  update);
+
+  // ── Resize ────────────────────────────────────────────────────────────────
+  var _resizeTimer;
+  window.addEventListener('resize', function(){
+    clearTimeout(_resizeTimer);
+    _resizeTimer = setTimeout(update, 60);
+  });
+
+  // ── Init ──────────────────────────────────────────────────────────────────
+  // Set initial slider positions to match defaults
+  slHalf.value = halflifeToSlider(10000);
+  slCtx.value  = ctxToSlider(0.0005);
+  update();
+
+})();
+</script>
+</body>
+</html>

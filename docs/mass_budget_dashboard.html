@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Seed Mass Budget — Deep Time AI</title>
+<style>
+:root{color:#e9eefb;background:#070a14;font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.6;font-size:16px;}
+*{box-sizing:border-box}html,body{margin:0;min-height:100%;}
+body{background:radial-gradient(circle at top,#121d35 0%,#06090f 48%,#020408 100%);}
+a{color:#8cc3ff;text-decoration:none;}a:hover{text-decoration:underline;}
+.page{max-width:980px;margin:0 auto;padding:28px 20px 80px;}
+header{display:grid;gap:18px;padding:18px 0 26px;}
+.brand{display:flex;align-items:center;gap:14px;}
+.logo{width:52px;height:52px;border-radius:18px;background:linear-gradient(135deg,#5aa5ff,#9da8ff);display:flex;align-items:center;justify-content:center;font-weight:700;color:#071928;font-size:22px;}
+.brand h1{margin:0;font-size:2rem;letter-spacing:-0.03em;}
+.brand p{margin:4px 0 0;color:#9cb1d9;max-width:640px;}
+nav{display:flex;flex-wrap:wrap;gap:10px;font-size:.95rem;}
+nav a{padding:10px 15px;border:1px solid rgba(140,195,255,.18);border-radius:999px;background:rgba(12,18,34,.68);}
+nav a.active{background:rgba(140,195,255,.14);border-color:rgba(140,195,255,.42);color:#d7e5ff;}
+.hero{padding:22px 0 18px;border-top:1px solid rgba(140,195,255,.14);border-bottom:1px solid rgba(140,195,255,.14);}
+.hero h2{margin:0 0 8px;font-size:1.5rem;letter-spacing:-0.02em;}
+.hero p{margin:0;color:#c0ceea;max-width:720px;}
+.panel{border:1px solid rgba(140,195,255,.14);border-radius:20px;background:rgba(8,12,26,.9);padding:22px;margin:20px 0;}
+.panel h3{margin:0 0 14px;font-size:1.05rem;color:#d0dcf8;}
+.srow{margin-bottom:14px;}
+.srow .sl{display:flex;justify-content:space-between;font-size:.87rem;color:#8090b0;margin-bottom:4px;}
+.srow .sl span{color:#c0ceea;font-weight:600;}
+.srow input[type=range]{width:100%;accent-color:#5aa5ff;}
+.metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:18px 0;}
+@media(max-width:620px){.metrics{grid-template-columns:1fr;}}
+.mc{border:1px solid rgba(140,195,255,.13);border-radius:16px;background:rgba(10,15,30,.85);padding:14px 16px;}
+.mc .ml{font-size:.82rem;color:#7a90b8;margin-bottom:4px;}
+.mc .mv{font-size:1.25rem;font-weight:700;color:#d7e5ff;}
+.mc .ms{font-size:.8rem;color:#6a82a8;margin-top:2px;}
+.co{border:1px solid rgba(100,200,140,.22);border-radius:16px;background:rgba(40,100,60,.07);padding:16px 18px;margin:16px 0;}
+.co h4{margin:0 0 6px;color:#8de8b0;font-size:.95rem;}
+.co p{margin:0;color:#a0c0b0;font-size:.9rem;}
+.co-warn{border:1px solid rgba(255,150,60,.22);border-radius:16px;background:rgba(100,60,20,.07);padding:16px 18px;margin:16px 0;}
+.co-warn h4{margin:0 0 6px;color:#ffb070;font-size:.95rem;}
+.co-warn p{margin:0;color:#c0a880;font-size:.9rem;}
+canvas{display:block;width:100%;}
+footer{margin-top:56px;padding-top:24px;border-top:1px solid rgba(140,195,255,.12);color:#7d8fbc;font-size:.9rem;}
+.charts-row{display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:start;}
+@media(max-width:680px){.charts-row{grid-template-columns:1fr;}}
+.chart-wrap{position:relative;}
+.chart-wrap canvas{height:340px;}
+.legend{display:flex;flex-wrap:wrap;gap:8px 16px;margin-top:14px;font-size:.82rem;}
+.legend-item{display:flex;align-items:center;gap:6px;color:#9cb1d9;}
+.legend-dot{width:12px;height:12px;border-radius:3px;flex-shrink:0;}
+.fixed-note{font-size:.78rem;color:#5a70a0;font-style:italic;margin-top:2px;}
+</style>
+</head>
+<body>
+<div class="page">
+
+<header>
+  <div class="brand">
+    <div class="logo">AI</div>
+    <div>
+      <h1>Deep Time AI</h1>
+      <p>Explore slow interstellar AI probes, self-replication, and deep-time research with interactive tools and papers.</p>
+    </div>
+  </div>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="papers.html">Papers</a>
+    <a href="challenges.html">Hard Problems</a>
+    <a href="code.html" class="active">Tools</a>
+    <a href="star_map_3d.html">Star map</a>
+    <a href="wanderer_map.html">Fleet map</a>
+  </nav>
+</header>
+
+<div class="hero">
+  <h2>Seed Mass Budget — Interactive Breakdown</h2>
+  <p>The 3,700 kg reference seed mass is dominated by the ISRU and manufacturing plant. Adjust sliders to explore how design choices shift the allocation. The minimum viable probe comparison shows the theoretical floor.</p>
+</div>
+
+<div class="panel">
+  <h3>Adjustable Parameters</h3>
+
+  <div class="srow">
+    <div class="sl"><span>ISRU / Manufacturing Plant</span><span id="lbl-plant">2000 kg</span></div>
+    <input type="range" id="sl-plant" min="200" max="5000" value="2000" step="50">
+  </div>
+
+  <div class="srow">
+    <div class="sl"><span>Radiation Shielding</span><span id="lbl-shield">400 kg</span></div>
+    <input type="range" id="sl-shield" min="100" max="800" value="400" step="10">
+  </div>
+
+  <div class="srow">
+    <div class="sl"><span>Magnetic Sail Structure</span><span id="lbl-sail">300 kg</span></div>
+    <input type="range" id="sl-sail" min="100" max="600" value="300" step="10">
+  </div>
+
+  <div class="srow">
+    <div class="sl"><span>Computation + Payload</span><span id="lbl-comp">200 kg</span></div>
+    <input type="range" id="sl-comp" min="50" max="500" value="200" step="10">
+  </div>
+
+  <div class="srow">
+    <div class="sl"><span>Reactor thermal output</span><span id="lbl-reactor">14 kW → 112 kg</span></div>
+    <input type="range" id="sl-reactor" min="4" max="20" value="14" step="1">
+    <div class="fixed-note">8 kg/kW thermal. At 28% conversion efficiency, 14 kW thermal delivers ~4 kW electric.</div>
+  </div>
+
+  <div class="srow">
+    <div class="sl"><span>Cruise radiators (carried, fixed)</span><span>30 kg</span></div>
+  </div>
+  <div class="srow">
+    <div class="sl"><span>Nuclear fuel — U-235 (fixed)</span><span>16.5 kg</span></div>
+  </div>
+  <div class="srow">
+    <div class="sl"><span>Structure / Integration (auto: 20% of above)</span><span id="lbl-struct">— kg</span></div>
+  </div>
+</div>
+
+<div class="metrics">
+  <div class="mc">
+    <div class="ml">Total Seed Mass</div>
+    <div class="mv" id="mv-total">— kg</div>
+    <div class="ms">Reference: ~3,700 kg</div>
+  </div>
+  <div class="mc">
+    <div class="ml">Manufacturing Fraction</div>
+    <div class="mv" id="mv-mfg">—%</div>
+    <div class="ms">Reference: ~54%</div>
+  </div>
+  <div class="mc">
+    <div class="ml">Computation Fraction</div>
+    <div class="mv" id="mv-comp">—%</div>
+    <div class="ms">Reference: ~5%</div>
+  </div>
+</div>
+
+<div class="co">
+  <h4>Key Insight</h4>
+  <p>The manufacturing and ISRU plant dominates because it IS the mission — without it the probe cannot replicate or build. Computation costs essentially nothing by comparison at ~5%. Material and energy margins are vast (~10^18 and ~10^3 respectively); capability and manufacturing closure are the binding constraints.</p>
+</div>
+
+<div class="panel">
+  <h3>Mass Breakdown — Reference Seed (pie)</h3>
+  <div class="charts-row">
+    <div class="chart-wrap">
+      <canvas id="pie-canvas" height="340"></canvas>
+    </div>
+    <div>
+      <div class="legend" id="pie-legend"></div>
+      <div style="margin-top:20px;font-size:.85rem;color:#8090b0;line-height:1.7;">
+        <p style="margin:0 0 8px;">Labels shown for segments larger than 3% of total. The structural mass (20% overhead) is auto-computed from all primary subsystems combined.</p>
+        <p style="margin:0;">Cruise radiators are carried hardware — manufacturing-scale radiators (hundreds to thousands of m²) are built in situ from local materials after arrival.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="panel">
+  <h3>Reference Seed vs Minimum Viable Probe — Stacked Bar Comparison</h3>
+  <canvas id="bar-canvas" height="340"></canvas>
+  <div class="legend" id="bar-legend" style="margin-top:14px;"></div>
+  <div class="co-warn" style="margin-top:16px;">
+    <h4>Minimum Viable Probe (fixed reference)</h4>
+    <p>Plant 200 kg · Shielding 100 kg · Sail 100 kg · Computation 50 kg · Reactor 7 kW (56 kg) · Radiators 15 kg · Fuel 8 kg · Structure 20% overhead. This is the theoretical minimum to achieve L1 closure — barely capable, zero margin.</p>
+  </div>
+</div>
+
+<footer>
+  Based on the subsystem budget paper (S. Stone, Metropolitan State University). <a href="code.html">Back to tools</a>
+</footer>
+
+</div>
+
+<script>
+(function(){
+  // ---- constants ----
+  var RADIATORS_KG = 30;
+  var FUEL_KG = 16.5;
+  var STRUCT_FRAC = 0.20;
+
+  // Minimum viable probe (fixed)
+  var MVP = {
+    plant: 200,
+    shield: 100,
+    sail: 100,
+    comp: 50,
+    reactor: 56,   // 7 kW * 8
+    radiators: 15,
+    fuel: 8
+  };
+  (function(){
+    var base = MVP.plant + MVP.shield + MVP.sail + MVP.comp + MVP.reactor + MVP.radiators + MVP.fuel;
+    MVP.struct = Math.round(base * STRUCT_FRAC);
+    MVP.total = base + MVP.struct;
+  })();
+
+  var COLORS = {
+    plant:      '#5ad1ff',
+    struct:     '#8899cc',
+    shield:     '#ffaa44',
+    sail:       '#cc88ff',
+    comp:       '#44ddcc',
+    reactor:    '#ff8844',
+    radiators:  '#88cc66',
+    fuel:       '#ffdd44'
+  };
+
+  var LABELS = {
+    plant:     'ISRU / Plant',
+    struct:    'Structure',
+    shield:    'Shielding',
+    sail:      'Magnetic Sail',
+    comp:      'Computation',
+    reactor:   'Reactor',
+    radiators: 'Radiators',
+    fuel:      'Nuclear Fuel'
+  };
+
+  var KEYS = ['plant','shield','sail','comp','reactor','radiators','fuel','struct'];
+
+  // ---- sliders ----
+  var slPlant   = document.getElementById('sl-plant');
+  var slShield  = document.getElementById('sl-shield');
+  var slSail    = document.getElementById('sl-sail');
+  var slComp    = document.getElementById('sl-comp');
+  var slReactor = document.getElementById('sl-reactor');
+
+  function getValues(){
+    var plant   = +slPlant.value;
+    var shield  = +slShield.value;
+    var sail    = +slSail.value;
+    var comp    = +slComp.value;
+    var rkw     = +slReactor.value;
+    var reactor = rkw * 8;
+    var radiators = RADIATORS_KG;
+    var fuel    = FUEL_KG;
+    var preStruct = plant + shield + sail + comp + reactor + radiators + fuel;
+    var struct  = Math.round(preStruct * STRUCT_FRAC);
+    var total   = preStruct + struct;
+    return {plant:plant, shield:shield, sail:sail, comp:comp, reactor:reactor, radiators:radiators, fuel:fuel, struct:struct, total:total, rkw:rkw};
+  }
+
+  function updateLabels(v){
+    document.getElementById('lbl-plant').textContent   = v.plant + ' kg';
+    document.getElementById('lbl-shield').textContent  = v.shield + ' kg';
+    document.getElementById('lbl-sail').textContent    = v.sail + ' kg';
+    document.getElementById('lbl-comp').textContent    = v.comp + ' kg';
+    document.getElementById('lbl-reactor').textContent = v.rkw + ' kW → ' + v.reactor + ' kg';
+    document.getElementById('lbl-struct').textContent  = v.struct + ' kg';
+    document.getElementById('mv-total').textContent    = v.total.toLocaleString() + ' kg';
+    document.getElementById('mv-mfg').textContent      = (v.plant/v.total*100).toFixed(1) + '%';
+    document.getElementById('mv-comp').textContent     = (v.comp/v.total*100).toFixed(1) + '%';
+  }
+
+  // ---- pie chart ----
+  var pieCanvas = document.getElementById('pie-canvas');
+  var pieCtx    = pieCanvas.getContext('2d');
+
+  function buildLegend(containerId){
+    var el = document.getElementById(containerId);
+    el.innerHTML = '';
+    KEYS.forEach(function(k){
+      var item = document.createElement('div');
+      item.className = 'legend-item';
+      var dot = document.createElement('div');
+      dot.className = 'legend-dot';
+      dot.style.background = COLORS[k];
+      var txt = document.createTextNode(LABELS[k]);
+      item.appendChild(dot);
+      item.appendChild(txt);
+      el.appendChild(item);
+    });
+  }
+
+  function drawPie(v){
+    var dpr = window.devicePixelRatio || 1;
+    var rect = pieCanvas.getBoundingClientRect();
+    var w = rect.width || pieCanvas.offsetWidth || 340;
+    var h = 340;
+    pieCanvas.width  = w * dpr;
+    pieCanvas.height = h * dpr;
+    pieCtx.scale(dpr, dpr);
+
+    var cx = w/2, cy = h/2;
+    var r  = Math.min(cx, cy) - 28;
+
+    var segs = KEYS.map(function(k){ return {key:k, val:v[k]||0}; });
+    var total = v.total;
+
+    var startAngle = -Math.PI/2;
+    segs.forEach(function(s){
+      var frac  = s.val / total;
+      var sweep = frac * 2 * Math.PI;
+      var end   = startAngle + sweep;
+
+      pieCtx.beginPath();
+      pieCtx.moveTo(cx, cy);
+      pieCtx.arc(cx, cy, r, startAngle, end);
+      pieCtx.closePath();
+      pieCtx.fillStyle = COLORS[s.key];
+      pieCtx.fill();
+      pieCtx.strokeStyle = '#07090f';
+      pieCtx.lineWidth = 2;
+      pieCtx.stroke();
+
+      // label if > 3%
+      if(frac > 0.03){
+        var midAngle = startAngle + sweep/2;
+        var lr = r * 0.67;
+        var lx = cx + Math.cos(midAngle)*lr;
+        var ly = cy + Math.sin(midAngle)*lr;
+        pieCtx.save();
+        pieCtx.fillStyle = '#ffffff';
+        pieCtx.font = 'bold 11px Inter,system-ui,sans-serif';
+        pieCtx.textAlign = 'center';
+        pieCtx.textBaseline = 'middle';
+        var pct = (frac*100).toFixed(1)+'%';
+        pieCtx.fillText(LABELS[s.key], lx, ly - 7);
+        pieCtx.fillStyle = 'rgba(255,255,255,0.75)';
+        pieCtx.font = '10px Inter,system-ui,sans-serif';
+        pieCtx.fillText(pct, lx, ly + 7);
+        pieCtx.restore();
+      }
+
+      startAngle = end;
+    });
+  }
+
+  // ---- bar chart ----
+  var barCanvas = document.getElementById('bar-canvas');
+  var barCtx    = barCanvas.getContext('2d');
+
+  function drawBar(v){
+    var dpr = window.devicePixelRatio || 1;
+    var rect = barCanvas.getBoundingClientRect();
+    var w = rect.width || barCanvas.offsetWidth || 700;
+    var h = 340;
+    barCanvas.width  = w * dpr;
+    barCanvas.height = h * dpr;
+    barCtx.scale(dpr, dpr);
+
+    barCtx.clearRect(0, 0, w, h);
+
+    var pad = {top:24, bottom:52, left:60, right:20};
+    var chartH = h - pad.top - pad.bottom;
+    var chartW = w - pad.left - pad.right;
+
+    // both probes
+    var probes = [
+      {label:'Reference Seed', data:v, total:v.total},
+      {label:'Min Viable Probe', data:MVP, total:MVP.total}
+    ];
+
+    var maxTotal = Math.max(v.total, MVP.total);
+    // round up to nice number
+    var yMax = Math.ceil(maxTotal / 500) * 500;
+
+    // grid lines
+    var gridCount = 5;
+    barCtx.strokeStyle = 'rgba(140,195,255,0.08)';
+    barCtx.lineWidth = 1;
+    barCtx.fillStyle = 'rgba(140,195,255,0.35)';
+    barCtx.font = '11px Inter,system-ui,sans-serif';
+    barCtx.textAlign = 'right';
+    barCtx.textBaseline = 'middle';
+    for(var gi=0; gi<=gridCount; gi++){
+      var gv = yMax * gi / gridCount;
+      var gy = pad.top + chartH - (gv/yMax)*chartH;
+      barCtx.beginPath();
+      barCtx.moveTo(pad.left, gy);
+      barCtx.lineTo(pad.left + chartW, gy);
+      barCtx.stroke();
+      barCtx.fillText(Math.round(gv).toLocaleString(), pad.left - 8, gy);
+    }
+
+    // y-axis label
+    barCtx.save();
+    barCtx.fillStyle = 'rgba(140,195,255,0.5)';
+    barCtx.font = '11px Inter,system-ui,sans-serif';
+    barCtx.textAlign = 'center';
+    barCtx.translate(14, pad.top + chartH/2);
+    barCtx.rotate(-Math.PI/2);
+    barCtx.fillText('Mass (kg)', 0, 0);
+    barCtx.restore();
+
+    var barW    = chartW * 0.28;
+    var spacing = chartW / (probes.length + 1);
+
+    probes.forEach(function(p, pi){
+      var bx = pad.left + spacing*(pi+1) - barW/2;
+      var runY = pad.top + chartH; // bottom of chart
+
+      KEYS.forEach(function(k){
+        var kg = p.data[k] || 0;
+        var bh = (kg / yMax) * chartH;
+        runY -= bh;
+        barCtx.fillStyle = COLORS[k];
+        barCtx.fillRect(bx, runY, barW, bh);
+        // thin separator
+        barCtx.fillStyle = 'rgba(0,0,0,0.25)';
+        barCtx.fillRect(bx, runY, barW, 1);
+      });
+
+      // bar label
+      barCtx.fillStyle = '#c0ceea';
+      barCtx.font = '12px Inter,system-ui,sans-serif';
+      barCtx.textAlign = 'center';
+      barCtx.textBaseline = 'top';
+      barCtx.fillText(p.label, bx + barW/2, pad.top + chartH + 8);
+
+      // total above bar
+      var topY = pad.top + chartH - (p.total/yMax)*chartH;
+      barCtx.fillStyle = '#d7e5ff';
+      barCtx.font = 'bold 12px Inter,system-ui,sans-serif';
+      barCtx.textAlign = 'center';
+      barCtx.textBaseline = 'bottom';
+      barCtx.fillText(p.total.toLocaleString() + ' kg', bx + barW/2, topY - 4);
+    });
+  }
+
+  function update(){
+    var v = getValues();
+    updateLabels(v);
+    drawPie(v);
+    drawBar(v);
+  }
+
+  // wire sliders
+  [slPlant, slShield, slSail, slComp, slReactor].forEach(function(sl){
+    sl.addEventListener('input', update);
+  });
+
+  // build legends (static)
+  buildLegend('pie-legend');
+  buildLegend('bar-legend');
+
+  // initial render
+  update();
+
+  // re-render on resize
+  var resizeTimer;
+  window.addEventListener('resize', function(){
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(update, 80);
+  });
+
+})();
+</script>
+</body>
+</html>

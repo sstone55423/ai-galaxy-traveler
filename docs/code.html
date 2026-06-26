@@ -33,32 +33,48 @@
 
     <div class="cards">
       <article class="card">
-        <h2>Local star and routing engine</h2>
-        <p>Use `code/galaxy_sim.py` to measure distances, find neighbours, and compute routes between the 127 real stars within 100 light-years.</p>
-        <a href="https://github.com/sstone55423/ai-galaxy-traveler/blob/main/code/galaxy_sim.py" target="_blank" rel="noopener">Open galaxy_sim.py</a>
+        <h2>Star map &amp; routing</h2>
+        <p>Interactive 3D map of 127 real stars within 100 light-years. Rotate, zoom, and query distances and hop routes across the real catalogue.</p>
+        <a href="star_map_3d.html">Open the star map</a> &nbsp;·&nbsp;
+        <a href="https://github.com/sstone55423/ai-galaxy-traveler/blob/main/code/galaxy_sim.py" target="_blank" rel="noopener">galaxy_sim.py</a>
       </article>
       <article class="card">
-        <h2>Propulsion models</h2>
-        <p>`code/propulsion.py` compares laser sail, fusion, and nuclear-electric cruise options for flyby scenarios and reachable range.</p>
-        <a href="https://github.com/sstone55423/ai-galaxy-traveler/blob/main/code/propulsion.py" target="_blank" rel="noopener">Open propulsion.py</a>
+        <h2>Propulsion comparison</h2>
+        <p>Compare laser sail, fusion rocket, and nuclear-electric across any target distance. Sliders for payload, power, exhaust velocity, and design speed. Travel-time chart updates live.</p>
+        <a href="propulsion_dashboard.html">Open propulsion dashboard</a> &nbsp;·&nbsp;
+        <a href="https://github.com/sstone55423/ai-galaxy-traveler/blob/main/code/propulsion.py" target="_blank" rel="noopener">propulsion.py</a>
       </article>
       <article class="card">
-        <h2>Power and redundancy</h2>
-        <p>`code/energy.py` models source sizing, decay, converter redundancy, and long-duration mission reliability.</p>
-        <a href="https://github.com/sstone55423/ai-galaxy-traveler/blob/main/code/energy.py" target="_blank" rel="noopener">Open energy.py</a>
+        <h2>Gravity assist explorer</h2>
+        <p>Drag the speed slider to see where gravity assists stop working — and where the physics line between steering and futility actually is for a Sun, white dwarf, or neutron star.</p>
+        <a href="flyby_dashboard.html">Open gravity assist dashboard</a> &nbsp;·&nbsp;
+        <a href="https://github.com/sstone55423/ai-galaxy-traveler/blob/main/code/flyby.py" target="_blank" rel="noopener">flyby.py</a>
       </article>
       <article class="card">
-        <h2>Self-replicating wanderer</h2>
-        <p>`code/wanderer.py` simulates a slow patient fleet that crawls between stars, replicates, and grows a lineage over millennia.</p>
-        <a href="https://github.com/sstone55423/ai-galaxy-traveler/blob/main/code/wanderer.py" target="_blank" rel="noopener">Open wanderer.py</a>
+        <h2>Power &amp; redundancy</h2>
+        <p>Model reactor vs RTG sizing, converter bank reliability over centuries, and why self-repair is what actually keeps a probe alive for millennia.</p>
+        <a href="energy_dashboard.html">Open power dashboard</a> &nbsp;·&nbsp;
+        <a href="https://github.com/sstone55423/ai-galaxy-traveler/blob/main/code/energy.py" target="_blank" rel="noopener">energy.py</a>
       </article>
       <article class="card">
-        <h2>Visual tools</h2>
-        <p>The existing `docs/` pages include an interactive 3D star map, a wanderer expansion map, and a power dashboard.</p>
-        <a href="star_map_3d.html">Open the star map</a><br>
-        <a href="wanderer_map.html">Open the fleet map</a><br>
-        <a href="energy_dashboard.html">Open the power dashboard</a>
+        <h2>Engineering closure</h2>
+        <p>Adjust mass budget, sail radius, offspring count, and per-leg survival to see the R_eff knife-edge across the 127-star catalogue in real time.</p>
+        <a href="engineering_dashboard.html">Open engineering dashboard</a> &nbsp;·&nbsp;
+        <a href="https://github.com/sstone55423/ai-galaxy-traveler/blob/main/code/engineering.py" target="_blank" rel="noopener">engineering.py</a>
       </article>
+      <article class="card">
+        <h2>Fleet simulation</h2>
+        <p>Watch a self-replicating lineage expand hop by hop across the real star catalogue over millions of years. Adjust speed, replication rate, and survival probability.</p>
+        <a href="wanderer_map.html">Open fleet map</a> &nbsp;·&nbsp;
+        <a href="https://github.com/sstone55423/ai-galaxy-traveler/blob/main/code/wanderer.py" target="_blank" rel="noopener">wanderer.py</a>
+      </article>
+      <article class="card"><h2>Dust damage vs cruise speed</h2><p>Slide cruise speed from 100 km/s to 60,000 km/s to watch impact energy scale as v². At the laser sail design speed (20% c), each grain hits with 17,778x more energy than the probe in this series.</p><a href="dust_dashboard.html">Open dust damage tool</a></article>
+      <article class="card"><h2>Multi-probe dispatch probability</h2><p>P(at least one probe succeeds) = 1-(1-p)^n, computed live with sliders for hop distance and stage reliability. Shows the three-dispatch rule and why a single probe can never exceed 65.6% success regardless of distance.</p><a href="dispatch_dashboard.html">Open dispatch calculator</a></article>
+      <article class="card"><h2>Catalogue hop connectivity</h2><p>How many of the 127 candidate stars can the lineage reach? Drag the hop distance slider to see the network connect: 44% reachable at 8 ly, 65% at 10 ly, 84% at 15 ly, 93% at 20 ly.</p><a href="hop_dashboard.html">Open connectivity explorer</a></article>
+      <article class="card"><h2>Seed mass breakdown</h2><p>Interactive pie chart of the 3,700 kg reference seed. The manufacturing plant dominates at 54%; computation costs 5%. Sliders let you design your own probe and see a minimum viable comparison.</p><a href="mass_budget_dashboard.html">Open mass budget</a></article>
+      <article class="card"><h2>Fuel scaling and radiator sizing</h2><p>Two insights: supplementary fuel for longer hops costs well under 1% of seed mass per 10 ly — range is cheap. And radiator area drops from 14 m² at full manufacturing power to 0.5 m² at cruise.</p><a href="fuel_radiator_dashboard.html">Open fuel and radiator tool</a></article>
+      <article class="card"><h2>Technology readiness gap</h2><p>Log-scale bars showing current demonstrated capability vs what the probe requires for each hard problem. The reactor gap spans 6.4 orders of magnitude. The AI stability gap spans 7+ — and has no measurement baseline.</p><a href="tech_readiness_dashboard.html">Open readiness assessment</a></article>
+      <article class="card"><h2>Knowledge growth K(t)</h2><p>Simulate knowledge accumulation and decay over 2 million years for Standard and Range-maximizer cruise profiles. Shows how the five loss terms compete with active sensing, and why the standard profile accumulates K throughout transit.</p><a href="knowledge_growth_dashboard.html">Open knowledge growth model</a></article>
     </div>
   </div>
 </body>

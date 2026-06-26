@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dust Damage vs Cruise Speed — Deep Time AI</title>
+<style>
+:root{color:#e9eefb;background:#070a14;font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.6;font-size:16px;}
+*{box-sizing:border-box}html,body{margin:0;min-height:100%;}
+body{background:radial-gradient(circle at top,#121d35 0%,#06090f 48%,#020408 100%);}
+a{color:#8cc3ff;text-decoration:none;}a:hover{text-decoration:underline;}
+.page{max-width:980px;margin:0 auto;padding:28px 20px 80px;}
+header{display:grid;gap:18px;padding:18px 0 26px;}
+.brand{display:flex;align-items:center;gap:14px;}
+.logo{width:52px;height:52px;border-radius:18px;background:linear-gradient(135deg,#5aa5ff,#9da8ff);display:flex;align-items:center;justify-content:center;font-weight:700;color:#071928;font-size:22px;}
+.brand h1{margin:0;font-size:2rem;letter-spacing:-0.03em;}
+.brand p{margin:4px 0 0;color:#9cb1d9;max-width:640px;}
+nav{display:flex;flex-wrap:wrap;gap:10px;font-size:.95rem;}
+nav a{padding:10px 15px;border:1px solid rgba(140,195,255,.18);border-radius:999px;background:rgba(12,18,34,.68);}
+nav a.active{background:rgba(140,195,255,.14);border-color:rgba(140,195,255,.42);color:#d7e5ff;}
+.hero{padding:22px 0 18px;border-top:1px solid rgba(140,195,255,.14);border-bottom:1px solid rgba(140,195,255,.14);}
+.hero h2{margin:0 0 8px;font-size:1.5rem;letter-spacing:-0.02em;}
+.hero p{margin:0;color:#c0ceea;max-width:720px;}
+.panel{border:1px solid rgba(140,195,255,.14);border-radius:20px;background:rgba(8,12,26,.9);padding:22px;margin:20px 0;}
+.panel h3{margin:0 0 14px;font-size:1.05rem;color:#d0dcf8;}
+.srow{margin-bottom:14px;}
+.srow .sl{display:flex;justify-content:space-between;font-size:.87rem;color:#8090b0;margin-bottom:4px;}
+.srow .sl span{color:#c0ceea;font-weight:600;}
+.srow input[type=range]{width:100%;accent-color:#5aa5ff;}
+.metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:18px 0;}
+@media(max-width:620px){.metrics{grid-template-columns:1fr;}}
+.mc{border:1px solid rgba(140,195,255,.13);border-radius:16px;background:rgba(10,15,30,.85);padding:14px 16px;}
+.mc .ml{font-size:.82rem;color:#7a90b8;margin-bottom:4px;}
+.mc .mv{font-size:1.25rem;font-weight:700;color:#d7e5ff;}
+.mc .ms{font-size:.8rem;color:#6a82a8;margin-top:2px;}
+.co{border:1px solid rgba(100,200,140,.22);border-radius:16px;background:rgba(40,100,60,.07);padding:16px 18px;margin:16px 0;}
+.co h4{margin:0 0 6px;color:#8de8b0;font-size:.95rem;}
+.co p{margin:0;color:#a0c0b0;font-size:.9rem;}
+.co-warn{border:1px solid rgba(255,150,60,.22);border-radius:16px;background:rgba(100,60,20,.07);padding:16px 18px;margin:16px 0;}
+.co-warn h4{margin:0 0 6px;color:#ffb070;font-size:.95rem;}
+.co-warn p{margin:0;color:#c0a880;font-size:.9rem;}
+canvas{display:block;width:100%;}
+footer{margin-top:56px;padding-top:24px;border-top:1px solid rgba(140,195,255,.12);color:#7d8fbc;font-size:.9rem;}
+
+/* Additional local styles */
+.presets{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0 18px;}
+.preset-btn{padding:7px 14px;border:1px solid rgba(140,195,255,.22);border-radius:999px;background:rgba(10,15,35,.8);color:#9cb8e8;font-size:.85rem;cursor:pointer;transition:background .15s,border-color .15s,color .15s;}
+.preset-btn:hover{background:rgba(90,165,255,.15);border-color:rgba(140,195,255,.45);color:#d7e5ff;}
+.preset-btn.selected{background:rgba(90,165,255,.22);border-color:#5aa5ff;color:#d7e5ff;font-weight:600;}
+.grain-btns{display:flex;gap:10px;margin:8px 0 4px;}
+.grain-btn{flex:1;padding:9px 10px;border:1px solid rgba(140,195,255,.18);border-radius:12px;background:rgba(10,15,35,.8);color:#8090b0;font-size:.88rem;cursor:pointer;text-align:center;transition:background .15s,border-color .15s,color .15s;}
+.grain-btn:hover{background:rgba(90,165,255,.12);color:#c0ceea;}
+.grain-btn.selected{background:rgba(90,165,255,.18);border-color:#5aa5ff;color:#d7e5ff;font-weight:600;}
+.grain-desc{font-size:.8rem;color:#6a7fa8;margin-top:3px;}
+.chart-wrap{position:relative;margin-top:8px;}
+.chart-wrap canvas{border-radius:10px;background:rgba(6,10,22,.95);}
+</style>
+</head>
+<body>
+<div class="page">
+
+<header>
+  <div class="brand">
+    <div class="logo">AI</div>
+    <div>
+      <h1>Deep Time AI</h1>
+      <p>Explore slow interstellar AI probes, self-replication, and deep-time research with interactive tools and papers.</p>
+    </div>
+  </div>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="papers.html">Papers</a>
+    <a href="challenges.html">Hard Problems</a>
+    <a href="code.html" class="active">Tools</a>
+    <a href="star_map_3d.html">Star map</a>
+    <a href="wanderer_map.html">Fleet map</a>
+  </nav>
+</header>
+
+<div class="hero">
+  <h2>Dust Damage vs Cruise Speed</h2>
+  <p>Impact energy from interstellar dust grains scales as v&#178;, and power deposited scales as v&#179; (flux increases with v too). Slow probes are not a concession — they are a structural advantage. This dashboard quantifies the penalty paid by faster designs.</p>
+</div>
+
+<!-- Controls -->
+<div class="panel">
+  <h3>Speed Controls</h3>
+
+  <div class="srow">
+    <div class="sl">
+      <span>Cruise speed</span>
+      <span id="speed-label">450 km/s &nbsp;(0.150% c)</span>
+    </div>
+    <input type="range" id="speed-slider" min="0" max="1000" step="1" value="500">
+  </div>
+
+  <div class="presets">
+    <button class="preset-btn" data-kmps="192" id="btn-parker">Parker Solar Probe — 192 km/s</button>
+    <button class="preset-btn selected" data-kmps="450" id="btn-ours">Our probe — 450 km/s</button>
+    <button class="preset-btn" data-kmps="3000" id="btn-1c">1% c — 3,000 km/s</button>
+    <button class="preset-btn" data-kmps="30000" id="btn-10c">10% c — 30,000 km/s</button>
+    <button class="preset-btn" data-kmps="60000" id="btn-20c">20% c — 60,000 km/s</button>
+  </div>
+
+  <h3 style="margin-top:10px;">Grain Size</h3>
+  <div class="grain-btns">
+    <button class="grain-btn selected" data-mass="1e-14" id="grain-small">
+      Small
+      <div class="grain-desc">1 × 10&#8315;&#185;&#8308; kg</div>
+    </button>
+    <button class="grain-btn" data-mass="1e-12" id="grain-medium">
+      Medium
+      <div class="grain-desc">1 × 10&#8315;&#185;&#178; kg</div>
+    </button>
+    <button class="grain-btn" data-mass="1e-10" id="grain-large">
+      Large
+      <div class="grain-desc">1 × 10&#8315;&#185;&#8304; kg</div>
+    </button>
+  </div>
+</div>
+
+<!-- Metric cards -->
+<div class="metrics">
+  <div class="mc">
+    <div class="ml">Absolute impact energy (KE)</div>
+    <div class="mv" id="abs-ke">1.01 J</div>
+    <div class="ms" id="abs-ke-sub">KE = 0.5 · m · v&#178;</div>
+  </div>
+  <div class="mc">
+    <div class="ml">Energy multiplier vs 450 km/s</div>
+    <div class="mv" id="ke-mult">1.00×</div>
+    <div class="ms" id="ke-mult-sub">ratio = (v / 450)&#178;</div>
+  </div>
+  <div class="mc">
+    <div class="ml">Power deposited multiplier</div>
+    <div class="mv" id="pow-mult">1.00×</div>
+    <div class="ms" id="pow-mult-sub">scales as v&#179; (flux × energy)</div>
+  </div>
+</div>
+
+<!-- Chart -->
+<div class="panel">
+  <h3>Impact energy vs cruise speed — log-log</h3>
+  <div class="chart-wrap">
+    <canvas id="chart" height="420"></canvas>
+  </div>
+  <p style="font-size:.82rem;color:#6a80a8;margin:10px 0 0;">
+    x-axis: cruise speed 100 – 60,000 km/s &nbsp;|&nbsp;
+    y-axis: KE relative to 450 km/s baseline &nbsp;|&nbsp;
+    slope = 2 on log-log axes &nbsp;|&nbsp;
+    vertical line marks current speed
+  </p>
+</div>
+
+<!-- Physics callout -->
+<div class="co-warn">
+  <h4>Shield mass penalty at 20% c</h4>
+  <p>At 20% c (60,000 km/s) a grain strikes with 17,778× more energy than at 450 km/s. Shield mass scales faster still — faster probes need proportionally more shielding, not less. The mass budget consumed by shielding crowds out the manufacturing plant, undercutting self-replication closure.</p>
+</div>
+
+<div class="co">
+  <h4>Why slow wins</h4>
+  <p>At 450 km/s a small interstellar grain (10&#8315;&#185;&#8308; kg) delivers about 1 J — manageable with modest shielding depth. The v&#179; power scaling means doubling cruise speed eightfolds the shield heat load. The 450 km/s design sits at a practical optimum: fast enough to reach Proxima in ~2,800 yr, slow enough that dust is a solved engineering problem rather than a mission-ending one.</p>
+</div>
+
+<!-- Reference table as bullets per style guide -->
+<div class="panel">
+  <h3>Key reference points</h3>
+  <ul style="color:#c0ceea;font-size:.93rem;line-height:1.9;margin:0;padding-left:1.4em;">
+    <li><strong>Parker Solar Probe — 192 km/s:</strong> fastest human-made object; KE ratio 0.182× baseline; power ratio 0.078× baseline.</li>
+    <li><strong>Our probe — 450 km/s (baseline):</strong> KE ratio 1.00×; power ratio 1.00×; ~1 J per small grain; ~2,800 yr to Proxima Centauri.</li>
+    <li><strong>1% c — 3,000 km/s:</strong> KE ratio 44.4×; power ratio 296×; 210 yr to Proxima.</li>
+    <li><strong>10% c — 30,000 km/s:</strong> KE ratio 4,444×; power ratio 296,000×; 42 yr to Proxima. Shield mass dominates vehicle mass budget.</li>
+    <li><strong>20% c — 60,000 km/s:</strong> KE ratio 17,778×; power ratio 2.37 × 10&#8310;×; 21 yr to Proxima. Erosion rate makes multi-millimeter shields mandatory, precluding self-replication closure.</li>
+  </ul>
+</div>
+
+<footer>
+  Physics from the vehicle paper (S. Stone, Metropolitan State University).
+  KE = 0.5 · m · v&#178;; flux scales with v; total power deposited scales as v&#179;.
+  &nbsp;|&nbsp; <a href="code.html">Back to tools</a>
+</footer>
+
+</div><!-- .page -->
+
+<script>
+(function(){
+  "use strict";
+
+  // --- State ---
+  var state = {
+    kmps: 450,
+    mass: 1e-14  // kg, grain mass
+  };
+
+  var BASE_KMPS = 450;
+  var C_KMPS = 299792.458;
+
+  // --- Log slider: map [0,1000] -> [100, 60000] km/s ---
+  var SLIDER_MIN = 0, SLIDER_MAX = 1000;
+  var V_MIN = 100, V_MAX = 60000;
+
+  function sliderToKmps(val){
+    var t = (val - SLIDER_MIN) / (SLIDER_MAX - SLIDER_MIN);
+    return Math.round(Math.exp(Math.log(V_MIN) + t * (Math.log(V_MAX) - Math.log(V_MIN))));
+  }
+
+  function kmpsToSlider(kmps){
+    var t = (Math.log(kmps) - Math.log(V_MIN)) / (Math.log(V_MAX) - Math.log(V_MIN));
+    return Math.round(SLIDER_MIN + t * (SLIDER_MAX - SLIDER_MIN));
+  }
+
+  // --- Format helpers ---
+  function fmtKE(joules){
+    if(joules >= 1e9) return (joules/1e9).toPrecision(3) + " GJ";
+    if(joules >= 1e6) return (joules/1e6).toPrecision(3) + " MJ";
+    if(joules >= 1e3) return (joules/1e3).toPrecision(3) + " kJ";
+    if(joules >= 1)   return joules.toPrecision(3) + " J";
+    if(joules >= 1e-3) return (joules*1e3).toPrecision(3) + " mJ";
+    return joules.toExponential(2) + " J";
+  }
+
+  function fmtMult(x){
+    if(x >= 1e6) return (x/1e6).toPrecision(3) + " × 10⁶×";
+    if(x >= 1e3) return x.toLocaleString(undefined,{maximumFractionDigits:0}) + "×";
+    if(x >= 10)  return x.toFixed(1) + "×";
+    return x.toFixed(3) + "×";
+  }
+
+  // --- DOM refs ---
+  var slider     = document.getElementById("speed-slider");
+  var speedLabel = document.getElementById("speed-label");
+  var absKe      = document.getElementById("abs-ke");
+  var absKeSub   = document.getElementById("abs-ke-sub");
+  var keMult     = document.getElementById("ke-mult");
+  var keMultSub  = document.getElementById("ke-mult-sub");
+  var powMult    = document.getElementById("pow-mult");
+  var powMultSub = document.getElementById("pow-mult-sub");
+  var canvas     = document.getElementById("chart");
+  var ctx        = canvas.getContext("2d");
+
+  // Preset buttons
+  var presetBtns = document.querySelectorAll(".preset-btn");
+  var grainBtns  = document.querySelectorAll(".grain-btn");
+
+  // --- Compute & update ---
+  function compute(){
+    var v_ms  = state.kmps * 1000;
+    var base_ms = BASE_KMPS * 1000;
+    var ke    = 0.5 * state.mass * v_ms * v_ms;
+    var ratio = (state.kmps / BASE_KMPS) * (state.kmps / BASE_KMPS);
+    var prat  = (state.kmps / BASE_KMPS) * ratio; // v^3
+    return { ke: ke, keRatio: ratio, powerRatio: prat };
+  }
+
+  function updateUI(){
+    var r = compute();
+    var pct_c = (state.kmps / C_KMPS * 100);
+    var pct_str = pct_c < 0.01 ? pct_c.toExponential(2) + "% c" : pct_c.toPrecision(3) + "% c";
+
+    speedLabel.textContent = state.kmps.toLocaleString() + " km/s  (" + pct_str + ")";
+    absKe.textContent = fmtKE(r.ke);
+    absKeSub.textContent = "KE = 0.5 · " + state.mass.toExponential(0) + " kg · v²";
+    keMult.textContent  = fmtMult(r.keRatio);
+    keMultSub.textContent = "(" + state.kmps.toLocaleString() + " / 450)² = " + r.keRatio.toPrecision(3);
+    powMult.textContent = fmtMult(r.powerRatio);
+    powMultSub.textContent = "v³ ratio vs 450 km/s baseline";
+
+    slider.value = kmpsToSlider(state.kmps);
+    updatePresetHighlight();
+    drawChart();
+  }
+
+  function updatePresetHighlight(){
+    presetBtns.forEach(function(b){
+      b.classList.toggle("selected", parseInt(b.dataset.kmps) === state.kmps);
+    });
+  }
+
+  // --- Slider ---
+  slider.addEventListener("input", function(){
+    state.kmps = sliderToKmps(parseInt(this.value));
+    updateUI();
+  });
+
+  // --- Preset buttons ---
+  presetBtns.forEach(function(b){
+    b.addEventListener("click", function(){
+      state.kmps = parseInt(this.dataset.kmps);
+      updateUI();
+    });
+  });
+
+  // --- Grain buttons ---
+  grainBtns.forEach(function(b){
+    b.addEventListener("click", function(){
+      state.mass = parseFloat(this.dataset.mass);
+      grainBtns.forEach(function(g){ g.classList.remove("selected"); });
+      this.classList.add("selected");
+      updateUI();
+    });
+  });
+
+  // --- Chart ---
+  function devicePR(){
+    return window.devicePixelRatio || 1;
+  }
+
+  function resizeCanvas(){
+    var pr = devicePR();
+    var w  = canvas.parentElement.clientWidth;
+    var h  = 420;
+    canvas.width  = Math.round(w * pr);
+    canvas.height = Math.round(h * pr);
+    canvas.style.width  = w + "px";
+    canvas.style.height = h + "px";
+    ctx.setTransform(pr, 0, 0, pr, 0, 0);
+  }
+
+  function drawChart(){
+    var pr = 1; // already scaled by setTransform
+    var W = canvas.width  / devicePR();
+    var H = canvas.height / devicePR();
+
+    // margins
+    var ml = 72, mr = 30, mt = 28, mb = 52;
+    var pw = W - ml - mr;
+    var ph = H - mt - mb;
+
+    ctx.clearRect(0, 0, W, H);
+
+    // log-log axes
+    var xMin = Math.log10(V_MIN),  xMax = Math.log10(V_MAX);   // 2 .. ~4.78
+    var yMin = -3,                  yMax = 6;                   // 10^-3 to 10^6
+
+    function xToPixel(kmps){
+      return ml + (Math.log10(kmps) - xMin) / (xMax - xMin) * pw;
+    }
+    function yToPixel(ratio){
+      return mt + ph - (Math.log10(ratio) - yMin) / (yMax - yMin) * ph;
+    }
+
+    // --- Background grid ---
+    ctx.lineWidth = 0.5;
+    ctx.strokeStyle = "rgba(140,195,255,0.07)";
+
+    // vertical grid lines at decade boundaries
+    for(var xd = Math.ceil(xMin); xd <= xMax; xd++){
+      var xp = ml + (xd - xMin)/(xMax - xMin)*pw;
+      ctx.beginPath(); ctx.moveTo(xp, mt); ctx.lineTo(xp, mt+ph); ctx.stroke();
+      // minor at 2,3,4,5,6,7,8,9 within each decade
+      for(var minor = 2; minor <= 9; minor++){
+        var v_minor = minor * Math.pow(10, xd-1);
+        if(v_minor >= V_MIN && v_minor <= V_MAX){
+          var xpm = ml + (Math.log10(v_minor)-xMin)/(xMax-xMin)*pw;
+          ctx.save(); ctx.strokeStyle="rgba(140,195,255,0.03)";
+          ctx.beginPath(); ctx.moveTo(xpm,mt); ctx.lineTo(xpm,mt+ph); ctx.stroke();
+          ctx.restore();
+        }
+      }
+    }
+
+    // horizontal grid lines
+    for(var yd = yMin; yd <= yMax; yd++){
+      var yp = mt + ph - (yd - yMin)/(yMax - yMin)*ph;
+      ctx.beginPath(); ctx.moveTo(ml, yp); ctx.lineTo(ml+pw, yp); ctx.stroke();
+    }
+
+    // --- KE curve: ratio = (v/450)^2 ---
+    ctx.beginPath();
+    ctx.lineWidth = 2.5;
+    ctx.strokeStyle = "#5aa5ff";
+    var first = true;
+    var steps = 400;
+    for(var i=0; i<=steps; i++){
+      var t = i/steps;
+      var v = Math.pow(10, xMin + t*(xMax-xMin));
+      var ratio = (v/BASE_KMPS)*(v/BASE_KMPS);
+      if(ratio < Math.pow(10,yMin) || ratio > Math.pow(10,yMax)) { first=true; continue; }
+      var px = ml + t*pw;
+      var py = yToPixel(ratio);
+      if(first){ ctx.moveTo(px,py); first=false; } else { ctx.lineTo(px,py); }
+    }
+    ctx.stroke();
+
+    // --- Power curve: ratio = (v/450)^3 ---
+    ctx.beginPath();
+    ctx.lineWidth = 1.5;
+    ctx.strokeStyle = "rgba(255,150,80,0.55)";
+    ctx.setLineDash([6,4]);
+    first = true;
+    for(var i=0; i<=steps; i++){
+      var t = i/steps;
+      var v = Math.pow(10, xMin + t*(xMax-xMin));
+      var ratio3 = Math.pow(v/BASE_KMPS,3);
+      if(ratio3 < Math.pow(10,yMin) || ratio3 > Math.pow(10,yMax)) { first=true; continue; }
+      var px = ml + t*pw;
+      var py = yToPixel(ratio3);
+      if(first){ ctx.moveTo(px,py); first=false; } else { ctx.lineTo(px,py); }
+    }
+    ctx.stroke();
+    ctx.setLineDash([]);
+
+    // --- Our probe dot at 450 km/s ---
+    var dotX = xToPixel(BASE_KMPS);
+    var dotY = yToPixel(1.0);
+    ctx.beginPath();
+    ctx.arc(dotX, dotY, 6, 0, 2*Math.PI);
+    ctx.fillStyle = "#5aa5ff";
+    ctx.fill();
+    ctx.strokeStyle = "#d7e5ff"; ctx.lineWidth=1.5;
+    ctx.stroke();
+    ctx.font = "bold 11px Inter,sans-serif";
+    ctx.fillStyle = "#d7e5ff";
+    ctx.textAlign = "left";
+    ctx.fillText("450 km/s (our probe)", dotX+10, dotY+4);
+
+    // --- Vertical marker at current speed ---
+    var curX = xToPixel(state.kmps);
+    ctx.beginPath();
+    ctx.lineWidth = 1.5;
+    ctx.strokeStyle = "rgba(255,220,80,0.7)";
+    ctx.setLineDash([4,3]);
+    ctx.moveTo(curX, mt); ctx.lineTo(curX, mt+ph);
+    ctx.stroke();
+    ctx.setLineDash([]);
+
+    // Dot on KE curve at current speed
+    var curRatio = (state.kmps/BASE_KMPS)*(state.kmps/BASE_KMPS);
+    if(curRatio >= Math.pow(10,yMin) && curRatio <= Math.pow(10,yMax)){
+      var curY = yToPixel(curRatio);
+      ctx.beginPath();
+      ctx.arc(curX, curY, 5, 0, 2*Math.PI);
+      ctx.fillStyle = "#ffd850";
+      ctx.fill();
+    }
+
+    // Speed label at top of marker
+    ctx.font = "11px Inter,sans-serif";
+    ctx.fillStyle = "#ffd850";
+    ctx.textAlign = "center";
+    var labelStr = state.kmps >= 1000 ? (state.kmps/1000).toFixed(0)+"k km/s" : state.kmps+" km/s";
+    ctx.fillText(labelStr, curX, mt-8);
+
+    // --- Axes ---
+    ctx.strokeStyle = "rgba(140,195,255,0.3)";
+    ctx.lineWidth   = 1;
+    ctx.beginPath();
+    ctx.moveTo(ml, mt); ctx.lineTo(ml, mt+ph); ctx.lineTo(ml+pw, mt+ph);
+    ctx.stroke();
+
+    // x-axis labels
+    ctx.font = "11px Inter,sans-serif";
+    ctx.fillStyle = "#8090b0";
+    ctx.textAlign = "center";
+    var xLabels = [
+      {v:100,"lbl":"100"},
+      {v:450,"lbl":"450"},
+      {v:1000,"lbl":"1k"},
+      {v:3000,"lbl":"3k"},
+      {v:10000,"lbl":"10k"},
+      {v:30000,"lbl":"30k"},
+      {v:60000,"lbl":"60k"}
+    ];
+    xLabels.forEach(function(l){
+      if(l.v < V_MIN || l.v > V_MAX) return;
+      var xp = xToPixel(l.v);
+      ctx.fillText(l.lbl, xp, mt+ph+16);
+      ctx.beginPath(); ctx.strokeStyle="rgba(140,195,255,0.18)";
+      ctx.moveTo(xp, mt+ph); ctx.lineTo(xp, mt+ph+5); ctx.stroke();
+    });
+    ctx.fillStyle = "#6a80a8";
+    ctx.textAlign = "center";
+    ctx.fillText("Speed (km/s)", ml + pw/2, mt+ph+36);
+
+    // y-axis labels
+    ctx.textAlign = "right";
+    for(var yd2 = yMin; yd2 <= yMax; yd2++){
+      var yp2 = yToPixel(Math.pow(10,yd2));
+      if(yp2 < mt || yp2 > mt+ph) continue;
+      var lbl = yd2 === 0 ? "1×" : "10^"+yd2+"×";
+      ctx.fillStyle = "#8090b0";
+      ctx.fillText(lbl, ml-8, yp2+4);
+    }
+    // y-axis title
+    ctx.save();
+    ctx.translate(14, mt + ph/2);
+    ctx.rotate(-Math.PI/2);
+    ctx.fillStyle = "#6a80a8";
+    ctx.textAlign = "center";
+    ctx.font = "11px Inter,sans-serif";
+    ctx.fillText("Relative KE vs 450 km/s", 0, 0);
+    ctx.restore();
+
+    // Legend
+    var lx = ml + pw - 8;
+    var ly = mt + 14;
+    ctx.fillStyle = "rgba(6,10,22,0.85)";
+    ctx.fillRect(lx - 168, ly - 12, 172, 52);
+    ctx.strokeStyle = "rgba(140,195,255,0.12)"; ctx.lineWidth=0.8;
+    ctx.strokeRect(lx - 168, ly - 12, 172, 52);
+
+    ctx.strokeStyle="#5aa5ff"; ctx.lineWidth=2.5; ctx.setLineDash([]);
+    ctx.beginPath(); ctx.moveTo(lx-160,ly+5); ctx.lineTo(lx-136,ly+5); ctx.stroke();
+    ctx.fillStyle="#d7e5ff"; ctx.font="11px Inter,sans-serif"; ctx.textAlign="left";
+    ctx.fillText("KE ratio — v²  (slope 2)", lx-130, ly+9);
+
+    ctx.strokeStyle="rgba(255,150,80,0.7)"; ctx.lineWidth=1.5; ctx.setLineDash([6,4]);
+    ctx.beginPath(); ctx.moveTo(lx-160,ly+24); ctx.lineTo(lx-136,ly+24); ctx.stroke();
+    ctx.setLineDash([]);
+    ctx.fillStyle="#c0a880";
+    ctx.fillText("Power ratio — v³  (slope 3)", lx-130, ly+28);
+  }
+
+  // --- Init ---
+  resizeCanvas();
+  updateUI();
+
+  window.addEventListener("resize", function(){
+    resizeCanvas();
+    drawChart();
+  });
+
+})();
+</script>
+</body>
+</html>

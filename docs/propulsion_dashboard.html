@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Propulsion — Deep Time AI</title>
+  <style>
+    :root{color:#e9eefb;background:#070a14;font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.6;font-size:16px;}
+    *{box-sizing:border-box}
+    html,body{margin:0;min-height:100%;}
+    body{background:radial-gradient(circle at top,#121d35 0%,#06090f 48%,#020408 100%);}
+    a{color:#8cc3ff;text-decoration:none;}
+    a:hover{text-decoration:underline;}
+    .page{max-width:1060px;margin:0 auto;padding:28px 20px 80px;}
+    header{display:grid;gap:18px;padding:18px 0 26px;}
+    .brand{display:flex;align-items:center;gap:14px;}
+    .logo{width:52px;height:52px;border-radius:18px;background:linear-gradient(135deg,#5aa5ff,#9da8ff);display:flex;align-items:center;justify-content:center;font-weight:700;color:#071928;font-size:22px;}
+    .brand h1{margin:0;font-size:2rem;letter-spacing:-0.03em;}
+    .brand p{margin:4px 0 0;color:#9cb1d9;max-width:640px;}
+    nav{display:flex;flex-wrap:wrap;gap:10px;font-size:.95rem;}
+    nav a{padding:10px 15px;border:1px solid rgba(140,195,255,.18);border-radius:999px;background:rgba(12,18,34,.68);}
+    nav a.active{background:rgba(140,195,255,.14);border-color:rgba(140,195,255,.42);color:#d7e5ff;}
+    .hero{padding:22px 0 18px;border-top:1px solid rgba(140,195,255,.14);border-bottom:1px solid rgba(140,195,255,.14);}
+    .hero h2{margin:0 0 8px;font-size:1.6rem;letter-spacing:-0.02em;}
+    .hero p{margin:0;color:#c0ceea;max-width:740px;}
+
+    /* chart */
+    .chart-wrap{margin:24px 0;border:1px solid rgba(140,195,255,.14);border-radius:18px;background:rgba(8,12,26,.9);padding:20px;}
+    canvas{display:block;width:100%;border-radius:8px;}
+
+    /* target bar */
+    .target-bar{display:flex;flex-wrap:wrap;gap:14px;align-items:center;margin-bottom:16px;}
+    .target-bar label{color:#9cb1d9;font-size:.93rem;}
+    .target-bar .presets{display:flex;gap:8px;flex-wrap:wrap;}
+    .preset-btn{padding:5px 13px;border:1px solid rgba(140,195,255,.22);border-radius:999px;background:rgba(12,18,34,.7);color:#8cc3ff;font-size:.86rem;cursor:pointer;}
+    .preset-btn.sel{background:rgba(140,195,255,.18);color:#d7e5ff;border-color:rgba(140,195,255,.5);}
+    .range-row{display:flex;align-items:center;gap:10px;}
+    .range-row input[type=range]{flex:1;accent-color:#5aa5ff;}
+    .range-val{color:#d7e5ff;font-weight:600;min-width:70px;text-align:right;font-size:.95rem;}
+
+    /* result cards */
+    .result-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:20px 0;}
+    @media(max-width:700px){.result-grid{grid-template-columns:1fr;}}
+    .rcard{border:1px solid rgba(140,195,255,.16);border-radius:20px;background:rgba(10,15,30,.85);padding:18px 20px;}
+    .rcard h3{margin:0 0 12px;font-size:1rem;display:flex;align-items:center;gap:8px;}
+    .rcard .dot{width:10px;height:10px;border-radius:50%;flex-shrink:0;}
+    .rcard .metric{display:flex;justify-content:space-between;font-size:.9rem;margin-bottom:6px;}
+    .rcard .metric .label{color:#7a90b8;}
+    .rcard .metric .value{color:#d7e5ff;font-weight:600;text-align:right;}
+    .rcard .big{font-size:1.55rem;font-weight:700;margin:6px 0 12px;line-height:1.1;}
+
+    /* engine panels */
+    .engine-panels{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:24px;}
+    @media(max-width:800px){.engine-panels{grid-template-columns:1fr;}}
+    .epanel{border:1px solid rgba(140,195,255,.14);border-radius:20px;background:rgba(8,12,26,.9);padding:20px;}
+    .epanel h3{margin:0 0 14px;font-size:1rem;font-weight:700;display:flex;align-items:center;gap:8px;}
+    .slider-row{margin-bottom:12px;}
+    .slider-row .slabel{display:flex;justify-content:space-between;font-size:.85rem;color:#8090b0;margin-bottom:4px;}
+    .slider-row .slabel span{color:#c0ceea;font-weight:600;}
+    .slider-row input[type=range]{width:100%;accent-color:#5aa5ff;}
+    .note{margin-top:14px;padding:10px 12px;border-left:3px solid rgba(140,195,255,.25);background:rgba(140,195,255,.05);border-radius:0 8px 8px 0;font-size:.84rem;color:#7a90b8;line-height:1.5;}
+
+    /* slow probe callout */
+    .callout{margin-top:24px;border:1px solid rgba(100,200,140,.22);border-radius:20px;background:rgba(40,100,60,.07);padding:20px 22px;}
+    .callout h3{margin:0 0 8px;color:#8de8b0;font-size:1rem;}
+    .callout p{margin:0;color:#a0c0b0;font-size:.93rem;}
+
+    footer{margin-top:56px;padding-top:24px;border-top:1px solid rgba(140,195,255,.12);color:#7d8fbc;font-size:.93rem;}
+  </style>
+</head>
+<body>
+<div class="page">
+  <header>
+    <div class="brand">
+      <div class="logo">AI</div>
+      <div>
+        <h1>Deep Time AI</h1>
+        <p>Explore slow interstellar AI probes, self-replication, and deep-time research with interactive tools and papers.</p>
+      </div>
+    </div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="papers.html">Papers</a>
+      <a href="challenges.html">Hard Problems</a>
+      <a href="code.html" class="active">Tools</a>
+      <a href="star_map_3d.html">Star map</a>
+      <a href="wanderer_map.html">Fleet map</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h2>Propulsion: Three Paths, Three Physics Regimes</h2>
+    <p>Each engine is anchored to a real published design. Adjust the sliders to explore trade-offs: the laser sail is the fastest but can never stop; the fusion rocket carries its own fuel; the nuclear-electric is the slowest but the only one that works for a probe that must brake, settle, and operate for millennia.</p>
+  </section>
+
+  <!-- target selector -->
+  <div class="chart-wrap">
+    <div class="target-bar">
+      <label>Target:</label>
+      <div class="presets">
+        <button class="preset-btn sel" onclick="setTarget(4.246,this)">Proxima 4.2 ly</button>
+        <button class="preset-btn" onclick="setTarget(5.963,this)">Barnard's 5.9 ly</button>
+        <button class="preset-btn" onclick="setTarget(8.601,this)">Sirius 8.6 ly</button>
+        <button class="preset-btn" onclick="setTarget(11.912,this)">Tau Ceti 11.9 ly</button>
+        <button class="preset-btn" onclick="setTarget(25.04,this)">Vega 25 ly</button>
+        <button class="preset-btn" onclick="setTarget(100,this)">100 ly</button>
+      </div>
+      <div class="range-row" style="flex:1;min-width:180px;">
+        <input type="range" id="targetDist" min="1" max="100" step="0.1" value="4.246" oninput="onTargetSlide(this)">
+        <span class="range-val" id="targetDistVal">4.2 ly</span>
+      </div>
+    </div>
+    <canvas id="chart" height="340"></canvas>
+  </div>
+
+  <!-- result cards -->
+  <div class="result-grid">
+    <div class="rcard">
+      <h3><span class="dot" style="background:#5ad1ff"></span>Laser sail</h3>
+      <div class="big" id="ls_time">—</div>
+      <div class="metric"><span class="label">Cruise speed</span><span class="value" id="ls_speed">—</span></div>
+      <div class="metric"><span class="label">Accel time</span><span class="value" id="ls_accel">—</span></div>
+      <div class="metric"><span class="label">Launch mass</span><span class="value" id="ls_mass">—</span></div>
+      <div class="metric"><span class="label">Energy (array)</span><span class="value" id="ls_energy">—</span></div>
+    </div>
+    <div class="rcard">
+      <h3><span class="dot" style="background:#ff9d5a"></span>Fusion rocket</h3>
+      <div class="big" id="fr_time">—</div>
+      <div class="metric"><span class="label">Cruise speed</span><span class="value" id="fr_speed">—</span></div>
+      <div class="metric"><span class="label">Accel time</span><span class="value" id="fr_accel">—</span></div>
+      <div class="metric"><span class="label">Launch mass</span><span class="value" id="fr_mass">—</span></div>
+      <div class="metric"><span class="label">Fuel (He-3)</span><span class="value" id="fr_he3">—</span></div>
+    </div>
+    <div class="rcard">
+      <h3><span class="dot" style="background:#b6ff7a"></span>Nuclear-electric</h3>
+      <div class="big" id="ne_time">—</div>
+      <div class="metric"><span class="label">Cruise speed</span><span class="value" id="ne_speed">—</span></div>
+      <div class="metric"><span class="label">Accel time</span><span class="value" id="ne_accel">—</span></div>
+      <div class="metric"><span class="label">Launch mass</span><span class="value" id="ne_mass">—</span></div>
+      <div class="metric"><span class="label">Delta-v</span><span class="value" id="ne_dv">—</span></div>
+    </div>
+  </div>
+
+  <!-- engine parameter panels -->
+  <div class="engine-panels">
+    <!-- laser sail -->
+    <div class="epanel">
+      <h3><span class="dot" style="background:#5ad1ff;width:10px;height:10px;border-radius:50%;display:inline-block;"></span>Laser sail parameters</h3>
+      <div class="slider-row">
+        <div class="slabel">Sail+chip mass <span id="lsMassLbl">1 g</span></div>
+        <input type="range" id="lsMass" min="0.1" max="100" step="0.1" value="1" oninput="onSlide()">
+      </div>
+      <div class="slider-row">
+        <div class="slabel">Laser array power <span id="lsPowerLbl">100 GW</span></div>
+        <input type="range" id="lsPower" min="1" max="1000" step="1" value="100" oninput="onSlide()">
+      </div>
+      <div class="slider-row">
+        <div class="slabel">Design speed cap <span id="lsCapLbl">20 %c</span></div>
+        <input type="range" id="lsCap" min="5" max="30" step="0.5" value="20" oninput="onSlide()">
+      </div>
+      <div class="note">Breakthrough Starshot reference: 1 g sail, 100 GW array, 0.2c target. The array can't hold focus past ~0.1 AU, so most thrust occurs in the first few minutes.</div>
+    </div>
+
+    <!-- fusion rocket -->
+    <div class="epanel">
+      <h3><span class="dot" style="background:#ff9d5a;width:10px;height:10px;border-radius:50%;display:inline-block;"></span>Fusion rocket parameters</h3>
+      <div class="slider-row">
+        <div class="slabel">Payload <span id="frPayloadLbl">450 t</span></div>
+        <input type="range" id="frPayload" min="10" max="3000" step="10" value="450" oninput="onSlide()">
+      </div>
+      <div class="slider-row">
+        <div class="slabel">Cruise speed <span id="frCruiseLbl">12 %c</span></div>
+        <input type="range" id="frCruise" min="4" max="20" step="0.5" value="12" oninput="onSlide()">
+      </div>
+      <div class="slider-row">
+        <div class="slabel">Accel time <span id="frAccelLbl">3.8 yr</span></div>
+        <input type="range" id="frAccel" min="1" max="20" step="0.1" value="3.8" oninput="onSlide()">
+      </div>
+      <div class="note">Project Daedalus reference: D/He-3 inertial confinement, two-stage, 0.12c, 450 t payload, ~50,000 t of fuel. Fuel scales with payload; helium-3 is scarce on Earth.</div>
+    </div>
+
+    <!-- nuclear-electric -->
+    <div class="epanel">
+      <h3><span class="dot" style="background:#b6ff7a;width:10px;height:10px;border-radius:50%;display:inline-block;"></span>Nuclear-electric parameters</h3>
+      <div class="slider-row">
+        <div class="slabel">Payload <span id="nePayloadLbl">1,000 kg</span></div>
+        <input type="range" id="nePayload" min="100" max="10000" step="100" value="1000" oninput="onSlide()">
+      </div>
+      <div class="slider-row">
+        <div class="slabel">Exhaust velocity <span id="neVeLbl">100 km/s</span></div>
+        <input type="range" id="neVe" min="30" max="500" step="5" value="100" oninput="onSlide()">
+      </div>
+      <div class="slider-row">
+        <div class="slabel">Electric power <span id="nePowerLbl">10 MW</span></div>
+        <input type="range" id="nePower" min="1" max="100" step="1" value="10" oninput="onSlide()">
+      </div>
+      <div class="slider-row">
+        <div class="slabel">Mass ratio <span id="neMrLbl">20×</span></div>
+        <input type="range" id="neMr" min="5" max="60" step="1" value="20" oninput="onSlide()">
+      </div>
+      <div class="note">The probe design in this series uses nuclear-electric at ~450 km/s (0.0015c). It's slow, but it can brake, settle, and run for millennia — the other two cannot.</div>
+    </div>
+  </div>
+
+  <div class="callout">
+    <h3>The probe in this series sits far off this chart</h3>
+    <p>The laser sail and fusion rocket are flyby concepts — they arrive in seconds or minutes at the target and cannot stop. The self-replicating seed in this series uses nuclear-electric at ~450 km/s (0.0015c), brakes against the interstellar medium using a magnetic sail, and settles. At that speed it takes ~2,800 years to reach Proxima Centauri. The trade is everything the other two concepts sacrifice: the ability to stop, build, and send children forward. See the <a href="papers.html">vehicle paper</a> for the full design rationale.</p>
+  </div>
+
+  <footer>
+    <p>Physics ported directly from <code>code/propulsion.py</code>. All calculations run in the browser. · <a href="code.html">Back to tools</a></p>
+  </footer>
+</div>
+
+<script>
+// =====================================================================
+//  Constants
+// =====================================================================
+const C  = 299792458;
+const LY = 9.46073047e15;
+const YR = 31557600;
+const G0 = 9.80665;
+const AU = 1.49598e11;
+
+// =====================================================================
+//  Engine models (ported from propulsion.py)
+// =====================================================================
+function laserSail(massG, powerW, capFracC) {
+  const m = massG / 1000;
+  const zFocus = 10000 * 4 / (2 * 1.06e-6);   // array_d * sail_d / (2 * lambda)
+  const cap = capFracC * C;
+  const F0 = 2 * powerW / C;
+  let dt = 0.05, z = 0, p = 0, t = 0, eJ = 0;
+  for (let iter = 0; iter < 200000; iter++) {
+    const gamma = Math.sqrt(1 + (p / (m * C)) ** 2);
+    const v = p / (gamma * m);
+    if (v >= cap) break;
+    const beam = z <= zFocus ? 1 : (zFocus / z) ** 2;
+    if (beam < 1e-4) break;
+    const beta = v / C;
+    const F = F0 * beam * (1 - beta) / (1 + beta);
+    p += F * dt;
+    z += v * dt;
+    eJ += powerW * dt;
+    t += dt;
+  }
+  const gammaF = Math.sqrt(1 + (p / (m * C)) ** 2);
+  const vF = p / (gammaF * m);
+  return {
+    color: "#5ad1ff", engine: "Laser sail",
+    cruiseFracC: vF / C,
+    accelYr: t / YR,
+    accelLy: z / LY,
+    peakG: (F0 / m) / G0,
+    launchKg: m,
+    energyJ: eJ,
+    extra: { focusAU: zFocus / AU }
+  };
+}
+
+function fusionRocket(payloadT, cruiseFracC, accelYr) {
+  const scale = payloadT / 450;
+  const fuelT = 50000 * scale;
+  const dryT  = 2700  * scale;
+  const totalT = payloadT + dryT + fuelT;
+  const he3T = fuelT * 0.40;
+  return {
+    color: "#ff9d5a", engine: "Fusion rocket",
+    cruiseFracC,
+    accelYr,
+    accelLy: 0.5 * cruiseFracC * accelYr,
+    peakG: (cruiseFracC * C) / (accelYr * YR) / G0,
+    launchKg: totalT * 1000,
+    energyJ: fuelT * 1000 * 0.15 * 3.5e14,
+    extra: { fuelT, he3T }
+  };
+}
+
+function nuclearElectric(payloadKg, veMs, powerMW, massRatio) {
+  const dv = veMs * Math.log(massRatio);
+  const P  = powerMW * 1e6;
+  const reactorKg = 5 * powerMW * 1000;
+  const dryKg  = payloadKg + reactorKg;
+  const propKg = dryKg * (massRatio - 1);
+  const m0     = dryKg * massRatio;
+  const mdot   = 2 * 0.70 * P / veMs ** 2;
+  const tBurn  = propKg / mdot;
+  const cruise = dv / C;
+  return {
+    color: "#b6ff7a", engine: "Nuclear-electric",
+    cruiseFracC: cruise,
+    accelYr: tBurn / YR,
+    accelLy: 0.5 * cruise * (tBurn / YR),
+    peakG: (2 * 0.70 * P / veMs / m0) / G0,
+    launchKg: m0,
+    energyJ: P * tBurn,
+    extra: { dvKms: dv / 1000 }
+  };
+}
+
+function travelYr(p, distLy) {
+  const coast = Math.max(0, distLy - p.accelLy);
+  return p.accelYr + coast / p.cruiseFracC;
+}
+
+// =====================================================================
+//  Formatting helpers
+// =====================================================================
+function fmtYr(y) {
+  if (y < 1)    return "<1 yr";
+  if (y < 1000) return y.toFixed(0) + " yr";
+  if (y < 1e6)  return (y / 1000).toFixed(1) + " kyr";
+  return (y / 1e6).toFixed(1) + " Myr";
+}
+function fmtMass(kg) {
+  if (kg < 1)    return (kg * 1000).toFixed(0) + " g";
+  if (kg < 1000) return kg.toFixed(0) + " kg";
+  if (kg < 1e6)  return (kg / 1000).toFixed(0) + " t";
+  return (kg / 1e6).toFixed(1) + " Mt";
+}
+function fmtE(J) {
+  if (J < 1e12) return (J / 1e9).toFixed(1)  + " GJ";
+  if (J < 1e15) return (J / 1e12).toFixed(1) + " TJ";
+  if (J < 1e18) return (J / 1e15).toFixed(1) + " PJ";
+  return (J / 1e18).toFixed(2) + " EJ";
+}
+function fmtSpeed(frac) {
+  const kms = frac * C / 1000;
+  if (frac < 0.001) return kms.toFixed(0) + " km/s";
+  return (frac * 100).toFixed(2) + " %c";
+}
+
+// =====================================================================
+//  State
+// =====================================================================
+let targetDist = 4.246;
+let profiles   = [];
+
+function getProfiles() {
+  return [
+    laserSail(
+      +document.getElementById("lsMass").value,
+      +document.getElementById("lsPower").value * 1e9,
+      +document.getElementById("lsCap").value / 100
+    ),
+    fusionRocket(
+      +document.getElementById("frPayload").value,
+      +document.getElementById("frCruise").value / 100,
+      +document.getElementById("frAccel").value
+    ),
+    nuclearElectric(
+      +document.getElementById("nePayload").value,
+      +document.getElementById("neVe").value * 1000,
+      +document.getElementById("nePower").value,
+      +document.getElementById("neMr").value
+    )
+  ];
+}
+
+// =====================================================================
+//  UI updates
+// =====================================================================
+function onSlide() {
+  // update slider labels
+  document.getElementById("lsMassLbl").textContent   = +document.getElementById("lsMass").value + " g";
+  document.getElementById("lsPowerLbl").textContent  = +document.getElementById("lsPower").value + " GW";
+  document.getElementById("lsCapLbl").textContent    = +document.getElementById("lsCap").value + " %c";
+  document.getElementById("frPayloadLbl").textContent= (+document.getElementById("frPayload").value).toLocaleString() + " t";
+  document.getElementById("frCruiseLbl").textContent = +document.getElementById("frCruise").value + " %c";
+  document.getElementById("frAccelLbl").textContent  = +document.getElementById("frAccel").value + " yr";
+  document.getElementById("nePayloadLbl").textContent= (+document.getElementById("nePayload").value).toLocaleString() + " kg";
+  document.getElementById("neVeLbl").textContent     = +document.getElementById("neVe").value + " km/s";
+  document.getElementById("nePowerLbl").textContent  = +document.getElementById("nePower").value + " MW";
+  document.getElementById("neMrLbl").textContent     = +document.getElementById("neMr").value + "×";
+
+  profiles = getProfiles();
+  updateCards();
+  drawChart();
+}
+
+function setTarget(d, btn) {
+  targetDist = d;
+  document.getElementById("targetDist").value = d;
+  document.getElementById("targetDistVal").textContent = d.toFixed(1) + " ly";
+  document.querySelectorAll(".preset-btn").forEach(b => b.classList.remove("sel"));
+  if (btn) btn.classList.add("sel");
+  updateCards();
+  drawChart();
+}
+
+function onTargetSlide(el) {
+  targetDist = +el.value;
+  document.getElementById("targetDistVal").textContent = targetDist.toFixed(1) + " ly";
+  document.querySelectorAll(".preset-btn").forEach(b => b.classList.remove("sel"));
+  updateCards();
+  drawChart();
+}
+
+function updateCards() {
+  const [ls, fr, ne] = profiles;
+  // laser sail
+  const lst = travelYr(ls, targetDist);
+  document.getElementById("ls_time").textContent   = fmtYr(lst);
+  document.getElementById("ls_speed").textContent  = fmtSpeed(ls.cruiseFracC);
+  document.getElementById("ls_accel").textContent  = fmtYr(ls.accelYr);
+  document.getElementById("ls_mass").textContent   = fmtMass(ls.launchKg);
+  document.getElementById("ls_energy").textContent = fmtE(ls.energyJ);
+  // fusion
+  const frt = travelYr(fr, targetDist);
+  document.getElementById("fr_time").textContent   = fmtYr(frt);
+  document.getElementById("fr_speed").textContent  = fmtSpeed(fr.cruiseFracC);
+  document.getElementById("fr_accel").textContent  = fmtYr(fr.accelYr);
+  document.getElementById("fr_mass").textContent   = fmtMass(fr.launchKg);
+  document.getElementById("fr_he3").textContent    = fmtMass(fr.extra.he3T * 1000) + " He-3";
+  // nuclear
+  const net = travelYr(ne, targetDist);
+  document.getElementById("ne_time").textContent   = fmtYr(net);
+  document.getElementById("ne_speed").textContent  = fmtSpeed(ne.cruiseFracC);
+  document.getElementById("ne_accel").textContent  = fmtYr(ne.accelYr);
+  document.getElementById("ne_mass").textContent   = fmtMass(ne.launchKg);
+  document.getElementById("ne_dv").textContent     = ne.extra.dvKms.toFixed(0) + " km/s";
+}
+
+// =====================================================================
+//  Canvas chart
+// =====================================================================
+function drawChart() {
+  const canvas = document.getElementById("chart");
+  const W = canvas.offsetWidth;
+  canvas.width  = W * devicePixelRatio;
+  canvas.height = 340 * devicePixelRatio;
+  const ctx = canvas.getContext("2d");
+  ctx.scale(devicePixelRatio, devicePixelRatio);
+  const cW = W, cH = 340;
+
+  const PAD = { top: 24, right: 30, bottom: 50, left: 72 };
+  const PW = cW - PAD.left - PAD.right;
+  const PH = cH - PAD.top  - PAD.bottom;
+
+  // domain
+  const maxDist = 100;
+  const yMin = 1, yMax = 3e6;  // years
+
+  function xPx(ly)  { return PAD.left + ly / maxDist * PW; }
+  function yPx(yr)  {
+    const t = Math.log10(Math.max(yr, yMin));
+    const lo = Math.log10(yMin), hi = Math.log10(yMax);
+    return PAD.top + (1 - (t - lo) / (hi - lo)) * PH;
+  }
+
+  // background
+  ctx.fillStyle = "rgba(8,12,26,0)";
+  ctx.fillRect(0, 0, cW, cH);
+
+  // grid
+  ctx.strokeStyle = "rgba(140,195,255,.08)";
+  ctx.lineWidth = 1;
+  for (let d = 0; d <= 100; d += 10) {
+    ctx.beginPath();
+    ctx.moveTo(xPx(d), PAD.top);
+    ctx.lineTo(xPx(d), PAD.top + PH);
+    ctx.stroke();
+  }
+  const yTicks = [1, 10, 100, 1000, 10000, 100000, 1e6];
+  yTicks.forEach(y => {
+    const py = yPx(y);
+    ctx.beginPath();
+    ctx.moveTo(PAD.left, py);
+    ctx.lineTo(PAD.left + PW, py);
+    ctx.stroke();
+    ctx.fillStyle = "rgba(140,195,255,.45)";
+    ctx.font = `${11}px Inter,system-ui,sans-serif`;
+    ctx.textAlign = "right";
+    const lbl = y < 1000 ? y + " yr" : y < 1e6 ? (y/1000).toFixed(0) + " kyr" : (y/1e6).toFixed(0) + " Myr";
+    ctx.fillText(lbl, PAD.left - 6, py + 4);
+  });
+
+  // x axis labels
+  ctx.textAlign = "center";
+  ctx.fillStyle = "rgba(140,195,255,.45)";
+  for (let d = 0; d <= 100; d += 10) {
+    ctx.fillText(d + " ly", xPx(d), PAD.top + PH + 18);
+  }
+
+  // notable star markers
+  const stars = [
+    { d: 4.246, n: "Proxima" }, { d: 5.963, n: "Barnard's" },
+    { d: 8.601, n: "Sirius" }, { d: 11.912, n: "Tau Ceti" }, { d: 25.04, n: "Vega" }
+  ];
+  stars.forEach(s => {
+    const px = xPx(s.d);
+    ctx.strokeStyle = "rgba(140,195,255,.20)";
+    ctx.lineWidth = 1;
+    ctx.setLineDash([3, 3]);
+    ctx.beginPath();
+    ctx.moveTo(px, PAD.top);
+    ctx.lineTo(px, PAD.top + PH);
+    ctx.stroke();
+    ctx.setLineDash([]);
+    ctx.fillStyle = "rgba(140,195,255,.35)";
+    ctx.font = `10px Inter,system-ui,sans-serif`;
+    ctx.textAlign = "center";
+    ctx.fillText(s.n, px, PAD.top + PH + 36);
+  });
+
+  // target distance vertical line
+  ctx.strokeStyle = "rgba(255,255,255,.35)";
+  ctx.lineWidth = 1.5;
+  ctx.setLineDash([5, 3]);
+  ctx.beginPath();
+  ctx.moveTo(xPx(targetDist), PAD.top);
+  ctx.lineTo(xPx(targetDist), PAD.top + PH);
+  ctx.stroke();
+  ctx.setLineDash([]);
+
+  // probe curves
+  const STEPS = 200;
+  profiles.forEach(p => {
+    ctx.strokeStyle = p.color;
+    ctx.lineWidth = 2.5;
+    ctx.beginPath();
+    let first = true;
+    for (let i = 0; i <= STEPS; i++) {
+      const d = i / STEPS * maxDist;
+      if (d < 0.01) continue;
+      const t = travelYr(p, d);
+      const px = xPx(d), py = yPx(t);
+      if (first) { ctx.moveTo(px, py); first = false; }
+      else        ctx.lineTo(px, py);
+    }
+    ctx.stroke();
+  });
+
+  // dot at target
+  profiles.forEach(p => {
+    const t  = travelYr(p, targetDist);
+    const px = xPx(targetDist), py = yPx(t);
+    ctx.fillStyle = p.color;
+    ctx.beginPath();
+    ctx.arc(px, py, 5, 0, 2 * Math.PI);
+    ctx.fill();
+    ctx.fillStyle = "#070a14";
+    ctx.beginPath();
+    ctx.arc(px, py, 2.5, 0, 2 * Math.PI);
+    ctx.fill();
+  });
+
+  // legend
+  const lx = PAD.left + 10, ly0 = PAD.top + 10;
+  profiles.forEach((p, i) => {
+    const ly = ly0 + i * 22;
+    ctx.fillStyle = p.color;
+    ctx.fillRect(lx, ly, 22, 3);
+    ctx.fillStyle = "rgba(220,230,255,.8)";
+    ctx.font = `12px Inter,system-ui,sans-serif`;
+    ctx.textAlign = "left";
+    ctx.fillText(p.engine, lx + 28, ly + 5);
+  });
+
+  // axis labels
+  ctx.fillStyle = "rgba(140,195,255,.5)";
+  ctx.font = `11px Inter,system-ui,sans-serif`;
+  ctx.textAlign = "center";
+  ctx.fillText("Distance (light-years)", PAD.left + PW / 2, cH - 4);
+  ctx.save();
+  ctx.translate(14, PAD.top + PH / 2);
+  ctx.rotate(-Math.PI / 2);
+  ctx.fillText("Travel time (log scale)", 0, 0);
+  ctx.restore();
+}
+
+// =====================================================================
+//  Init
+// =====================================================================
+window.addEventListener("load", () => {
+  profiles = getProfiles();
+  updateCards();
+  drawChart();
+});
+window.addEventListener("resize", drawChart);
+</script>
+</body>
+</html>

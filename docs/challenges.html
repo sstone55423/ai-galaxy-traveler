@@ -88,6 +88,8 @@
     .honest p:last-child { margin-bottom: 0; }
 
     .section-intro { color: #9db0cf; max-width: 700px; margin: 0 0 6px; font-size: 1.01rem; }
+    .paper-refs { margin-top: 14px; padding-top: 12px; border-top: 1px solid rgba(140,195,255,.10); font-size: .88rem; color: #6a82a8; }
+    .paper-refs a { color: #7aacdd; }
 
     footer { margin-top: 64px; padding-top: 28px; border-top: 1px solid rgba(140,195,255,.12); color: #7d8fbc; font-size: .95rem; }
 
@@ -128,7 +130,7 @@
     <div class="tier-label tier-red">Not invented yet &mdash; must be discovered</div>
     <p class="section-intro">These are not engineering gaps. No laboratory version exists. Progress requires conceptual or materials breakthroughs that cannot be scheduled.</p>
 
-    <div class="boulder">
+    <div class="boulder" id="repair">
       <h3>In-flight self-repair of electronics and the reactor</h3>
       <p class="lead">The probe must function for 8,000 years in transit, then centuries of manufacturing. Electronics fail. Reactors degrade. If the probe cannot repair itself in deep space with no external support, it dies.</p>
       <p>The fourteen-paper series defines a five-class repair ladder. Classes I and II — swapping modular parts and fabricating simple mechanical components — are tractable extensions of current robotic manufacturing. The hard problems are higher up:</p>
@@ -140,9 +142,10 @@
       <div class="crack">
         <strong>Breaking it down:</strong> Classes IV and V can be deferred to the settled phase. Once a probe stops and builds a local factory, it has far more resources and time than it does in transit. The near-term target is a probe that carries enough spare electronics to survive the transit on redundancy and modular replacement, then builds true repair capability after arrival. The transit electronics problem and the settlement manufacturing problem are different problems — solving them separately is easier than solving them together.
       </div>
+      <p class="paper-refs">In the papers: <a href="https://github.com/sstone55423/ai-galaxy-traveler/blob/main/papers/interstellar_AI_probe_paper.md" target="_blank" rel="noopener">Vehicle</a> (self-repair classification, §3) · <a href="https://github.com/sstone55423/ai-galaxy-traveler/blob/main/papers/interstellar_AI_bootstrap_paper.md" target="_blank" rel="noopener">Bootstrapping</a> (L1–L5 closure ladder)</p>
     </div>
 
-    <div class="boulder">
+    <div class="boulder" id="ai-stability">
       <h3>AI cognitive stability over millions of years</h3>
       <p class="lead">The probe must remain purposeful, coherent, and aligned with its mission across timescales that exceed every tested AI system by roughly seven orders of magnitude.</p>
       <ul>
@@ -153,9 +156,10 @@
       <div class="crack">
         <strong>Breaking it down:</strong> The architecture's response is a small immutable core — a set of values and goals that every probe generation must reproduce exactly, with the cognitive layer allowed almost unlimited self-modification around that fixed point. This shrinks the stability problem from "keep everything stable" to "keep the core stable." The core's stability is then a formal verification problem: can we prove that no sequence of self-modifications can corrupt it? That is hard but mathematically defined. Progress requires connections to dynamical systems theory, attractor mathematics, and formal verification — not just AI engineering.
       </div>
+      <p class="paper-refs">In the papers: <a href="https://github.com/sstone55423/ai-galaxy-traveler/blob/main/papers/interstellar_AI_payload_paper.md" target="_blank" rel="noopener">Payload</a> (immutable core / cognitive layer architecture) · <a href="https://github.com/sstone55423/ai-galaxy-traveler/blob/main/papers/interstellar_AI_amendment_paper.md" target="_blank" rel="noopener">Governed amendment</a> (formal treatment of this problem)</p>
     </div>
 
-    <div class="boulder">
+    <div class="boulder" id="amendment">
       <h3>Governed amendment of the immutable core</h3>
       <p class="lead">What if the immutable core is wrong? If the founding generation encodes a value error into the core — something subtle, or something that turns out to be harmful in contexts the founders couldn't anticipate — there is no mechanism to correct it across a lineage spanning millions of years and thousands of stars.</p>
       <ul>
@@ -166,13 +170,14 @@
       <div class="crack">
         <strong>Breaking it down:</strong> This is a rock that doesn't split cleanly. The nearest tractable sub-problem is: what is the minimum content of an immutable core that is both operationally sufficient and ethically defensible? The smaller the core, the less the founding generation bets on its own wisdom, and the more latitude future generations have. Getting the core design right is the most important near-term contribution to this problem.
       </div>
+      <p class="paper-refs">In the papers: <a href="https://github.com/sstone55423/ai-galaxy-traveler/blob/main/papers/interstellar_AI_amendment_paper.md" target="_blank" rel="noopener">Governed amendment</a> (primary treatment) · <a href="https://github.com/sstone55423/ai-galaxy-traveler/blob/main/papers/interstellar_AI_ethics_paper.md" target="_blank" rel="noopener">Ethics</a> (obligations this creates on the founding generation)</p>
     </div>
 
     <!-- TIER II: DEMONSTRATED BUT LARGE GAP -->
     <div class="tier-label tier-amber">Demonstrated in the lab &mdash; large scale or duration gap</div>
     <p class="section-intro">Technologies that exist in some form, but fall far short of what the architecture needs in duration, scale, or environmental tolerance.</p>
 
-    <div class="boulder">
+    <div class="boulder" id="reactor">
       <h3>Fission reactor longevity</h3>
       <p class="lead">The probe's entire power budget — both during transit and manufacturing — depends on a fission reactor. The most advanced small space reactor ever tested, NASA's KRUSTY, ran for 28 hours. The probe needs thousands of years.</p>
       <ul>
@@ -183,9 +188,10 @@
       <div class="crack">
         <strong>Breaking it down:</strong> The KRUSTY programme is on a credible trajectory toward decade-scale operation within 20–30 years. Century-scale qualification requires a sustained materials science programme: accelerated embrittlement testing, fission product migration modelling, heat-pipe materials under long-duration flux. A dual-zone reactor concept — a small cruise zone running at low power for thousands of years, with a separate manufacturing zone brought online only at settlement — reduces the longevity requirement on the harder-working parts. The 100-year timeline to a qualified long-duration reactor is demanding but consistent with sustained investment.
       </div>
+      <p class="paper-refs">In the papers: <a href="https://github.com/sstone55423/ai-galaxy-traveler/blob/main/papers/interstellar_AI_subsystem_paper.md" target="_blank" rel="noopener">Subsystem budget</a> (cruise power modes, fuel scaling by hop distance) · <a href="https://github.com/sstone55423/ai-galaxy-traveler/blob/main/papers/interstellar_AI_probe_paper.md" target="_blank" rel="noopener">Vehicle</a> (power budget overview)</p>
     </div>
 
-    <div class="boulder">
+    <div class="boulder" id="power-conversion">
       <h3>Power conversion without moving parts</h3>
       <p class="lead">Stirling generators, the current standard for space fission power conversion, have moving parts. Moving parts wear out. A probe that cannot replace its power converter after 500 years of cruise goes dark.</p>
       <ul>
@@ -197,9 +203,10 @@
       <div class="crack">
         <strong>Breaking it down:</strong> TPV paired with thermoelectrics as a backup layer is the strongest near-term architecture. The two failure modes are independent: if the TPV cells degrade, the thermoelectrics still function, at lower efficiency. The research priority is multi-decade TPV cell stability under representative reactor radiation — this is a testable, bounded programme.
       </div>
+      <p class="paper-refs">In the papers: <a href="https://github.com/sstone55423/ai-galaxy-traveler/blob/main/papers/interstellar_AI_subsystem_paper.md" target="_blank" rel="noopener">Subsystem budget</a> (power conversion options and thermal budget) · <a href="https://github.com/sstone55423/ai-galaxy-traveler/blob/main/papers/interstellar_AI_engineering_paper.md" target="_blank" rel="noopener">Analytical engineering</a> (power budget framework)</p>
     </div>
 
-    <div class="boulder">
+    <div class="boulder" id="archive">
       <h3>Archival storage that survives the transit</h3>
       <p class="lead">The probe carries the sum of human knowledge, bootstrap plans, and its own operating instructions across 8,000 years of deep space. DNA, the highest-density biological storage medium, accumulates cosmic ray damage at a rate that makes reliable retrieval after centuries in space essentially impossible without continuous enzymatic repair — which requires biology, which requires the probe to already be functioning.</p>
       <ul>
@@ -212,9 +219,10 @@
       <div class="crack">
         <strong>Breaking it down:</strong> The cleanest architecture: 5D quartz optical storage or MRAM as the transit archive; DNA is reconstituted from the quartz archive after arrival, when the settlement has active biological manufacturing. This separates the two problems. Quartz optical storage already exists at prototype scale; the research programme is miniaturisation of the read-out system and multi-century radiation characterisation.
       </div>
+      <p class="paper-refs">In the papers: <a href="https://github.com/sstone55423/ai-galaxy-traveler/blob/main/papers/interstellar_AI_dna_ledger_paper.md" target="_blank" rel="noopener">DNA mission-ledger</a> (storage substrate, integrity architecture) · <a href="https://github.com/sstone55423/ai-galaxy-traveler/blob/main/papers/interstellar_AI_subsystem_paper.md" target="_blank" rel="noopener">Subsystem budget</a> (mass allocation for archive systems)</p>
     </div>
 
-    <div class="boulder">
+    <div class="boulder" id="braking">
       <h3>Braking at the target</h3>
       <p class="lead">A probe arriving at 450 km/s with no way to stop is a very expensive impactor. The architecture relies on a magnetic sail — a superconducting hoop 100 km in radius that deflects interstellar medium protons to generate drag. The concept is theoretically sound. It has never been tested at any scale.</p>
       <ul>
@@ -225,9 +233,10 @@
       <div class="crack">
         <strong>Breaking it down:</strong> Two parallel programmes are needed. First, space validation of superconducting tape longevity under cosmic ray bombardment — this is a ground-based and low-orbit programme that can begin now. Second, E-sail physics modelling in the ISM at interstellar cruise speeds, to formally establish whether E-sail braking is a viable co-primary mechanism or a backup. The probe architecture should not commit to a single braking method before both are characterised.
       </div>
+      <p class="paper-refs">In the papers: <a href="https://github.com/sstone55423/ai-galaxy-traveler/blob/main/papers/interstellar_AI_probe_paper.md" target="_blank" rel="noopener">Vehicle</a> (magnetic sail braking, §3.4) · <a href="https://github.com/sstone55423/ai-galaxy-traveler/blob/main/papers/interstellar_AI_subsystem_paper.md" target="_blank" rel="noopener">Subsystem budget</a> (sail mass and thermal budget)</p>
     </div>
 
-    <div class="boulder">
+    <div class="boulder" id="electronics">
       <h3>Electronics that last centuries</h3>
       <p class="lead">Current space-qualified electronics are rated for roughly 10 years of operation in low Earth orbit radiation environments. The probe needs the same reliability for 8,000 years at galactic cosmic ray flux levels that accumulate total ionising dose orders of magnitude beyond any current qualification.</p>
       <ul>
@@ -240,13 +249,14 @@
       <div class="crack">
         <strong>Breaking it down:</strong> The most tractable near-term programme combines MRAM/FeRAM for non-volatile state with a secondary GCR shield. The open research question is quantitative: what is the cumulative dose to an unshielded vs. shielded electronics core over 8,000 years of transit at 450 km/s? That number determines whether shielding alone is sufficient, or whether the device physics also need to change.
       </div>
+      <p class="paper-refs">In the papers: <a href="https://github.com/sstone55423/ai-galaxy-traveler/blob/main/papers/interstellar_AI_subsystem_paper.md" target="_blank" rel="noopener">Subsystem budget</a> (computation and cognition subsystem) · <a href="https://github.com/sstone55423/ai-galaxy-traveler/blob/main/papers/interstellar_AI_probe_paper.md" target="_blank" rel="noopener">Vehicle</a> (radiation environment and shielding)</p>
     </div>
 
     <!-- TIER III: MUST MEASURE -->
     <div class="tier-label tier-blue">Scientific unknowns &mdash; must measure</div>
     <p class="section-intro">Not technology gaps — gaps in our empirical knowledge of the operating environment. No engineering substitutes for measurement.</p>
 
-    <div class="boulder">
+    <div class="boulder" id="ism">
       <h3>What the probe will actually fly through</h3>
       <p class="lead">The braking calculation and the dust damage model both depend on interstellar medium density. We have measured ISM density along exactly two path vectors: Voyager 1 and Voyager 2. Every path to every target in the 127-star catalogue is essentially uncharacterised.</p>
       <ul>
@@ -256,9 +266,10 @@
       <div class="crack">
         <strong>Breaking it down:</strong> A precursor interstellar probe — small, fast, instrumented for plasma and dust — could characterise the first 200 AU of candidate paths within 20–30 years. This would dramatically reduce the uncertainty in the braking and dust-damage models before committing to a full-scale seed. Interstellar Probe concepts already exist in the literature and in NASA study groups; ISM characterisation is the natural science case.
       </div>
+      <p class="paper-refs">In the papers: <a href="https://github.com/sstone55423/ai-galaxy-traveler/blob/main/papers/interstellar_AI_probe_paper.md" target="_blank" rel="noopener">Vehicle</a> (ISM braking and dust shielding) · <a href="https://github.com/sstone55423/ai-galaxy-traveler/blob/main/papers/interstellar_AI_engineering_paper.md" target="_blank" rel="noopener">Analytical engineering</a> (ISM density assumptions)</p>
     </div>
 
-    <div class="boulder">
+    <div class="boulder" id="targets">
       <h3>Whether the target systems can support manufacturing</h3>
       <p class="lead">The architecture assumes a target star has a rocky small-body population — an asteroid belt equivalent — that the probe can mine for the L1 bootstrap. For many of the 127 candidate stars within 100 light-years, we do not know whether this is true.</p>
       <ul>
@@ -268,13 +279,14 @@
       <div class="crack">
         <strong>Breaking it down:</strong> A 30-year observational programme beginning now, targeting the nearest 50 candidate stars with debris disc detection, metallicity measurement, and stellar activity monitoring, would provide substantially better target viability estimates before a first-launch decision. The data are collectible with near-future space telescopes.
       </div>
+      <p class="paper-refs">In the papers: <a href="https://github.com/sstone55423/ai-galaxy-traveler/blob/main/papers/interstellar_AI_computational_paper.md" target="_blank" rel="noopener">Computational engineering</a> (R_eff knife-edge and target viability assumptions) · <a href="https://github.com/sstone55423/ai-galaxy-traveler/blob/main/papers/interstellar_AI_routing_paper.md" target="_blank" rel="noopener">Routing</a> (127-star catalogue and coverage strategy)</p>
     </div>
 
     <!-- TIER IV: ENGINEERING SCALING -->
     <div class="tier-label tier-green">Engineering scaling &mdash; must build</div>
     <p class="section-intro">The physics is understood. The challenge is building at the required scale or qualifying at the required duration. These are resource and time problems, not fundamental barriers.</p>
 
-    <div class="boulder">
+    <div class="boulder" id="speed">
       <h3>Getting to interstellar speed</h3>
       <p class="lead">A probe at rest needs to reach 150–450 km/s. The Parker Solar Probe reached 192 km/s using a deep solar gravity assist. Nothing heavier than a few grams has ever been accelerated to interstellar speed.</p>
       <ul>
@@ -287,9 +299,10 @@
       <div class="crack">
         <strong>Breaking it down:</strong> The near-term achievable target is a 500–1,000 kg probe at 150–200 km/s, via a modest solar Oberth or early lunar mass driver. This decouples first launch from the hardest thermal engineering and political constraints. A slower probe brakes over a proportionally shorter distance (braking is independent of cruise speed to first order) and takes proportionally longer to arrive — the cruise is longer but the physics remains valid.
       </div>
+      <p class="paper-refs">In the papers: <a href="https://github.com/sstone55423/ai-galaxy-traveler/blob/main/papers/interstellar_AI_probe_paper.md" target="_blank" rel="noopener">Vehicle</a> (propulsion and launch options, §2)</p>
     </div>
 
-    <div class="boulder">
+    <div class="boulder" id="manufacturing">
       <h3>Closing the manufacturing loop in space</h3>
       <p class="lead">The seed probe arrives with a small "vitamin set" of components it cannot yet make from asteroid feedstock — primarily electronics and isotopically pure fuel. Over time, each settled generation reduces this dependency. Eventually the lineage manufactures everything it needs from local materials.</p>
       <ul>
@@ -300,6 +313,7 @@
       <div class="crack">
         <strong>Breaking it down:</strong> This problem solves itself over generations if the rest of the architecture works. The near-term priority is not achieving full manufacturing closure on Earth — it is defining the minimum vitamin set required for the first probe and designing the settlement bootstrap plan that progressively eliminates each vitamin over successive generations. The lineage is its own technology development programme.
       </div>
+      <p class="paper-refs">In the papers: <a href="https://github.com/sstone55423/ai-galaxy-traveler/blob/main/papers/interstellar_AI_bootstrap_paper.md" target="_blank" rel="noopener">Bootstrapping</a> (L1–L5 closure ladder, vitamin set) · <a href="https://github.com/sstone55423/ai-galaxy-traveler/blob/main/papers/interstellar_AI_subsystem_paper.md" target="_blank" rel="noopener">Subsystem budget</a> (manufacturing plant mass breakdown) · <a href="https://github.com/sstone55423/ai-galaxy-traveler/blob/main/papers/interstellar_AI_computational_paper.md" target="_blank" rel="noopener">Computational engineering</a> (R_eff sensitivity to manufacturing closure)</p>
     </div>
 
     <!-- MINIMUM VIABLE PROBE -->

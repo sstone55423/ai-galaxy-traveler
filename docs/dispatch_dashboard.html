@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dispatch Probability — Deep Time AI</title>
+  <style>
+    :root{color:#e9eefb;background:#070a14;font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.6;font-size:16px;}
+    *{box-sizing:border-box}
+    html,body{margin:0;min-height:100%;}
+    body{background:radial-gradient(circle at top,#121d35 0%,#06090f 48%,#020408 100%);}
+    a{color:#8cc3ff;text-decoration:none;}
+    a:hover{text-decoration:underline;}
+    .page{max-width:980px;margin:0 auto;padding:28px 20px 80px;}
+    header{display:grid;gap:18px;padding:18px 0 26px;}
+    .brand{display:flex;align-items:center;gap:14px;}
+    .logo{width:52px;height:52px;border-radius:18px;background:linear-gradient(135deg,#5aa5ff,#9da8ff);display:flex;align-items:center;justify-content:center;font-weight:700;color:#071928;font-size:22px;}
+    .brand h1{margin:0;font-size:2rem;letter-spacing:-0.03em;}
+    .brand p{margin:4px 0 0;color:#9cb1d9;max-width:640px;}
+    nav{display:flex;flex-wrap:wrap;gap:10px;font-size:.95rem;}
+    nav a{padding:10px 15px;border:1px solid rgba(140,195,255,.18);border-radius:999px;background:rgba(12,18,34,.68);}
+    nav a.active{background:rgba(140,195,255,.14);border-color:rgba(140,195,255,.42);color:#d7e5ff;}
+    .hero{padding:22px 0 18px;border-top:1px solid rgba(140,195,255,.14);border-bottom:1px solid rgba(140,195,255,.14);}
+    .hero h2{margin:0 0 8px;font-size:1.5rem;letter-spacing:-0.02em;}
+    .hero p{margin:0;color:#c0ceea;max-width:720px;}
+    .panel{border:1px solid rgba(140,195,255,.14);border-radius:20px;background:rgba(8,12,26,.9);padding:22px;margin:20px 0;}
+    .panel h3{margin:0 0 14px;font-size:1.05rem;color:#d0dcf8;}
+    .srow{margin-bottom:14px;}
+    .srow .sl{display:flex;justify-content:space-between;font-size:.87rem;color:#8090b0;margin-bottom:4px;}
+    .srow .sl span{color:#c0ceea;font-weight:600;}
+    .srow input[type=range]{width:100%;accent-color:#5aa5ff;}
+    .metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:18px 0;}
+    @media(max-width:620px){.metrics{grid-template-columns:1fr;}}
+    .mc{border:1px solid rgba(140,195,255,.13);border-radius:16px;background:rgba(10,15,30,.85);padding:14px 16px;}
+    .mc .ml{font-size:.82rem;color:#7a90b8;margin-bottom:4px;}
+    .mc .mv{font-size:1.25rem;font-weight:700;color:#d7e5ff;}
+    .mc .ms{font-size:.8rem;color:#6a82a8;margin-top:2px;}
+    .co{border:1px solid rgba(100,200,140,.22);border-radius:16px;background:rgba(40,100,60,.07);padding:16px 18px;margin:16px 0;}
+    .co h4{margin:0 0 6px;color:#8de8b0;font-size:.95rem;}
+    .co p{margin:0;color:#a0c0b0;font-size:.9rem;}
+    .co-warn{border:1px solid rgba(255,150,60,.22);border-radius:16px;background:rgba(100,60,20,.07);padding:16px 18px;margin:16px 0;}
+    .co-warn h4{margin:0 0 6px;color:#ffb070;font-size:.95rem;}
+    .co-warn p{margin:0;color:#c0a880;font-size:.9rem;}
+    canvas{display:block;width:100%;}
+    .n-buttons{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:4px;}
+    .n-btn{padding:7px 14px;border:1px solid rgba(140,195,255,.22);border-radius:999px;background:rgba(12,18,34,.7);color:#8cc3ff;font-size:.88rem;cursor:pointer;transition:background .15s,border-color .15s;}
+    .n-btn:hover{background:rgba(140,195,255,.1);}
+    .n-btn.sel{background:rgba(140,195,255,.18);border-color:rgba(140,195,255,.5);color:#d7e5ff;font-weight:600;}
+    .n-label{font-size:.85rem;color:#7a90b8;margin-bottom:8px;}
+    footer{margin-top:56px;padding-top:24px;border-top:1px solid rgba(140,195,255,.12);color:#7d8fbc;font-size:.9rem;}
+    .chart-label{font-size:.82rem;color:#7a90b8;margin-bottom:8px;margin-top:14px;}
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <header>
+    <div class="brand">
+      <div class="logo">AI</div>
+      <div>
+        <h1>Deep Time AI</h1>
+        <p>Explore slow interstellar AI probes, self-replication, and deep-time research with interactive tools and papers.</p>
+      </div>
+    </div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="papers.html">Papers</a>
+      <a href="challenges.html">Hard Problems</a>
+      <a href="code.html" class="active">Tools</a>
+      <a href="star_map_3d.html">Star map</a>
+      <a href="wanderer_map.html">Fleet map</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h2>Dispatch Probability</h2>
+    <p>P(at least one probe succeeds) = 1 &minus; (1 &minus; p_leg)^n as a function of number of probes and hop distance. Illustrates the three-dispatch rule from the routing paper.</p>
+  </section>
+
+  <!-- Controls -->
+  <div class="panel">
+    <h3>Parameters</h3>
+
+    <div class="srow">
+      <div class="sl">Hop distance <span id="lbl_dist">36 ly</span></div>
+      <input type="range" id="sl_dist" min="1" max="65" step="1" value="36" oninput="onControl()">
+    </div>
+
+    <div class="srow">
+      <div class="sl">Per-stage survival (make / launch / brake / settle) <span id="lbl_stage">0.90</span></div>
+      <input type="range" id="sl_stage" min="0.75" max="0.99" step="0.01" value="0.90" oninput="onControl()">
+    </div>
+
+    <div class="srow">
+      <div class="sl">Cruise survival per ly <span id="lbl_cruise">0.9900 /ly</span></div>
+      <input type="range" id="sl_cruise" min="0.990" max="0.9999" step="0.0001" value="0.9900" oninput="onControl()">
+    </div>
+
+    <div class="n-label">Number of dispatched probes (n)</div>
+    <div class="n-buttons" id="n_buttons"></div>
+  </div>
+
+  <!-- Metric cards -->
+  <div class="metrics">
+    <div class="mc">
+      <div class="ml">p_leg (single probe)</div>
+      <div class="mv" id="mv_pleg">—</div>
+      <div class="ms" id="ms_pleg">p_stage^4 &times; cruise_surv^d</div>
+    </div>
+    <div class="mc">
+      <div class="ml">P_cover (selected n)</div>
+      <div class="mv" id="mv_pcover">—</div>
+      <div class="ms" id="ms_pcover">1 &minus; (1 &minus; p_leg)^n</div>
+    </div>
+    <div class="mc">
+      <div class="ml">Marginal gain (n vs n&minus;1)</div>
+      <div class="mv" id="mv_marginal">—</div>
+      <div class="ms" id="ms_marginal">Added coverage of nth probe</div>
+    </div>
+  </div>
+
+  <!-- Warning callout (shown when P_cover < 90% even at n=10) -->
+  <div class="co-warn" id="warn_block" style="display:none">
+    <h4>Low coverage warning</h4>
+    <p id="warn_text"></p>
+  </div>
+
+  <!-- Main bar chart -->
+  <div class="panel">
+    <h3>Coverage probability for n = 1 to 10</h3>
+    <div class="chart-label">Bars: P_cover(n). Dashed lines at 90% and 95%. Zones labeled by dispatch value.</div>
+    <canvas id="bar_chart" height="320"></canvas>
+  </div>
+
+  <!-- Secondary line chart -->
+  <div class="panel">
+    <h3>Coverage probability vs hop distance (n = 1, 2, 3, 4)</h3>
+    <div class="chart-label">Curves show P_cover over 0&ndash;65 ly at current per-stage and cruise survival settings.</div>
+    <canvas id="line_chart" height="280"></canvas>
+  </div>
+
+  <!-- Key insight callout -->
+  <div class="co">
+    <h4>The single-probe ceiling</h4>
+    <p id="callout_text">A single probe can never exceed p_stage^4 probability regardless of distance. At p_stage=0.9 that ceiling is 65.6%. Two probes cap at 88.2%. Three dispatches reliably clear 90% for targets within ~20 ly.</p>
+  </div>
+
+  <footer>
+    <p>Based on the routing paper. <a href="code.html">Back to tools</a></p>
+  </footer>
+
+</div><!-- .page -->
+
+<script>
+// =====================================================================
+//  Physics
+// =====================================================================
+function pLeg(pStage, cruiseSurv, distLy) {
+  return Math.pow(pStage, 4) * Math.pow(cruiseSurv, distLy);
+}
+
+function pCover(pl, n) {
+  return 1 - Math.pow(1 - pl, n);
+}
+
+// =====================================================================
+//  State
+// =====================================================================
+var state = {
+  dist:   36,
+  stage:  0.90,
+  cruise: 0.9900,
+  n:      3
+};
+
+// =====================================================================
+//  Helpers
+// =====================================================================
+function pct(v) {
+  return (v * 100).toFixed(1) + "%";
+}
+
+function pct2(v) {
+  return (v * 100).toFixed(2) + "%";
+}
+
+// =====================================================================
+//  Build n-buttons
+// =====================================================================
+(function buildNButtons() {
+  var wrap = document.getElementById("n_buttons");
+  for (var i = 1; i <= 10; i++) {
+    var btn = document.createElement("button");
+    btn.className = "n-btn" + (i === state.n ? " sel" : "");
+    btn.textContent = i;
+    btn.setAttribute("data-n", i);
+    btn.addEventListener("click", (function(n) {
+      return function() { selectN(n); };
+    })(i));
+    wrap.appendChild(btn);
+  }
+})();
+
+function selectN(n) {
+  state.n = n;
+  document.querySelectorAll(".n-btn").forEach(function(b) {
+    b.classList.toggle("sel", +b.getAttribute("data-n") === n);
+  });
+  update();
+}
+
+// =====================================================================
+//  Control handler
+// =====================================================================
+function onControl() {
+  state.dist   = +document.getElementById("sl_dist").value;
+  state.stage  = +document.getElementById("sl_stage").value;
+  state.cruise = +document.getElementById("sl_cruise").value;
+
+  document.getElementById("lbl_dist").textContent   = state.dist + " ly";
+  document.getElementById("lbl_stage").textContent  = state.stage.toFixed(2);
+  document.getElementById("lbl_cruise").textContent = state.cruise.toFixed(4) + " /ly";
+
+  update();
+}
+
+// =====================================================================
+//  Main update
+// =====================================================================
+function update() {
+  var pl    = pLeg(state.stage, state.cruise, state.dist);
+  var pc    = pCover(pl, state.n);
+  var pcPrev = state.n > 1 ? pCover(pl, state.n - 1) : 0;
+  var marginal = pc - pcPrev;
+
+  // metric cards
+  document.getElementById("mv_pleg").textContent    = pct2(pl);
+  document.getElementById("mv_pcover").textContent  = pct2(pc);
+  document.getElementById("mv_marginal").textContent = "+" + pct2(marginal);
+
+  document.getElementById("ms_pleg").textContent =
+    "p_stage^4 = " + pct2(Math.pow(state.stage,4)) +
+    " | cruise^d = " + pct2(Math.pow(state.cruise, state.dist));
+
+  document.getElementById("ms_pcover").textContent =
+    "n = " + state.n + " probes dispatched";
+
+  document.getElementById("ms_marginal").textContent =
+    "P(" + state.n + ") − P(" + (state.n - 1) + ")";
+
+  // warning
+  var maxCover = pCover(pl, 10);
+  var warnBlock = document.getElementById("warn_block");
+  if (maxCover < 0.90) {
+    warnBlock.style.display = "";
+    document.getElementById("warn_text").textContent =
+      "Even 10 probes reach only " + pct2(maxCover) +
+      " coverage at this distance and survival setting. " +
+      "Try reducing hop distance or raising per-stage survival.";
+  } else {
+    warnBlock.style.display = "none";
+  }
+
+  // callout
+  var ceil1 = Math.pow(state.stage, 4);
+  var ceil2 = pCover(ceil1, 2);
+  var pAt20 = pCover(pLeg(state.stage, state.cruise, 20), 3);
+  document.getElementById("callout_text").textContent =
+    "A single probe can never exceed p_stageⁿ probability regardless of distance. " +
+    "At p_stage = " + state.stage.toFixed(2) + " that ceiling is " + pct2(ceil1) + ". " +
+    "Two probes cap at " + pct2(ceil2) + ". " +
+    "Three dispatches reach " + pct2(pAt20) + " coverage for targets at 20 ly.";
+
+  drawBar(pl);
+  drawLine();
+}
+
+// =====================================================================
+//  Bar chart
+// =====================================================================
+function barColor(p) {
+  if (p >= 0.90) return "#4ec87a";
+  if (p >= 0.70) return "#f0a040";
+  return "#e05050";
+}
+
+function drawBar(pl) {
+  var canvas = document.getElementById("bar_chart");
+  var W = canvas.offsetWidth || 900;
+  var H_CSS = 320;
+  canvas.width  = W * devicePixelRatio;
+  canvas.height = H_CSS * devicePixelRatio;
+  var ctx = canvas.getContext("2d");
+  ctx.scale(devicePixelRatio, devicePixelRatio);
+
+  var PAD = { top: 32, right: 24, bottom: 48, left: 62 };
+  var PW = W - PAD.left - PAD.right;
+  var PH = H_CSS - PAD.top - PAD.bottom;
+
+  function xBar(i) { return PAD.left + i * (PW / 10); }
+  function yPx(v)  { return PAD.top + (1 - v) * PH; }
+
+  // background grid
+  ctx.strokeStyle = "rgba(140,195,255,.07)";
+  ctx.lineWidth = 1;
+  var yGrids = [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0];
+  yGrids.forEach(function(v) {
+    var py = yPx(v);
+    ctx.beginPath();
+    ctx.moveTo(PAD.left, py);
+    ctx.lineTo(PAD.left + PW, py);
+    ctx.stroke();
+    ctx.fillStyle = "rgba(140,195,255,.4)";
+    ctx.font = "11px Inter,system-ui,sans-serif";
+    ctx.textAlign = "right";
+    ctx.fillText((v * 100).toFixed(0) + "%", PAD.left - 6, py + 4);
+  });
+
+  // zone background bands
+  var zones = [
+    { x0: 0, x1: 3, label: "High value",         color: "rgba(78,200,122,.04)" },
+    { x0: 4, x1: 6, label: "Diminishing returns", color: "rgba(240,160,64,.04)" },
+    { x0: 7, x1: 9, label: "Insurance",           color: "rgba(140,195,255,.03)" }
+  ];
+  zones.forEach(function(z) {
+    var x0 = xBar(z.x0);
+    var x1 = xBar(z.x1 + 1);
+    ctx.fillStyle = z.color;
+    ctx.fillRect(x0, PAD.top, x1 - x0, PH);
+    ctx.fillStyle = "rgba(160,200,180,.25)";
+    ctx.font = "11px Inter,system-ui,sans-serif";
+    ctx.textAlign = "center";
+    ctx.fillText(z.label, (x0 + x1) / 2, PAD.top + PH + 36);
+  });
+
+  // dashed reference lines at 90% and 95%
+  [0.90, 0.95].forEach(function(ref) {
+    var py = yPx(ref);
+    ctx.save();
+    ctx.strokeStyle = ref === 0.90 ? "rgba(78,200,122,.55)" : "rgba(180,220,180,.35)";
+    ctx.lineWidth = 1.2;
+    ctx.setLineDash([5, 4]);
+    ctx.beginPath();
+    ctx.moveTo(PAD.left, py);
+    ctx.lineTo(PAD.left + PW, py);
+    ctx.stroke();
+    ctx.setLineDash([]);
+    ctx.restore();
+    ctx.fillStyle = ref === 0.90 ? "rgba(78,200,122,.7)" : "rgba(180,220,180,.5)";
+    ctx.font = "10px Inter,system-ui,sans-serif";
+    ctx.textAlign = "left";
+    ctx.fillText((ref * 100) + "%", PAD.left + PW + 3, py + 4);
+  });
+
+  // bars
+  var barW = (PW / 10) * 0.68;
+  var gap  = (PW / 10) * 0.16;
+  for (var i = 0; i < 10; i++) {
+    var n  = i + 1;
+    var pc = pCover(pl, n);
+    var x  = xBar(i) + gap;
+    var bH = pc * PH;
+    var by = PAD.top + PH - bH;
+
+    // bar fill — draw rounded top manually for broad browser compat
+    ctx.fillStyle = barColor(pc);
+    ctx.globalAlpha = (n === state.n) ? 1.0 : 0.72;
+    var r = Math.min(4, barW / 2, bH / 2);
+    ctx.beginPath();
+    ctx.moveTo(x + r, by);
+    ctx.lineTo(x + barW - r, by);
+    ctx.quadraticCurveTo(x + barW, by, x + barW, by + r);
+    ctx.lineTo(x + barW, by + bH);
+    ctx.lineTo(x, by + bH);
+    ctx.lineTo(x, by + r);
+    ctx.quadraticCurveTo(x, by, x + r, by);
+    ctx.closePath();
+    ctx.fill();
+    ctx.globalAlpha = 1.0;
+
+    // selected highlight border
+    if (n === state.n) {
+      ctx.strokeStyle = "#d7e5ff";
+      ctx.lineWidth = 1.5;
+      ctx.beginPath();
+      ctx.moveTo(x + r, by);
+      ctx.lineTo(x + barW - r, by);
+      ctx.quadraticCurveTo(x + barW, by, x + barW, by + r);
+      ctx.lineTo(x + barW, by + bH);
+      ctx.lineTo(x, by + bH);
+      ctx.lineTo(x, by + r);
+      ctx.quadraticCurveTo(x, by, x + r, by);
+      ctx.closePath();
+      ctx.stroke();
+    }
+
+    // value label above bar
+    ctx.fillStyle = "rgba(220,230,255,.85)";
+    ctx.font = "11px Inter,system-ui,sans-serif";
+    ctx.textAlign = "center";
+    var labelY = by - 5;
+    if (labelY < PAD.top + 12) labelY = PAD.top + 12;
+    ctx.fillText(pct(pc), x + barW / 2, labelY);
+
+    // n label below
+    ctx.fillStyle = "rgba(140,195,255,.5)";
+    ctx.font = "11px Inter,system-ui,sans-serif";
+    ctx.fillText("n=" + n, x + barW / 2, PAD.top + PH + 18);
+  }
+
+  // y axis label
+  ctx.fillStyle = "rgba(140,195,255,.45)";
+  ctx.font = "11px Inter,system-ui,sans-serif";
+  ctx.textAlign = "center";
+  ctx.save();
+  ctx.translate(13, PAD.top + PH / 2);
+  ctx.rotate(-Math.PI / 2);
+  ctx.fillText("P(coverage)", 0, 0);
+  ctx.restore();
+}
+
+// =====================================================================
+//  Line chart (P_cover vs hop distance for n=1,2,3,4)
+// =====================================================================
+var LINE_COLORS = ["#e05050", "#f0a040", "#4ec87a", "#5aa5ff"];
+var LINE_N      = [1, 2, 3, 4];
+
+function drawLine() {
+  var canvas = document.getElementById("line_chart");
+  var W = canvas.offsetWidth || 900;
+  var H_CSS = 280;
+  canvas.width  = W * devicePixelRatio;
+  canvas.height = H_CSS * devicePixelRatio;
+  var ctx = canvas.getContext("2d");
+  ctx.scale(devicePixelRatio, devicePixelRatio);
+
+  var PAD = { top: 28, right: 90, bottom: 48, left: 62 };
+  var PW = W - PAD.left - PAD.right;
+  var PH = H_CSS - PAD.top - PAD.bottom;
+  var MAX_D = 65;
+
+  function xPx(d) { return PAD.left + (d / MAX_D) * PW; }
+  function yPx(v) { return PAD.top + (1 - v) * PH; }
+
+  // grid
+  ctx.strokeStyle = "rgba(140,195,255,.07)";
+  ctx.lineWidth = 1;
+  var yGrids2 = [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0];
+  yGrids2.forEach(function(v) {
+    var py = yPx(v);
+    ctx.beginPath();
+    ctx.moveTo(PAD.left, py);
+    ctx.lineTo(PAD.left + PW, py);
+    ctx.stroke();
+    ctx.fillStyle = "rgba(140,195,255,.4)";
+    ctx.font = "11px Inter,system-ui,sans-serif";
+    ctx.textAlign = "right";
+    ctx.fillText((v * 100).toFixed(0) + "%", PAD.left - 6, py + 4);
+  });
+
+  // x grid lines every 10 ly
+  for (var d = 0; d <= MAX_D; d += 10) {
+    var px = xPx(d);
+    ctx.strokeStyle = "rgba(140,195,255,.07)";
+    ctx.lineWidth = 1;
+    ctx.beginPath();
+    ctx.moveTo(px, PAD.top);
+    ctx.lineTo(px, PAD.top + PH);
+    ctx.stroke();
+    ctx.fillStyle = "rgba(140,195,255,.4)";
+    ctx.font = "11px Inter,system-ui,sans-serif";
+    ctx.textAlign = "center";
+    ctx.fillText(d + " ly", px, PAD.top + PH + 17);
+  }
+
+  // dashed reference lines at 90% and 95%
+  [0.90, 0.95].forEach(function(ref) {
+    var py = yPx(ref);
+    ctx.save();
+    ctx.strokeStyle = ref === 0.90 ? "rgba(78,200,122,.45)" : "rgba(180,220,180,.3)";
+    ctx.lineWidth = 1.2;
+    ctx.setLineDash([5, 4]);
+    ctx.beginPath();
+    ctx.moveTo(PAD.left, py);
+    ctx.lineTo(PAD.left + PW, py);
+    ctx.stroke();
+    ctx.setLineDash([]);
+    ctx.restore();
+    ctx.fillStyle = ref === 0.90 ? "rgba(78,200,122,.6)" : "rgba(180,220,180,.45)";
+    ctx.font = "10px Inter,system-ui,sans-serif";
+    ctx.textAlign = "left";
+    ctx.fillText((ref * 100) + "%", PAD.left + PW + 4, py + 4);
+  });
+
+  // current distance marker
+  var curX = xPx(state.dist);
+  ctx.save();
+  ctx.strokeStyle = "rgba(255,255,255,.3)";
+  ctx.lineWidth = 1.2;
+  ctx.setLineDash([4, 3]);
+  ctx.beginPath();
+  ctx.moveTo(curX, PAD.top);
+  ctx.lineTo(curX, PAD.top + PH);
+  ctx.stroke();
+  ctx.setLineDash([]);
+  ctx.restore();
+
+  // curves
+  var STEPS = 130;
+  LINE_N.forEach(function(n, ci) {
+    ctx.strokeStyle = LINE_COLORS[ci];
+    ctx.lineWidth = 2.2;
+    ctx.beginPath();
+    var first = true;
+    for (var i = 0; i <= STEPS; i++) {
+      var d  = (i / STEPS) * MAX_D;
+      var pl = pLeg(state.stage, state.cruise, d);
+      var pc = pCover(pl, n);
+      var px = xPx(d);
+      var py = yPx(pc);
+      if (first) { ctx.moveTo(px, py); first = false; }
+      else        ctx.lineTo(px, py);
+    }
+    ctx.stroke();
+
+    // dot at current distance
+    var plCur = pLeg(state.stage, state.cruise, state.dist);
+    var pcCur = pCover(plCur, n);
+    var dotX  = xPx(state.dist);
+    var dotY  = yPx(pcCur);
+    ctx.fillStyle = LINE_COLORS[ci];
+    ctx.beginPath();
+    ctx.arc(dotX, dotY, 4.5, 0, 2 * Math.PI);
+    ctx.fill();
+    ctx.fillStyle = "#070a14";
+    ctx.beginPath();
+    ctx.arc(dotX, dotY, 2, 0, 2 * Math.PI);
+    ctx.fill();
+
+    // legend on right
+    var legY = PAD.top + (ci * 22) + 10;
+    ctx.fillStyle = LINE_COLORS[ci];
+    ctx.fillRect(PAD.left + PW + 10, legY - 2, 18, 3);
+    ctx.fillStyle = "rgba(220,230,255,.8)";
+    ctx.font = "11px Inter,system-ui,sans-serif";
+    ctx.textAlign = "left";
+    ctx.fillText("n=" + n, PAD.left + PW + 32, legY + 4);
+  });
+
+  // axis labels
+  ctx.fillStyle = "rgba(140,195,255,.45)";
+  ctx.font = "11px Inter,system-ui,sans-serif";
+  ctx.textAlign = "center";
+  ctx.fillText("Hop distance (light-years)", PAD.left + PW / 2, H_CSS - 4);
+  ctx.save();
+  ctx.translate(13, PAD.top + PH / 2);
+  ctx.rotate(-Math.PI / 2);
+  ctx.fillText("P(coverage)", 0, 0);
+  ctx.restore();
+}
+
+// =====================================================================
+//  Init
+// =====================================================================
+window.addEventListener("load", function() {
+  onControl();
+});
+window.addEventListener("resize", function() {
+  var pl = pLeg(state.stage, state.cruise, state.dist);
+  drawBar(pl);
+  drawLine();
+});
+</script>
+</body>
+</html>
