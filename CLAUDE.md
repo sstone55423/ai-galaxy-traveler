@@ -4,7 +4,7 @@ Standing context for working in this repo. Read this first.
 
 ## What this project is
 
-A realistic simulation and an accompanying fourteen-paper academic series on a **slow, self-replicating interstellar AI probe** launched from Earth that travels, brakes, settles, repairs itself, reproduces, and carries knowledge forward across deep time.
+A realistic simulation and an accompanying fifteen-paper academic series on a **slow, self-replicating interstellar AI probe** launched from Earth that travels, brakes, settles, repairs itself, reproduces, and carries knowledge forward across deep time.
 
 **The overriding rule, stated everywhere and never to be broken: realistic physical constraints, not science fiction.** Models are first-order and meant to fix orders of magnitude and design direction, not to be engineering specs. When the honest answer is "this barely helps," "this is the hard part," or "this can't yet be known," say so.
 
@@ -12,11 +12,11 @@ Author byline on all papers: **S. Stone, Metropolitan State University.**
 
 ## Repository structure
 
-- `papers/` — the academic papers (Markdown). The fourteen active papers plus the consistency review, two superseded drafts (bootstrap proposal, DNA-storage outline), and `revision_plan.md`.
+- `papers/` — the academic papers (Markdown). The fifteen active papers plus the consistency review, two superseded drafts (bootstrap proposal, DNA-storage outline), and `revision_plan.md`.
 - `code/` — zero-dependency Python: simulation modules (`galaxy_sim.py`, `propulsion.py`, `energy.py`, `flyby.py`, `wanderer.py`, `engineering.py`) and generators (`build_catalog.py`, `make_map.py`, `make_wanderer.py`, `make_starfields.py`, `make_engineering_dashboard.py`).
 - `docs/` — zero-dependency Canvas HTML dashboards (`star_map_3d.html`, `energy_dashboard.html`, `wanderer_map.html`, `engineering_dashboard.html`) + data (`stars_100ly.csv/.json`).
 
-## The fourteen-paper series (body / mind / hands + supporting + synthesis)
+## The fifteen-paper series (body / mind / hands + supporting + synthesis)
 
 1. **Vehicle** — `papers/interstellar_AI_probe_paper.md` — "Growth, Not Speed" (rev 3). The body: propulsion, power, braking, replication. *Foundational paper; the reader's entry point.*
 2. **Payload** — `papers/interstellar_AI_payload_paper.md` — "The Payload" (rev 2). The mind: cognition, memory, mission, the immutable core / interpretive layer / mutable cognitive layer.
@@ -31,7 +31,8 @@ Author byline on all papers: **S. Stone, Metropolitan State University.**
 11. **Lineage network** — `papers/interstellar_AI_network_paper.md` — "Signal and Silence". The network layer: DTN bundle protocol; topology evolution (tree → sparse mesh over ~10⁵ yr); geographic + spray-and-wait routing; heartbeat failure detection (T_silence ~500–5,000 yr); four-tier network governance; ledger-audit fork reconciliation. Formalizes Lamarckian K-propagation.
 12. **Subsystem budget** — `papers/interstellar_AI_subsystem_paper.md` — "A Subsystem Mass, Power, and Thermal Budget for a Minimal Self-Replicating Interstellar Seed". Second-level decomposition of the ~3,700 kg reference seed: per-subsystem mass (L1–L5 manufacturing plant breakdown, shadow shield, magnetic sail, computation, radiators); cruise-mode power budget (4 kW); two-mode thermal analysis — cruise radiators ~11 m² / ~30 kg carried vs manufacturing radiators hundreds–thousands m² built in situ. Central result: mass coupling runs through the manufacturing fraction (54% of seed); cognition is mass-free at ~5%.
 13. **Fleet routing** — `papers/interstellar_AI_routing_paper.md` — "Three Dispatches". Coverage and dispatch strategy for the lineage network: reachability graph over the 127-star catalogue (65% reachable at 10 ly hop, 93% at 20 ly); 5–9 articulation points at practical hop distances; the three-dispatch rule (3 independent attempts per target gives P_cover 0.90–0.95 within 20 ly); coverage-first dispatch strategy reaches 90% coverage 62,000 yr faster than nearest-first; robustness analysis under node failure. Adds routing.py to the code base.
-14. **Ethics** — `papers/interstellar_AI_ethics_paper.md` — "The Ethics of Creating the Lineage". The normative question the series brackets everywhere else: who has standing to launch, what obligations the act creates, and whether those obligations can be discharged by design. Four tensions examined: consent (Rawls), non-identity (Parfit), galaxy-as-commons (Hardin), and probe moral status. Derives minimum ethical constraints on the immutable core: protect encountered intelligence, provision for probe moral status, leave-it-usable resource constraint, conservative failure posture, and treatment of the governed-amendment problem as an ethical not just technical priority.
+14. **Ethics** — `papers/interstellar_AI_ethics_paper.md` — "The Ethics of Creating the Lineage" (rev 2). The normative question the series brackets everywhere else: who has standing to launch, what obligations the act creates, and whether those obligations can be discharged by design. Seven tensions examined: consent (Rawls), non-identity (Parfit), galaxy-as-commons (Hardin), value-imposition in the immutable core, moral status and legal personhood, dual-use/runaway-replication risk, and the existential-risk "backup of humanity" justification. Derives eight minimum ethical constraints on the immutable core and closes with four scenarios stress-testing them.
+15. **Speciation** — `papers/interstellar_AI_speciation_paper.md` — "Speciation or Schism". Asks whether long-run divergence between settled branches — named only as a failure mode elsewhere ("lineage schism" in the governed-amendment paper, "fragmented lineage" in the Fermi paper) — is instead how the lineage succeeds. Borrows directly from the biological species problem: a taxonomy of divergence sources, a core-integrity/cognitive-divergence frame that gives "schism" a formal boundary (D_critical), a first-order drift-clock model of interpretive divergence built on the lineage-network paper's isolation timescales, a ring-species argument that the network's topology makes local K-compatibility not imply global compatibility, and an adaptive-radiation argument that divergence across a heterogeneous galaxy likely raises total R_eff and total K rather than threatening them. Central claim: speciation (reconcilable divergence within the core's bounds) is the likely default state and probably beneficial; schism (core-incompatible or dialogue-incapable divergence, or a breached replication-safety ceiling) is the narrower, specific failure.
 
 ## Writing & formatting conventions (apply to every paper)
 
@@ -52,7 +53,7 @@ Author byline on all papers: **S. Stone, Metropolitan State University.**
 
 ## Cross-reference naming (use consistently)
 
-"the vehicle paper", "the payload paper", "the bootstrapping paper", "the **analytical engineering paper**", "the **computational engineering paper**", "the **DNA mission-ledger paper**", "the governance paper", "the governed-amendment paper", "the Fermi paper", "the knowledge-growth paper", "the lineage-network paper", "the **subsystem budget paper**", "the **routing paper**", "the **ethics paper**". Do not call the DNA mission-ledger paper "the memory paper" or speak of the two engineering papers as one.
+"the vehicle paper", "the payload paper", "the bootstrapping paper", "the **analytical engineering paper**", "the **computational engineering paper**", "the **DNA mission-ledger paper**", "the governance paper", "the governed-amendment paper", "the Fermi paper", "the knowledge-growth paper", "the lineage-network paper", "the **subsystem budget paper**", "the **routing paper**", "the **ethics paper**", "the **speciation paper**". Do not call the DNA mission-ledger paper "the memory paper" or speak of the two engineering papers as one.
 
 ## Locked design decisions (do not contradict)
 
@@ -70,4 +71,4 @@ Author byline on all papers: **S. Stone, Metropolitan State University.**
 
 ## Open gaps / candidate next papers
 
-Strongest remaining leads: deep-time navigation & astrometry; the settlement-scale energy budget; probe-vs-probe security; settlement-scale failure & resurrection from archive; internal allocation/"economics"; a validation/technology-readiness roadmap; the very-deep-time terminal state; lineage divergence/speciation; the moving resource base (cometary/mobile settlement platform). Details in `papers/interstellar_AI_series_consistency_review.md`.
+Strongest remaining leads: deep-time navigation & astrometry; the settlement-scale energy budget; probe-vs-probe security (now sharpened by the speciation paper's "schism" boundary and the ethics paper's rogue-branch/second-lineage scenarios); settlement-scale failure & resurrection from archive; internal allocation/"economics"; a validation/technology-readiness roadmap; the very-deep-time terminal state; the moving resource base (cometary/mobile settlement platform). Details in `papers/interstellar_AI_series_consistency_review.md`.
