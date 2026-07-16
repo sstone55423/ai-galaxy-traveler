@@ -152,7 +152,7 @@ The meta-knowledge database is part of the active working memory and is updated 
 
 ## 4. Cruise-Phase Observational K: The Moving Observatory
 
-The transit from Earth to Proxima Centauri at ~450 km/s takes roughly 2,800 years. More distant targets in the 127-star catalogue take proportionally longer — a target at 50 light-years takes approximately 33,000 years at cruise speed. For standard K-research missions — the majority of all dispatches — these transits are not delays to be minimized. They are the first and longest active K-growth phases of the mission. A minority of probes, dispatched on a range-maximizer profile toward denser stellar regions near the galactic centre, hibernate all non-essential systems for approximately 98% of transit at roughly 50 W total draw; for these probes the transit is deliberately not an active K-growth phase, a tradeoff accepted to reach more distant relay nodes that subsequent K-research probes can use as their starting points. The analysis in this section applies to the standard profile.
+The transit from Earth to Proxima Centauri at ~450 km/s takes roughly 2,800 years. More distant targets in the 127-star catalogue take proportionally longer — a target at 50 light-years takes approximately 33,000 years at cruise speed. For standard K-research missions — the majority of all dispatches — these transits are not delays to be minimized. They are the first and longest active K-growth phases of the mission. A minority of probes, dispatched on a range-maximizer profile toward denser stellar regions near the galactic center, hibernate all non-essential systems for approximately 98% of transit at roughly 50 W total draw; for these probes the transit is deliberately not an active K-growth phase, a trade-off accepted to reach more distant relay nodes that subsequent K-research probes can use as their starting points. The analysis in this section applies to the standard profile.
 
 The probe's moving vantage provides several observational advantages that no fixed instrument can replicate. For each, the principal feasibility constraints are noted alongside the K contribution.
 
@@ -186,7 +186,7 @@ The constraint during cruise is that the probe works from the active working mem
 
 ## 6. Cruise-Phase Operational K: Bootstrap Plan Refinement and Scenario Modeling
 
-The probe departs with the bootstrap plan developed in the bootstrapping paper: the L1–L5 closure ladder, the vitamin set, the ~3,700 kg reference seed design, and the nominal resource model. This plan was designed against an assumed resource environment. During cruise, the probe refines it against what it actually observes.
+The probe departs with the bootstrap plan developed in the bootstrapping paper: the L1–L5 closure ladder and the vitamin set (in the closure formalism of Freitas & Merkle 2004), the ~3,700 kg reference seed design, and the nominal resource model. This plan was designed against an assumed resource environment. During cruise, the probe refines it against what it actually observes.
 
 **Observation-driven target modeling.** As the probe approaches its target over centuries, spectral measurements improve, astrometric signatures tighten constraints on companion masses and orbits, and the probe's resource model of the system sharpens from a statistical prior to a system-specific estimate. A target that appeared to host a viable asteroid belt may resolve into a sparse debris disk; one with an ambiguous companion signature may clarify into a stable binary or a distant gas giant. The bootstrap plan is updated with each new constraint.
 
@@ -275,7 +275,7 @@ where K_net is the deduplicated, confidence-weighted knowledge held across the l
 - L_extinction: K loss from node death — items with r_j = 1 or r_j held only at the extinct node are removed from K_net permanently. K held at multiple nodes (r_j ≥ 2) survives the extinction.
 - L_isolation: K held by nodes below the network connectivity threshold, unavailable to K_net without being destroyed. The archive exists; the network cannot reach it. Outer-edge probes and degraded nodes without transmission capability are the primary contributors.
 - L_degradation: physical archive decay below the DNA refresh threshold. If radiation damage or temperature stress exceeds the encapsulation design limits over deep time, c_j for affected items falls and K_net erodes. The DNA mission-ledger paper quantifies the underlying decay rates; extending those rates to a full L_degradation model is the starting point for quantifying this term.
-- L_corruption: syntactic or semantic corruption — bit errors, adversarial inputs, or hallucinatedmodels that inject claims with initially high apparent c_j. The quarantine pipeline of Section 9 bounds this term; it does not eliminate it.
+- L_corruption: syntactic or semantic corruption — bit errors, adversarial inputs, or hallucinated models that inject claims with initially high apparent c_j. The quarantine pipeline of Section 9 bounds this term; it does not eliminate it.
 - L_obsolescence: the natural decline in mission weight w_j of superseded models. A superseded climate model's ΔH_j is absorbed into its successor; the older item's w_j falls without the item being lost. This is the only L component that does not represent a genuine loss of information — it represents its refinement.
 
 The loss term is bounded from below by zero (fully networked, lossless lineage) and from above by K_net itself (total extinction). Full quantification of L(t) — attaching rates to each component from first-principles models — is the most important open problem in the K framework; we name it explicitly so that future work has a defined problem to attack.
@@ -391,7 +391,7 @@ where each p_i and V_i is a function of the operational K available at time of l
 
 - Better braking and navigation models raise p_brake (probability of successful deceleration and arrival)
 - Better bootstrap contingency portfolios raise p_settle (probability of achieving closure and replication)
-- Better target classification and resource modeling raises V_i for ambiguous systems previously coded as hostile or marginal
+- Better target classification and resource modeling raise V_i for ambiguous systems previously coded as hostile or marginal
 - Better governance classification may decrease V_i for systems assessed under the governance paper's E0–E7 ladder as containing life that triggers noninterference constraints
 
 The viability term V_i in the computational engineering paper is a first-order proxy — 1.0 for planet-hosts, 0.7 for dwarfs, 0.2 for hostile environments — representing the expected resource environment. A probe with a well-developed contingency portfolio can find viable approaches in environments the baseline model codes as marginal, raising effective V_i and moving the reproduction knife-edge toward safety.

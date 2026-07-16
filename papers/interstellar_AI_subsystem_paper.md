@@ -71,7 +71,7 @@ In each case a separate manufacturing fuel charge of ~16.5 kg is carried for the
 
 **Power conversion.** Free-piston Stirling converters — the technology developed alongside KRUSTY for space fission applications — operate between a hot side near the heat-pipe temperature (~900–1,000 K) and a cold side coupled to the radiator loop (~350–400 K). Multiple units in redundant parallel ensure that loss of any subset does not kill electrical output. A fleet of 8–12 converters providing 4 kW total electrical output at full power, with k-of-n redundancy, totals roughly 50–70 kg including alternators, control electronics, and mounting. In cruise mode only one or two converters operate, with the remainder in standby. We carry ~60 kg for the conversion plant. Brayton-cycle conversion is an alternative with fewer moving parts but no inherent modular redundancy; both are consistent with the mass range above.
 
-**Reactor subsystem total.** Fuel 16.5 kg + core and heat extraction ~50 kg + conversion plant ~60 kg = ~127 kg, consistent with the computational engineering paper's ~110 kg reactor-and-conversion line (the difference is absorbed in the structure-and-integration allowance). The ~400 kg shadow shield is separately accounted but is physically part of the reactor installation.
+**Reactor subsystem total.** Fuel 16.5 kg + core and heat extraction ~50 kg + conversion plant ~60 kg = ~127 kg, consistent with the computational engineering paper's ~110 kg reactor-and-conversion line (the difference is absorbed in the structure-and-integration allowance). The ~400 kg shadow shield is separately accounted for but is physically part of the reactor installation.
 
 **Manufacturing mode.** The cruise reactor is not the manufacturing energy source. After settlement, locally extracted fissile or fertile material fuels additional reactors, and solar collectors near a host star may supplement. The seed's cruise reactor continues to power cognition and bootstrapping while manufacturing power scales separately from local resources. The manufacturing reactor is built in situ; this paper does not budget it.
 
@@ -89,7 +89,7 @@ At ~400 kg, radiation shielding is the heaviest single non-factory item in the s
 
 **Shield sizing and reduced cruise power.** The shield is sized for the reactor's maximum rated output — the full-power pulse events and the manufacturing phase — not for average cruise power. Even in range-maximizer mode where the reactor idles at 50 W average, it will occasionally pulse to full power for attitude maintenance, navigation burns, and the braking phase on arrival. The 400 kg shield is therefore not reduced by the lower average cruise power.
 
-**Shielding as a fixed cost.** Shielding scales with peak reactor power and mission duration, neither of which are practical design levers: the peak power is set by the manufacturing phase, and the duration is set by the stellar catalogue. The ~400 kg shadow shield is a fixed cost of the fission-powered architecture.
+**Shielding as a fixed cost.** Shielding scales with peak reactor power and mission duration, neither of which is a practical design lever: the peak power is set by the manufacturing phase, and the duration is set by the stellar catalogue. The ~400 kg shadow shield is a fixed cost of the fission-powered architecture.
 
 ---
 

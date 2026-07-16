@@ -18,7 +18,7 @@ The analytical companion paper to this one set up four budgets for a slow, self-
 
 The advance here is narrow but real. Three of the four budgets — mass, braking, closure — are essentially design calculations whose first-order forms already yield numbers; computing them adds precision but not surprise. The fourth, reproduction, is different, because the relevant quantity is not a single design number but a *population* quantity that depends on the real arrangement of stars: how many viable targets a settled node can reach, how far they are, and what they are. Evaluating it requires the actual catalogue, and doing so turns the conceptual claim "expansion requires more than one successful child per node" into a measured distribution with a measured mean and a measured sensitivity. That measurement — the knife-edge — is the paper's main contribution.
 
-We are candid about what "computational" does and does not mean here. The models are first-order and parameterized: per-leg failure probabilities and target-viability weights are inputs, not derivations, and the catalogue (127 real systems within 100 ly, positions from Hipparcos and Gaia astrometry; Gaia Collaboration 2023) is a local sample. What the computation contributes is not high-fidelity engineering but the evaluation of the demographic model on real geometry and real stellar types, the heterogeneity that reveals, and the sensitivity analysis that locates the knife-edge. Higher-fidelity per-leg models and a Galaxy-scale catalogue are the next step, not this one. All four models are released as a single Python module, and an interactive dashboard recomputes the reproduction result live as parameters change, so every number below can be reproduced and varied.
+We are candid about what "computational" does and does not mean here. The models are first-order and parameterized: per-leg failure probabilities and target-viability weights are inputs, not derivations, and the catalogue (127 real systems within 100 ly, positions from Hipparcos and Gaia astrometry; Gaia Collaboration 2023) is a local sample. What the computation contributes is not high-fidelity engineering but the evaluation of the demographic model on real geometry and real stellar types, the heterogeneity that it reveals, and the sensitivity analysis that locates the knife-edge. Higher-fidelity per-leg models and a Galaxy-scale catalogue are the next step, not this one. All four models are released as a single Python module, and an interactive dashboard recomputes the reproduction result live as parameters change, so every number below can be reproduced and varied.
 
 ## 2. Method and Models
 
@@ -63,6 +63,7 @@ This paper computes the four engineering budgets the analytical companion set up
 ## References
 
 Andrews, D. G., & Zubrin, R. M. (1990). Magnetic sails and interstellar travel. *Journal of the British Interplanetary Society*, 43, 265–272.
+
 Freitas, R. A. (1980). A self-reproducing interstellar probe. *Journal of the British Interplanetary Society*, 33, 251–264.
 
 Freitas, R. A., & Merkle, R. C. (2004). *Kinematic Self-Replicating Machines.* Landes Bioscience.
