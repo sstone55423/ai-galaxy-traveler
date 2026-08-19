@@ -275,6 +275,119 @@ def run_trials(cat, strategy, n_trials=30, **kwargs):
 
 
 # ===========================================================================
+# Node-loss robustness
+# ===========================================================================
+def _sun_reachable(graph, sun_idx, removed=frozenset()):
+    """Catalogue nodes reachable from the Sun with `removed` deleted.
+
+    Excludes the Sun itself from the count, so the denominator is n_stars - 1.
+    """
+    pruned = {i: [(v, d) for v, d in nbrs if v not in removed]
+              for i, nbrs in graph.items() if i not in removed}
+    return len(reachable_from(pruned, sun_idx)) - 1
+
+
+def random_removal_robustness(cat, k, n_trials=200, max_hop_ly=15.0, rng_seed=0):
+    """Reachability after removing k random non-Sun nodes.
+
+    Simulates permanent settlement collapse, which is an undirected process --
+    see targeted_removal() for the adversarial case.  Conservative as a failure
+    model: the lineage-network paper's silence threshold enables re-dispatch, so
+    a real lineage recovers some of what is lost here.
+
+    Returns {"k", "n_trials", "mean_frac", "min_frac", "max_frac"}.
+    """
+    rng = random.Random(rng_seed)
+    stars = cat.stars
+    n = len(stars)
+    sun = next(i for i, s in enumerate(stars) if s["name"] == "Sun")
+    graph = build_graph(cat, max_hop_ly)
+    denom = n - 1
+    pool = [i for i in range(n) if i != sun]
+
+    fracs = []
+    for _ in range(n_trials):
+        removed = set(rng.sample(pool, k))
+        fracs.append(_sun_reachable(graph, sun, removed) / denom)
+    return {
+        "k": k,
+        "n_trials": n_trials,
+        "mean_frac": sum(fracs) / len(fracs),
+        "min_frac": min(fracs),
+        "max_frac": max(fracs),
+    }
+
+
+def targeted_removal(cat, k_max=20, max_hop_ly=15.0):
+    """Greedy worst-case node removal: the adversarial counterpart to random loss.
+
+    At each step removes the node whose loss costs the most remaining
+    Sun-reachability.  Greedy selection is myopic and therefore *bounds adversary
+    effectiveness from below* -- optimal k-node targeting can only do better.
+
+    The security paper's result reads off the `marginal` column: articulation-point
+    leverage is finite, and once it is spent every further removal costs exactly
+    one catalogue star, at which point targeted attack has degenerated into random
+    attack that never wastes a shot.
+
+    Returns {"baseline_frac", "steps": [{"k", "name", "marginal", "cumulative",
+    "frac"}, ...]}.
+    """
+    stars = cat.stars
+    n = len(stars)
+    sun = next(i for i, s in enumerate(stars) if s["name"] == "Sun")
+    graph = build_graph(cat, max_hop_ly)
+    denom = n - 1
+
+    base = _sun_reachable(graph, sun)
+    removed, prev, steps = set(), base, []
+    for k in range(1, k_max + 1):
+        best = None
+        for cand in range(n):
+            if cand == sun or cand in removed:
+                continue
+            reach = _sun_reachable(graph, sun, removed | {cand})
+            if best is None or reach < best[0]:
+                best = (reach, cand)
+        reach, cand = best
+        removed.add(cand)
+        steps.append({
+            "k": k,
+            "name": stars[cand]["name"],
+            "marginal": prev - reach,
+            "cumulative": base - reach,
+            "frac": reach / denom,
+        })
+        prev = reach
+    return {"baseline_frac": base / denom, "steps": steps}
+
+
+def leverage_curve(cat, ks=(1, 2, 3, 5, 10, 20), n_trials=200, max_hop_ly=15.0):
+    """Targeted vs random loss at each k, and the ratio between them.
+
+    The ratio is the adversary's return on knowing the graph.  It peaks at small
+    k and decays as articulation points are exhausted.
+    """
+    tgt = targeted_removal(cat, k_max=max(ks), max_hop_ly=max_hop_ly)
+    base = tgt["baseline_frac"]
+    rows = []
+    for k in ks:
+        t_frac = tgt["steps"][k - 1]["frac"]
+        r = random_removal_robustness(cat, k, n_trials, max_hop_ly)
+        t_loss = base - t_frac
+        r_loss = base - r["mean_frac"]
+        rows.append({
+            "k": k,
+            "targeted_frac": t_frac,
+            "random_mean_frac": r["mean_frac"],
+            "targeted_loss_pp": t_loss * 100,
+            "random_loss_pp": r_loss * 100,
+            "multiplier": (t_loss / r_loss) if r_loss > 0 else None,
+        })
+    return {"baseline_frac": base, "rows": rows}
+
+
+# ===========================================================================
 # Demo
 # ===========================================================================
 def _demo():
