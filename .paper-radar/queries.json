@@ -217,7 +217,7 @@
       "crossref": [
         "corrigibility artificial agent goal preservation"
       ],
-      "exclude": []
+      "exclude": ["indonesia", "electoral law", "tax amendment", "amendment act 19"]
     },
     {
       "key": "fermi",
@@ -239,7 +239,7 @@
       "crossref": [
         "Fermi paradox von Neumann probe galactic colonization"
       ],
-      "exclude": []
+      "exclude": ["fermi surface", "fermi level", "fermi-lat", "fermi liquid", "fermi gas", "fermi energy", "fermi arc"]
     },
     {
       "key": "knowledge_growth",
@@ -282,7 +282,7 @@
       "crossref": [
         "delay tolerant networking deep space bundle protocol"
       ],
-      "exclude": []
+      "exclude": ["optical access network", "5g", "6g", "wireless sensor network", "network-on-chip", "social network analysis", "neural network"]
     },
     {
       "key": "subsystem",
@@ -325,7 +325,7 @@
       "crossref": [
         "interstellar colonization network graph reachability"
       ],
-      "exclude": []
+      "exclude": ["vehicle routing problem", "network-on-chip", "packet routing", "fuzzing", "call graph", "wireless sensor", "onion routing"]
     },
     {
       "key": "ethics",
@@ -347,7 +347,7 @@
         "ethics space colonization moral obligation",
         "moral status of artificial agents"
       ],
-      "exclude": []
+      "exclude": ["nursing ethics", "medical ethics", "business ethics", "hospitality", "brand trust", "deepfake", "suicidology", "bioethics education", "clinical ethics"]
     },
     {
       "key": "speciation",
