@@ -222,7 +222,7 @@ And it inherits the payload paper's threat taxonomy, its integrity ledger, and i
 
 ## References
 
-Cheng, Y., Youssef, P., Schlötterer, J., Zhao, Z., & Seifert, C. (2026). Can fine-tuning erase edits? On the fragile coexistence of knowledge editing and fine-tuning. In *Proceedings of the 32nd ACM SIGKDD Conference on Knowledge Discovery and Data Mining.*
+Cheng, Y., Youssef, P., Seifert, C., Schlötterer, J., & Zhao, Z. (2026). Can fine-tuning erase your edits? On the fragile coexistence of knowledge editing and adaptation. In *Proceedings of the 32nd ACM SIGKDD Conference on Knowledge Discovery and Data Mining.* arXiv:2511.05852.
 
 Fricker, M. (2007). *Epistemic Injustice: Power and the Ethics of Knowing.* Oxford University Press.
 
