@@ -17,7 +17,20 @@ from __future__ import annotations
 
 import re
 import sys
+import unicodedata
 from pathlib import Path
+
+
+def sortkey(name: str) -> str:
+    """Collation key for a surname.
+
+    Reference lists alphabetize by base letter, so "Ćirković" files under C-i
+    and correctly precedes "Crawford". Comparing raw code points does the
+    opposite ('ć' U+0107 > 'c'), which produced a false ordering complaint on
+    the Fermi paper's list. Strip combining marks before comparing.
+    """
+    decomposed = unicodedata.normalize("NFKD", name.lower())
+    return "".join(c for c in decomposed if not unicodedata.combining(c))
 
 REPO = Path(__file__).resolve().parent.parent
 PAPERS = REPO / "papers"
@@ -159,6 +172,10 @@ def check_references(text: str) -> list[dict]:
     # (a) uncited references: surname + year should co-occur in the body.
     # Try the full surname, then its first token (handles "Gaia Collaboration",
     # "van den Bergh", organisational authors) to avoid false positives.
+    # The window is generous because the series often cites narratively --
+    # "Drexler's foundational treatment ... (*Engines of Creation*, 1986)"
+    # puts 84 characters between surname and year, which a tighter window
+    # wrongly reported as uncited.
     for rel_line, raw, surname, year in entries:
         year_num = year[:4]
         keys = {re.escape(surname)}
@@ -166,8 +183,8 @@ def check_references(text: str) -> list[dict]:
         if len(first_tok) >= 4:
             keys.add(re.escape(first_tok))
         near = any(
-            re.search(k + r"[^\n]{0,80}?" + year_num, body)
-            or re.search(year_num + r"[^\n]{0,80}?" + k, body)
+            re.search(k + r"[^\n]{0,160}?" + year_num, body)
+            or re.search(year_num + r"[^\n]{0,160}?" + k, body)
             for k in keys
         )
         if not near:
@@ -179,7 +196,7 @@ def check_references(text: str) -> list[dict]:
             })
 
     # (b) alphabetical order of the reference list
-    surnames = [e[2].lower() for e in entries]
+    surnames = [sortkey(e[2]) for e in entries]
     ordered = sorted(surnames)
     if surnames != ordered:
         for k in range(1, len(surnames)):
