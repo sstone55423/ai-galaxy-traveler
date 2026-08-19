@@ -107,6 +107,8 @@ The cruise radiators are sized for full-power pulse events, not for average crui
 
 **Radiator mass.** Lightweight space radiators for fission systems use carbon-composite panels with embedded heat pipes and optical solar reflector coatings, achieving specific masses of roughly 2–4 kg m⁻². At ~2.7 kg m⁻², the 11 m² radiator totals ~30 kg, matching the computational engineering paper.
 
+**The isothermal assumption.** A = P/(εσT⁴) presumes the whole radiating surface sits at T; a panel with poor lateral heat spreading runs cooler at its edges and radiates less than the relation predicts. Topology-optimization work on lightweight radiator panels shows the assumption is earned rather than free: a microarchitected panel with a single embedded heat-pipe channel is lattice-conduction-limited, and going from one channel to three raises emitted power by 25–30%, with eleven channels reaching more than 99% of an isothermal blackbody surface at 400 K (Pederson et al., 2026). The 11 m² figure is therefore a floor conditional on an adequate embedded heat-pipe network; a conduction-limited panel of the same area would need roughly a quarter more surface to reject the same 14 kW.
+
 **Degradation margin.** Dust impact pitting, radiation darkening of the coating, and meteoroid damage over transit times of 10³–10⁵ years can reduce effective emissivity. An engineering design should carry a 20–30% area margin for end-of-life degradation, implying roughly 14 m² of installed area at launch. The 30 kg estimate is the conservative floor.
 
 **Manufacturing-mode scaling.** As the factory scales after arrival, its waste heat load grows proportionally. For total installed power P_total (reactor plus factory):
@@ -402,6 +404,8 @@ Frisch, P. C., Redfield, S., & Slavin, J. D. (2011). The interstellar medium sur
 Metzger, P. T., Muscatello, A., Mueller, R. P., & Mantovani, J. (2013). Affordable, rapid bootstrapping of the space industry and solar system civilization. *Journal of Aerospace Engineering*, 26(1), 18–29.
 
 NASA. (1982). *Advanced Automation for Space Missions.* (NASA Conference Publication 2255, reprinted by the University of Santa Clara.)
+
+Pederson, K., Keller, S., Kindem, D., Hommes, H., & Ilic, O. (2026). Multifunctional lightweight radiators for small-satellite thermal control. *Journal of Spacecraft and Rockets*. doi:10.2514/1.a36693
 
 Poston, D. I., Gibson, M. A., Sanchez, R. G., & McClure, P. R. (2020). Results of the KRUSTY nuclear system test. *Nuclear Technology*, 206 (Suppl. 1), S89–S117.
 

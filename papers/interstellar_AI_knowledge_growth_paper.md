@@ -78,6 +78,8 @@ Degraded-state cascade
 
 K is the fifth layer, not the first. Raw data volume is not a proxy for K; the pipeline from observation to validated claim — the triage and modeling architecture of the payload paper (Section 5 of that paper) — is what converts data to K.
 
+That pipeline is not hypothetical. King (2026) surveys machines that originate hypotheses, deduce their consequences, design and execute experiments, interpret results, and revise their beliefs — from Adam, the first machine to make novel scientific discoveries through cycles of hypothesis formation and physical experimentation, through the self-driving laboratories that followed — and argues that the open problem is no longer whether the individual steps of science can be automated but how to integrate them into one agent connected to literature, formal knowledge, simulation, and instruments. That is the probe's problem exactly, with the integration deadline set at launch and no human in the loop for the millennia that follow.
+
 **Formal definition.** Let j range over validated claims, models, contingency plans, and meta-knowledge items currently held by the lineage. The knowledge metric is:
 
 K_net = Σ_j w_j · ΔH_j · c_j · r_j · a_j
@@ -179,6 +181,8 @@ The second is **algorithmic improvement**: the probe's own learning, pattern-rec
 Both forms generate **meta-knowledge**: insights about what cognitive architectures function reliably over deep time, what failure modes emerge in autonomous AI systems over decades of unattended operation, and what design choices in the probe's own architecture should be changed in its children. This meta-knowledge enters the meta-knowledge database at elevated priority.
 
 **Operational K acceptance criteria.** The payload paper's three-layer cognitive architecture — immutable core, interpretive layer, mutable cognitive layer — constrains which self-improvements are accepted. Operational K updates the mutable cognitive layer only; the core and interpretive layer are not modified by cruise-phase self-improvement. Each candidate improvement is accepted only if it passes: mission-core consistency checks confirming it does not conflict with core values or goals; interpretive-layer validation against the operational definitions of those goals; sandboxed testing against mission-scenario models; rollback capability if performance degrades after deployment; full recording in the integrity ledger with provenance; demonstrated robustness across multiple resource and target scenarios; and no increase in drift risk for core-adherence metrics. An improvement that cannot satisfy these checks is quarantined as a candidate rather than adopted, and the quarantine itself becomes a meta-knowledge entry — a record of a failure mode or design tension that future probes can benefit from. This is what transforms "almost unlimited self-modification" from a potential instability into a governed K-growth process.
+
+The credit-assignment problem behind these criteria is structural, not incidental. A survey of 1,547 papers on long-horizon agents finds the same pattern across planning, memory, execution, training, and evaluation: outcome-only signals grow less informative as horizons lengthen, and the field's response is to manufacture denser step-level signals — process reward models, credit assignment, trajectory-level diagnostics (Chen et al. 2026). The probe faces the limiting case, since the mission's terminal outcome arrives once, millennia after most cognitive changes were made; the sandboxed tests, rollback checks, and ledger provenance above are exactly such step-level surrogates, and their quality bounds how much operational K a cruise can produce.
 
 The constraint during cruise is that the probe works from the active working memory subset, not the full DNA archive. This bounds what the cognitive layer can reference. At settlement, when the full archive unlocks, a second wave of AI development becomes possible as the probe integrates transit insights with the full depth of the Earth knowledge base.
 
@@ -448,6 +452,8 @@ Cerf, V., Burleigh, S., Hooke, A., Torgerson, L., Durst, R., Scott, K., Fall, K.
 
 Chaloner, K., & Verdinelli, I. (1995). Bayesian experimental design: A review. *Statistical Science*, 10(3), 273–304.
 
+Chen, M., Wang, L., & Qu, B. (2026). The horizon gap: Planning, memory, execution, training, and evaluation for long-horizon LLM agents. *arXiv preprint* arXiv:2608.06663.
+
 Freitas, R. A. (1980). A self-reproducing interstellar probe. *Journal of the British Interplanetary Society*, 33, 251–264.
 
 Freitas, R. A., & Merkle, R. C. (2004). *Kinematic Self-Replicating Machines.* Landes Bioscience.
@@ -457,6 +463,8 @@ Gaia Collaboration; Vallenari, A., et al. (2023). Gaia Data Release 3: Summary o
 Harris, T. E. (1963). *The Theory of Branching Processes.* Springer.
 
 Howard, R. A. (1966). Information value theory. *IEEE Transactions on Systems Science and Cybernetics*, 2, 22–26.
+
+King, R. D. (2026). The past and future of AI scientists. *arXiv preprint arXiv:2608.14407*.
 
 Lamport, L., Shostak, R., & Pease, M. (1982). The Byzantine Generals Problem. *ACM Transactions on Programming Languages and Systems*, 4(3), 382–401.
 

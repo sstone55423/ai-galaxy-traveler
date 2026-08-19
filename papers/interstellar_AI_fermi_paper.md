@@ -88,6 +88,8 @@ The second parameter is detectability, D. A lineage can be widespread yet diffic
 
 The usual technosignature imagination often emphasizes large energy use: Dyson spheres, stellar engineering, powerful beacons, waste heat, planetary-scale industry, or broad radio leakage. A slow archival probe architecture does not require these. Its settled nodes may be small by planetary standards. They may operate in asteroid belts, cometary reservoirs, or outer-system environments. Their energy systems may be nuclear or locally solar, but not necessarily large enough to alter stellar spectra. Their communication may be narrow-beam optical or radio, directed between known nodes rather than broadcast omnidirectionally. Bulk transfer may occur through messenger probes rather than continuous high-power links.
 
+This distinction is now empirically loaded rather than rhetorical. A stellar-population-synthesis search across 129 nearby galaxies finds that no galaxy prefers a Dyson-sphere component, setting median 95% upper limits of alpha < 0.3% on warm (T >~ 100 K) swarm covering fraction in quiescent hosts and bounding the population at fewer than 2.6% of galaxies hosting alpha = 25% swarms (Curtis et al. 2026). Non-detection at that depth constrains the high-D branch of the parameter space sharply and leaves the low-D branch — small, cold, distributed nodes whose total dissipation never approaches a stellar fraction — untouched. The galaxy is measurably not glowing with industry; that is evidence against loud expansion, not against expansion.
+
 The strongest potential signatures are likely to be local and ambiguous: small-body industrial anomalies (unusual mining patterns, refined-material concentrations, non-natural thermal emission), propulsion and communication infrastructure (launch hardware, transient narrow beams), messenger probes indistinguishable from natural interstellar objects, and long-lived archive sites in cold shielded environments. Section 8 develops the signature catalogue in detail.
 
 These signatures are hard to detect across interstellar distances. Even within the Solar System, small cold artificial objects in the outer system would be difficult to distinguish from natural bodies unless they maneuvered, transmitted, reflected unusually, or emitted waste heat above background. A mature archival node designed to minimize interference might deliberately avoid high-visibility behavior.
@@ -185,7 +187,7 @@ Fourth, interstellar objects deserve scrutiny as possible **messenger probes** (
 
 Fifth, technosignature theory should model **governed behavior**. Not all capable civilizations maximize visibility; some may minimize interference, leakage, or detectable alteration, and a search theory that assumes maximal conspicuousness will systematically miss them.
 
-Sixth, the Solar System itself should not be excluded. Quiet probes, if any exist nearby, would likely be small, cold, and dormant. Searches should be careful, not sensational: artificiality requires evidence, and natural explanations should dominate until displaced. But the hypothesis is not logically absurd.
+Sixth, the Solar System itself should not be excluded. Quiet probes, if any exist nearby, would likely be small, cold, and dormant. Searches should be careful, not sensational: artificiality requires evidence, and natural explanations should dominate until displaced. But the hypothesis is not logically absurd. Watters et al. (2026) supply a worked example of this discipline: re-examining claims of anomalous, possibly artificial features in first-epoch Palomar photographic plates, they show the reported deficit near Earth's shadow and the correlation with nuclear-test dates both dissolve once the background feature distribution is modeled correctly — a caution that applies as much to future searches for the quiet-probe signatures this paper proposes as to the claims it corrects.
 
 Finally, the absence of obvious probes should be interpreted against explicit models. It is not enough to say "we do not see them." We need to specify what signatures a given architecture predicts, at what intensity, in what locations, and under what governance rules. Fermi reasoning without detectability modeling is incomplete.
 
@@ -237,6 +239,8 @@ Cerf, V., Burleigh, S., Hooke, A., Torgerson, L., Durst, R., Scott, K., Fall, K.
 
 Crawford, I. A. (2000). Where are they? Maybe we are alone in the Galaxy after all. *Scientific American*, 283(1), 38–43.
 
+Curtis, O., Rowland, A. J., Wright, J. T., Gronwall, C., Helton, J. M., & Leja, J. (2026). The Ĝ infrared search for extraterrestrial civilizations with large energy supplies. V. When galaxies glow with industry. *arXiv preprint* arXiv:2608.12458.
+
 Freitas, R. A. (1980). A self-reproducing interstellar probe. *Journal of the British Interplanetary Society*, 33, 251–264.
 
 Freitas, R. A., & Merkle, R. C. (2004). *Kinematic Self-Replicating Machines.* Landes Bioscience.
@@ -254,6 +258,8 @@ Sagan, C., & Newman, W. I. (1983). The solipsist approach to extraterrestrial in
 Tipler, F. J. (1980). Extraterrestrial intelligent beings do not exist. *Quarterly Journal of the Royal Astronomical Society*, 21, 267–281.
 
 von Neumann, J., & Burks, A. W. (1966). *Theory of Self-Reproducing Automata.* University of Illinois Press.
+
+Watters, W. A., Dominé, L., Little, S., Pratt, C., Knuth, K. H., & Szenher, M. (2026). Critical evaluation of studies alleging evidence for technosignatures in the POSS1-E photographic plates. *Publications of the Astronomical Society of Australia*. https://doi.org/10.1017/pasa.2026.10230
 
 Webb, S. (2015). *If the Universe Is Teeming with Aliens... Where Is Everybody? Seventy-Five Solutions to the Fermi Paradox and the Problem of Extraterrestrial Life* (2nd ed.). Springer.
 
