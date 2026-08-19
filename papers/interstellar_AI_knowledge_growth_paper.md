@@ -447,21 +447,13 @@ K and the demographic reproduction model R_eff = Σ p_i V_i are explicitly coupl
 
 Buneman, P., Khanna, S., & Tan, W. C. (2001). Why and where: A characterization of data provenance. In *Proceedings of the 8th International Conference on Database Theory* (pp. 316–330). Springer.
 
-Burleigh, S., Hooke, A., Torgerson, L., Fall, K., Cerf, V., Durst, B., Scott, K., & Weiss, H. (2003). Delay-tolerant networking: An approach to interplanetary Internet. *IEEE Communications Magazine*, 41(6), 128–136.
-
-Cerf, V., Burleigh, S., Hooke, A., Torgerson, L., Durst, R., Scott, K., Fall, K., & Weiss, H. (2007). *Delay-Tolerant Networking Architecture* (RFC 4838). Internet Engineering Task Force.
-
 Chaloner, K., & Verdinelli, I. (1995). Bayesian experimental design: A review. *Statistical Science*, 10(3), 273–304.
 
 Chen, M., Wang, L., & Qu, B. (2026). The horizon gap: Planning, memory, execution, training, and evaluation for long-horizon LLM agents. *arXiv preprint* arXiv:2608.06663.
 
-Freitas, R. A. (1980). A self-reproducing interstellar probe. *Journal of the British Interplanetary Society*, 33, 251–264.
-
 Freitas, R. A., & Merkle, R. C. (2004). *Kinematic Self-Replicating Machines.* Landes Bioscience.
 
 Gaia Collaboration; Vallenari, A., et al. (2023). Gaia Data Release 3: Summary of the content and survey properties. *Astronomy & Astrophysics*, 674, A1.
-
-Harris, T. E. (1963). *The Theory of Branching Processes.* Springer.
 
 Howard, R. A. (1966). Information value theory. *IEEE Transactions on Systems Science and Cybernetics*, 2, 22–26.
 
@@ -469,17 +461,11 @@ King, R. D. (2026). The past and future of AI scientists. *arXiv preprint arXiv:
 
 Lamport, L., Shostak, R., & Pease, M. (1982). The Byzantine Generals Problem. *ACM Transactions on Programming Languages and Systems*, 4(3), 382–401.
 
-Merkle, R. C. (1987). A digital signature based on a conventional encryption function. In *Advances in Cryptology — CRYPTO '87* (pp. 369–378). Springer.
-
-Metzger, P. T., Muscatello, A., Mueller, R. P., & Mantovani, J. (2013). Affordable, rapid bootstrapping of the space industry and solar system civilization. *Journal of Aerospace Engineering*, 26(1), 18–29.
-
 Schmidhuber, J. (2007). Gödel machines: Fully self-referential optimal universal self-improvers. In B. Goertzel & C. Pennachin (Eds.), *Artificial General Intelligence* (pp. 199–226). Springer.
 
 Settles, B. (2012). *Active Learning.* Morgan & Claypool Publishers.
 
 Shannon, C. E. (1948). A mathematical theory of communication. *Bell System Technical Journal*, 27(3), 379–423.
-
-von Neumann, J., & Burks, A. W. (1966). *Theory of Self-Reproducing Automata.* University of Illinois Press.
 
 ---
 
