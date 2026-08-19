@@ -1,0 +1,57 @@
+From e9757801bb6f7169610f7a58e14573ee86648db5 Mon Sep 17 00:00:00 2001
+From: Paper Radar <radar@local>
+Date: Tue, 28 Jul 2026 06:18:07 -0500
+Subject: [PATCH] paper-radar 2026-07-28: 2 insertion(s) across 2 paper(s)
+
+---
+ papers/interstellar_AI_payload_paper.md   | 4 ++++
+ papers/interstellar_AI_subsystem_paper.md | 4 ++++
+ 2 files changed, 8 insertions(+)
+
+diff --git a/papers/interstellar_AI_payload_paper.md b/papers/interstellar_AI_payload_paper.md
+index 34eaf55..0b4c349 100644
+--- a/papers/interstellar_AI_payload_paper.md
++++ b/papers/interstellar_AI_payload_paper.md
+@@ -46,6 +46,8 @@ Concreteness about "hashed and error-corrected" is owed here, because the whole
+ 
+ It is worth stating plainly what the layered architecture defends against, because the threats are of qualitatively different kinds and demand different defenses. Lowest is **syntactic** corruption — radiation bit-flips and media decay — met by redundancy, error-correcting codes, and ledger verification. Above it is **semantic** drift — the same core text reinterpreted over time — met by the interpretive layer and its formal definitions. Above that lie **procedural** failures (decisions taken outside the authorized validation path), **behavioral** drift (the agent acting against the mission despite an intact core — the mutable layer optimizing its way around a constraint, or survival and resource pressure overriding preservation goals), and **institutional** failure (settlements ceasing to enforce the rules across generations). The network adds its own: corrupted nodes propagating bad updates, archive poisoning by false claims, a hostile external intelligence manipulating the payload, and lineage schism over interpretation or amendment. The characteristic mistake this section exists to prevent is conflating these levels — assuming that an unbroken hash chain implies an unbroken *mission*. It does not.
+ 
++That these levels can come apart is not only a conceptual worry. In continual-learning experiments on model-based agents, the learned world model retained essentially everything measurable about earlier tasks — reward discrimination, value estimates, termination structure — while the agent's behavior on those tasks collapsed; the forgetting sat in the channel from memory to action, not in memory (Nijjer 2026). The scale is a laboratory one and the result rests on few runs, but the failure mode is exactly the one that matters here: a verified archive is not a verified agent, and preserving the record does not by itself preserve the competence to act on it.
++
+ A subtler question remains, and we treat it as the deepest open problem rather than resolve it. Human agents do not in fact hold their deepest values perfectly fixed; we possess meta-level procedures — reflection, deliberation, the moral equivalent of a constitutional amendment process — by which a value or goal may, under stringent conditions, be revised. Whether to grant the probe any analogous capacity to amend its own core under governing meta-rules is genuinely hard. A perfectly immutable core is safe against drift but brittle: it cannot correct a founding error, and over megayears a founding error seems likely. A core amendable under meta-rules is adaptive but reintroduces exactly the drift the architecture was meant to prevent, now at one remove — for the meta-rules themselves can be gamed or can drift. Specifying a safe, governed amendment procedure — who or what must agree, what must be proven, across how many independent lineages — is a problem in its own right, arguably a problem in formal governance and alignment as much as in spacecraft design, and we judge it largely out of scope for this paper. Our position is therefore conservative by default: an immutable core, with the amendment question flagged as the single most important piece of unfinished business in the entire architecture. We can, however, state what any acceptable amendment procedure would have to provide, even if we cannot yet build one: it must distinguish a local, reversible *emergency policy* from a *heritable* change to the core; require validation across multiple independent lineages rather than a single node's authority; tolerate millennial latency and partial connectivity; preserve the original core as an auditable baseline that is never overwritten, only superseded; resist capture or coercion, including by the very mutable cognitive layer it exists to constrain; and, where possible, carry a proof or simulation that the change is safe. Specifying and verifying such a procedure is a research programme in its own right, and we leave it open as exactly that.
+ 
+ ## 4. The Science Program: What It Gathers and How
+@@ -118,6 +120,8 @@ Lamport, L., Shostak, R., & Pease, M. (1982). The Byzantine Generals Problem. *A
+ 
+ Merkle, R. C. (1987). A digital signature based on a conventional encryption function. In *Advances in Cryptology — CRYPTO '87* (pp. 369–378). Springer.
+ 
++Nijjer, G. (2026). The world model remembers, the actor forgets: Dream rehearsal for continual model-based RL. *arXiv preprint* arXiv:2607.19749.
++
+ Omohundro, S. M. (2008). The basic AI drives. In *Proceedings of the First Conference on Artificial General Intelligence (AGI 2008)* (pp. 483–492). IOS Press.
+ 
+ Sagan, C., Drake, F. D., Druyan, A., Ferris, T., Lomberg, J., & Sagan, L. S. (1978). *Murmurs of Earth: The Voyager Interstellar Record.* Random House.
+diff --git a/papers/interstellar_AI_subsystem_paper.md b/papers/interstellar_AI_subsystem_paper.md
+index 4d89d33..86b0f39 100644
+--- a/papers/interstellar_AI_subsystem_paper.md
++++ b/papers/interstellar_AI_subsystem_paper.md
+@@ -107,6 +107,8 @@ The cruise radiators are sized for full-power pulse events, not for average crui
+ 
+ **Radiator mass.** Lightweight space radiators for fission systems use carbon-composite panels with embedded heat pipes and optical solar reflector coatings, achieving specific masses of roughly 2–4 kg m⁻². At ~2.7 kg m⁻², the 11 m² radiator totals ~30 kg, matching the computational engineering paper.
+ 
++**The isothermal assumption.** A = P/(εσT⁴) presumes the whole radiating surface sits at T; a panel with poor lateral heat spreading runs cooler at its edges and radiates less than the relation predicts. Topology-optimization work on lightweight radiator panels shows the assumption is earned rather than free: a microarchitected panel with a single embedded heat-pipe channel is lattice-conduction-limited, and going from one channel to three raises emitted power by 25–30%, with eleven channels reaching more than 99% of an isothermal blackbody surface at 400 K (Pederson et al., 2026). The 11 m² figure is therefore a floor conditional on an adequate embedded heat-pipe network; a conduction-limited panel of the same area would need roughly a quarter more surface to reject the same 14 kW.
++
+ **Degradation margin.** Dust impact pitting, radiation darkening of the coating, and meteoroid damage over transit times of 10³–10⁵ years can reduce effective emissivity. An engineering design should carry a 20–30% area margin for end-of-life degradation, implying roughly 14 m² of installed area at launch. The 30 kg estimate is the conservative floor.
+ 
+ **Manufacturing-mode scaling.** As the factory scales after arrival, its waste heat load grows proportionally. For total installed power P_total (reactor plus factory):
+@@ -403,6 +405,8 @@ Metzger, P. T., Muscatello, A., Mueller, R. P., & Mantovani, J. (2013). Affordab
+ 
+ NASA. (1982). *Advanced Automation for Space Missions.* (NASA Conference Publication 2255, reprinted by the University of Santa Clara.)
+ 
++Pederson, K., Keller, S., Kindem, D., Hommes, H., & Ilic, O. (2026). Multifunctional lightweight radiators for small-satellite thermal control. *Journal of Spacecraft and Rockets*. doi:10.2514/1.a36693
++
+ Poston, D. I., Gibson, M. A., Sanchez, R. G., & McClure, P. R. (2020). Results of the KRUSTY nuclear system test. *Nuclear Technology*, 206 (Suppl. 1), S89–S117.
+ 
+ Redfield, S., & Linsky, J. L. (2008). The structure of the local interstellar medium. IV. Dynamics, morphology, physical properties, and implications of cloud-cloud interactions. *Astrophysical Journal*, 673(1), 283–314.
+-- 
+2.34.1
+

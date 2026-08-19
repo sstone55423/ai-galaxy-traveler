@@ -6,3 +6,7 @@ __pycache__/
 dist/
 build/
 .env
+
+# Scratch left by the paper-radar's mount write/delete probing
+._radar_probe*
+.paper-radar/.trash/

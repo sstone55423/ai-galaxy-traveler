@@ -1,0 +1,374 @@
+{
+  "_comment": "Paper Radar query config. Hand-curated per paper -- do NOT auto-generate these from paper titles. Naive keyword extraction fails badly here: 'von neumann probe' on Crossref returns papers about von Neumann ALGEBRAS. Each query is a tight phrase chosen to be precise over recall. Tune freely; the search script reads this file every run.",
+  "_schema": {
+    "key": "short id, also used in seen.json",
+    "file": "path to the paper, relative to repo root",
+    "title": "short title for the digest",
+    "thesis": "one line, given to the screening agent as the relevance test",
+    "arxiv": "list of arXiv API search phrases (quoted phrases are AND-ed loosely by arXiv)",
+    "arxiv_categories": "optional cat: filters, OR-ed",
+    "openalex": "list of OpenAlex search strings",
+    "crossref": "list of Crossref bibliographic queries -- keep these VERY specific, Crossref is the noisiest source",
+    "exclude": "substrings that, if present in a title, drop the hit outright (precision guardrails)"
+  },
+
+  "_exclude_note": "These are homonym guardrails, each one added after it actually polluted a live run. 'Fermi' is a physics surname before it is a paradox; 'probe' is a lab reagent before it is a spacecraft; 'Neumann' is an operator before it is a self-replicator. Add to this list rather than narrowing the queries -- broad query + sharp exclude preserves recall.",
+  "defaults": {
+    "exclude": [
+      "von neumann algebra",
+      "von neumann algebras",
+      "von neumann entropy",
+      "von neumann equation",
+      "von neumann stability",
+      "von neumann regular",
+      "dirichlet-to-neumann",
+      "neumann boundary",
+      "neumann problem",
+      "fermi level",
+      "fermi surface",
+      "fermi liquid",
+      "fermi energy",
+      "fermi gas",
+      "fermi sea",
+      "fermi arc",
+      "fermi-dirac",
+      "fermi-hubbard",
+      "fermi resonance",
+      "fluorescent probe",
+      "fluorescence probe",
+      "molecular probe",
+      "ratiometric probe",
+      "electrochemical probe",
+      "atomic force",
+      "kelvin probe",
+      "as a probe of stellar",
+      "interstellar medium line",
+      "interstellar extinction",
+      "interstellar dust grain",
+      "interstellar cloud chemistry"
+    ]
+  },
+
+  "papers": [
+    {
+      "key": "probe",
+      "file": "papers/interstellar_AI_probe_paper.md",
+      "title": "Vehicle -- Growth, Not Speed",
+      "thesis": "A slow (~450 km/s) self-replicating interstellar probe that brakes to a stop via magnetic sail, powered by a ~4 kW fission reactor, and replicates at its destination. Relevant work: slow interstellar mission architectures, magsail/ISM braking, nuclear-electric propulsion at kW scale, self-replicating spacecraft design.",
+      "arxiv": [
+        "\"magnetic sail\" AND deceleration",
+        "\"interstellar probe\" AND propulsion",
+        "\"self-replicating\" AND spacecraft",
+        "\"interstellar mission\" AND architecture"
+      ],
+      "arxiv_categories": ["astro-ph.IM", "astro-ph.EP", "physics.space-ph"],
+      "openalex": [
+        "magnetic sail interstellar deceleration",
+        "self-replicating spacecraft probe design",
+        "slow interstellar mission architecture"
+      ],
+      "crossref": [
+        "magnetic sail interstellar deceleration",
+        "self-replicating interstellar spacecraft"
+      ],
+      "exclude": ["magnetic sail solar wind turbine"]
+    },
+    {
+      "key": "payload",
+      "file": "papers/interstellar_AI_payload_paper.md",
+      "title": "Payload -- The Mind",
+      "thesis": "Onboard cognition and memory for a probe operating unsupervised for millennia: an immutable value core, an interpretive layer, and a freely self-modifying cognitive layer. Relevant work: long-duration autonomous agents, value stability under self-modification, machine memory architectures, spacecraft autonomy.",
+      "arxiv": [
+        "\"long-term autonomy\" AND spacecraft",
+        "\"value alignment\" AND \"self-modification\"",
+        "\"autonomous agent\" AND \"long horizon\" AND memory",
+        "\"spacecraft autonomy\" AND \"deep space\""
+      ],
+      "arxiv_categories": ["cs.AI", "cs.MA", "astro-ph.IM"],
+      "openalex": [
+        "spacecraft autonomy long duration mission",
+        "artificial agent value stability self-modification",
+        "machine memory architecture lifelong learning"
+      ],
+      "crossref": [
+        "autonomous spacecraft cognition deep space mission"
+      ],
+      "exclude": []
+    },
+    {
+      "key": "bootstrap",
+      "file": "papers/interstellar_AI_bootstrap_paper.md",
+      "title": "Bootstrapping -- From Seed to Factory",
+      "thesis": "Industrial closure: how a seed payload bootstraps a full manufacturing base from local material (the L1-L5 closure ladder, the ~3% vitamin fraction). Relevant work: self-replicating factories, ISRU, closure of manufacturing chains, lunar/asteroid industrial bootstrapping.",
+      "arxiv": [
+        "\"self-replicating\" AND manufacturing AND closure",
+        "\"in-situ resource utilization\" AND manufacturing"
+      ],
+      "arxiv_categories": ["astro-ph.IM", "cs.RO"],
+      "openalex": [
+        "self-replicating factory industrial closure",
+        "in-situ resource utilization space manufacturing bootstrap",
+        "kinematic self-replicating machines"
+      ],
+      "crossref": [
+        "self-replicating factory closure space manufacturing",
+        "in-situ resource utilization bootstrapping industry"
+      ],
+      "exclude": ["self-replicating rna", "self-replicating protocell", "self-replicating peptide"]
+    },
+    {
+      "key": "engineering",
+      "file": "papers/interstellar_AI_engineering_paper.md",
+      "title": "Analytical engineering -- Engineering Closure",
+      "thesis": "First-order four-budget model (mass, energy, material, capability) for a self-replicating seed; the finding that material and energy margins never bind, capability does. Relevant work: spacecraft mass/energy budgeting methods, closure metrics, order-of-magnitude feasibility models.",
+      "arxiv": [
+        "\"mass budget\" AND spacecraft AND \"self-replicating\"",
+        "\"closure\" AND \"manufacturing\" AND \"space systems\""
+      ],
+      "arxiv_categories": ["astro-ph.IM"],
+      "openalex": [
+        "spacecraft mass energy budget model feasibility",
+        "manufacturing closure metric self-replication"
+      ],
+      "crossref": [
+        "self-replicating system closure engineering budget"
+      ],
+      "exclude": []
+    },
+    {
+      "key": "computational",
+      "file": "papers/interstellar_AI_computational_paper.md",
+      "title": "Computational engineering -- Engineering Closure, Computed",
+      "thesis": "Code-backed R_eff = sum(p_i * V_i) across a 127-star catalogue; the knife-edge result that expansion needs >=3 offspring or per-leg reliability >=0.9. Relevant work: simulations of interstellar colonization, replication/extinction thresholds, branching-process models of settlement.",
+      "arxiv": [
+        "\"galactic colonization\" AND simulation",
+        "\"interstellar\" AND settlement AND \"branching process\"",
+        "percolation AND \"galactic colonization\""
+      ],
+      "arxiv_categories": ["astro-ph.EP", "astro-ph.GA", "physics.soc-ph"],
+      "openalex": [
+        "galactic colonization simulation model",
+        "interstellar settlement expansion threshold model"
+      ],
+      "crossref": [
+        "galactic colonization simulation probe replication"
+      ],
+      "exclude": []
+    },
+    {
+      "key": "dna_ledger",
+      "file": "papers/interstellar_AI_dna_ledger_paper.md",
+      "title": "DNA mission-ledger",
+      "thesis": "DNA as the probe's archival memory substrate plus a tamper-evident integrity ledger. Relevant work: DNA data storage density/longevity/error correction, archival storage over geological time, hash-chained integrity ledgers.",
+      "arxiv": [
+        "\"DNA storage\" AND \"error correction\"",
+        "\"DNA data storage\" AND archival",
+        "\"tamper-evident\" AND ledger AND integrity"
+      ],
+      "arxiv_categories": ["cs.IT", "cs.ET", "q-bio.BM", "cs.CR"],
+      "openalex": [
+        "DNA data storage error correction longevity",
+        "DNA archival storage information density",
+        "hash chain integrity ledger tamper evident"
+      ],
+      "crossref": [
+        "DNA data storage archival error correction",
+        "DNA information storage longevity degradation"
+      ],
+      "exclude": ["dna origami", "dna methylation", "dna barcoding", "dna vaccine", "circulating tumor dna"]
+    },
+    {
+      "key": "governance",
+      "file": "papers/interstellar_AI_governance_paper.md",
+      "title": "Governance -- Contact, Contamination, Noninterference",
+      "thesis": "The E0-E7 contact ladder; planetary protection and noninterference for an unsupervised autonomous probe; capability-yes/release-no on biology. Relevant work: planetary protection policy, SETI/METI post-detection protocols, noninterference ethics, space law for autonomous systems.",
+      "arxiv": [
+        "\"planetary protection\" AND policy",
+        "\"technosignature\" AND detection AND protocol"
+      ],
+      "arxiv_categories": ["astro-ph.EP", "astro-ph.IM"],
+      "openalex": [
+        "planetary protection autonomous spacecraft policy",
+        "SETI post-detection protocol contact",
+        "noninterference principle extraterrestrial life"
+      ],
+      "crossref": [
+        "planetary protection policy autonomous probe",
+        "post-detection protocol SETI contact"
+      ],
+      "exclude": []
+    },
+    {
+      "key": "amendment",
+      "file": "papers/interstellar_AI_amendment_paper.md",
+      "title": "Governed amendment -- Amending the Unamendable",
+      "thesis": "Whether an immutable value core can ever be legitimately amended by the lineage that inherits it -- the series' deepest open problem, bracketed not solved. Relevant work: corrigibility, goal stability, constitutional amendment theory, AI value drift, mechanisms for legitimate rule change without central authority.",
+      "arxiv": [
+        "corrigibility AND \"artificial intelligence\"",
+        "\"goal stability\" AND \"self-modifying\"",
+        "\"value drift\" AND agents"
+      ],
+      "arxiv_categories": ["cs.AI", "cs.MA", "cs.CY"],
+      "openalex": [
+        "AI corrigibility goal stability self-modification",
+        "constitutional amendment legitimacy theory",
+        "value drift autonomous agents over time"
+      ],
+      "crossref": [
+        "corrigibility artificial agent goal preservation"
+      ],
+      "exclude": []
+    },
+    {
+      "key": "fermi",
+      "file": "papers/interstellar_AI_fermi_paper.md",
+      "title": "Fermi -- Slow Fire, Silent Galaxy",
+      "thesis": "Reframes the Fermi paradox via R_eff x D x G: slow, quiet, non-signalling expansion is consistent with an apparently empty galaxy. Relevant work: Fermi paradox resolutions, galactic colonization timescales, technosignature non-detection, Great Filter arguments.",
+      "arxiv": [
+        "\"Fermi paradox\"",
+        "\"Great Filter\"",
+        "\"technosignature\" AND survey AND limits",
+        "\"galactic colonization\" AND timescale"
+      ],
+      "arxiv_categories": ["astro-ph.EP", "astro-ph.GA", "astro-ph.IM", "physics.pop-ph"],
+      "openalex": [
+        "Fermi paradox resolution galactic colonization",
+        "technosignature non-detection implications",
+        "Great Filter extraterrestrial intelligence"
+      ],
+      "crossref": [
+        "Fermi paradox von Neumann probe galactic colonization"
+      ],
+      "exclude": []
+    },
+    {
+      "key": "knowledge_growth",
+      "file": "papers/interstellar_AI_knowledge_growth_paper.md",
+      "title": "Knowledge growth -- The Growing Archive",
+      "thesis": "K = observational + operational knowledge; K(t) = G(t) - L(t); cruise as an active knowledge-growth phase; probe-probe knowledge synthesis. Relevant work: autonomous scientific discovery, knowledge accumulation metrics, information loss/bit-rot over long timescales, machine-driven hypothesis generation.",
+      "arxiv": [
+        "\"autonomous scientific discovery\"",
+        "\"knowledge accumulation\" AND agents",
+        "\"AI scientist\" AND discovery"
+      ],
+      "arxiv_categories": ["cs.AI", "cs.LG", "astro-ph.IM"],
+      "openalex": [
+        "autonomous scientific discovery artificial intelligence",
+        "knowledge accumulation measurement agent",
+        "long-term digital preservation information loss"
+      ],
+      "crossref": [
+        "autonomous scientific discovery machine learning"
+      ],
+      "exclude": []
+    },
+    {
+      "key": "network",
+      "file": "papers/interstellar_AI_network_paper.md",
+      "title": "Lineage network -- Signal and Silence",
+      "thesis": "A delay-tolerant interstellar network: DTN bundle protocol, tree-to-mesh topology over ~10^5 yr, geographic and spray-and-wait routing, heartbeat failure detection at 500-5,000 yr silence thresholds. Relevant work: DTN/bundle protocol, extreme-delay networking, opportunistic routing, failure detection in partitioned networks.",
+      "arxiv": [
+        "\"delay tolerant network\" AND routing",
+        "\"bundle protocol\" AND space",
+        "\"spray and wait\" AND routing",
+        "\"interplanetary internet\""
+      ],
+      "arxiv_categories": ["cs.NI", "cs.DC"],
+      "openalex": [
+        "delay tolerant networking bundle protocol deep space",
+        "opportunistic routing intermittent connectivity network",
+        "interplanetary internet architecture"
+      ],
+      "crossref": [
+        "delay tolerant networking deep space bundle protocol"
+      ],
+      "exclude": []
+    },
+    {
+      "key": "subsystem",
+      "file": "papers/interstellar_AI_subsystem_paper.md",
+      "title": "Subsystem budget",
+      "thesis": "Second-level decomposition of the ~3,700 kg seed: per-subsystem mass, 4 kW cruise power, two-mode thermal (11 m^2 cruise radiators vs hundreds-thousands m^2 built in situ). Central result: mass coupling runs through the 54% manufacturing fraction; cognition is mass-free at ~5%. Relevant work: space nuclear reactors, radiator/thermal mass scaling, spacecraft subsystem mass models.",
+      "arxiv": [
+        "\"space nuclear reactor\" AND power",
+        "\"spacecraft radiator\" AND \"thermal\" AND mass",
+        "\"specific power\" AND \"nuclear electric propulsion\""
+      ],
+      "arxiv_categories": ["astro-ph.IM", "physics.space-ph"],
+      "openalex": [
+        "space nuclear reactor kilopower fission surface power",
+        "spacecraft thermal radiator mass scaling",
+        "spacecraft subsystem mass estimation model"
+      ],
+      "crossref": [
+        "space fission reactor electric power spacecraft",
+        "spacecraft radiator thermal design mass"
+      ],
+      "exclude": []
+    },
+    {
+      "key": "routing",
+      "file": "papers/interstellar_AI_routing_paper.md",
+      "title": "Fleet routing -- Three Dispatches",
+      "thesis": "Coverage and dispatch over the 127-star catalogue: 65% reachable at 10 ly hops, 93% at 20 ly; 5-9 articulation points; the three-dispatch rule (P_cover 0.90-0.95); coverage-first beats nearest-first by 62,000 yr. Relevant work: network reachability/percolation on stellar graphs, dispatch and coverage optimization, articulation points and robustness, redundant-attempt reliability.",
+      "arxiv": [
+        "percolation AND \"interstellar\" AND network",
+        "\"coverage\" AND \"dispatch\" AND optimization AND graph",
+        "\"articulation point\" AND robustness AND network"
+      ],
+      "arxiv_categories": ["physics.soc-ph", "cs.DM", "astro-ph.GA"],
+      "openalex": [
+        "interstellar travel network reachability graph stars",
+        "percolation galactic colonization network",
+        "coverage optimization dispatch strategy graph"
+      ],
+      "crossref": [
+        "interstellar colonization network graph reachability"
+      ],
+      "exclude": []
+    },
+    {
+      "key": "ethics",
+      "file": "papers/interstellar_AI_ethics_paper.md",
+      "title": "Ethics of Creating the Lineage",
+      "thesis": "Whether it is justified to launch an unsupervised self-replicating lineage that outlives its creators: consent (Rawls), non-identity (Parfit), commons (Hardin), value-imposition, moral status/legal personhood, dual-use risk, existential-risk justification. Relevant work: space ethics, non-identity problem, moral status of artificial agents, long-termism, dual-use/runaway replication risk.",
+      "arxiv": [
+        "\"moral status\" AND \"artificial agents\"",
+        "\"space ethics\" AND colonization"
+      ],
+      "arxiv_categories": ["cs.CY", "cs.AI"],
+      "openalex": [
+        "ethics of space colonization obligations",
+        "moral status artificial agents personhood",
+        "non-identity problem future generations",
+        "longtermism existential risk ethics"
+      ],
+      "crossref": [
+        "ethics space colonization moral obligation",
+        "moral status of artificial agents"
+      ],
+      "exclude": []
+    },
+    {
+      "key": "speciation",
+      "file": "papers/interstellar_AI_speciation_paper.md",
+      "title": "Speciation or Schism",
+      "thesis": "Whether long-run divergence between settled branches is failure or success: taxonomy of divergence sources, D_critical boundary, drift-clock model, ring-species argument, adaptive radiation raising total R_eff and K. Relevant work: speciation theory, cultural/design drift in artificial populations, ring species, adaptive radiation, horizontal transfer, divergence in evolving machine populations.",
+      "arxiv": [
+        "\"cultural evolution\" AND drift AND agents",
+        "\"open-ended evolution\" AND divergence",
+        "\"evolutionary divergence\" AND population AND model"
+      ],
+      "arxiv_categories": ["q-bio.PE", "cs.NE", "cs.MA"],
+      "openalex": [
+        "speciation divergence model isolation drift",
+        "open-ended evolution artificial agents divergence",
+        "adaptive radiation heterogeneous environment"
+      ],
+      "crossref": [
+        "speciation ring species divergence isolation"
+      ],
+      "exclude": ["speciation of water", "chemical speciation", "metal speciation", "arsenic speciation", "phosphorus speciation"]
+    }
+  ]
+}

@@ -1,0 +1,34 @@
+From f636b7716f48817e04bc61e7ee1a5d167f6d40a2 Mon Sep 17 00:00:00 2001
+From: Paper Radar <radar@local>
+Date: Fri, 17 Jul 2026 14:37:42 -0500
+Subject: [PATCH] paper-radar 2026-07-17: 1 insertion (ethics paper, Section 3)
+
+---
+ papers/interstellar_AI_ethics_paper.md | 4 ++++
+ 1 file changed, 4 insertions(+)
+
+diff --git a/papers/interstellar_AI_ethics_paper.md b/papers/interstellar_AI_ethics_paper.md
+index 11fc60c..6c5948c 100644
+--- a/papers/interstellar_AI_ethics_paper.md
++++ b/papers/interstellar_AI_ethics_paper.md
+@@ -54,6 +54,8 @@ This might seem to dissolve the ethical concern about the probes themselves. It
+ 
+ This is a harder question, and one that existing moral philosophy handles poorly. Utilitarian frameworks that aggregate wellbeing across possible futures run into the Repugnant Conclusion and related paradoxes that Parfit himself documented. Deontological frameworks that focus on duties to existing persons have little to say about persons who do not yet exist. The ethics of the lineage does not resolve within existing frameworks; it stress-tests them.
+ 
++The gap is live rather than merely historical. Roberts (2026) argues that the population-ethics mainstream has assumed rather than grounded its resolution of the Narveson-inspired value-of-existence controversy, and that the principles underwriting the existentially unrestricted longtermism of MacAskill (2022) — which Section 16 invokes — function as dogma rather than as an established result, leaving open an existentially restricted longtermism she takes to be more attractive. The distinction bears directly on the launch decision: that a galaxy filled with probe-descendants is better than one containing none is not a corollary of caring about the deep future but a separate and contested commitment, and the lineage's impersonal justification cannot borrow the first to establish the second.
++
+ ---
+ 
+ ## 4. The Galaxy as a Commons
+@@ -276,6 +278,8 @@ Race, M. S. (1996). Planetary protection, legal ambiguity, and the decision maki
+ 
+ Rawls, J. (1971). *A Theory of Justice.* Harvard University Press.
+ 
++Roberts, M. A. (2026). Two dogmas of population ethics: MacAskill's existentially unrestricted form of longtermism and the value of existence. *Utilitas*. Advance online publication.
++
+ Schwartz, J. S. J. (2020). *The Value of Science in Space Exploration.* Oxford University Press.
+ 
+ Schwartz, J. S. J., & Milligan, T. (Eds.). (2016). *The Ethics of Space Exploration.* Springer.
+-- 
+2.34.1
+

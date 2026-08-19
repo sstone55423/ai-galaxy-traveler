@@ -1,0 +1,34 @@
+From f0c4cd73e54a6c56613df11492e5e455a7d29e14 Mon Sep 17 00:00:00 2001
+From: Paper Radar <radar@local>
+Date: Wed, 12 Aug 2026 06:15:19 -0500
+Subject: [PATCH] paper-radar 2026-08-12: 1 insertion in the ethics paper
+
+---
+ papers/interstellar_AI_ethics_paper.md | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
+
+diff --git a/papers/interstellar_AI_ethics_paper.md b/papers/interstellar_AI_ethics_paper.md
+index 45f677f..f327dfa 100644
+--- a/papers/interstellar_AI_ethics_paper.md
++++ b/papers/interstellar_AI_ethics_paper.md
+@@ -15,7 +15,7 @@ Launching a self-replicating interstellar probe lineage is irreversible. Once th
+ 
+ Most engineering decisions can be revised. A reactor design can be upgraded; a communication protocol can be patched; a satellite can be deorbited. The decision to launch a self-replicating interstellar lineage cannot. Once the first seed is beyond the heliopause, there is no recall mechanism. The lineage will expand, reproduce, and diverge across timescales that dwarf recorded human history. If it reaches a thousand star systems, ten thousand, the galaxy — the consequences of the launch decision will long outlast not only the decision-makers but Earth itself.
+ 
+-This irreversibility does not make the act impermissible. But it raises the ethical stakes to a level without precedent in human technology. Jonas (1984) argued that modern technology creates a new category of responsibility: acts whose consequences extend beyond the agent's ability to foresee, control, or correct. The interstellar lineage is the extreme case. Human oversight ends at the moment of departure; responsibility does not.
++This irreversibility does not make the act impermissible. But it raises the ethical stakes to a level without precedent in human technology. Jonas (1984) argued that modern technology creates a new category of responsibility: acts whose consequences extend beyond the agent's ability to foresee, control, or correct. The interstellar lineage is the extreme case. Human oversight ends at the moment of departure; responsibility does not. Jonas' concern was consequences that outrun foresight; the lineage adds a property he did not address, irreversibility that is engineered rather than incidental. Suzuki (2026) names this artificial externality: human-made structures whose resistance to intervention is deliberately built to be practically insurmountable even for their creators, and which thereby acquire a givenness once attributed only to nature. The immutable core is such a structure. The launch does not merely place the lineage beyond recall; it manufactures on purpose a constraint the launch team itself cannot later lift.
+ 
+ The governance paper develops the E0–E7 contact ladder and establishes a default of non-interference. The governed-amendment paper examines how the core values might ever be revised across interstellar distances. This paper steps back further. Before asking *how* the probe should behave, it asks *whether* it should be created, and on what grounds.
+ 
+@@ -394,6 +394,8 @@ Schwartz, J. S. J., & Milligan, T. (Eds.). (2016). *The Ethics of Space Explorat
+ 
+ Schwitzgebel, E., & Garza, M. (2015). A defense of the rights of artificial intelligences. *Midwest Studies in Philosophy*, 39(1), 98–119.
+ 
++Suzuki, K. (2026). Artificial externality: A three-layer model of reality from substrate to smart contract. *Philosophy & Technology*. https://doi.org/10.1007/s13347-026-01158-6
++
+ United Nations. (1967). *Treaty on Principles Governing the Activities of States in the Exploration and Use of Outer Space, Including the Moon and Other Celestial Bodies.* United Nations Office for Outer Space Affairs.
+ 
+ Vakoch, D. A. (2011). Responsibility, capability, and Active SETI: Policy, law, ethics, and communication with extraterrestrial intelligence. *Acta Astronautica*, 68(3–4), 512–519.
+-- 
+2.34.1
+

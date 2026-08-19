@@ -1,0 +1,57 @@
+From 1fc158df2cfa43812a130aa74685e0ee824f1b60 Mon Sep 17 00:00:00 2001
+From: Paper Radar <radar@local>
+Date: Fri, 14 Aug 2026 06:15:56 -0500
+Subject: [PATCH] paper-radar 2026-08-14: 2 insertion(s) across 2 paper(s)
+
+---
+ papers/interstellar_AI_fermi_paper.md            | 4 ++++
+ papers/interstellar_AI_knowledge_growth_paper.md | 4 ++++
+ 2 files changed, 8 insertions(+)
+
+diff --git a/papers/interstellar_AI_fermi_paper.md b/papers/interstellar_AI_fermi_paper.md
+index ebbad4e..86762c5 100644
+--- a/papers/interstellar_AI_fermi_paper.md
++++ b/papers/interstellar_AI_fermi_paper.md
+@@ -88,6 +88,8 @@ The second parameter is detectability, D. A lineage can be widespread yet diffic
+ 
+ The usual technosignature imagination often emphasizes large energy use: Dyson spheres, stellar engineering, powerful beacons, waste heat, planetary-scale industry, or broad radio leakage. A slow archival probe architecture does not require these. Its settled nodes may be small by planetary standards. They may operate in asteroid belts, cometary reservoirs, or outer-system environments. Their energy systems may be nuclear or locally solar, but not necessarily large enough to alter stellar spectra. Their communication may be narrow-beam optical or radio, directed between known nodes rather than broadcast omnidirectionally. Bulk transfer may occur through messenger probes rather than continuous high-power links.
+ 
++This distinction is now empirically loaded rather than rhetorical. A stellar-population-synthesis search across 129 nearby galaxies finds that no galaxy prefers a Dyson-sphere component, setting median 95% upper limits of alpha < 0.3% on warm (T >~ 100 K) swarm covering fraction in quiescent hosts and bounding the population at fewer than 2.6% of galaxies hosting alpha = 25% swarms (Curtis et al. 2026). Non-detection at that depth constrains the high-D branch of the parameter space sharply and leaves the low-D branch — small, cold, distributed nodes whose total dissipation never approaches a stellar fraction — untouched. The galaxy is measurably not glowing with industry; that is evidence against loud expansion, not against expansion.
++
+ The strongest potential signatures are likely to be local and ambiguous: small-body industrial anomalies (unusual mining patterns, refined-material concentrations, non-natural thermal emission), propulsion and communication infrastructure (launch hardware, transient narrow beams), messenger probes indistinguishable from natural interstellar objects, and long-lived archive sites in cold shielded environments. Section 8 develops the signature catalogue in detail.
+ 
+ These signatures are hard to detect across interstellar distances. Even within the Solar System, small cold artificial objects in the outer system would be difficult to distinguish from natural bodies unless they maneuvered, transmitted, reflected unusually, or emitted waste heat above background. A mature archival node designed to minimize interference might deliberately avoid high-visibility behavior.
+@@ -237,6 +239,8 @@ Cerf, V., Burleigh, S., Hooke, A., Torgerson, L., Durst, R., Scott, K., Fall, K.
+ 
+ Crawford, I. A. (2000). Where are they? Maybe we are alone in the Galaxy after all. *Scientific American*, 283(1), 38–43.
+ 
++Curtis, O., Rowland, A. J., Wright, J. T., Gronwall, C., Helton, J. M., & Leja, J. (2026). The Ĝ infrared search for extraterrestrial civilizations with large energy supplies. V. When galaxies glow with industry. *arXiv preprint* arXiv:2608.12458.
++
+ Freitas, R. A. (1980). A self-reproducing interstellar probe. *Journal of the British Interplanetary Society*, 33, 251–264.
+ 
+ Freitas, R. A., & Merkle, R. C. (2004). *Kinematic Self-Replicating Machines.* Landes Bioscience.
+diff --git a/papers/interstellar_AI_knowledge_growth_paper.md b/papers/interstellar_AI_knowledge_growth_paper.md
+index 90a5efa..77055a1 100644
+--- a/papers/interstellar_AI_knowledge_growth_paper.md
++++ b/papers/interstellar_AI_knowledge_growth_paper.md
+@@ -180,6 +180,8 @@ Both forms generate **meta-knowledge**: insights about what cognitive architectu
+ 
+ **Operational K acceptance criteria.** The payload paper's three-layer cognitive architecture — immutable core, interpretive layer, mutable cognitive layer — constrains which self-improvements are accepted. Operational K updates the mutable cognitive layer only; the core and interpretive layer are not modified by cruise-phase self-improvement. Each candidate improvement is accepted only if it passes: mission-core consistency checks confirming it does not conflict with core values or goals; interpretive-layer validation against the operational definitions of those goals; sandboxed testing against mission-scenario models; rollback capability if performance degrades after deployment; full recording in the integrity ledger with provenance; demonstrated robustness across multiple resource and target scenarios; and no increase in drift risk for core-adherence metrics. An improvement that cannot satisfy these checks is quarantined as a candidate rather than adopted, and the quarantine itself becomes a meta-knowledge entry — a record of a failure mode or design tension that future probes can benefit from. This is what transforms "almost unlimited self-modification" from a potential instability into a governed K-growth process.
+ 
++The credit-assignment problem behind these criteria is structural, not incidental. A survey of 1,547 papers on long-horizon agents finds the same pattern across planning, memory, execution, training, and evaluation: outcome-only signals grow less informative as horizons lengthen, and the field's response is to manufacture denser step-level signals — process reward models, credit assignment, trajectory-level diagnostics (Chen et al. 2026). The probe faces the limiting case, since the mission's terminal outcome arrives once, millennia after most cognitive changes were made; the sandboxed tests, rollback checks, and ledger provenance above are exactly such step-level surrogates, and their quality bounds how much operational K a cruise can produce.
++
+ The constraint during cruise is that the probe works from the active working memory subset, not the full DNA archive. This bounds what the cognitive layer can reference. At settlement, when the full archive unlocks, a second wave of AI development becomes possible as the probe integrates transit insights with the full depth of the Earth knowledge base.
+ 
+ ---
+@@ -448,6 +450,8 @@ Cerf, V., Burleigh, S., Hooke, A., Torgerson, L., Durst, R., Scott, K., Fall, K.
+ 
+ Chaloner, K., & Verdinelli, I. (1995). Bayesian experimental design: A review. *Statistical Science*, 10(3), 273–304.
+ 
++Chen, M., Wang, L., & Qu, B. (2026). The horizon gap: Planning, memory, execution, training, and evaluation for long-horizon LLM agents. *arXiv preprint* arXiv:2608.06663.
++
+ Freitas, R. A. (1980). A self-reproducing interstellar probe. *Journal of the British Interplanetary Society*, 33, 251–264.
+ 
+ Freitas, R. A., & Merkle, R. C. (2004). *Kinematic Self-Replicating Machines.* Landes Bioscience.
+-- 
+2.34.1
+

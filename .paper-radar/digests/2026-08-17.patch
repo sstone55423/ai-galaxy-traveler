@@ -1,0 +1,35 @@
+From f830eead18df2da88a002726c1cea2d9b0a80ed3 Mon Sep 17 00:00:00 2001
+From: Paper Radar <radar@local>
+Date: Mon, 17 Aug 2026 06:14:34 -0500
+Subject: [PATCH] paper-radar 2026-08-17: 1 insertion in the knowledge-growth
+ paper
+
+---
+ papers/interstellar_AI_knowledge_growth_paper.md | 4 ++++
+ 1 file changed, 4 insertions(+)
+
+diff --git a/papers/interstellar_AI_knowledge_growth_paper.md b/papers/interstellar_AI_knowledge_growth_paper.md
+index 90a5efa..3c5b731 100644
+--- a/papers/interstellar_AI_knowledge_growth_paper.md
++++ b/papers/interstellar_AI_knowledge_growth_paper.md
+@@ -78,6 +78,8 @@ Degraded-state cascade
+ 
+ K is the fifth layer, not the first. Raw data volume is not a proxy for K; the pipeline from observation to validated claim — the triage and modeling architecture of the payload paper (Section 5 of that paper) — is what converts data to K.
+ 
++That pipeline is not hypothetical. King (2026) surveys machines that originate hypotheses, deduce their consequences, design and execute experiments, interpret results, and revise their beliefs — from Adam, the first machine to make novel scientific discoveries through cycles of hypothesis formation and physical experimentation, through the self-driving laboratories that followed — and argues that the open problem is no longer whether the individual steps of science can be automated but how to integrate them into one agent connected to literature, formal knowledge, simulation, and instruments. That is the probe's problem exactly, with the integration deadline set at launch and no human in the loop for the millennia that follow.
++
+ **Formal definition.** Let j range over validated claims, models, contingency plans, and meta-knowledge items currently held by the lineage. The knowledge metric is:
+ 
+ K_net = Σ_j w_j · ΔH_j · c_j · r_j · a_j
+@@ -458,6 +460,8 @@ Harris, T. E. (1963). *The Theory of Branching Processes.* Springer.
+ 
+ Howard, R. A. (1966). Information value theory. *IEEE Transactions on Systems Science and Cybernetics*, 2, 22–26.
+ 
++King, R. D. (2026). The past and future of AI scientists. *arXiv preprint arXiv:2608.14407*.
++
+ Lamport, L., Shostak, R., & Pease, M. (1982). The Byzantine Generals Problem. *ACM Transactions on Programming Languages and Systems*, 4(3), 382–401.
+ 
+ Merkle, R. C. (1987). A digital signature based on a conventional encryption function. In *Advances in Cryptology — CRYPTO '87* (pp. 369–378). Springer.
+-- 
+2.34.1
+

@@ -1,0 +1,57 @@
+From 9718fa1c833414bf9af56046ff178fbe1c11cec5 Mon Sep 17 00:00:00 2001
+From: Paper Radar <radar@local>
+Date: Sun, 26 Jul 2026 06:15:13 -0500
+Subject: [PATCH] paper-radar 2026-07-26: 2 insertion(s) across 2 paper(s)
+
+---
+ papers/interstellar_AI_bootstrap_paper.md | 4 +++-
+ papers/interstellar_AI_fermi_paper.md     | 4 +++-
+ 2 files changed, 6 insertions(+), 2 deletions(-)
+
+diff --git a/papers/interstellar_AI_bootstrap_paper.md b/papers/interstellar_AI_bootstrap_paper.md
+index 5bd98b1..d0a291b 100644
+--- a/papers/interstellar_AI_bootstrap_paper.md
++++ b/papers/interstellar_AI_bootstrap_paper.md
+@@ -26,7 +26,7 @@ The central thesis is that **full closure is the wrong target.** A system that c
+ 
+ ## 3. The Bootstrapping Cascade
+ 
+-A seed does not become a factory in one step; it climbs. The mechanism is a **staged ratchet** in which each rung of capability is used to build the next. The landed kit begins with the simplest possible operations — mining loose regolith, sorting and crushing it, extracting a few base materials — and uses them to fabricate simple, low-precision tools and structures. Those, in turn, build more capable machines: better furnaces, more precise mills, larger manipulators, more refined chemistry. Capability compounds, because each generation of tools widens the set of things the next generation can make. This is not speculation about exotic machinery; it is demonstrated in miniature on Earth by self-replicating rapid prototypers, whose printed parts can be assembled into further copies of the printer (Jones et al. 2011). The interstellar seed is the same principle pursued to the point where the cascade closes on the whole probe rather than on a plastic frame.
++A seed does not become a factory in one step; it climbs. The mechanism is a **staged ratchet** in which each rung of capability is used to build the next. The landed kit begins with the simplest possible operations — mining loose regolith, sorting and crushing it, extracting a few base materials — and uses them to fabricate simple, low-precision tools and structures. Those, in turn, build more capable machines: better furnaces, more precise mills, larger manipulators, more refined chemistry. Capability compounds, because each generation of tools widens the set of things the next generation can make. This is not speculation about exotic machinery; it is demonstrated in miniature on Earth by self-replicating rapid prototypers, whose printed parts can be assembled into further copies of the printer (Jones et al. 2011). The interstellar seed is the same principle pursued to the point where the cascade closes on the whole probe rather than on a plastic frame. Recent materials-science work extends the demonstration from clean feedstock to the feedstock a landed seed would actually have: Malekpour and Hojjati (2026) show that recycled polymer compounded with 30% lunar regolith simulant can be additively manufactured into load-bearing structural lattices and functional tools, with regolith incorporation improving rather than degrading dimensional stability — direct evidence that Level 2's bulk structure and mechanical parts are reachable with genuinely local, non-exotic feedstock rather than pre-refined printer stock.
+ 
+ A consequence for the architecture, following the companion papers, is that the **child probe is not a copy of the mature factory.** It is the smallest system able to survive the journey, brake, land, begin extraction, and *restart the cascade* — a mobile bootstrap package rather than a packed industrial city. The factory is heavy, fixed, and grown in place; what travels is the seed of a factory. This is why the launch problem and the closure problem are linked: the lighter the bootstrap package can be made while still able to climb the cascade unaided, the cheaper it is to launch and brake, and the more readily a settlement can afford to make and send one. The vehicle paper's stationary-settlement architecture and this paper's mobile-seed architecture are two halves of the same design: the lineage advances by growing a factory, shedding a seed, and growing another factory one star onward.
+ 
+@@ -100,6 +100,8 @@ Goldman, N., Bertone, P., Chen, S., Dessimoz, C., LeProust, E. M., Sipos, B., &
+ 
+ Jones, R., Haufe, P., Sells, E., Iravani, P., Olliver, V., Palmer, C., & Bowyer, A. (2011). RepRap — the replicating rapid prototyper. *Robotica*, 29(1), 177–191.
+ 
++Malekpour, F., & Hojjati, M. (2026). Circular additive manufacturing of recycled PEKK–regolith composites for sacrificial structures in lunar in-situ resource utilization. *Composites Part B: Engineering*. https://doi.org/10.1016/j.compositesb.2026.114013
++
+ Metzger, P. T., Muscatello, A., Mueller, R. P., & Mantovani, J. (2013). Affordable, rapid bootstrapping of the space industry and solar system civilization. *Journal of Aerospace Engineering*, 26(1), 18–29.
+ 
+ NASA (1982). *Advanced Automation for Space Missions* (R. A. Freitas & W. P. Gilbreath, Eds.; NASA Conference Publication 2255). Proceedings of the 1980 NASA/ASEE Summer Study.
+diff --git a/papers/interstellar_AI_fermi_paper.md b/papers/interstellar_AI_fermi_paper.md
+index ebbad4e..ed61ab7 100644
+--- a/papers/interstellar_AI_fermi_paper.md
++++ b/papers/interstellar_AI_fermi_paper.md
+@@ -185,7 +185,7 @@ Fourth, interstellar objects deserve scrutiny as possible **messenger probes** (
+ 
+ Fifth, technosignature theory should model **governed behavior**. Not all capable civilizations maximize visibility; some may minimize interference, leakage, or detectable alteration, and a search theory that assumes maximal conspicuousness will systematically miss them.
+ 
+-Sixth, the Solar System itself should not be excluded. Quiet probes, if any exist nearby, would likely be small, cold, and dormant. Searches should be careful, not sensational: artificiality requires evidence, and natural explanations should dominate until displaced. But the hypothesis is not logically absurd.
++Sixth, the Solar System itself should not be excluded. Quiet probes, if any exist nearby, would likely be small, cold, and dormant. Searches should be careful, not sensational: artificiality requires evidence, and natural explanations should dominate until displaced. But the hypothesis is not logically absurd. Watters et al. (2026) supply a worked example of this discipline: re-examining claims of anomalous, possibly artificial features in first-epoch Palomar photographic plates, they show the reported deficit near Earth's shadow and the correlation with nuclear-test dates both dissolve once the background feature distribution is modeled correctly — a caution that applies as much to future searches for the quiet-probe signatures this paper proposes as to the claims it corrects.
+ 
+ Finally, the absence of obvious probes should be interpreted against explicit models. It is not enough to say "we do not see them." We need to specify what signatures a given architecture predicts, at what intensity, in what locations, and under what governance rules. Fermi reasoning without detectability modeling is incomplete.
+ 
+@@ -255,6 +255,8 @@ Tipler, F. J. (1980). Extraterrestrial intelligent beings do not exist. *Quarter
+ 
+ von Neumann, J., & Burks, A. W. (1966). *Theory of Self-Reproducing Automata.* University of Illinois Press.
+ 
++Watters, W. A., Dominé, L., Little, S., Pratt, C., Knuth, K. H., & Szenher, M. (2026). Critical evaluation of studies alleging evidence for technosignatures in the POSS1-E photographic plates. *Publications of the Astronomical Society of Australia*. https://doi.org/10.1017/pasa.2026.10230
++
+ Webb, S. (2015). *If the Universe Is Teeming with Aliens... Where Is Everybody? Seventy-Five Solutions to the Fermi Paradox and the Problem of Extraterrestrial Life* (2nd ed.). Springer.
+ 
+ Wright, J. T. (2018). Exoplanets and SETI. In H. J. Deeg & J. A. Belmonte (Eds.), *Handbook of Exoplanets.* Springer.
+-- 
+2.34.1
+

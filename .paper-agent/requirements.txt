@@ -1,0 +1,5 @@
+# Consistency-guardian agent dependencies.
+# Kept OUT of the repo's zero-dependency code/ tree on purpose — install into a
+# throwaway venv: python -m venv .paper-agent/.venv && .paper-agent/.venv/Scripts/pip install -r .paper-agent/requirements.txt
+langchain>=0.3,<0.4
+langchain-anthropic>=0.3,<0.4
