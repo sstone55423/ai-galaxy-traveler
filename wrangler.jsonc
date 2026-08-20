@@ -1,0 +1,62 @@
+{
+  // Cloudflare Workers static assets configuration for deep-time-ai.org.
+  //
+  // This is an ASSETS-ONLY Worker: there is no Worker script, so `main` is
+  // deliberately absent and there is no `assets.binding` (a binding is only
+  // valid alongside a `main` entrypoint). Everything in docs/ is served
+  // straight from Cloudflare's asset store.
+  //
+  // NOTHING HERE DEPLOYS BY ITSELF. See MIGRATION.md for the steps the owner
+  // must run with their own credentials.
+  //
+  // The `$schema` path only powers editor autocompletion; it resolves once
+  // wrangler is installed locally (`npm i -D wrangler`). Harmless if absent.
+  "$schema": "./node_modules/wrangler/config-schema.json",
+
+  "name": "deep-time-ai",
+  "compatibility_date": "2026-08-19",
+
+  // account_id is intentionally NOT set here — no account identifiers are
+  // committed to this repo. Supply it at deploy time instead:
+  //     export CLOUDFLARE_ACCOUNT_ID=<your account id>
+  // (documented as an alternative to the `account_id` key), or let
+  // `wrangler login` pick it up interactively when you own a single account.
+  // "account_id": "<PLACEHOLDER — do not commit a real value>",
+
+  "assets": {
+    "directory": "./docs",
+
+    // Default. Serves /papers/vehicle/ from docs/papers/vehicle/index.html and
+    // redirects /papers.html -> /papers. The whole URL scheme depends on this.
+    "html_handling": "auto-trailing-slash",
+
+    // Default. A miss returns a plain 404. Switch to "404-page" only after
+    // adding docs/404.html; there is no 404.html today.
+    "not_found_handling": "none"
+  }
+
+  // ---------------------------------------------------------------------
+  // CUSTOM DOMAIN — DELIBERATELY COMMENTED OUT. DO NOT UNCOMMENT AND DEPLOY
+  // IN ONE STEP.
+  //
+  // Uncommenting this and running `wrangler deploy` takes deep-time-ai.org
+  // off GitHub Pages immediately: Cloudflare rewrites the zone's DNS records
+  // to point at this Worker. Deploy first, verify on the workers.dev URL, and
+  // only then attach the domain.
+  //
+  // Cloudflare refuses to create a Custom Domain on a hostname that already
+  // has a CNAME record, so the existing GitHub Pages DNS records for
+  // deep-time-ai.org (and www) must be deleted in the Cloudflare dashboard
+  // first. See MIGRATION.md step 5.
+  //
+  // TO ENABLE: uncomment the four lines below, exactly as they are. The
+  // leading comma is deliberate — it belongs to the `assets` block above, so
+  // uncommenting is the whole edit and no other line needs touching. Removing
+  // only some of the `//` markers yields "CommaExpected" or an unclosed array.
+  //
+ , "routes": [
+   { "pattern": "deep-time-ai.org",     "custom_domain": true },
+   { "pattern": "www.deep-time-ai.org", "custom_domain": true }
+ ]
+  // ---------------------------------------------------------------------
+}

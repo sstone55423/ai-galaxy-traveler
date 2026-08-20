@@ -88,7 +88,14 @@
             <h2>Listen to the interview</h2>
             <p>Hear the staged conversation about how slow AI probes survive deep time and why the mission is built around endurance and knowledge.</p>
           </div>
-          <a href="How_Slow_AI_Probes_Survive_Deep_Time.m4a">Play the audio</a>
+          <!-- 43 MB: over Cloudflare's 25 MiB per-asset limit, so it is not uploaded
+               with the site and is served from GitHub. raw.githubusercontent.com needs
+               no GitHub Pages configuration, but sends application/octet-stream with
+               nosniff, so it downloads rather than streaming. After MIGRATION.md step 6
+               the github.io URL serves audio/mp4 with range requests and plays inline;
+               switch this link and AUDIO_URL in code/make_papers.py together. -->
+          <a href="https://raw.githubusercontent.com/sstone55423/ai-galaxy-traveler/main/docs/How_Slow_AI_Probes_Survive_Deep_Time.m4a" target="_blank" rel="noopener" download>Download the audio</a>
+          <span class="blurb" style="font-size:0.85em;">(43 MB — downloads rather than streaming)</span>
         </article>
         <article class="card">
           <div>
@@ -133,11 +140,12 @@
     </section>
 
     <footer>
-      <div>To publish this as a GitHub Pages site, push the repository to GitHub, enable Pages from the main branch root, and point `deep-time-ai.org` DNS to GitHub Pages.</div>
+      <div>The <em>Deep Time AI</em> research series &mdash; S. Stone, Metropolitan State University. Every paper is published on this site in full; the Markdown sources and the simulation code are in the <a href="https://github.com/sstone55423/ai-galaxy-traveler" target="_blank" rel="noopener">repository</a>.</div>
       <div class="footer-links">
-        <span class="highlight">Recommended host:</span>
-        <span>GitHub Pages</span>
-        <span>Custom domain: deep-time-ai.org</span>
+        <a href="papers.html">All sixteen papers</a>
+        <a href="challenges.html">Hard problems</a>
+        <a href="code.html">Code</a>
+        <span class="highlight">deep-time-ai.org</span>
       </div>
     </footer>
   </div>

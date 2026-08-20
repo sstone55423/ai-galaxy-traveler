@@ -10,3 +10,8 @@ build/
 # Scratch left by the paper-radar's mount write/delete probing
 ._radar_probe*
 .paper-radar/.trash/
+
+# Wrangler local state. cache/wrangler-account.json holds the Cloudflare
+# account id and name; wrangler.jsonc deliberately keeps those out of the repo.
+.wrangler/
+node_modules/

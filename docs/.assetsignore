@@ -1,0 +1,11 @@
+# Files in docs/ that must NOT be uploaded as Cloudflare Workers static assets.
+# gitignore syntax; read by wrangler from the root of the assets directory.
+
+# 43 MB — over Cloudflare's hard 25 MiB per-asset limit. Stays on GitHub Pages;
+# docs/_redirects sends the old path there. Deploys fail if this is uploaded.
+How_Slow_AI_Probes_Survive_Deep_Time.m4a
+
+# GitHub Pages build artifacts, meaningless to Workers. Leaving CNAME uploaded
+# would also expose a stray /CNAME URL on the new site.
+CNAME
+.nojekyll
