@@ -1,7 +1,6 @@
 # DNA Mission Ledgers: A Self-Renewing Archive Architecture for Deep-Time Interstellar AI Lineages
 
 **S. Stone**
-*Metropolitan State University*
 *Working draft — first pass. Part of a series on a slow, self-replicating interstellar AI probe. This paper develops the probe's memory subsystem in full; it supersedes the earlier standalone DNA-storage outline and gives the integrity-ledger mechanism — sketched in the payload paper — its complete treatment, by joining the two into a single architecture.*
 
 ---

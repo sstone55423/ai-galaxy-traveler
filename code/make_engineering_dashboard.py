@@ -1,4 +1,4 @@
-import json, build_catalog as bc
+import json, os, build_catalog as bc
 rows = bc.build()
 stars = [{"x": round(r["x"],2), "y": round(r["y"],2), "z": round(r["z"],2),
           "c": r["category"]} for r in rows]
@@ -60,7 +60,7 @@ HTML = r'''<!DOCTYPE html>
       <input type="range" id="v" min="50" max="600" step="10" value="450"></div>
 
     <h2>Power &amp; closure</h2>
-    <div class="fld"><label>Electric power <b><span id="kwV">14</span> kW</b></label>
+    <div class="fld"><label>Reactor rated power (thermal; ~28% to electric) <b><span id="kwV">14</span> kW</b></label>
       <input type="range" id="kw" min="0.6" max="3" step="0.02" value="1.146"></div>
     <div class="fld"><label>ISRU plant mass <b><span id="isruV">2,000</span> kg</b></label>
       <input type="range" id="isru" min="2.3" max="6" step="0.05" value="3.301"></div>
@@ -204,8 +204,9 @@ function render(){
   $('mtot').textContent=Math.round(mb.total).toLocaleString()+' kg';
   $('mdom').textContent=mb.dom; $('mrad').textContent=mb.radArea.toFixed(0)+' m²'; $('mreac').textContent=Math.round(mb.reactor)+' kg';
   $('mnote').textContent='A minimal bootstrap seed shrinks the ISRU plant; a full factory grows it toward ~10⁷ kg.';
-  // closure
-  const cc=closure(m,kW,clr);
+  // closure -- process power is the ELECTRIC output (4 kW-e at the 14 kW
+  // thermal rating), matching engineering.py's closure(elec_kW=4.0) exactly.
+  const cc=closure(m,kW*(4/14),clr);
   $('cvf').textContent=Math.round(cc.vf*100)+'%'; $('cvm').textContent=Math.round(cc.vk).toLocaleString()+' kg';
   $('cmm').textContent=cc.mm.toExponential(1)+'×'; $('cem').textContent=cc.em.toExponential(1)+'×';
   // big verdict
@@ -220,6 +221,7 @@ render();
 </script></body></html>'''
 
 html = HTML.replace('__STARS_JSON__', json.dumps(stars, separators=(',',':')))
-open('engineering_dashboard.html','w',encoding='utf-8').write(html)
-print('Wrote engineering_dashboard.html', len(html), 'bytes,', len(stars),'stars')
-import re; open('/tmp/edash2.js','w').write(re.search(r'<script>(.*?)</script>',html,re.S).group(1))
+_out = os.path.join(os.path.dirname(os.path.abspath(__file__)),
+                    '..', 'docs', 'engineering_dashboard.html')
+open(_out, 'w', encoding='utf-8').write(html)
+print('Wrote', os.path.normpath(_out), len(html), 'bytes,', len(stars), 'stars')

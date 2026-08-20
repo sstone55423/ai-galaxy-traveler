@@ -1,6 +1,6 @@
 # Security Without Victory: Containment, Engagement, and Endurance for a Deep-Time Interstellar Lineage
 
-**S. Stone, Metropolitan State University**
+**S. Stone**
 *Working draft — revision 1. Sixteenth in a series on a slow, self-replicating interstellar AI probe. The series' own consistency review names probe-versus-probe security as the largest remaining gap: "no paper treats an autonomous lineage actively defending its archive and core against a sophisticated adversary — including another von Neumann lineage. The most consequential external threat is unmodeled." This paper takes it up.*
 
 ---

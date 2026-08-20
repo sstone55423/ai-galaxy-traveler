@@ -34,14 +34,17 @@ ASTEROID_BELT_KG = 3.0e21        # ~Solar-System main-belt mass (order of mag)
 # ===========================================================================
 # 1. MASS & POWER BUDGET
 # ===========================================================================
-def mass_budget(payload_kg=200.0, elec_kW=14.0, reactor_alpha_kg_per_kW=8.0,
+def mass_budget(payload_kg=200.0, rated_kW_thermal=14.0, reactor_alpha_kg_per_kW=8.0,
                 radiator_T=400.0, radiator_areal_kg_m2=3.0, shielding_kg=400.0,
                 sail_struct_kg=300.0, isru_plant_kg=2000.0, structure_frac=0.20):
     """First-order seed mass breakdown (kg). isru_plant_kg dominates a real seed;
-    setting it small models a minimal bootstrap package, large a full factory."""
-    reactor = reactor_alpha_kg_per_kW * elec_kW
+    setting it small models a minimal bootstrap package, large a full factory.
+    rated_kW_thermal is the reactor's rated THERMAL output (14 kW th -> 4 kW-e
+    at ~28% conversion); reactor mass and the radiator's blackbody floor are
+    both sized against it."""
+    reactor = reactor_alpha_kg_per_kW * rated_kW_thermal
     fuel_kg = 16.5                                   # ~U-235 for 4 kW-e/300 yr
-    rad_area = (elec_kW * 1000.0) / (0.9 * SIGMA * radiator_T**4)   # m^2 (blackbody floor)
+    rad_area = (rated_kW_thermal * 1000.0) / (0.9 * SIGMA * radiator_T**4)   # m^2 (blackbody floor)
     radiators = rad_area * radiator_areal_kg_m2
     subs = {"nuclear fuel": fuel_kg, "reactor+conversion": reactor,
             "radiators": radiators, "shielding": shielding_kg,
@@ -141,9 +144,12 @@ def reproduction(offspring=2, **legkw):
 # 4. CLOSURE BUDGET
 # ===========================================================================
 def closure(child_dry_kg=1000.0, closure_ratio=0.97, t_rep_yr=10_000.0,
-            elec_kW=14.0, construct_energy_J_per_kg=5e8):
+            elec_kW=4.0, construct_energy_J_per_kg=5e8):
     """Vitamin fraction, vitamin mass, and the (comfortable) material & energy
-    checks. construct_energy ~ refining+fabrication energy per kg of child."""
+    checks. construct_energy ~ refining+fabrication energy per kg of child.
+    elec_kW is the ELECTRIC output available as process power (4 kW-e; the
+    reactor's 14 kW rating is thermal) -- this reproduces the papers'
+    canonical ~10^3 energy margin."""
     vitamin_frac = 1.0 - closure_ratio
     vitamin_kg = vitamin_frac * child_dry_kg
     material_margin = ASTEROID_BELT_KG / child_dry_kg

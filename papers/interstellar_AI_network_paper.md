@@ -1,7 +1,6 @@
 # Signal and Silence: Topology, Routing, and Knowledge Propagation in the Lineage Network of a Self-Replicating Interstellar Probe
 
 **S. Stone**
-*Metropolitan State University*
 *Working draft, revision 1. Eleventh paper in a series on a slow, self-replicating interstellar AI probe. The earlier papers establish the vehicle (propulsion, power, braking, replication), the payload (cognition, memory, the galactic network sketched), the bootstrapping problem (industrial closure), the engineering budgets (analytical and computational), the DNA mission-ledger (memory substrate and integrity), the contact-governance framework, the governed-amendment problem, the knowledge-growth model, and the Fermi synthesis. This paper delivers what the payload paper sketched and the knowledge-growth paper explicitly deferred: the routing topology, the routing strategies, the failure-detection protocol, and the network-governance rules of the lineage communication network.*
 
 ---

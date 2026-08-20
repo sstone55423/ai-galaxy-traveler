@@ -1,7 +1,6 @@
 # The Growing Archive: Knowledge Accumulation, Contingency Planning, and Mission Adaptation in a Deep-Time Self-Replicating Interstellar AI Lineage
 
 **S. Stone**
-*Metropolitan State University*
 *Working draft, revision 2. Tenth in a series on a slow, self-replicating interstellar AI probe. Where the vehicle paper establishes the probe's body, the payload paper its mind, and the computational engineering paper the reproduction knife-edge, this paper addresses the series' stated figure of merit — "growth, not speed" — and gives it a quantitative foundation. It draws on the bootstrap plan from the bootstrapping paper, the memory architecture from the DNA mission-ledger paper, and the network architecture sketched in the payload paper, and establishes what the probe learns, at what rate, how that learning degrades, and what the lineage does to protect it.*
 
 ---

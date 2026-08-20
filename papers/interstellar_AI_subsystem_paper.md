@@ -1,6 +1,6 @@
 # A Subsystem Mass, Power, and Thermal Budget for a Minimal Self-Replicating Interstellar Seed
 
-**S. Stone, Metropolitan State University**
+**S. Stone**
 Working draft, revision 2
 
 ---
@@ -336,7 +336,7 @@ In each case the supplementary fuel mass is a negligible fraction of the 3,700 k
 
 The four budgets — mass, braking, reproduction, and closure — are coupled through the seed mass m and the manufacturing plant fraction. The coupling has three main loops.
 
-**Mass → braking.** The braking distance d = m / (2ρA) scales linearly with seed mass. A 10% reduction in total seed mass (370 kg) reduces braking distance and time by 10%. Since the manufacturing plant is 54% of the seed, a 10% reduction in factory mass (200 kg) reduces total braking distance by ~5.4%. The sail area is the more powerful lever — doubling the sail radius quadruples the area and halves the braking distance, independent of mass — but doubling the sail radius at fixed linear density also doubles the sail mass, creating feedback that limits how far this lever can be pushed without increasing the total budget.
+**Mass → braking.** The braking distance d = m / (2ρA) scales linearly with seed mass. A 10% reduction in total seed mass (370 kg) reduces braking distance and time by 10%. Since the manufacturing plant is 54% of the seed, a 10% reduction in factory mass (200 kg) reduces total braking distance by ~5.4%. The sail area is the more powerful lever — doubling the sail radius quadruples the area and quarters the braking distance, independent of mass — but doubling the sail radius at fixed linear density also doubles the sail mass, creating feedback that limits how far this lever can be pushed without increasing the total budget.
 
 **Mass → reproduction.** Reproduction requires building a copy of the seed from local material. A heavier seed demands more material, energy, and time, which lengthens the replication time and affects the per-stage survival probability p_manufacture. As the computational engineering paper establishes, p_manufacture depends on whether the manufacturing capability and vitamin inventory are sufficient to close the child. Both failure directions are accessible; the design must navigate between them.
 

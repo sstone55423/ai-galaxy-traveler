@@ -3,7 +3,6 @@
 ### A proposal and research plan (extended abstract)
 
 **S. Stone**
-*Metropolitan State University*
 ***Superseded** by the full paper "From Seed to Factory" (`interstellar_AI_bootstrap_paper.md`), which expands this research plan into the completed treatment; this proposal is retained for reference. Proposal paper — third in a series. The companion papers treat the vehicle ("Growth, Not Speed") and the payload ("The Payload"). This document frames the manufacturing-and-closure problem on which both depend and outlines the full paper to follow; it is an extended abstract and research plan, not the completed treatment. References are foundational pointers to be expanded.*
 
 ---

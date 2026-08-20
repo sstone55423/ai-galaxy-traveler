@@ -366,8 +366,9 @@ class Paper:
         return " ".join(w if w.isupper() else w.lower() for w in self.name.split())
 
     def byline(self) -> str:
-        """Canonical author line. Identical for every paper in the series."""
-        return "S. Stone, Metropolitan State University"
+        """Canonical author line. Identical for every paper in the series.
+        Deliberately carries no institutional affiliation."""
+        return "S. Stone"
 
     def note_lines(self) -> list[str]:
         """Front matter minus the byline/affiliation: the working-draft note.
@@ -568,8 +569,8 @@ def render_paper(p: Paper) -> str:
         + "</header>"
         + toc
         + f"<article>{body}</article>"
-        + '<footer>Part of the sixteen-paper <em>Deep Time AI</em> series &mdash; '
-          'S. Stone, Metropolitan State University. '
+        + '<footer>Part of the <em>Deep Time AI</em> series &mdash; '
+          'S. Stone. '
           '<a href="../../papers.html">Read the rest of the series</a>.</footer>'
         + "</div>"
     )
@@ -622,7 +623,7 @@ def render_index(papers: list[Paper]) -> str:
           "interstellar AI probe — the vehicle, the mind, the hands, the supporting "
           "budgets, and the synthesis papers. Every paper is published here in full — as "
           "a typeset PDF, as a web page, and as its Markdown source of record. "
-          "S. Stone, Metropolitan State University.</p>"
+          "S. Stone.</p>"
         + '<div class="cards">' + "".join(cards) + "</div>"
         + f'<p class="note">Source Markdown for the whole series also lives in the '
           f'<a href="{REPO_URL}/tree/main/papers" target="_blank" rel="noopener">'

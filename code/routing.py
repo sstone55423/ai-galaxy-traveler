@@ -116,7 +116,10 @@ def graph_summary(cat, max_hop_ly=15.0):
         "n_stars": n,
         "n_components": len(comps),
         "largest_component": max(len(c) for c in comps),
-        "sun_reachable": len(sun_reach),
+        # Non-Sun stars the Sun can reach (BFS includes the start node, so
+        # subtract it -- the papers quote this count over the 126 non-solar
+        # stars, e.g. 117/126 at hop 20 ly).
+        "sun_reachable": len(sun_reach) - 1,
         "sun_reachable_frac": (len(sun_reach) - 1) / (n - 1),
         "mean_degree": sum(degrees) / n,
         "n_articulation_points": len(aps),

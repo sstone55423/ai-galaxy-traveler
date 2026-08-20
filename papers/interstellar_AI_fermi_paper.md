@@ -1,7 +1,6 @@
 # Slow Fire, Silent Galaxy: Fermi Paradox Implications of Deep-Time Self-Replicating AI Probes
 
 **S. Stone**
-*Metropolitan State University*
 *Working draft. Synthesis paper in a series on a slow, self-replicating interstellar AI probe. The earlier papers establish what such a probe can do — travel and brake, repair and reproduce, remember across deep time, govern its own contact behavior, and protect its mission identity. This paper turns those results outward and asks what they imply for the oldest question in the field: if self-replicating probes are feasible, why is the Galaxy silent? It draws the series' computed demographics, governance architecture, and detectability arguments into a single reformulation of the Fermi problem.*
 
 ---

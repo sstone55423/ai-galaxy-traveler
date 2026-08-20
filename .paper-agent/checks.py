@@ -104,11 +104,21 @@ def _lineno(text: str, idx: int) -> int:
 
 
 def split_body_refs(text: str) -> tuple[str, str]:
-    """Return (body, references_block). references_block is '' if absent."""
+    """Return (body, references_block). references_block is '' if absent.
+
+    The block ends at the first horizontal rule after the References heading:
+    the papers close with an italic endnote after a '---' separator, and that
+    endnote may name works with years ("Hoang et al. (2017)") that must not be
+    parsed as reference entries. The endnote stays in the body for citation
+    matching."""
     m = re.search(r"^##\s+References\s*$", text, re.M)
     if not m:
         return text, ""
-    return text[: m.start()], text[m.end():]
+    refs = text[m.end():]
+    rule = re.search(r"^---\s*$", refs, re.M)
+    if rule:
+        return text[: m.start()] + refs[rule.end():], refs[: rule.start()]
+    return text[: m.start()], refs
 
 
 def check_latex(text: str) -> list[dict]:

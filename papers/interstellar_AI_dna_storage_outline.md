@@ -3,7 +3,6 @@
 ### Paper outline with abstract and references
 
 **S. Stone**
-*Metropolitan State University*
 ***Superseded** by the full paper "DNA Mission Ledgers" (`interstellar_AI_dna_ledger_paper.md`), which merges this DNA-storage material with the integrity-ledger layer into a single self-renewing-archive architecture; this outline is retained for reference. Outline for a companion paper to the series. It expands the "information survival" problem of the payload paper and the "synthesize DNA" capability of the bootstrapping proposal into a focused treatment of the probe's storage medium. This document is an annotated outline, an abstract, and a reference list, to be developed into a full paper.*
 
 ---

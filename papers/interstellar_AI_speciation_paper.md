@@ -1,6 +1,6 @@
 # Speciation or Schism
 
-**S. Stone, Metropolitan State University**
+**S. Stone**
 *Working draft — revision 1.*
 
 ---

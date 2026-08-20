@@ -53,8 +53,17 @@ CATALOG_FILE = "stars_100ly.csv"
 class Catalog:
     def __init__(self, path: str | None = None):
         if path is None:
-            path = os.path.join(os.path.dirname(os.path.abspath(__file__)),
-                                CATALOG_FILE)
+            # The catalogue ships in docs/ (it also feeds the dashboards);
+            # fall back through the likely locations so `python code/*.py`
+            # works from a clean checkout regardless of working directory.
+            here = os.path.dirname(os.path.abspath(__file__))
+            candidates = [
+                os.path.join(here, CATALOG_FILE),
+                os.path.join(here, "..", "docs", CATALOG_FILE),
+                os.path.join(os.getcwd(), "docs", CATALOG_FILE),
+            ]
+            path = next((p for p in candidates if os.path.exists(p)),
+                        candidates[0])
         self.stars: list[dict] = []
         with open(path, newline="", encoding="utf-8") as f:
             for row in csv.DictReader(f):

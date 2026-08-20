@@ -1,6 +1,6 @@
 # Deep-Time Interstellar AI Probe Series — Consistency Review and Gap Analysis
 
-**Prepared for S. Stone, Metropolitan State University**
+**Prepared for S. Stone**
 *A cross-paper audit of the fifteen-paper series: do the papers fit together coherently, where do they conflict, and what is missing. The original nine papers were read in full and cross-checked for numeric drift, terminology mismatch, broken cross-references, and citation inconsistency. The knowledge-growth paper, lineage-network paper, subsystem budget paper, fleet routing paper, ethics paper, and speciation paper were added after the review was prepared; see the gap-analysis section. Issues are prioritized for repair main-papers-first, then supplementary papers. A gap analysis follows.*
 
 ---
