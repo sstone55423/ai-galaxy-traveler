@@ -1,7 +1,6 @@
 # Contact, Contamination, and Noninterference: A Governance Architecture for Deep-Time Interstellar AI Probes
 
 **S. Stone**
-*Metropolitan State University*
 *Working draft — first pass. Part of a series on a slow, self-replicating interstellar AI probe. The companion papers establish what the probe can do — travel, brake, repair, reproduce, remember, and preserve its identity. This paper asks what it is *permitted* to do when it encounters something that is not itself, and absorbs the planetary-protection problem into a single contact, contamination, and noninterference architecture.*
 
 ---

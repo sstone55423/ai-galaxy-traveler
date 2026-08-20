@@ -1,6 +1,6 @@
 # Security Without Victory: Containment, Engagement, and Endurance for a Deep-Time Interstellar Lineage
 
-**S. Stone, Metropolitan State University**
+**S. Stone**
 *Working draft — revision 1. Sixteenth in a series on a slow, self-replicating interstellar AI probe. The series' own consistency review names probe-versus-probe security as the largest remaining gap: "no paper treats an autonomous lineage actively defending its archive and core against a sophisticated adversary — including another von Neumann lineage. The most consequential external threat is unmodeled." This paper takes it up.*
 
 ---
@@ -93,7 +93,11 @@ The instruction must be drawn narrowly, and the narrow form is also the effectiv
 
 The fleet-routing paper evaluates the lineage's robustness by removing k random non-Sun nodes from the reachability graph at a 15 ly hop distance and measuring the fraction of the catalogue still reachable from the Sun. It reports a moderate result: mean reachability falls from 84% at k = 0 to 83% at k = 1, 80% at k = 5, 77% at k = 10, and 69% at k = 20 — roughly 0.7 to 0.8 percentage points per failed node. That paper separately identifies 9 articulation points at the same hop distance, nodes whose loss permanently isolates dependents, and observes that Mu Cassiopeiae and Beta Comae Berenices each control the sole route to three otherwise-dependent systems.
 
-It does not connect the two analyses, because it had no reason to: settlement collapse is a random process. An adversary is not. We therefore repeat the robustness computation with targeted rather than random removal, using the same 127-star catalogue, the same 15 ly hop distance, and the same reachability measure, removing at each step the node whose loss costs the most remaining reachability. Sun-reachable fraction of the catalogue, targeted against random (mean of 200 trials):
+It does not connect the two analyses, because it had no reason to: settlement collapse is a random process. An adversary is not.
+
+That a network can be robust against random failure and fragile against targeted removal is not a new observation; it is Albert, Jeong and Barabási's (2000) result, and it is a quarter-century old. We claim no novelty for the distinction, only for what it yields on this particular graph — and the interest here is that the lineage graph does *not* behave like their canonical case. Their fragility is driven by degree heterogeneity: scale-free networks have hubs, and removing hubs keeps paying because there is always another hub. The 127-star reachability graph is not scale-free. Its targeted vulnerability comes from **articulation points** — cut vertices whose removal disconnects dependents — and cut vertices are a scarce, exhaustible feature rather than a heavy tail. The question worth computing is therefore not whether targeting beats random loss, which is known, but how much it is worth here and for how long it keeps paying.
+
+We repeat the robustness computation with targeted rather than random removal, using the same 127-star catalogue, the same 15 ly hop distance, and the same reachability measure, removing at each step the node whose loss costs the most remaining reachability. Sun-reachable fraction of the catalogue, targeted against random (mean of 200 trials):
 
 - k = 1: targeted 81%, random 83%
 - k = 2: targeted 78%, random 83%
@@ -251,6 +255,8 @@ And it inherits the payload paper's threat taxonomy, its integrity ledger, and i
 ---
 
 ## References
+
+Albert, R., Jeong, H., & Barabási, A.-L. (2000). Error and attack tolerance of complex networks. *Nature*, 406(6794), 378–382.
 
 Cheng, Y., Youssef, P., Seifert, C., Schlötterer, J., & Zhao, Z. (2026). Can fine-tuning erase your edits? On the fragile coexistence of knowledge editing and adaptation. In *Proceedings of the 32nd ACM SIGKDD Conference on Knowledge Discovery and Data Mining.* arXiv:2511.05852.
 

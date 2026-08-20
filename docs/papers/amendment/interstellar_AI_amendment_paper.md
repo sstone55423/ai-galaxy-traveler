@@ -1,7 +1,6 @@
 # Amending the Unamendable: The Governed-Amendment Problem for Deep-Time Interstellar AI Probes
 
 **S. Stone**
-*Metropolitan State University*
 *Working draft. Part of a series on a slow, self-replicating interstellar AI probe. Each earlier paper — the vehicle, the payload, the bootstrapping closure paper, and the governance paper — reaches this problem and brackets it as the deepest piece of unfinished business. This paper does not solve it. It maps why it is so hard, examines the candidate solutions and shows where each falls short, and argues that conservative immutability remains the defensible default — not because the problem is closed, but because the alternative is worse.*
 
 ---

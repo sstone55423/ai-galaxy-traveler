@@ -1,7 +1,6 @@
 # From Seed to Factory: Bootstrapping and Industrial Closure for a Self-Replicating Interstellar Probe
 
 **S. Stone**
-*Metropolitan State University*
 *Full paper — third in a series, expanded from the earlier proposal of the same title. The companion papers treat the vehicle ("Growth, Not Speed"), the payload ("The Payload"), the engineering budgets (analytical and computational), the deep-time archive ("DNA Mission Ledgers"), and contact governance ("Contact, Contamination, and Noninterference"). This paper addresses the manufacturing-and-closure capability on which all of them depend: how a small landed seed becomes a factory that can mine, refine, fabricate, build instruments, make its own power and launchers, and finally produce a child probe — without resupply, oversight, or a second chance.*
 
 ---
