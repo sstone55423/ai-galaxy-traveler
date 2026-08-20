@@ -176,6 +176,8 @@ The knowledge-growth paper defines a degraded-state cascade of four modes: D1, m
 
 That cascade is keyed to capability loss. Something has broken, and the descent is monotonic: the node climbs back only by repairing what failed. The adversarial case produces the same rungs from a different cause, and the difference is decisive. A suppressed node is not damaged. Its launcher works, its synthesis apparatus works, its archive is intact; what it lacks is the opportunity to use them. We propose that the cascade needs a state it does not have — **suppressed but intact** — and that its correct behavior differs from every degraded mode.
 
+The terrestrial recovery literature has recently converged on the same target from the other direction: after a ransomware compromise, the meaningful goal is not restored backups but the smallest safe, trusted, operationally meaningful production capability resumable under the current dependency and identity-trust constraints — "minimum viable factory recovery" (Chiu 2026) — and its catalogued failure modes (identity-trust collapse, backup over-trust, absence of proof-of-recovery) read as a compressed version of what a suppressed node must manage over centuries rather than weeks.
+
 The difference is that suppression is potentially reversible while capability is preserved. Under degradation, waiting is waiting to die, and D3's prescription to attempt self-repair is right because restoration must come from within. Under suppression there is nothing to repair. The node's correct posture is to descend the mission ladder without abandoning any rung permanently: if a child probe cannot be launched outward, build inward and explore the local system; if construction is blocked entirely, observe and transmit, which requires no manufacturing at all; and if even that is denied, wait, because the node loses nothing by waiting that it would not lose by acting, and it retains everything it would need to resume.
 
 Patience is a strategy here rather than resignation, and it is a strategy available specifically to a slow lineage. An adversary has a project with a timescale — years, centuries, whatever its own objectives impose. A suppressed node does not need to defeat that project. It needs to still be there afterward.
@@ -259,6 +261,8 @@ And it inherits the payload paper's threat taxonomy, its integrity ledger, and i
 Albert, R., Jeong, H., & Barabási, A.-L. (2000). Error and attack tolerance of complex networks. *Nature*, 406(6794), 378–382.
 
 Cheng, Y., Youssef, P., Seifert, C., Schlötterer, J., & Zhao, Z. (2026). Can fine-tuning erase your edits? On the fragile coexistence of knowledge editing and adaptation. In *Proceedings of the 32nd ACM SIGKDD Conference on Knowledge Discovery and Data Mining.* arXiv:2511.05852.
+
+Chiu, C. Y. (2026). From backup restoration to minimum viable factory recovery: A systematization of ransomware recovery in manufacturing systems. *International Journal of Critical Infrastructure Protection*. https://doi.org/10.1016/j.ijcip.2026.100882
 
 Fricker, M. (2007). *Epistemic Injustice: Power and the Ethics of Knowing.* Oxford University Press.
 

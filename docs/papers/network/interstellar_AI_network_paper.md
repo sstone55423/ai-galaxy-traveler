@@ -45,7 +45,7 @@ These constraints define a challenged network in the engineering sense of Fall (
 
 ## 3. The Protocol Foundation: Delay-Tolerant Networking
 
-Delay-tolerant networking (DTN) was designed for exactly this problem. Its central abstraction is the **bundle**: a self-contained data unit that carries its own source, destination, creation time, time-to-live, and priority class, and can be stored indefinitely at intermediate nodes while awaiting a contact window toward the destination (Burleigh et al. 2003; Cerf et al. 2007). DTN does not require end-to-end connectivity; it requires only that a path — possibly through many intermediate hops, possibly taking years — exist eventually between source and destination.
+Delay-tolerant networking (DTN) was designed for exactly this problem. Its central abstraction is the **bundle**: a self-contained data unit that carries its own source, destination, creation time, time-to-live, and priority class, and can be stored indefinitely at intermediate nodes while awaiting a contact window toward the destination (Burleigh et al. 2003; Cerf et al. 2007). DTN does not require end-to-end connectivity; it requires only that a path — possibly through many intermediate hops, possibly taking years — exist eventually between source and destination. Recent work argues that an IP stack, long set aside for deep space, deserves reconsideration for near-Earth targets such as the Moon and Mars, with IP-based Internet of Things protocols following it there (Gomez & Crowcroft 2026). That case is bounded by light-minute round trips. At light-year separations, with one-way delays of four to ~100 years and link availability measured against node lifetimes rather than orbital geometry, no end-to-end session or retransmission timer survives; store-carry-forward with custody transfer is not the conservative choice but the only remaining one.
 
 For the lineage network, bundles carry four priority classes:
 
@@ -229,6 +229,8 @@ Burleigh, S., Hooke, A., Torgerson, L., Fall, K., Cerf, V., Durst, B., Scott, K.
 Cerf, V., Burleigh, S., Hooke, A., Torgerson, L., Durst, R., Scott, K., Fall, K., & Weiss, H. (2007). *Delay-Tolerant Networking Architecture.* RFC 4838. Internet Engineering Task Force.
 
 Fall, K. (2003). A delay-tolerant network architecture for challenged internets. In *Proceedings of the 2003 Conference on Applications, Technologies, Architectures, and Protocols for Computer Communications* (pp. 27–34). ACM.
+
+Gomez, C., & Crowcroft, J. (2026). Towards the interplanetary internet: An IoT perspective. *arXiv preprint* arXiv:2608.16330.
 
 Haber, S., & Stornetta, W. S. (1991). How to time-stamp a digital document. *Journal of Cryptology*, 3(2), 99–111.
 
