@@ -12425,7 +12425,322 @@
       "first_seen": "2026-08-19",
       "paper": "speciation",
       "title": "Silicate-bound iron drives abiotic solar energy conversion in terrestrial environments"
+    },
+    "doi:10.3389/fmicb.2026.1891602": {
+      "first_seen": "2026-08-20",
+      "paper": "payload",
+      "title": "Engineered strains as living factories: efficient biosynthesis and modification of natural products via synthetic biolog"
+    },
+    "doi:10.1037/abn0001148": {
+      "first_seen": "2026-08-20",
+      "paper": "speciation",
+      "title": "A framework for evidence-based psychotherapy with AI (EBP-AI)."
+    },
+    "doi:10.1007/s44372-026-00776-w": {
+      "first_seen": "2026-08-20",
+      "paper": "payload",
+      "title": "Evolution of apple scab prediction models from empirical systems to Artificial Intelligence based predictive frameworks"
+    },
+    "doi:10.1038/s41598-026-66705-9": {
+      "first_seen": "2026-08-20",
+      "paper": "payload",
+      "title": "Adaptive context-aware hierarchical federated multi-agent reinforcement learning for scalable intrusion detection in ind"
+    },
+    "arxiv:2608.16141": {
+      "first_seen": "2026-08-20",
+      "paper": "payload",
+      "title": "Continual-learning rules shape representational drift"
+    },
+    "doi:10.1016/j.ssci.2026.107271": {
+      "first_seen": "2026-08-20",
+      "paper": "bootstrap",
+      "title": "Emergency resource sharing in chemical industry parks: An evolutionary game perspective"
+    },
+    "doi:10.67541/jdc2605": {
+      "first_seen": "2026-08-20",
+      "paper": "bootstrap",
+      "title": "&lt;b&gt;Research on Rehabilitation Training Movement Recognition and Real-time Feedback Model Based on Computer Vision&"
+    },
+    "doi:10.1038/s41598-026-65142-y": {
+      "first_seen": "2026-08-20",
+      "paper": "bootstrap",
+      "title": "Characterization and functional evaluation of a fiber-optic instrumented impedance-controlled upper-limb exoskeleton"
+    },
+    "doi:10.26599/commtr.2026.9640047": {
+      "first_seen": "2026-08-20",
+      "paper": "bootstrap",
+      "title": "Distilling Vision-Language Models for Explainable Vehicle Collision Prediction"
+    },
+    "doi:10.7716/aem.v15i3.3283": {
+      "first_seen": "2026-08-20",
+      "paper": "bootstrap",
+      "title": "“Virtual and Real Coexisting”: Zither Composition Practice and Aesthetic Reconstruction Through AI and VR Integration"
+    },
+    "doi:10.1007/s44195-026-00141-0": {
+      "first_seen": "2026-08-20",
+      "paper": "engineering",
+      "title": "Onboard geomagnetic field generation module for CubeSat attitude control simulations"
+    },
+    "doi:10.32388/626yu5": {
+      "first_seen": "2026-08-20",
+      "paper": "engineering",
+      "title": "Mini Me: Personal AI That Was There Continuum, a Context Substrate for Measurable Presence and Safe Action"
+    },
+    "doi:10.1186/s12888-026-08533-9": {
+      "first_seen": "2026-08-20",
+      "paper": "dna_ledger",
+      "title": "Reward reactivity in non-suicidal self-injury in adolescents: protocol for a longitudinal study"
+    },
+    "doi:10.1093/jpe/rtag195": {
+      "first_seen": "2026-08-20",
+      "paper": "dna_ledger",
+      "title": "Divergent effects of litter manipulation and nitrogen enrichment on aboveground-belowground stability are mediated by so"
+    },
+    "doi:10.38001/ijlsb.1966973": {
+      "first_seen": "2026-08-20",
+      "paper": "dna_ledger",
+      "title": "Genome-Wide Identification, Evolutionary Analysis and Comprehensive In Silico Characterization of the GPAT Gene Family i"
+    },
+    "doi:10.56201/ijcsmt.vol.12.no6.2026.pg126.137": {
+      "first_seen": "2026-08-20",
+      "paper": "dna_ledger",
+      "title": "Blockchain Technology Security in Academic Institutions in Rivers State, Nigeria"
+    },
+    "doi:10.1007/s44443-026-00971-5": {
+      "first_seen": "2026-08-20",
+      "paper": "dna_ledger",
+      "title": "A trust-aware privacy-preserving federated learning framework for secure threat intelligence sharing using blockchain"
+    },
+    "doi:10.59256/indjcst.20260502112": {
+      "first_seen": "2026-08-20",
+      "paper": "dna_ledger",
+      "title": "Blockchain-Enabled Drug Traceability in Healthcare Supply Chains Using Ethereum Smart Contracts and Location-Aware Track"
+    },
+    "doi:10.21203/rs.3.rs-10299958/v1": {
+      "first_seen": "2026-08-20",
+      "paper": "dna_ledger",
+      "title": "Dengue virus rapidly reshapes the transcriptional landscape of human neutrophils toward cytokine storm–associated inflam"
+    },
+    "doi:10.4324/9781003679202": {
+      "first_seen": "2026-08-20",
+      "paper": "amendment",
+      "title": "Amendments, Change and the Stability of Constitutions"
+    },
+    "doi:10.3389/fsoc.2026.1897781": {
+      "first_seen": "2026-08-20",
+      "paper": "amendment",
+      "title": "In the quicksand: the suspended lives of non-returnable migrants in Italy"
+    },
+    "doi:10.3389/fcomp.2026.1860996": {
+      "first_seen": "2026-08-20",
+      "paper": "speciation",
+      "title": "Agentic social affordance framework (ASAF): agent identity design as a collaboration interface in multi-agent systems"
+    },
+    "doi:10.36948/ijfmr.2026.v08i04.85812": {
+      "first_seen": "2026-08-20",
+      "paper": "amendment",
+      "title": "When the Observer Acts: Threat Modeling Agentic AI in Observability Pipelines"
+    },
+    "doi:10.65655/ocp.m21.c37": {
+      "first_seen": "2026-08-20",
+      "paper": "amendment",
+      "title": "INTELLIGENCE AGENCIES,COVERT OPERATIONS, AND THEPOLITICS OF SECRECY"
+    },
+    "arxiv:2608.13667": {
+      "first_seen": "2026-08-20",
+      "paper": "amendment",
+      "title": "Second Thought: Reasoning in Parallel as LLM Agents Act and Observe"
+    },
+    "arxiv:2608.18275": {
+      "first_seen": "2026-08-20",
+      "paper": "fermi",
+      "title": "The VLA and High-Frequency SETI: Expanding the Search for Life"
+    },
+    "doi:10.3389/fimmu.2026.1930908": {
+      "first_seen": "2026-08-20",
+      "paper": "fermi",
+      "title": "The TRIM-cancer paradox: BCG as a programmable vaccine platform and a mechanistic probe for rational immunotherapy desig"
+    },
+    "doi:10.1021/bk-2026-1529.ch008": {
+      "first_seen": "2026-08-20",
+      "paper": "knowledge_growth",
+      "title": "From Predictions to Understanding: Explainable Machine Learning in Pharmaceutical CMC Development"
+    },
+    "doi:10.1021/bk-2026-1529.ot001": {
+      "first_seen": "2026-08-20",
+      "paper": "knowledge_growth",
+      "title": "Editors’ Biographies"
+    },
+    "doi:10.1021/bk-2026-1529.ch009": {
+      "first_seen": "2026-08-20",
+      "paper": "knowledge_growth",
+      "title": "AI-Ready GMP Quality Systems: Regulatory Governance for Machine Learning in Pharmaceutical Manufacturing"
+    },
+    "doi:10.1021/bk-2026-1529.ix002": {
+      "first_seen": "2026-08-20",
+      "paper": "knowledge_growth",
+      "title": "Subject Index"
+    },
+    "doi:10.1021/bk-2026-1529": {
+      "first_seen": "2026-08-20",
+      "paper": "knowledge_growth",
+      "title": "Artificial Intelligence &amp; Machine Learning in Drug Discovery and Manufacturing"
+    },
+    "arxiv:2608.18279": {
+      "first_seen": "2026-08-20",
+      "paper": "knowledge_growth",
+      "title": "A Comprehensive Review of Large Language Models for Nanophotonics: From Surrogate Modeling to Autonomous Design"
+    },
+    "arxiv:2608.17501": {
+      "first_seen": "2026-08-20",
+      "paper": "knowledge_growth",
+      "title": "SGHA: Evidence-Grounded Research Problem Discovery with Local Language Models"
+    },
+    "doi:10.5281/zenodo.21992962": {
+      "first_seen": "2026-08-20",
+      "paper": "knowledge_growth",
+      "title": "Neuro-Symbolic Hypothesis Engine: Autonomous Scientific Discovery via Hybrid Large Language Models and Symbolic Regressi"
+    },
+    "doi:10.5281/zenodo.22003386": {
+      "first_seen": "2026-08-20",
+      "paper": "knowledge_growth",
+      "title": "Human Capital Evaluation and Compensation Mechanisms via the Thought Resolution Model: A Mathematical Approach to Capabi"
+    },
+    "doi:10.3389/fnut.2026.1887176": {
+      "first_seen": "2026-08-20",
+      "paper": "knowledge_growth",
+      "title": "Pachymic acid alleviates hepatic lipid accumulation and oxidative stress in MASLD via regulation of the Keap1–Nrf2–HO-1 "
+    },
+    "doi:10.5281/zenodo.21992985": {
+      "first_seen": "2026-08-20",
+      "paper": "knowledge_growth",
+      "title": "Shorthand, long game"
+    },
+    "doi:10.1007/s43681-026-01214-z": {
+      "first_seen": "2026-08-20",
+      "paper": "knowledge_growth",
+      "title": "Artificial intelligence and the \"natural person\" criterion in patent inventorship"
+    },
+    "doi:10.26877/lpt.v5i2.594": {
+      "first_seen": "2026-08-20",
+      "paper": "knowledge_growth",
+      "title": "Measurement of Temperature, CO₂ Concentration, and Humidity in Food Spoilage Gas Using an Electroplated SnO₂ Resistive S"
+    },
+    "doi:10.5281/zenodo.21963364": {
+      "first_seen": "2026-08-20",
+      "paper": "knowledge_growth",
+      "title": "Unified Computational Goal Theory (UCGT): Toward a Foundations for Autonomous Intelligent Systems"
+    },
+    "doi:10.5281/zenodo.21962553": {
+      "first_seen": "2026-08-20",
+      "paper": "knowledge_growth",
+      "title": "Computational Abstraction Generation Network (CAGN): An Autonomous Theoretic Engine for AI"
+    },
+    "doi:10.1002/iir.70053": {
+      "first_seen": "2026-08-20",
+      "paper": "knowledge_growth",
+      "title": "Artificial intelligence and liquidation: Reality, destiny and fantasy"
+    },
+    "doi:10.1016/j.asr.2026.06.100": {
+      "first_seen": "2026-08-20",
+      "paper": "network",
+      "title": "Application and advantage analysis of GNSS tropospheric delay in short-term PM2.5 prediction"
+    },
+    "doi:10.1016/j.asr.2026.07.065": {
+      "first_seen": "2026-08-20",
+      "paper": "network",
+      "title": "Corrigendum to “Enhancing short-term Zenith Wet Delay prediction using a combined data assimilation and conditional GAN "
+    },
+    "doi:10.65445/3106-1192.1019": {
+      "first_seen": "2026-08-20",
+      "paper": "network",
+      "title": "Proactive Deep Q-Learning Approach for Anomaly Detection in IoT IDSs"
+    },
+    "doi:10.3389/fenrg.2026.1834568": {
+      "first_seen": "2026-08-20",
+      "paper": "routing",
+      "title": "Power supply resilience enhancement strategies for data centers under typhoon impact based on spatiotemporal risk probab"
+    },
+    "doi:10.1038/s41467-026-76692-0": {
+      "first_seen": "2026-08-20",
+      "paper": "routing",
+      "title": "Power distribution system blackstart restoration using renewable energy"
+    },
+    "doi:10.1007/s11334-026-00643-7": {
+      "first_seen": "2026-08-20",
+      "paper": "routing",
+      "title": "Integration test generation for state-based components in the Gamma framework"
+    },
+    "doi:10.54254/2753-7048/2026.36181": {
+      "first_seen": "2026-08-20",
+      "paper": "ethics",
+      "title": "Value Generation, Risk Transmission and Collaborative Governance of \"Sports Takeout\""
+    },
+    "doi:10.48175/ijarsct-38065": {
+      "first_seen": "2026-08-20",
+      "paper": "ethics",
+      "title": "Artificial Intelligence in the Research Lifecycle: From Idea Generation to Scholarly Publication"
+    },
+    "doi:10.1007/s44518-026-00008-z": {
+      "first_seen": "2026-08-20",
+      "paper": "ethics",
+      "title": "Lived experiences and everyday life of older residents living in old age homes"
+    },
+    "doi:10.36948/ijfmr.2026.v08i04.85237": {
+      "first_seen": "2026-08-20",
+      "paper": "ethics",
+      "title": "Behind the Smile: Exploring the Lived Experiences of Female Client Relations Specialists in Quezon City KTV Bars"
+    },
+    "doi:10.58218/kasta.v6i3.4058": {
+      "first_seen": "2026-08-20",
+      "paper": "ethics",
+      "title": "Integrated Owner Identity And Retail Communication Strategies In Shaping Consumer Purchase Decisions"
+    },
+    "doi:10.62641/aep.v54i4.2217": {
+      "first_seen": "2026-08-20",
+      "paper": "ethics",
+      "title": "From Reified Identity to Relational Ipseity: Hermeneutic Phenomenology, Language Pragmatics, and Contemplative Practices"
+    },
+    "doi:10.64898/2026.08.18.745475": {
+      "first_seen": "2026-08-20",
+      "paper": "speciation",
+      "title": "A Cesium Chloride Gradient Ultracentrifugation-Based Method for the Isolation of DNA from Diverse Recalcitrant Plant Spe"
+    },
+    "doi:10.21203/rs.3.rs-10308944/v1": {
+      "first_seen": "2026-08-20",
+      "paper": "speciation",
+      "title": "Biogeographical patterns in Southern Ocean Eatoniella species"
+    },
+    "doi:10.3389/fcell.2026.1917345": {
+      "first_seen": "2026-08-20",
+      "paper": "speciation",
+      "title": "NCOA4 as a regulatory switch linking DNA damage to lipid peroxidation in radiation response"
+    },
+    "doi:10.1557/s43577-026-01120-z": {
+      "first_seen": "2026-08-20",
+      "paper": "speciation",
+      "title": "Pair distribution analysis of short- and medium-range order of metallic glasses: Direct imaging and diffraction-based ap"
+    },
+    "doi:10.1002/mco2.70932": {
+      "first_seen": "2026-08-20",
+      "paper": "speciation",
+      "title": "Abscopal Effect in Radiation Therapy: The Immune Mechanisms and Clinical Advances"
+    },
+    "doi:10.1007/s44443-026-01062-1": {
+      "first_seen": "2026-08-20",
+      "paper": "speciation",
+      "title": "Kernel-driven robust sparse fuzzy subspace clustering and rolling guidance filter for image fusion"
+    },
+    "doi:10.1038/s41592-026-03198-4": {
+      "first_seen": "2026-08-20",
+      "paper": "speciation",
+      "title": "Lessons learned from a Kaggle challenge for particle picking in cryo-electron tomography"
+    },
+    "doi:10.7716/aem.v15i3.3421": {
+      "first_seen": "2026-08-20",
+      "paper": "speciation",
+      "title": "Smart Management and Dissemination System for Cultural Heritage Based on Knowledge Graphs and Digital Twins"
     }
   },
-  "last_run": "2026-08-19"
+  "last_run": "2026-08-20"
 }
