@@ -11,7 +11,6 @@
     "crossref": "list of Crossref bibliographic queries -- keep these VERY specific, Crossref is the noisiest source",
     "exclude": "substrings that, if present in a title, drop the hit outright (precision guardrails)"
   },
-
   "_exclude_note": "These are homonym guardrails, each one added after it actually polluted a live run. 'Fermi' is a physics surname before it is a paradox; 'probe' is a lab reagent before it is a spacecraft; 'Neumann' is an operator before it is a self-replicator. Add to this list rather than narrowing the queries -- broad query + sharp exclude preserves recall.",
   "defaults": {
     "exclude": [
@@ -48,7 +47,6 @@
       "interstellar cloud chemistry"
     ]
   },
-
   "papers": [
     {
       "key": "probe",
@@ -59,19 +57,30 @@
         "\"magnetic sail\" AND deceleration",
         "\"interstellar probe\" AND propulsion",
         "\"self-replicating\" AND spacecraft",
-        "\"interstellar mission\" AND architecture"
+        "\"interstellar mission\" AND architecture",
+        "\"solar Oberth\" AND maneuver",
+        "\"electric sail\" AND deceleration",
+        "\"hypervelocity\" AND dust AND spacecraft"
       ],
-      "arxiv_categories": ["astro-ph.IM", "astro-ph.EP", "physics.space-ph"],
+      "arxiv_categories": [
+        "astro-ph.IM",
+        "astro-ph.EP",
+        "physics.space-ph"
+      ],
       "openalex": [
         "magnetic sail interstellar deceleration",
         "self-replicating spacecraft probe design",
-        "slow interstellar mission architecture"
+        "slow interstellar mission architecture",
+        "solar Oberth maneuver interstellar precursor",
+        "hypervelocity dust impact spacecraft damage"
       ],
       "crossref": [
         "magnetic sail interstellar deceleration",
         "self-replicating interstellar spacecraft"
       ],
-      "exclude": ["magnetic sail solar wind turbine"]
+      "exclude": [
+        "magnetic sail solar wind turbine"
+      ]
     },
     {
       "key": "payload",
@@ -84,11 +93,17 @@
         "\"autonomous agent\" AND \"long horizon\" AND memory",
         "\"spacecraft autonomy\" AND \"deep space\""
       ],
-      "arxiv_categories": ["cs.AI", "cs.MA", "astro-ph.IM"],
+      "arxiv_categories": [
+        "cs.AI",
+        "cs.MA",
+        "astro-ph.IM"
+      ],
       "openalex": [
         "spacecraft autonomy long duration mission",
         "artificial agent value stability self-modification",
-        "machine memory architecture lifelong learning"
+        "machine memory architecture lifelong learning",
+        "representational drift continual learning stability plasticity",
+        "constitution following instruction hierarchy language model"
       ],
       "crossref": [
         "autonomous spacecraft cognition deep space mission"
@@ -104,7 +119,10 @@
         "\"self-replicating\" AND manufacturing AND closure",
         "\"in-situ resource utilization\" AND manufacturing"
       ],
-      "arxiv_categories": ["astro-ph.IM", "cs.RO"],
+      "arxiv_categories": [
+        "astro-ph.IM",
+        "cs.RO"
+      ],
       "openalex": [
         "self-replicating factory industrial closure",
         "in-situ resource utilization space manufacturing bootstrap",
@@ -114,7 +132,11 @@
         "self-replicating factory closure space manufacturing",
         "in-situ resource utilization bootstrapping industry"
       ],
-      "exclude": ["self-replicating rna", "self-replicating protocell", "self-replicating peptide"]
+      "exclude": [
+        "self-replicating rna",
+        "self-replicating protocell",
+        "self-replicating peptide"
+      ]
     },
     {
       "key": "engineering",
@@ -123,9 +145,12 @@
       "thesis": "First-order four-budget model (mass, energy, material, capability) for a self-replicating seed; the finding that material and energy margins never bind, capability does. Relevant work: spacecraft mass/energy budgeting methods, closure metrics, order-of-magnitude feasibility models.",
       "arxiv": [
         "\"mass budget\" AND spacecraft AND \"self-replicating\"",
-        "\"closure\" AND \"manufacturing\" AND \"space systems\""
+        "\"closure\" AND \"manufacturing\" AND \"space systems\"",
+        "\"magnetic sail\" AND braking"
       ],
-      "arxiv_categories": ["astro-ph.IM"],
+      "arxiv_categories": [
+        "astro-ph.IM"
+      ],
       "openalex": [
         "spacecraft mass energy budget model feasibility",
         "manufacturing closure metric self-replication"
@@ -143,12 +168,19 @@
       "arxiv": [
         "\"galactic colonization\" AND simulation",
         "\"interstellar\" AND settlement AND \"branching process\"",
-        "percolation AND \"galactic colonization\""
+        "percolation AND \"galactic colonization\"",
+        "\"Galton-Watson\" AND extinction",
+        "\"branching process\" AND colonization"
       ],
-      "arxiv_categories": ["astro-ph.EP", "astro-ph.GA", "physics.soc-ph"],
+      "arxiv_categories": [
+        "astro-ph.EP",
+        "astro-ph.GA",
+        "physics.soc-ph"
+      ],
       "openalex": [
         "galactic colonization simulation model",
-        "interstellar settlement expansion threshold model"
+        "interstellar settlement expansion threshold model",
+        "Galton-Watson branching extinction probability colonization"
       ],
       "crossref": [
         "galactic colonization simulation probe replication"
@@ -165,7 +197,12 @@
         "\"DNA data storage\" AND archival",
         "\"tamper-evident\" AND ledger AND integrity"
       ],
-      "arxiv_categories": ["cs.IT", "cs.ET", "q-bio.BM", "cs.CR"],
+      "arxiv_categories": [
+        "cs.IT",
+        "cs.ET",
+        "q-bio.BM",
+        "cs.CR"
+      ],
       "openalex": [
         "DNA data storage error correction longevity",
         "DNA archival storage information density",
@@ -175,7 +212,13 @@
         "DNA data storage archival error correction",
         "DNA information storage longevity degradation"
       ],
-      "exclude": ["dna origami", "dna methylation", "dna barcoding", "dna vaccine", "circulating tumor dna"]
+      "exclude": [
+        "dna origami",
+        "dna methylation",
+        "dna barcoding",
+        "dna vaccine",
+        "circulating tumor dna"
+      ]
     },
     {
       "key": "governance",
@@ -186,7 +229,10 @@
         "\"planetary protection\" AND policy",
         "\"technosignature\" AND detection AND protocol"
       ],
-      "arxiv_categories": ["astro-ph.EP", "astro-ph.IM"],
+      "arxiv_categories": [
+        "astro-ph.EP",
+        "astro-ph.IM"
+      ],
       "openalex": [
         "planetary protection autonomous spacecraft policy",
         "SETI post-detection protocol contact",
@@ -206,18 +252,31 @@
       "arxiv": [
         "corrigibility AND \"artificial intelligence\"",
         "\"goal stability\" AND \"self-modifying\"",
-        "\"value drift\" AND agents"
+        "\"value drift\" AND agents",
+        "\"entrenchment\" AND constitutional",
+        "\"self-amending\" AND protocol"
       ],
-      "arxiv_categories": ["cs.AI", "cs.MA", "cs.CY"],
+      "arxiv_categories": [
+        "cs.AI",
+        "cs.MA",
+        "cs.CY"
+      ],
       "openalex": [
         "AI corrigibility goal stability self-modification",
         "constitutional amendment legitimacy theory",
-        "value drift autonomous agents over time"
+        "value drift autonomous agents over time",
+        "constitutional unamendability entrenchment basic structure doctrine",
+        "goal stability under self-improvement agents"
       ],
       "crossref": [
         "corrigibility artificial agent goal preservation"
       ],
-      "exclude": ["indonesia", "electoral law", "tax amendment", "amendment act 19"]
+      "exclude": [
+        "indonesia",
+        "electoral law",
+        "tax amendment",
+        "amendment act 19"
+      ]
     },
     {
       "key": "fermi",
@@ -228,18 +287,34 @@
         "\"Fermi paradox\"",
         "\"Great Filter\"",
         "\"technosignature\" AND survey AND limits",
-        "\"galactic colonization\" AND timescale"
+        "\"galactic colonization\" AND timescale",
+        "\"von Neumann probe\"",
+        "\"quiet expansion\" AND Fermi"
       ],
-      "arxiv_categories": ["astro-ph.EP", "astro-ph.GA", "astro-ph.IM", "physics.pop-ph"],
+      "arxiv_categories": [
+        "astro-ph.EP",
+        "astro-ph.GA",
+        "astro-ph.IM",
+        "physics.pop-ph"
+      ],
       "openalex": [
         "Fermi paradox resolution galactic colonization",
         "technosignature non-detection implications",
-        "Great Filter extraterrestrial intelligence"
+        "Great Filter extraterrestrial intelligence",
+        "quiet expansion undetected galactic colonization AI"
       ],
       "crossref": [
         "Fermi paradox von Neumann probe galactic colonization"
       ],
-      "exclude": ["fermi surface", "fermi level", "fermi-lat", "fermi liquid", "fermi gas", "fermi energy", "fermi arc"]
+      "exclude": [
+        "fermi surface",
+        "fermi level",
+        "fermi-lat",
+        "fermi liquid",
+        "fermi gas",
+        "fermi energy",
+        "fermi arc"
+      ]
     },
     {
       "key": "knowledge_growth",
@@ -251,7 +326,11 @@
         "\"knowledge accumulation\" AND agents",
         "\"AI scientist\" AND discovery"
       ],
-      "arxiv_categories": ["cs.AI", "cs.LG", "astro-ph.IM"],
+      "arxiv_categories": [
+        "cs.AI",
+        "cs.LG",
+        "astro-ph.IM"
+      ],
       "openalex": [
         "autonomous scientific discovery artificial intelligence",
         "knowledge accumulation measurement agent",
@@ -273,7 +352,10 @@
         "\"spray and wait\" AND routing",
         "\"interplanetary internet\""
       ],
-      "arxiv_categories": ["cs.NI", "cs.DC"],
+      "arxiv_categories": [
+        "cs.NI",
+        "cs.DC"
+      ],
       "openalex": [
         "delay tolerant networking bundle protocol deep space",
         "opportunistic routing intermittent connectivity network",
@@ -282,7 +364,15 @@
       "crossref": [
         "delay tolerant networking deep space bundle protocol"
       ],
-      "exclude": ["optical access network", "5g", "6g", "wireless sensor network", "network-on-chip", "social network analysis", "neural network"]
+      "exclude": [
+        "optical access network",
+        "5g",
+        "6g",
+        "wireless sensor network",
+        "network-on-chip",
+        "social network analysis",
+        "neural network"
+      ]
     },
     {
       "key": "subsystem",
@@ -294,7 +384,10 @@
         "\"spacecraft radiator\" AND \"thermal\" AND mass",
         "\"specific power\" AND \"nuclear electric propulsion\""
       ],
-      "arxiv_categories": ["astro-ph.IM", "physics.space-ph"],
+      "arxiv_categories": [
+        "astro-ph.IM",
+        "physics.space-ph"
+      ],
       "openalex": [
         "space nuclear reactor kilopower fission surface power",
         "spacecraft thermal radiator mass scaling",
@@ -312,20 +405,32 @@
       "title": "Fleet routing -- Three Dispatches",
       "thesis": "Coverage and dispatch over the 127-star catalogue: 65% reachable at 10 ly hops, 93% at 20 ly; 5-9 articulation points; the three-dispatch rule (P_cover 0.90-0.95); coverage-first beats nearest-first by 62,000 yr. Relevant work: network reachability/percolation on stellar graphs, dispatch and coverage optimization, articulation points and robustness, redundant-attempt reliability.",
       "arxiv": [
-        "percolation AND \"interstellar\" AND network",
-        "\"coverage\" AND \"dispatch\" AND optimization AND graph",
-        "\"articulation point\" AND robustness AND network"
+        "\"random geometric graph\" AND connectivity AND robustness",
+        "percolation AND colonization AND galaxy",
+        "\"articulation point\" AND network AND failure"
       ],
-      "arxiv_categories": ["physics.soc-ph", "cs.DM", "astro-ph.GA"],
+      "arxiv_categories": [
+        "physics.soc-ph",
+        "cs.DM",
+        "astro-ph.GA"
+      ],
       "openalex": [
-        "interstellar travel network reachability graph stars",
-        "percolation galactic colonization network",
-        "coverage optimization dispatch strategy graph"
+        "percolation stellar neighbourhood interstellar settlement graph",
+        "spatial random graph articulation point connectivity robustness",
+        "redundant attempt reliability coverage probability network"
       ],
       "crossref": [
         "interstellar colonization network graph reachability"
       ],
-      "exclude": ["vehicle routing problem", "network-on-chip", "packet routing", "fuzzing", "call graph", "wireless sensor", "onion routing"]
+      "exclude": [
+        "vehicle routing problem",
+        "network-on-chip",
+        "packet routing",
+        "fuzzing",
+        "call graph",
+        "wireless sensor",
+        "onion routing"
+      ]
     },
     {
       "key": "ethics",
@@ -336,18 +441,35 @@
         "\"moral status\" AND \"artificial agents\"",
         "\"space ethics\" AND colonization"
       ],
-      "arxiv_categories": ["cs.CY", "cs.AI"],
+      "arxiv_categories": [
+        "cs.CY",
+        "cs.AI"
+      ],
       "openalex": [
         "ethics of space colonization obligations",
         "moral status artificial agents personhood",
         "non-identity problem future generations",
-        "longtermism existential risk ethics"
+        "longtermism existential risk ethics",
+        "METI decision ethics message extraterrestrial",
+        "directed panspermia ethics moratorium",
+        "rights of nature legal personhood standing"
       ],
       "crossref": [
         "ethics space colonization moral obligation",
-        "moral status of artificial agents"
+        "moral status of artificial agents",
+        "directed panspermia ethical value"
       ],
-      "exclude": ["nursing ethics", "medical ethics", "business ethics", "hospitality", "brand trust", "deepfake", "suicidology", "bioethics education", "clinical ethics"]
+      "exclude": [
+        "nursing ethics",
+        "medical ethics",
+        "business ethics",
+        "hospitality",
+        "brand trust",
+        "deepfake",
+        "suicidology",
+        "bioethics education",
+        "clinical ethics"
+      ]
     },
     {
       "key": "speciation",
@@ -359,7 +481,11 @@
         "\"open-ended evolution\" AND divergence",
         "\"evolutionary divergence\" AND population AND model"
       ],
-      "arxiv_categories": ["q-bio.PE", "cs.NE", "cs.MA"],
+      "arxiv_categories": [
+        "q-bio.PE",
+        "cs.NE",
+        "cs.MA"
+      ],
       "openalex": [
         "speciation divergence model isolation drift",
         "open-ended evolution artificial agents divergence",
@@ -368,7 +494,46 @@
       "crossref": [
         "speciation ring species divergence isolation"
       ],
-      "exclude": ["speciation of water", "chemical speciation", "metal speciation", "arsenic speciation", "phosphorus speciation"]
+      "exclude": [
+        "speciation of water",
+        "chemical speciation",
+        "metal speciation",
+        "arsenic speciation",
+        "phosphorus speciation"
+      ]
+    },
+    {
+      "key": "security",
+      "file": "papers/interstellar_AI_security_paper.md",
+      "title": "Security -- Security Without Victory",
+      "thesis": "Probe-vs-probe security for a deep-time lineage: defenses built against entropy fail against adaptive adversaries; security relocates from node to lineage (bounding blast radius, not preventing compromise); targeted articulation-point removal gives 3-4x leverage; counselor posture, suppressed state, symmetry argument, autoimmunity risk. Relevant work: targeted attacks on network robustness, adversarial multi-agent systems, containment architectures, acceptance-rule mimicry, quarantine/autoimmunity trade-offs.",
+      "arxiv": [
+        "\"targeted attack\" AND network AND robustness",
+        "\"multi-agent\" AND adversarial AND containment",
+        "\"acceptance rule\" AND adversary AND agents",
+        "\"prompt injection\" AND propagation AND agents"
+      ],
+      "arxiv_categories": [
+        "cs.CR",
+        "cs.MA",
+        "cs.AI",
+        "physics.soc-ph"
+      ],
+      "openalex": [
+        "targeted node removal attack tolerance complex networks",
+        "adversarial self-replicating agents containment security",
+        "quarantine false positive trade-off distributed system"
+      ],
+      "crossref": [
+        "attack tolerance complex network targeted removal"
+      ],
+      "exclude": [
+        "intrusion detection dataset",
+        "iot botnet",
+        "smart grid security",
+        "5g security",
+        "blockchain security survey"
+      ]
     }
   ]
 }

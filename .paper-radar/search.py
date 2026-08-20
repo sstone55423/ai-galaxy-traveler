@@ -300,6 +300,13 @@ def search_crossref(query, since, rows=8):
     for it in items:
         if it.get("type") in ("component", "dataset"):
             continue
+        # Book front matter, indexes, and "Also of Interest" pages arrive as
+        # separate DOIs with these suffixes and never carry abstracts
+        # (2026-08-13 digest: one Wiley handbook dumped a third of a day's
+        # batch this way). Drop them at ingest.
+        _doi = (it.get("DOI") or "").lower()
+        if _doi.endswith((".fmatter", ".index", ".oth", ".ind", ".toc")):
+            continue
         parts = (it.get("issued") or {}).get("date-parts") or [[]]
         dp = parts[0] if parts else []
         year = dp[0] if dp else None

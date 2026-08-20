@@ -43,6 +43,10 @@ The classical conclusion is severe. The Milky Way is roughly ten billion (10^10)
 
 There are several standard escapes. Perhaps technological civilizations are rare, and we are effectively alone (Crawford 2000). Perhaps they destroy themselves. Perhaps interstellar travel is harder than expected. Perhaps self-replication is infeasible. Perhaps civilizations choose not to expand. Perhaps the probes are so hazardous that responsible civilizations decline to build them at all — the objection Sagan and Newman (1983) pressed against Tipler, arguing that uncontrollable self-replicating machines are precisely what a wise civilization would refuse to release. Perhaps probes are present but undetected. Perhaps expansion is self-limiting. This paper focuses on the possibilities that appear most directly under the deep-time AI architecture: probes may be present but quiet; expansion may be governed rather than unconstrained; and the filters may lie inside reproduction, mission integrity, or industrial closure rather than propulsion.
 
+One standing objection denies the premise rather than the arithmetic. Haqq-Misra and Baum's (2009) sustainability solution holds that exponential growth is not a sustainable development pattern and on that basis rules out civilizations colonizing solar systems or galaxies — an argument Likavčan (2026) extends by treating a technosphere as a transitory layer that folds back into its biosphere. The architecture developed here is the case that objection does not reach. Node count still grows geometrically, but each node is a stationary settlement drawing on a single system at a material margin of order 10^18, and what the sustainability solution rules out is unbounded consumption inside one planetary environment, not a lineage whose resource base expands faster than its demands.
+
+The nearest recent argument to this paper's own is Ivliev (2026), who reaches a convergent conclusion by a different route: once a civilization crosses into autonomous machine industry, expansion becomes so cheap and useful that it proceeds — but quietly, as distributed, low-noise, machine-mediated activity whose traces are weak artifacts rather than galaxy-scale energy harvesting, with a post-threshold civilization saturating its reachable neighbourhood within ~10^7 yr. The convergence is on quietness; the difference is on inevitability. There, quiet expansion is presented as too rational for any capable civilization to refuse; here, the demographic result of Section 4 makes expansion a knife-edge that many lineages will simply fail to cross. Quiet expansion and frequent extinction are not competing explanations but two halves of the same parameter space.
+
 ---
 
 ## 3. The Slow Archival Probe Architecture
@@ -71,7 +75,7 @@ A simple expression is R_eff = Σ p_i V_i, summed over the targets i that a sett
 
 The probability term p_i is multiplicative. Failure can occur at manufacture, launch, cruise, braking, landing or settlement, industrial bootstrapping, archive validation, mission-core validation, or future reproduction. Small per-stage failures compound. A mission that appears reliable at each stage may still be extinction-prone if too many stages are required.
 
-The viability term V_i is not merely astrophysical. A target can be resource-poor, dynamically hostile, biologically sensitive, ethically restricted, already occupied, or unsuitable for braking. A system rich in small bodies and lacking life may have high viability. A biologically active world may be scientifically valuable but operationally restricted. A system containing a technological civilization may be contact-restricted or settlement-prohibited. Thus governance can lower effective viability even when resources are physically available.
+The viability term V_i is not merely astrophysical. A target can be resource-poor, dynamically hostile, biologically sensitive, ethically restricted, already occupied, or unsuitable for braking. A system rich in small bodies and lacking life may have high viability. A biologically active world may be scientifically valuable but operationally restricted. A system containing a technological civilization may be contact-restricted or settlement-prohibited. Thus governance can lower effective viability even when resources are physically available. Nor is V_i uniform across the Galaxy: occurrence rates for small planets vary measurably with Galactic height in ways that a simple rise in the planet-host fraction fails to reproduce (Lam et al. 2026), so viability weightings calibrated on the solar neighbourhood will not extrapolate unchanged to the thick disk or the outer Galaxy.
 
 This is not merely a conceptual worry; it is what the computational engineering paper in this series found when R_eff was evaluated across the real catalogue of 127 stars within roughly 100 light-years. Weighting each candidate target by a viability factor near unity for resource-rich, lifeless small-body systems and lower for dwarf or hostile environments, and taking a per-leg success probability near 0.9, the mean reproduction number came out to approximately 0.48, 0.94, 1.39, and 1.85 for settlements that attempt one, two, three, and four offspring respectively. A lineage that builds only one or two children per settlement is subcritical and dies out; supercriticality requires roughly three or more viable offspring per node, or per-leg reliabilities pushed above about 0.9. The transition sits on a knife-edge: modest changes in per-leg reliability move R_eff across the critical value of one. The reproduction-reliability filter is therefore not hand-waving but a computed feature of the architecture evaluated against a real stellar neighbourhood (Harris 1963 supplies the branching-process machinery; the extinction probability is the smallest fixed point of the lineage's generating function).
 
@@ -180,7 +184,7 @@ First, search should include **low-luminosity industrial systems**, not only hig
 
 Second, surveys should take **small-body reservoirs** seriously. Asteroid belts, Kuiper-belt analogues, comet clouds, and dynamically stable minor-body populations may be more relevant than planetary surfaces.
 
-Third, SETI should attend to **transient narrow-beam signals**. A quiet lineage may communicate rarely and directionally, so non-detection of broad beacons is weak evidence against such systems.
+Third, SETI should attend to **transient narrow-beam signals**. A quiet lineage may communicate rarely and directionally, so non-detection of broad beacons is weak evidence against such systems. Current instruments are largely built for the opposite case: the COSMIC system on the VLA searches commensally for narrowband signals drifting in frequency, beamforming toward Gaia-catalogue stars in the field of view (Myburgh et al. 2026) — a design that assumes a persistent, Doppler-drifting carrier, precisely the signature a rarely and directionally communicating lineage would not produce.
 
 Fourth, interstellar objects deserve scrutiny as possible **messenger probes** (Bracewell 1960). The prior probability may be low, but the scientific value of discriminating natural from artificial interstellar objects is high.
 
@@ -244,11 +248,21 @@ Freitas, R. A. (1980). A self-reproducing interstellar probe. *Journal of the Br
 
 Freitas, R. A., & Merkle, R. C. (2004). *Kinematic Self-Replicating Machines.* Landes Bioscience.
 
+Haqq-Misra, J., & Baum, S. D. (2009). The sustainability solution to the Fermi paradox. *Journal of the British Interplanetary Society*, 62, 47–51.
+
 Harris, T. E. (1963). *The Theory of Branching Processes.* Springer.
 
 Hart, M. H. (1975). An explanation for the absence of extraterrestrials on Earth. *Quarterly Journal of the Royal Astronomical Society*, 16, 128–135.
 
+Ivliev, S. (2026). Autonomous AI-cosmoindustry and the quiet expansion filter: A threshold-based resolution of the Fermi paradox. *arXiv preprint* arXiv:2606.13914.
+
+Lam, C., Ballard, S., Sagear, S., & Daniel, K. J. (2026). An increase in the Galactic planet-host fraction fails to reproduce the Galactic height trend in planet occurrence. *The Astronomical Journal*, 172, 143.
+
+Likavčan, L. (2026). The grass of the universe: Rethinking technosphere, planetary history, and sustainability with Fermi paradox. *Acta Astronautica*. https://doi.org/10.1016/j.actaastro.2026.08.004
+
 Merkle, R. C. (1987). A digital signature based on a conventional encryption function. In *Advances in Cryptology — CRYPTO '87* (pp. 369–378). Springer.
+
+Myburgh, T., Stiegler, N., Tremblay, C. D., Bright, J. S., & Donnachie, R. A. (2026). The VLA and high-frequency SETI: Expanding the search for life. *Acta Astronautica*. https://doi.org/10.1016/j.actaastro.2026.08.032
 
 Omohundro, S. M. (2008). The basic AI drives. In *Proceedings of the First Conference on Artificial General Intelligence (AGI 2008)* (pp. 483–492). IOS Press.
 

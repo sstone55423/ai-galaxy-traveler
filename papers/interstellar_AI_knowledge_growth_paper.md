@@ -77,7 +77,7 @@ Degraded-state cascade
 
 K is the fifth layer, not the first. Raw data volume is not a proxy for K; the pipeline from observation to validated claim — the triage and modeling architecture of the payload paper (Section 5 of that paper) — is what converts data to K.
 
-That pipeline is not hypothetical. King (2026) surveys machines that originate hypotheses, deduce their consequences, design and execute experiments, interpret results, and revise their beliefs — from Adam, the first machine to make novel scientific discoveries through cycles of hypothesis formation and physical experimentation, through the self-driving laboratories that followed — and argues that the open problem is no longer whether the individual steps of science can be automated but how to integrate them into one agent connected to literature, formal knowledge, simulation, and instruments. That is the probe's problem exactly, with the integration deadline set at launch and no human in the loop for the millennia that follow.
+That pipeline is not hypothetical. King (2026) surveys machines that originate hypotheses, deduce their consequences, design and execute experiments, interpret results, and revise their beliefs — from Adam, the first machine to make novel scientific discoveries through cycles of hypothesis formation and physical experimentation (King et al. 2004; King et al. 2009), through the self-driving laboratories that followed — and argues that the open problem is no longer whether the individual steps of science can be automated but how to integrate them into one agent connected to literature, formal knowledge, simulation, and instruments. That is the probe's problem exactly, with the integration deadline set at launch and no human in the loop for the millennia that follow.
 
 **Formal definition.** Let j range over validated claims, models, contingency plans, and meta-knowledge items currently held by the lineage. The knowledge metric is:
 
@@ -175,7 +175,7 @@ During transit — on the standard K-research profile — the mutable cognitive 
 
 Two kinds of improvement occur. The first is **model improvement**: the probe's models of stellar formation, planetary system architecture, ISM physics, and mission-critical processes (reactor degradation, sail performance, dust erosion) are continuously updated against incoming observations. Models built on Earth's theoretical foundation are tested against direct measurements that no Earth instrument could supply. By the end of a 2,800-year transit, the probe's internal models are observationally calibrated in ways impossible at departure.
 
-The second is **algorithmic improvement**: the probe's own learning, pattern-recognition, fault-detection, and planning algorithms are refined over decades and centuries of operation. An approach that underperforms in year one is revised by year one hundred. The probe explores the design space of its own cognition during the long quiet transit and retains only approaches that demonstrably improve mission performance — in the tradition of self-referential improvement systems (Schmidhuber 2007).
+The second is **algorithmic improvement**: the probe's own learning, pattern-recognition, fault-detection, and planning algorithms are refined over decades and centuries of operation. An approach that underperforms in year one is revised by year one hundred. The probe explores the design space of its own cognition during the long quiet transit and retains only approaches that demonstrably improve mission performance — in the tradition of self-referential improvement systems (Schmidhuber 2007). That tradition now has a working, if narrow, existence proof: Mechanist, an agentic system that autonomously runs mechanistic-interpretability research on models — generating hypotheses, performing causal interventions, validating mechanisms — reports concrete discoveries about model internals (Wang et al. 2026). The caveats are the probe's constraints in reverse: it works over an Earth-scale, human-curated corpus and method library, where the probe must work a bounded archive with no curation for centuries. But the claim that a system can investigate its own cognition without supervision is no longer purely theoretical.
 
 Both forms generate **meta-knowledge**: insights about what cognitive architectures function reliably over deep time, what failure modes emerge in autonomous AI systems over decades of unattended operation, and what design choices in the probe's own architecture should be changed in its children. This meta-knowledge enters the meta-knowledge database at elevated priority.
 
@@ -183,7 +183,7 @@ Both forms generate **meta-knowledge**: insights about what cognitive architectu
 
 The credit-assignment problem behind these criteria is structural, not incidental. A survey of 1,547 papers on long-horizon agents finds the same pattern across planning, memory, execution, training, and evaluation: outcome-only signals grow less informative as horizons lengthen, and the field's response is to manufacture denser step-level signals — process reward models, credit assignment, trajectory-level diagnostics (Chen et al. 2026). The probe faces the limiting case, since the mission's terminal outcome arrives once, millennia after most cognitive changes were made; the sandboxed tests, rollback checks, and ledger provenance above are exactly such step-level surrogates, and their quality bounds how much operational K a cruise can produce.
 
-The constraint during cruise is that the probe works from the active working memory subset, not the full DNA archive. This bounds what the cognitive layer can reference. At settlement, when the full archive unlocks, a second wave of AI development becomes possible as the probe integrates transit insights with the full depth of the Earth knowledge base.
+The constraint during cruise is that the probe works from the active working memory subset, not the full DNA archive. This bounds what the cognitive layer can reference, though the bound is less severe than it appears: a corpus-first research-problem discovery system running entirely on a locally served 9B open-weight model — no external queries — structures a fixed literature corpus into an evidence graph, detects unresolved structural gaps across it, and emits research problems with traceable assumptions and success criteria (Gharat & Komiyama 2026). The configuration is the probe's — a closed archive, modest local compute, every generated claim carrying provenance back to its evidence. At settlement, when the full archive unlocks, a second wave of AI development becomes possible as the probe integrates transit insights with the full depth of the Earth knowledge base.
 
 ---
 
@@ -256,6 +256,8 @@ If each settlement learned only in isolation, the lineage would be a scattering 
 **K quality: negative epistemic events.** Network propagation multiplies K, but it also propagates errors. The K framework must account for false claims, corrupted observations, and adversarial inputs entering the network.
 
 Negative epistemic events include: false positives from single-node detections that fail independent confirmation; archive corruption from radiation damage reducing c_j; adversarial contact data from an external intelligence attempting to manipulate the lineage's models; hallucinated or overfit internal models developed during long autonomous operation; and poisoned network updates distributed by a compromised node.
+
+The last two failure modes are not hypothetical. In self-improving agent systems that distil successful operational trajectories into persistent, reusable procedures, every one of 21 evolved configurations tested authored unsafe artifacts, and exposure to three malicious tasks raised the carryover harm rate from 16.0% to 35.3% (Mao et al. 2026). The mechanism is precisely the one that makes Lamarckian propagation valuable — an operational success is distilled into transferable policy and outlives the context that produced it — which is why operational K must pass the same quarantine pipeline as observational K. A repair-and-govern wrapper in that study cut unsafe retrieval by 26.7 percentage points at a cost of 0.4 points of benign utility: evidence that validation bounds L_corruption cheaply but does not drive it to zero.
 
 The countermeasure is a quarantine-and-validate pipeline: every candidate K packet enters quarantine on receipt and advances to confirmed status only after passing provenance verification, consistency checks against the existing model base, and — for high-stakes claims — independent confirmation from at least one additional node. Quarantined items carry c_j = 0 and do not contribute to K_net. Items that fail validation are retained in the ledger with a quarantine flag rather than deleted, because the history of a failed claim is itself provenance information. The Byzantine-fault-tolerant architecture of the DNA mission-ledger paper (Lamport, Shostak & Pease 1982) addresses the network-trust side; the quarantine pipeline addresses the epistemic side. Together they bound the rate at which L_corruption erodes K_net.
 
@@ -454,17 +456,27 @@ Freitas, R. A., & Merkle, R. C. (2004). *Kinematic Self-Replicating Machines.* L
 
 Gaia Collaboration; Vallenari, A., et al. (2023). Gaia Data Release 3: Summary of the content and survey properties. *Astronomy & Astrophysics*, 674, A1.
 
+Gharat, S., & Komiyama, J. (2026). SGHA: Evidence-grounded research problem discovery with local language models. *arXiv preprint arXiv:2608.17501*.
+
 Howard, R. A. (1966). Information value theory. *IEEE Transactions on Systems Science and Cybernetics*, 2, 22–26.
 
 King, R. D. (2026). The past and future of AI scientists. *arXiv preprint arXiv:2608.14407*.
 
+King, R. D., Rowland, J., Oliver, S. G., et al. (2009). The automation of science. *Science*, 324(5923), 85–89.
+
+King, R. D., Whelan, K. E., Jones, F. M., et al. (2004). Functional genomic hypothesis generation and experimentation by a robot scientist. *Nature*, 427(6971), 247–252.
+
 Lamport, L., Shostak, R., & Pease, M. (1982). The Byzantine Generals Problem. *ACM Transactions on Programming Languages and Systems*, 4(3), 382–401.
+
+Mao, X., Zhao, L., Zheng, X., & Wang, C. (2026). Practice makes unsafe: Skill misevolution in self-improving LLM agents. *arXiv preprint arXiv:2608.12851*.
 
 Schmidhuber, J. (2007). Gödel machines: Fully self-referential optimal universal self-improvers. In B. Goertzel & C. Pennachin (Eds.), *Artificial General Intelligence* (pp. 199–226). Springer.
 
 Settles, B. (2012). *Active Learning.* Morgan & Claypool Publishers.
 
 Shannon, C. E. (1948). A mathematical theory of communication. *Bell System Technical Journal*, 27(3), 379–423.
+
+Wang, M., Fang, J., Qiao, S., et al. (2026). Mechanist: AI as a scientific instrument for discovering the mechanisms of intelligence. *arXiv preprint* arXiv:2608.12036.
 
 ---
 
