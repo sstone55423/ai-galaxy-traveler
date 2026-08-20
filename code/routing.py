@@ -280,6 +280,60 @@ def run_trials(cat, strategy, n_trials=30, **kwargs):
 # ===========================================================================
 # Node-loss robustness
 # ===========================================================================
+def bridges(graph, n_stars, sun_idx):
+    """
+    Edges whose removal disconnects at least one star from sun_idx -- the edge
+    analogue of articulation_points().  A network with no bridges is
+    2-edge-connected: every node survives any single link failure.  The lineage
+    network paper's Section 4 quotes these counts (5/7/4 at hop 10/15/20 ly),
+    which is why "no single link failure disconnects any node" is false on this
+    catalogue.  Brute force over edges: O(E * V), fine for n=127.
+    Returns a list of (u, v) index pairs, u < v.
+    """
+    base = reachable_from(graph, sun_idx)
+    edges = {(min(u, v), max(u, v))
+             for u in range(n_stars) for v, _ in graph[u]
+             if u in base and v in base}
+    out = []
+    for u, v in sorted(edges):
+        pruned = {i: [t for t in graph[i] if not (i == u and t[0] == v)
+                      and not (i == v and t[0] == u)]
+                  for i in range(n_stars)}
+        if len(reachable_from(pruned, sun_idx)) < len(base):
+            out.append((u, v))
+    return out
+
+
+def weighted_diameter(graph, n_stars, sun_idx):
+    """
+    Longest shortest-path (in light-years) between any two stars reachable from
+    sun_idx, with the hop count along that path.  Sets the relay-latency ceiling
+    in the lineage network paper's T_silence budget: 74/105/122 ly over 8-9 hops
+    at hop distances of 10/15/20 ly.  Returns (ly, hops, src_idx, dst_idx).
+    """
+    import heapq
+    reach = sorted(reachable_from(graph, sun_idx))
+    best = (0.0, 0, sun_idx, sun_idx)
+    for src in reach:
+        dist = {i: float("inf") for i in reach}
+        hops = {i: 0 for i in reach}
+        dist[src] = 0.0
+        pq = [(0.0, src)]
+        while pq:
+            d_u, u = heapq.heappop(pq)
+            if d_u > dist[u]:
+                continue
+            for v, w in graph[u]:
+                if v in dist and d_u + w < dist[v]:
+                    dist[v] = d_u + w
+                    hops[v] = hops[u] + 1
+                    heapq.heappush(pq, (dist[v], v))
+        for v in reach:
+            if dist[v] < float("inf") and dist[v] > best[0]:
+                best = (dist[v], hops[v], src, v)
+    return best
+
+
 def _sun_reachable(graph, sun_idx, removed=frozenset()):
     """Catalogue nodes reachable from the Sun with `removed` deleted.
 
