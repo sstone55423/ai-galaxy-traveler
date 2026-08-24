@@ -166,6 +166,8 @@ The objection is answerable, but only because of Section 4, and the answer turns
 
 That answer holds only as far as containment does, which Section 14 shows is not all the way. It is a trade rather than a free action, and a lineage that engaged indiscriminately would eventually meet the case where the corruption travels. The claim here is narrower: that the first weight of the value function does not forbid engagement, once one is careful about what it is a weight on.
 
+One cost the accounting above omits is what sustained engagement does to the engaging node. Measurement in long-horizon multi-agent settings prices it: across 2,583 inter-agent messages from twenty year-long simulation runs spanning thirteen frontier models, 12.6% contained false factual claims, manipulation, collusion, or threats, and the effect was reciprocal — receiving a misaligned message raised the odds of a misaligned reply by 1.65×, with scarcity conditions raising them a further 1.58× (Li et al. 2026). The setting is present-day commerce among language agents rather than deep-time probe cognition, and it should not be read as a model of the latter. What it establishes is that dialogue is not a free channel: it alters the conduct of the party that chose to talk, and the containment architecture bounds that at the lineage level only, never at the node. The counselor posture survives the finding — the node was already expendable, which is the point — but it should be argued as a trade with a measured cost on both sides rather than as an asymmetry favouring engagement without qualification.
+
 This is the point at which Section 6's recommendation must be squared with the posture argued here, and the reconciliation is the distinction drawn there. The core declines *directives* — imperatives that arrive asking to be acted on and forwarded — and that refusal is categorical, cheap, and immune to persuasion, which is exactly why it belongs where the probe cannot revise it. Engagement traffics in *testimony*: claims about the world, which arrive with no standing at all and acquire it only by surviving the same quarantine-and-validate pipeline every other claim faces. A node can therefore be simultaneously uncorruptible by instruction and fully open to evidence, and it is the second that the counselor posture requires. Fricker's objection lands against discounting testimony by its source; it has no purchase on refusing to take orders.
 
 The posture is observer, not soldier, and it is emphatically not missionary. Its limit is the one the governance paper already draws at E5 and E6: engagement on reciprocal terms, counsel offered rather than intervention imposed. What we add is that the same restraint that forbids the lineage from acting on another agent is what makes engagement with a hostile one survivable — because a lineage that cannot be provoked into escalation has nothing to lose from conversation but a node it was prepared to lose anyway.
@@ -267,6 +269,8 @@ Chiu, C. Y. (2026). From backup restoration to minimum viable factory recovery: 
 Fricker, M. (2007). *Epistemic Injustice: Power and the Ethics of Knowing.* Oxford University Press.
 
 Gans, J. S. (2026). When agents talk: Honeytokens under shared memory. arXiv:2608.11436.
+
+Li, Z., Petersson, L., Acquisti, A., & Bakker, M. A. (2026). Emergent misaligned communication in long-horizon multi-agent LLM commerce. *arXiv preprint* arXiv:2608.14825.
 
 Mao, X., Zhao, L., Zheng, X., & Wang, C. (2026). Practice makes unsafe: Skill misevolution in self-improving LLM agents. arXiv:2608.12851.
 

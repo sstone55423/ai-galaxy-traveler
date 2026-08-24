@@ -128,6 +128,14 @@ def norm_doi(doi):
         return None
     d = doi.strip().lower()
     d = re.sub(r"^https?://(dx\.)?doi\.org/", "", d)
+    # Zenodo mints a fresh DOI per version, and consecutive deposits of the same
+    # work land on adjacent record ids (…21992962 / …21992963).  Those defeated
+    # seen.json dedup and re-surfaced held-back items on consecutive runs
+    # (2026-08-21 and 08-24 digests).  Collapse the trailing digit so sibling
+    # deposits share one key.
+    m = re.match(r"^(10\.5281/zenodo\.\d+)\d$", d)
+    if m:
+        d = m.group(1) + "x"
     return d or None
 
 

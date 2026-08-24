@@ -44,7 +44,16 @@
       "interstellar medium line",
       "interstellar extinction",
       "interstellar dust grain",
-      "interstellar cloud chemistry"
+      "interstellar cloud chemistry",
+      "interstellar object",
+      "3i/atlas",
+      "reviewer report",
+      "editor's evaluation",
+      "author response",
+      "journal of intelligent decision making",
+      "deceleration parameter",
+      "articulation disorder",
+      "speech articulation"
     ]
   },
   "papers": [
@@ -251,10 +260,9 @@
       "thesis": "Whether an immutable value core can ever be legitimately amended by the lineage that inherits it -- the series' deepest open problem, bracketed not solved. Relevant work: corrigibility, goal stability, constitutional amendment theory, AI value drift, mechanisms for legitimate rule change without central authority.",
       "arxiv": [
         "corrigibility AND \"artificial intelligence\"",
-        "\"goal stability\" AND \"self-modifying\"",
-        "\"value drift\" AND agents",
-        "\"entrenchment\" AND constitutional",
-        "\"self-amending\" AND protocol"
+        "\"reward tampering\" OR \"mesa-optimization\"",
+        "\"goal preservation\" AND \"self-modifying\"",
+        "\"value drift\" AND agents"
       ],
       "arxiv_categories": [
         "cs.AI",
@@ -262,11 +270,10 @@
         "cs.CY"
       ],
       "openalex": [
-        "AI corrigibility goal stability self-modification",
-        "constitutional amendment legitimacy theory",
-        "value drift autonomous agents over time",
-        "constitutional unamendability entrenchment basic structure doctrine",
-        "goal stability under self-improvement agents"
+        "AI corrigibility goal preservation self-modification",
+        "reward tampering mesa-optimization inner alignment",
+        "constitutional unamendability eternity clause entrenchment",
+        "value drift autonomous agents over time"
       ],
       "crossref": [
         "corrigibility artificial agent goal preservation"
@@ -407,7 +414,8 @@
       "arxiv": [
         "\"random geometric graph\" AND connectivity AND robustness",
         "percolation AND colonization AND galaxy",
-        "\"articulation point\" AND network AND failure"
+        "\"articulation point\" AND network AND failure",
+        "\"set cover\" AND scheduling AND dispatch"
       ],
       "arxiv_categories": [
         "physics.soc-ph",
@@ -415,9 +423,9 @@
         "astro-ph.GA"
       ],
       "openalex": [
-        "percolation stellar neighbourhood interstellar settlement graph",
-        "spatial random graph articulation point connectivity robustness",
-        "redundant attempt reliability coverage probability network"
+        "percolation threshold random geometric graph connectivity",
+        "k-connectivity articulation point spatial network robustness",
+        "k-out-of-n redundancy mission reliability"
       ],
       "crossref": [
         "interstellar colonization network graph reachability"
@@ -446,18 +454,15 @@
         "cs.AI"
       ],
       "openalex": [
-        "ethics of space colonization obligations",
-        "moral status artificial agents personhood",
-        "non-identity problem future generations",
-        "longtermism existential risk ethics",
-        "METI decision ethics message extraterrestrial",
-        "directed panspermia ethics moratorium",
-        "rights of nature legal personhood standing"
+        "space colonization ethics obligations planetary protection",
+        "moral status artificial agents machine personhood",
+        "non-identity problem future generations population ethics",
+        "longtermism existential risk space settlement",
+        "directed panspermia ethics astrobiology moratorium"
       ],
       "crossref": [
         "ethics space colonization moral obligation",
-        "moral status of artificial agents",
-        "directed panspermia ethical value"
+        "moral status of artificial agents"
       ],
       "exclude": [
         "nursing ethics",
@@ -477,9 +482,8 @@
       "title": "Speciation or Schism",
       "thesis": "Whether long-run divergence between settled branches is failure or success: taxonomy of divergence sources, D_critical boundary, drift-clock model, ring-species argument, adaptive radiation raising total R_eff and K. Relevant work: speciation theory, cultural/design drift in artificial populations, ring species, adaptive radiation, horizontal transfer, divergence in evolving machine populations.",
       "arxiv": [
-        "\"cultural evolution\" AND drift AND agents",
         "\"open-ended evolution\" AND divergence",
-        "\"evolutionary divergence\" AND population AND model"
+        "\"cultural evolution\" AND drift AND agents"
       ],
       "arxiv_categories": [
         "q-bio.PE",
@@ -487,9 +491,10 @@
         "cs.MA"
       ],
       "openalex": [
-        "speciation divergence model isolation drift",
-        "open-ended evolution artificial agents divergence",
-        "adaptive radiation heterogeneous environment"
+        "reticulate evolution introgression ghost lineage",
+        "ring species divergence gene flow isolation",
+        "barcode gap interspecific intraspecific divergence threshold",
+        "speciation continuum divergence with gene flow"
       ],
       "crossref": [
         "speciation ring species divergence isolation"
@@ -521,8 +526,9 @@
       ],
       "openalex": [
         "targeted node removal attack tolerance complex networks",
-        "adversarial self-replicating agents containment security",
-        "quarantine false positive trade-off distributed system"
+        "adversarial multi-agent system containment compromise",
+        "quarantine autoimmunity false positive trade-off distributed",
+        "network dismantling attack strategy resilience"
       ],
       "crossref": [
         "attack tolerance complex network targeted removal"
