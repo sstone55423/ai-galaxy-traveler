@@ -182,19 +182,19 @@ def _demo():
           f"{sail_radius_for(1e3, 0.01):.0f} km")
 
     print("\n=== 3. REPRODUCTION: R_eff across the real 127-star catalogue ===")
-    print("   (per-leg survival 0.9 each x cruise 0.99/ly; viability host=1.0/dwarf=0.7/hostile=0.2)")
+    print("   (per-stage survival 0.9 each x cruise 0.99/ly; viability host=1.0/dwarf=0.7/hostile=0.2)")
     for off in (1, 2, 3, 4):
         r = reproduction(offspring=off)
         verdict = "EXPANDS" if r["mean_R_eff"] > 1 else "extinction-prone"
         print(f"   offspring={off}: mean R_eff = {r['mean_R_eff']:.2f}  "
               f"({r['frac_nodes_R_eff>1']*100:3.0f}% of nodes >1, mean extinction "
               f"prob {r['mean_extinction_prob']:.2f})  -> {verdict}")
-    print("\n   Sensitivity to per-leg reliability (offspring=3):")
+    print("\n   Sensitivity to per-stage reliability (offspring=3):")
     for p in (0.80, 0.90, 0.95):
         r = reproduction(offspring=3, p_make=p, p_launch=p, p_brake=p, p_settle=p)
-        print(f"     per-leg p={p:.2f}: mean R_eff = {r['mean_R_eff']:.2f}  "
+        print(f"     per-stage p={p:.2f}: mean R_eff = {r['mean_R_eff']:.2f}  "
               f"-> {'EXPANDS' if r['mean_R_eff']>1 else 'extinction-prone'}")
-    print("   -> R_eff sits on a knife-edge: a few % per-leg failure flips the outcome.")
+    print("   -> R_eff sits on a knife-edge: a few % per-stage failure flips the outcome.")
 
     print("\n=== 4. CLOSURE (capability binds, not material or energy) ===")
     cl = closure()

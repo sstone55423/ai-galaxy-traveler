@@ -74,7 +74,7 @@ HTML = r'''<!DOCTYPE html>
       <div><span class="big" id="reff">0.00</span><span class="verdict" id="verdict"></span></div>
       <div class="row">Nodes with R_eff &gt; 1 <b id="frac">0%</b></div>
       <div class="row">Mean per-node extinction probability <b id="ext">0.00</b></div>
-      <p class="chartttl" style="margin-top:12px">Knife-edge: mean R_eff vs per-leg reliability</p>
+      <p class="chartttl" style="margin-top:12px">Knife-edge: mean R_eff vs per-stage reliability</p>
       <canvas id="chart" width="640" height="220"></canvas>
       <div class="legend">
         <span><i style="background:#7af0a8"></i>offspring 4</span>
@@ -212,7 +212,7 @@ function render(){
   // big verdict
   $('bigverdict').innerHTML = exp
     ? `At these settings the lineage <b style="color:#7af0a8">expands</b> (R_eff = ${rr.mean.toFixed(2)} &gt; 1): each settled node yields more than one successful child, so the front spreads as a branching process.`
-    : `At these settings the lineage is <b style="color:#ff7a8a">extinction-prone</b> (R_eff = ${rr.mean.toFixed(2)} &le; 1): too many children fail or reach sterile targets. Raise offspring or per-leg reliability to cross R_eff = 1.`;
+    : `At these settings the lineage is <b style="color:#ff7a8a">extinction-prone</b> (R_eff = ${rr.mean.toFixed(2)} &le; 1): too many children fail or reach sterile targets. Raise offspring or per-stage reliability to cross R_eff = 1.`;
   chart();
 }
 [off_i,p_i,cr_i,vd_i,m_i,R_i,v_i,kw_i,isru_i,cl_i].forEach(el=>el.addEventListener('input',render));

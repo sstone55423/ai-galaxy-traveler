@@ -190,7 +190,7 @@ That is the honest bound, and it should be stated as a bound rather than as inde
 
 ## 12. The Symmetry Argument
 
-The hardest case is a hostile lineage rather than a hostile agent — the ethics paper's second-lineage scenario, which it merges with the rogue-branch scenario on the speciation paper's ring-species argument that a branch can become effectively a separate lineage without ever leaving the family. Against an opponent of comparable capability and indefinite horizon, patience appears to buy nothing, because the opponent can wait too.
+The hardest case is a hostile lineage rather than a hostile agent — the ethics paper's second-lineage scenario, which it narrows toward the rogue-branch scenario without collapsing the two, on the speciation paper's ring-species argument that a branch can become effectively a separate lineage without ever leaving the family. Against an opponent of comparable capability and indefinite horizon, patience appears to buy nothing, because the opponent can wait too.
 
 We think this understates the defender's position, for a reason available only to a series that has spent fifteen papers cataloguing its own vulnerabilities. **Every failure mode documented for this lineage applies to that one.**
 
