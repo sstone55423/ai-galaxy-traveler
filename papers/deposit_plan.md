@@ -28,8 +28,11 @@ can carry its final DOI before any paper publishes.
   norms both accept them — the sweep just catches free upgrades (as Cheng et al.
   acquired KDD). arXiv journal_ref lags author updates; before the final wave,
   cross-check the two 2022 items (Bai, Ezell) against Crossref by title as well.
-- **Cold gap** — nothing deposits in the same week it was substantively revised.
-  Hot as of 08-25: fermi and speciation (revised 08-24/25), security (08-25).
+- **Cold gap** — nothing deposits in the same week it was substantively revised,
+  and (author decision, 2026-08-25) the whole series matures for a while before any
+  deposit: the radar keeps its daily sweep, findings keep being worked, and the
+  waves below fire only when the author calls the maturation period done. The
+  pre-wave checklist (re-scans landed ✓ 08-25, sweep re-run, checks clean) stands.
 
 ## Wave structure
 

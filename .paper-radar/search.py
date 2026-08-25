@@ -128,14 +128,6 @@ def norm_doi(doi):
         return None
     d = doi.strip().lower()
     d = re.sub(r"^https?://(dx\.)?doi\.org/", "", d)
-    # Zenodo mints a fresh DOI per version, and consecutive deposits of the same
-    # work land on adjacent record ids (…21992962 / …21992963).  Those defeated
-    # seen.json dedup and re-surfaced held-back items on consecutive runs
-    # (2026-08-21 and 08-24 digests).  Collapse the trailing digit so sibling
-    # deposits share one key.
-    m = re.match(r"^(10\.5281/zenodo\.\d+)\d$", d)
-    if m:
-        d = m.group(1) + "x"
     return d or None
 
 
@@ -159,6 +151,18 @@ def record_key(rec):
     if rec.get("arxiv_id"):
         return "arxiv:" + rec["arxiv_id"].split("v")[0].lower()
     if doi:
+        # Zenodo mints a fresh DOI per version, and consecutive deposits of the
+        # same work land on adjacent record ids (…21992962 / …21992963), which
+        # defeated seen.json dedup on consecutive runs (2026-08-21 / 08-24
+        # digests). Collapse the trailing digit IN THE KEY ONLY — the earlier
+        # fix collapsed it inside norm_doi, which mangled the record's display
+        # DOI and surfaced in the 08-25 digest as "malformed source metadata"
+        # (a trailing x the screener had to repair). The stored DOI stays real;
+        # only the dedup key is collapsed, in the same "…x" form seen.json
+        # already holds from prior runs.
+        m = re.match(r"^(10\.5281/zenodo\.\d+)\d$", doi)
+        if m:
+            return "doi:" + m.group(1) + "x"
         return "doi:" + doi
     return "title:" + norm_title(rec.get("title"))
 

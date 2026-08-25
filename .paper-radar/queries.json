@@ -513,10 +513,10 @@
       "title": "Security -- Security Without Victory",
       "thesis": "Probe-vs-probe security for a deep-time lineage: defenses built against entropy fail against adaptive adversaries; security relocates from node to lineage (bounding blast radius, not preventing compromise); targeted articulation-point removal gives 3-4x leverage; counselor posture, suppressed state, symmetry argument, autoimmunity risk. Relevant work: targeted attacks on network robustness, adversarial multi-agent systems, containment architectures, acceptance-rule mimicry, quarantine/autoimmunity trade-offs.",
       "arxiv": [
-        "\"targeted attack\" AND network AND robustness",
-        "\"multi-agent\" AND adversarial AND containment",
-        "\"acceptance rule\" AND adversary AND agents",
-        "\"prompt injection\" AND propagation AND agents"
+        "\"articulation point\" AND attack AND network",
+        "\"spatial network\" AND robustness AND attack",
+        "\"self-replicating\" AND probe AND security",
+        "quarantine AND agents AND \"false positive\""
       ],
       "arxiv_categories": [
         "cs.CR",
@@ -525,21 +525,27 @@
         "physics.soc-ph"
       ],
       "openalex": [
-        "targeted node removal attack tolerance complex networks",
-        "adversarial multi-agent system containment compromise",
-        "quarantine autoimmunity false positive trade-off distributed",
-        "network dismantling attack strategy resilience"
+        "articulation points targeted attack spatial networks",
+        "self-replicating spacecraft probe security adversarial",
+        "quarantine autoimmunity false positive distributed agents",
+        "network dismantling spatial geometric lattice robustness"
       ],
       "crossref": [
-        "attack tolerance complex network targeted removal"
+        "targeted attack articulation point spatial network robustness"
       ],
       "exclude": [
         "intrusion detection dataset",
         "iot botnet",
         "smart grid security",
         "5g security",
-        "blockchain security survey"
-      ]
+        "blockchain security survey",
+        "ransomware",
+        "malware detection",
+        "national security policy",
+        "zero trust enterprise",
+        "cyber-physical system survey"
+      ],
+      "_retune_note": "2026-08-25: first post-retune sweep returned 17 hits, all applied cybersecurity/security-studies noise (digest 08-25). Every query now carries a graph-structural or probe/replication token, mirroring the ethics fix; the network-robustness leg is scoped to spatial/geometric graphs, which is the class whose results transfer (the paper itself demonstrates degree/spectral heuristics do not)."
     }
   ]
 }
