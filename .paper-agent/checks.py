@@ -283,6 +283,62 @@ def check_canonical_numbers(text: str) -> list[dict]:
     return findings
 
 
+def _squash(s: str) -> str:
+    """Whitespace-insensitive form, so line wrapping never breaks a match."""
+    return re.sub(r"\s+", " ", s).strip()
+
+
+def check_sibling_quotes(text: str, corpus: dict) -> list[dict]:
+    """Verbatim quotations of a companion paper that no longer appear in it.
+
+    The commonest defect in this series is a paper describing a companion that
+    has since moved; its sharpest form is a quotation of a sentence a sibling
+    no longer contains.  Three such breaks were found by hand in one week (the
+    governed-amendment paper quoting the bootstrapping paper, and the
+    lineage-network paper quoting the payload and knowledge-growth papers), so
+    it is worth checking mechanically.
+
+    Heuristic: a long quoted string, in a sentence that names a companion paper,
+    which appears verbatim in no other paper in the corpus.  Reported as
+    "verify" rather than "error" -- a quotation of an outside source sitting
+    next to a cross-reference is a legitimate false positive.
+    """
+    canonical_names = (
+        "vehicle paper", "payload paper", "bootstrapping paper",
+        "analytical engineering paper", "computational engineering paper",
+        "DNA mission-ledger paper", "governance paper", "governed-amendment paper",
+        "Fermi paper", "knowledge-growth paper", "lineage-network paper",
+        "subsystem budget paper", "routing paper", "ethics paper",
+        "speciation paper", "security paper",
+    )
+    if not corpus:
+        return []
+    body, _ = split_body_refs(text)
+    haystack = " ".join(_squash(t) for t in corpus.values())
+    findings = []
+    for m in re.finditer(r"[\"“]([^\"“”]{40,400})[\"”]", body):
+        quote = _squash(m.group(1))
+        if quote.lower() in haystack.lower():
+            continue
+        # Only flag when the surrounding sentence actually names a companion.
+        start = max(0, m.start() - 260)
+        context = body[start:m.end()]
+        named = [n for n in canonical_names if n.lower() in context.lower()]
+        if not named:
+            continue
+        findings.append({
+            "check": "sibling-quote",
+            "severity": "medium",
+            "line": _lineno(body, m.start()),
+            "message": (
+                "quoted text near a reference to %s does not appear verbatim in "
+                "any sibling paper -- verify it is an outside source and not a "
+                "stale quotation: %r" % (named[0], quote[:70] + ("..." if len(quote) > 70 else ""))
+            ),
+        })
+    return findings
+
+
 ALL_CHECKS = [
     check_latex,
     check_tables,
@@ -291,12 +347,20 @@ ALL_CHECKS = [
     check_canonical_numbers,
 ]
 
+CORPUS_CHECKS = [
+    check_sibling_quotes,
+]
 
-def review_paper(path: Path) -> list[dict]:
+
+def review_paper(path: Path, corpus: dict | None = None) -> list[dict]:
     text = path.read_text(encoding="utf-8")
     findings: list[dict] = []
     for fn in ALL_CHECKS:
         findings.extend(fn(text))
+    if corpus:
+        others = {k: v for k, v in corpus.items() if k != path.name}
+        for fn in CORPUS_CHECKS:
+            findings.extend(fn(text, others))
     findings.sort(key=lambda f: (f["line"], f["check"]))
     return findings
 
@@ -320,16 +384,30 @@ def main(argv: list[str]) -> int:
     if not argv or argv[0] in ("-h", "--help"):
         print(__doc__)
         return 0
+    # --quotes enables the cross-paper sibling-quote check.  It is opt-in
+    # because it is a heuristic: a long quoted string near a companion's name
+    # that appears verbatim in no sibling.  That catches genuinely stale
+    # quotations (three were found by hand in one week) but also fires on
+    # legitimate quotation of outside sources and on deliberate partial quotes,
+    # so its output needs triage rather than blind application.
+    want_quotes = "--quotes" in argv
+    argv = [a for a in argv if a != "--quotes"]
+    if not argv:
+        argv = ["--all"]
     if argv[0] == "--all":
         paths = sorted(PAPERS.glob("interstellar_AI_*_paper.md"))
     else:
         paths = [Path(a) if Path(a).is_absolute() else REPO / a for a in argv]
+    # The whole series, so cross-paper checks can see every sibling even when
+    # only one paper is being reviewed.
+    corpus = {q.name: q.read_text(encoding="utf-8")
+              for q in sorted(PAPERS.glob("interstellar_AI_*.md"))} if want_quotes else None
     total = 0
     for p in paths:
         if not p.exists():
             print(f"  ! not found: {p}")
             continue
-        findings = review_paper(p)
+        findings = review_paper(p, corpus)
         total += len(findings)
         _print(p, findings)
     print(f"\nTotal findings: {total}")
