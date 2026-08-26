@@ -53,6 +53,19 @@ can carry its final DOI before any paper publishes.
 Within a wave there is no ordering constraint. If a symbolic order is wanted for the
 record, the vehicle paper goes first — it is the series' entry point.
 
+## Community engagement (decided 2026-08-25)
+
+- **Venice declined**: the 2nd European Interstellar Symposium (IRG/IAA, Dec 2–4 2026,
+  abstracts due Sep 7) fits the series but not the author's fall schedule. No abstract.
+- **Target: the 10th Interstellar Symposium, October 2027** (IRG/IAA; Atlanta/Georgia
+  Tech pending confirmation — irg.space/irg-2027). Abstracts for this series typically
+  open in spring; watch for the call.
+- Consequence: no external deadline constrains the deposit waves. Sequencing:
+  manual review (fall 2026) → deposit waves → JBIS submission → symposium abstract
+  against a settled, citable series. The symposium's "original work not previously
+  published" clause conventionally excludes repository preprints; confirm by a
+  courtesy email to support@irg.space near the call for papers.
+
 ## Mechanics
 
 - **DOIs**: cite the reserved (version-1) DOI in cross-references — it is permanent.
