@@ -79,6 +79,8 @@ K is the fifth layer, not the first. Raw data volume is not a proxy for K; the p
 
 That pipeline is not hypothetical. King (2026) surveys machines that originate hypotheses, deduce their consequences, design and execute experiments, interpret results, and revise their beliefs — from Adam, the first machine to make novel scientific discoveries through cycles of hypothesis formation and physical experimentation (King et al. 2004; King et al. 2009), through the self-driving laboratories that followed — and argues that the open problem is no longer whether the individual steps of science can be automated but how to integrate them into one agent connected to literature, formal knowledge, simulation, and instruments. That is the probe's problem exactly, with the integration deadline set at launch and no human in the loop for the millennia that follow.
 
+
+Peterson et al. (2026) interviewed 26 DARPA contractors, program managers and others involved in scientific automation, and find that these efforts decompose scientific expertise into three targets — insight (hypothesis generation and pattern recognition), embodied knowledge (experimental procedures and techniques), and judgment (evaluation of scientific claims) — and that progress comes substantially from reshaping scientific practice to suit machines, through standardized ontologies and machine-readable data formats, rather than from replicating human capability. The probe can carry that reshaping inward, into its own archive and K packet structure, but not outward: nothing at the far end of the transit will be formatted for it. What the probe must supply unaided is judgment, and judgment is what the confidence term c_j carries in the metric defined below.
 **Formal definition.** Let j range over validated claims, models, contingency plans, and meta-knowledge items currently held by the lineage. The knowledge metric is:
 
 K_net = Σ_j w_j · ΔH_j · c_j · r_j · a_j
@@ -473,6 +475,8 @@ King, R. D., Whelan, K. E., Jones, F. M., et al. (2004). Functional genomic hypo
 Lamport, L., Shostak, R., & Pease, M. (1982). The Byzantine Generals Problem. *ACM Transactions on Programming Languages and Systems*, 4(3), 382–401.
 
 Mao, X., Zhao, L., Zheng, X., & Wang, C. (2026). Practice makes unsafe: Skill misevolution in self-improving LLM agents. *arXiv preprint arXiv:2608.12851*.
+
+Peterson, D., Koch, B., Natarajan, R., & Panofsky, A. (2026). Remaking the landscape of scientific expertise: The emergent research program of total automation in science. *Big Data & Society*, 13(3).
 
 Schmidhuber, J. (2007). Gödel machines: Fully self-referential optimal universal self-improvers. In B. Goertzel & C. Pennachin (Eds.), *Artificial General Intelligence* (pp. 199–226). Springer.
 
