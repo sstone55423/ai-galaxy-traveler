@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Drift Clock — Deep Time AI</title>
+<style>
+  :root{ --bg0:#05060d; --panel:#0e1226; --line:rgba(120,150,220,.18); --txt:#dfe6ff;
+         --dim:#93a0c8; --accent:#7fb3ff; --gold:#ffd35e; --green:#7af0a8; --red:#ff7a8a; }
+  *{box-sizing:border-box}
+  body{margin:0;background:radial-gradient(1200px 800px at 60% -10%,#0b1022,#05060d);
+    color:var(--txt);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;padding:18px;font-size:14px}
+  h1{font-size:18px;margin:0 0 2px} .sub{color:var(--dim);font-size:12px;margin-bottom:14px}
+  .sub a{color:var(--accent);text-decoration:none}
+  .wrap{display:flex;gap:16px;flex-wrap:wrap;align-items:flex-start}
+  .panel{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:15px}
+  #controls{width:300px;flex:none}
+  #controls h2{font-size:11px;text-transform:uppercase;letter-spacing:.6px;color:var(--dim);margin:12px 0 8px}
+  #controls h2:first-child{margin-top:0}
+  .fld{margin-bottom:11px}
+  .fld label{display:flex;justify-content:space-between;font-size:12px;color:var(--dim);margin-bottom:2px}
+  input[type=range]{width:100%}
+  .tog{font-size:13px;margin:6px 0}
+  #chartp{flex:1;min-width:540px}
+  canvas{display:block;background:#080b18;border-radius:10px;width:100%}
+  #read{font-size:13px;margin-top:10px;line-height:1.6;min-height:64px}
+  #read b{color:var(--gold)} #read .warn{color:var(--red)} #read .ok{color:var(--green)}
+  .note{margin-top:8px;padding:9px 11px;border:1px dashed var(--line);border-radius:9px;color:var(--dim);font-size:12px;line-height:1.5}
+  .note b{color:var(--txt)}
+</style></head><body>
+<h1>The Drift Clock: Speciation or Schism</h1>
+<div class="sub">Interpretive divergence D(t) between two isolated branches — constant-rate vs front-loaded — raced against
+the network's reconnection window. Companion to <a href="papers/speciation/">“Speciation or Schism”</a> ·
+<a href="index.html">deep-time-ai.org</a></div>
+<div class="wrap">
+  <div id="controls" class="panel">
+    <h2>Baseline drift</h2>
+    <div class="fld"><label><span>δ — drift per judgment call</span><span id="v_delta"></span></label>
+      <input type="range" id="delta" min="1" max="40" value="10"></div>
+    <div class="fld"><label><span>T_decision — years between calls</span><span id="v_td"></span></label>
+      <input type="range" id="td" min="10" max="200" value="50"></div>
+    <h2>Front-loading (rev 2)</h2>
+    <div class="tog"><label><input type="checkbox" id="fl" checked> T_decision lengthens as precedent accumulates</label></div>
+    <div class="fld"><label><span>τ — consolidation timescale</span><span id="v_tau"></span></label>
+      <input type="range" id="tau" min="25" max="50" value="40"></div>
+    <h2>Punctuated jumps</h2>
+    <div class="fld"><label><span>Δ_stress — jump size</span><span id="v_ds"></span></label>
+      <input type="range" id="ds" min="0" max="30" value="12"></div>
+    <div class="fld"><label><span>T_stress — years between events</span><span id="v_ts"></span></label>
+      <input type="range" id="ts" min="30" max="50" value="40"></div>
+    <h2>Threshold</h2>
+    <div class="fld"><label><span>D_critical (value unmeasured)</span><span id="v_dc"></span></label>
+      <input type="range" id="dc" min="20" max="95" value="60"></div>
+  </div>
+  <div id="chartp" class="panel">
+    <canvas id="cv" width="880" height="380"></canvas>
+    <div id="read"></div>
+    <div class="note"><b>The model, honestly labeled:</b> D(t) ≈ 2δ·N(t) — pairwise divergence carries the factor of two,
+    D is a <i>count</i> of differently-resolved judgment calls (hence linear in decisions, not √t), and all four parameters
+    are asserted, not derived. Front-loading follows from the paper's own mechanism: a newly isolated branch faces its
+    densest interval of unprecedented decisions, so T_decision lengthens as the interpretive layer accumulates precedent
+    and D(t) is concave. The shaded band is the lineage-network paper's reconnection window — the mesh begins forming at
+    ~10⁴ yr and matures over ~10⁵. Divergence is front-loaded; reconnection is back-loaded. D_critical is defined against
+    an observable (reconciliation-failure fraction at ledger audit); its value is the open empirical question.</div>
+  </div>
+</div>
+<script>
+"use strict";
+// ---- pure model (exposed for tests) ----
+// decisions accumulated by time t:
+//   constant:     N(t) = t / Td0
+//   front-loaded: N(t) = (tau/Td0) * ln(1 + t/tau)   [T_decision(t) = Td0 * (1 + t/tau)]
+function Ndecisions(t, Td0, frontloaded, tau){
+  return frontloaded ? (tau / Td0) * Math.log(1 + t / tau) : t / Td0;
+}
+function mulberry32(a){ return function(){ a |= 0; a = a + 0x6D2B79F5 | 0;
+  let t = Math.imul(a ^ a >>> 15, 1 | a); t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t;
+  return ((t ^ t >>> 14) >>> 0) / 4294967296; }; }
+function stressJumpsBefore(t, Tstress, seed){
+  // deterministic Poisson-ish event times: exponential gaps via seeded RNG
+  const rng = mulberry32(seed); let acc = 0, n = 0;
+  for (let i = 0; i < 4000; i++){
+    acc += -Math.log(1 - rng()) * Tstress;
+    if (acc > t) break; n++;
+  }
+  return n;
+}
+function Dtotal(t, p){
+  const base = 2 * p.delta * Ndecisions(t, p.Td0, p.frontloaded, p.tau);
+  const jumps = p.dStress > 0 ? p.dStress * stressJumpsBefore(t, p.Tstress, 12345) : 0;
+  return base + jumps;
+}
+function crossingTime(p, Dcrit, tMax){
+  let lo = 1, hi = tMax;
+  if (Dtotal(tMax, p) < Dcrit) return null;
+  for (let i = 0; i < 60; i++){ const mid = Math.sqrt(lo * hi);
+    (Dtotal(mid, p) < Dcrit) ? lo = mid : hi = mid; }
+  return hi;
+}
+if (typeof window !== "undefined") window.__test = {Ndecisions, Dtotal, crossingTime, stressJumpsBefore};
+
+// ---- UI ----
+const $ = id => document.getElementById(id);
+function params(){
+  return {
+    delta: +$("delta").value / 100,               // 0.01 .. 0.40
+    Td0: +$("td").value,                          // 10 .. 200 yr
+    frontloaded: $("fl").checked,
+    tau: Math.pow(10, +$("tau").value / 10),      // 10^2.5 .. 10^5 yr
+    dStress: +$("ds").value / 10,                 // 0 .. 3
+    Tstress: Math.pow(10, +$("ts").value / 10)    // 10^3 .. 10^5 yr
+  };
+}
+function draw(){
+  const p = params(), Dc = +$("dc").value;
+  $("v_delta").textContent = p.delta.toFixed(2);
+  $("v_td").textContent = p.Td0 + " yr";
+  $("v_tau").textContent = p.tau.toExponential(1) + " yr";
+  $("v_ds").textContent = p.dStress.toFixed(1);
+  $("v_ts").textContent = p.Tstress.toExponential(1) + " yr";
+  $("v_dc").textContent = Dc;
+  const cv = $("cv"), ctx = cv.getContext("2d");
+  const W = cv.width, H = cv.height, L = 52, R = 16, T = 18, B = 40;
+  ctx.clearRect(0,0,W,H);
+  const tMin = 1e2, tMax = 1e6;
+  const x = t => L + (Math.log10(t) - 2) / 4 * (W - L - R);
+  // y-scale: adaptive to max D
+  const pC = Object.assign({}, p, {frontloaded:false});
+  const Dmax = Math.max(Dtotal(tMax, pC), Dtotal(tMax, p), Dc * 1.3, 20);
+  const y = D => T + (1 - Math.min(D, Dmax) / Dmax) * (H - T - B);
+  // mesh window shading 1e4..1e5
+  ctx.fillStyle = "rgba(127,179,255,.10)";
+  ctx.fillRect(x(1e4), T, x(1e5) - x(1e4), H - T - B);
+  ctx.fillStyle = "#7fb3ff"; ctx.font = "11px sans-serif"; ctx.textAlign = "center";
+  ctx.fillText("mesh forming → mature (reconnection window)", (x(1e4) + x(1e5)) / 2, T + 12);
+  // axes
+  ctx.strokeStyle = "rgba(120,150,220,.18)"; ctx.fillStyle = "#93a0c8";
+  [1e2,1e3,1e4,1e5,1e6].forEach(t => { ctx.beginPath(); ctx.moveTo(x(t), T); ctx.lineTo(x(t), H - B); ctx.stroke();
+    ctx.fillText("10^" + Math.log10(t), x(t), H - B + 16); });
+  ctx.fillText("years since isolation  (accumulated interpretive divergence D)", (L + W - R) / 2, H - 8);
+  // D_critical band
+  ctx.strokeStyle = "#ffd35e"; ctx.setLineDash([6,5]); ctx.beginPath();
+  ctx.moveTo(L, y(Dc)); ctx.lineTo(W - R, y(Dc)); ctx.stroke(); ctx.setLineDash([]);
+  ctx.fillStyle = "#ffd35e"; ctx.textAlign = "left";
+  ctx.fillText("D_critical (threshold defined; value unmeasured)", L + 6, y(Dc) - 6);
+  // curves
+  function plot(pp, color){
+    ctx.strokeStyle = color; ctx.lineWidth = 2; ctx.beginPath(); let started = false;
+    for (let lx = 2; lx <= 6; lx += 0.01){
+      const t = Math.pow(10, lx), D = Dtotal(t, pp);
+      const px = x(t), py = y(D);
+      started ? ctx.lineTo(px, py) : ctx.moveTo(px, py); started = true;
+    }
+    ctx.stroke();
+  }
+  plot(pC, "#93a0c8");
+  if (p.frontloaded) plot(p, "#7af0a8");
+  ctx.fillStyle = "#93a0c8"; ctx.fillText("constant-rate (neutral-drift idealization)", L + 6, T + 28);
+  if (p.frontloaded){ ctx.fillStyle = "#7af0a8"; ctx.fillText("front-loaded (rev 2: concave, precedent accumulates)", L + 6, T + 44); }
+  // readout
+  const tC = crossingTime(pC, Dc, tMax), tF = p.frontloaded ? crossingTime(p, Dc, tMax) : null;
+  const meshTxt = t => t === null ? "" :
+    t < 1e4 ? " — <span class='warn'>before the mesh even begins forming</span>" :
+    t < 1e5 ? " — <span class='warn'>inside the reconnection window</span>" :
+    " — <span class='ok'>after the mesh has matured</span>";
+  let html = "Constant-rate crossing: <b>" + (tC ? tC.toExponential(2) + " yr" : "never (below D_critical at 10⁶ yr)") + "</b>" + (tC ? meshTxt(tC) : "") + ".";
+  if (p.frontloaded){
+    html += "<br>Front-loaded crossing: <b>" + (tF ? tF.toExponential(2) + " yr" : "never — the curve saturates below D_critical") + "</b>" + (tF ? meshTxt(tF) : "") + ".";
+    if (tF && tC && tF < tC) html += "<br><span class='warn'>Front-loading crosses sooner</span> — the constant-rate clock is optimistic about the early window…";
+    if (!tF && tC) html += "<br><span class='ok'>…but a branch that survives the early window may never cross at all: a critical early window, then stabilization.</span>";
+    if (!tF && !tC) html += "<br><span class='ok'>Neither model crosses: divergence stays reconcilable — speciation, not schism.</span>";
+  }
+  $("read").innerHTML = html;
+}
+if (typeof document !== "undefined" && document.getElementById("cv")){
+  document.querySelectorAll("input").forEach(i => i.addEventListener("input", draw));
+  draw();
+}
+</script></body></html>

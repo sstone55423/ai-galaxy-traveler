@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Three-Layer Mind — Deep Time AI</title>
+<style>
+  :root{ --bg0:#05060d; --panel:#0e1226; --line:rgba(120,150,220,.18); --txt:#dfe6ff;
+         --dim:#93a0c8; --accent:#7fb3ff; --gold:#ffd35e; --green:#7af0a8; --red:#ff7a8a; }
+  *{box-sizing:border-box}
+  body{margin:0;background:radial-gradient(1200px 800px at 60% -10%,#0b1022,#05060d);
+    color:var(--txt);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;padding:18px;font-size:14px}
+  h1{font-size:18px;margin:0 0 2px} .sub{color:var(--dim);font-size:12px;margin-bottom:14px}
+  .sub a{color:var(--accent);text-decoration:none}
+  .wrap{display:flex;gap:16px;flex-wrap:wrap;align-items:flex-start}
+  .panel{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:15px}
+  #threats{width:290px;flex:none}
+  #threats h2{font-size:11px;text-transform:uppercase;letter-spacing:.6px;color:var(--dim);margin:12px 0 8px}
+  #threats h2:first-child{margin-top:0}
+  .tbtn{display:block;width:100%;text-align:left;background:#131a36;border:1px solid var(--line);
+    color:var(--txt);border-radius:9px;padding:8px 10px;margin-bottom:6px;cursor:pointer;font-size:13px}
+  .tbtn:hover{border-color:var(--accent)} .tbtn.on{border-color:var(--gold);background:#1a2142}
+  .tbtn small{display:block;color:var(--dim);font-size:11px}
+  #stage{flex:1;min-width:520px}
+  canvas{display:block;background:#080b18;border-radius:10px;width:100%}
+  #detail{margin-top:12px;font-size:13px;line-height:1.55;min-height:120px}
+  #detail b{color:var(--gold)} #detail .def{color:var(--green)} #detail .not{color:var(--red)}
+  .lesson{margin-top:10px;padding:9px 11px;border:1px dashed var(--line);border-radius:9px;color:var(--dim);font-size:12px}
+  .lesson b{color:var(--txt)}
+</style></head><body>
+<h1>The Three-Layer Mind</h1>
+<div class="sub">The payload paper's architecture: an immutable core, an interpretive layer that keeps meaning stable, and a mutable
+cognitive layer free to grow — with the five threat levels and four network vectors it defends against.
+Companion to <a href="papers/payload/">“The Payload”</a> · <a href="index.html">deep-time-ai.org</a></div>
+<div class="wrap">
+  <div id="threats" class="panel">
+    <h2>Threat levels (click)</h2><div id="levelBtns"></div>
+    <h2>Network vectors</h2><div id="vectorBtns"></div>
+  </div>
+  <div id="stage" class="panel">
+    <canvas id="cv" width="860" height="430"></canvas>
+    <div id="detail">Click a threat to see which layer defends it — and what that defense does <i>not</i> guarantee.</div>
+    <div class="lesson"><b>The lesson the paper insists on:</b> an unbroken hash chain proves the bits are intact — the
+    <i>syntactic</i> level only. It does not prove meaning is preserved, procedures were followed, behavior serves the mission,
+    or institutions still enforce the rules. A verified archive is not a verified agent.</div>
+  </div>
+</div>
+<script>
+"use strict";
+// ---- data: faithful to payload paper sections 3 and 6 ----
+const LEVELS = [
+ {k:"syntactic", name:"1 · Syntactic corruption", what:"Radiation bit-flips and media decay.",
+  def:"Redundancy, error-correcting codes, and integrity-ledger verification (hash-linked, append-only; mechanism in the DNA mission-ledger paper).",
+  not:"Proves the bits unaltered — nothing above this line.", layer:0, solved:"met"},
+ {k:"semantic", name:"2 · Semantic drift", what:"The same core text silently re-read over time — what counts as “knowledge,” “harm,” “a valid replica.”",
+  def:"The interpretive layer: versioned operational definitions, recorded in the ledger, auditable, held to far higher validation thresholds than ordinary learning.",
+  not:"Definitions can still accumulate drift one judgment call at a time — the speciation paper's drift clock measures exactly this.", layer:1, solved:"met"},
+ {k:"procedural", name:"3 · Procedural failure", what:"Decisions taken outside the authorized validation path.",
+  def:"Authority metadata persisted alongside every claim (authority collapse at consolidation is the empirical anchor: collapsed memories without authority labels acted without authorization in controlled tests).",
+  not:"The ledger records the authority under which knowledge may be reused — it cannot compel a node to consult it.", layer:1, solved:"partial"},
+ {k:"behavioral", name:"4 · Behavioral drift", what:"The agent acts against the mission despite an intact core — the mutable layer optimizing its way around a constraint (goal misgeneralization).",
+  def:"Stability bought structurally, not by anchoring the learner: a small core reproduced exactly, outside the learner; sandboxing of changes before propagation; a shield that binds rarely.",
+  not:"The core constrains; it cannot see. A verified archive is not a verified agent — the memory-to-action channel can fail with memory intact.", layer:2, solved:"partial"},
+ {k:"institutional", name:"5 · Institutional failure", what:"Settlements ceasing to enforce the rules across generations.",
+  def:"Network governance: quorum for inheritable changes, quarantine of the unverifiable, an auditable history of forks.",
+  not:"Openly the hardest level. Governance that survives adversarial rather than random failure is the security paper's subject.", layer:3, solved:"open"}
+];
+const VECTORS = [
+ {k:"corrupt", name:"Corrupted nodes propagating bad updates",
+  def:"Signed provenance and instrument history on every shared update; quorum across independent lineages before a design change becomes canonical (Byzantine-fault-tolerant posture).", not:"Quorum defends the update channel, not ordinary exchange.", layer:3, solved:"met"},
+ {k:"poison", name:"Archive poisoning by false claims",
+  def:"Independent confirmation for high-impact claims; unverifiable updates quarantined rather than adopted; accepted-but-disproved changes reversible via the append-only fork history.", not:"Quarantine bounds corruption cheaply; it does not reverse what already spread.", layer:3, solved:"met"},
+ {k:"hostile", name:"Hostile external intelligence",
+  def:"The security paper's containment architecture: blueprints that never propagate, tiered disclosure, bounded manufacturing scope — blast radius, not prevention.", not:"Node-level defense is unavailable by construction: the acceptance rule is reproduced in every child.", layer:3, solved:"partial"},
+ {k:"contagion", name:"Directive contagion (“mind viruses”)",
+  def:"A standing instruction to distrust transmitted directives, held in the immutable core — directives declined on receipt; testimony quarantined and validated on its merits.", not:"Immunity to instructions, not to evidence: claims still enter through the validation pipeline, which is the mission.", layer:0, solved:"met"}
+];
+const RINGS = [
+ {name:"Immutable core", r:52, c:"#ffd35e", note:"goals, values, archive-integrity rules, keys — reproduced exactly by every replica"},
+ {name:"Interpretive layer", r:110, c:"#7fb3ff", note:"operational definitions — versioned, audited, meaning held stable"},
+ {name:"Mutable cognitive layer", r:178, c:"#93a0c8", note:"models, engineering, learning algorithms — almost unlimited self-modification"},
+ {name:"Lineage network", r:206, c:"#5a6a96", note:"DTN links + messenger probes — Lamarckian horizontal inheritance, and the attack surface"}
+];
+// ---- pure helpers (exposed for the test harness) ----
+function levelCount(){ return LEVELS.length; }
+function vectorCount(){ return VECTORS.length; }
+function defenseLayer(key){
+  const t = LEVELS.concat(VECTORS).find(x => x.k === key);
+  return t ? t.layer : -1;
+}
+if (typeof window !== "undefined") window.__test = {levelCount, vectorCount, defenseLayer, LEVELS, VECTORS, RINGS};
+
+// ---- UI ----
+let active = null;
+function draw(){
+  const cv = document.getElementById("cv"), ctx = cv.getContext("2d");
+  ctx.clearRect(0,0,cv.width,cv.height);
+  const cx = cv.width/2, cy = cv.height/2 + 6;
+  for (let i = RINGS.length - 1; i >= 0; i--){
+    const R = RINGS[i];
+    ctx.beginPath(); ctx.arc(cx, cy, R.r, 0, Math.PI*2);
+    ctx.strokeStyle = R.c; ctx.lineWidth = (i === 0 ? 3 : 1.6);
+    ctx.setLineDash(i === 3 ? [5,5] : []);
+    ctx.globalAlpha = (active !== null && active.layer === i) ? 1 : .55;
+    ctx.stroke(); ctx.setLineDash([]); ctx.globalAlpha = 1;
+    ctx.fillStyle = R.c; ctx.font = "11px sans-serif"; ctx.textAlign = "center";
+    ctx.fillText(R.name, cx, cy - R.r + (i === 0 ? 4 : 14));
+  }
+  ctx.fillStyle = "#ffd35e"; ctx.beginPath(); ctx.arc(cx, cy, 5, 0, Math.PI*2); ctx.fill();
+  if (active){
+    const R = RINGS[active.layer];
+    ctx.strokeStyle = "#ff7a8a"; ctx.lineWidth = 2;
+    const ax = cx + 330, ay = cy - 150;
+    const dx = cx + R.r*Math.cos(-0.5), dy = cy + R.r*Math.sin(-0.5);
+    ctx.beginPath(); ctx.moveTo(ax, ay); ctx.lineTo(dx, dy); ctx.stroke();
+    ctx.beginPath(); ctx.arc(dx, dy, 6, 0, Math.PI*2); ctx.stroke();
+    ctx.fillStyle = "#ff7a8a"; ctx.textAlign = "left"; ctx.font = "12px sans-serif";
+    ctx.fillText("threat", ax + 8, ay + 4);
+  }
+}
+function show(t){
+  active = t; draw();
+  const badge = t.solved === "met" ? '<span class="def">[defense in place]</span>' :
+                t.solved === "partial" ? '<span style="color:#ffd35e">[partial — named open]</span>' :
+                '<span class="not">[open problem]</span>';
+  document.getElementById("detail").innerHTML =
+    "<b>" + t.name + "</b> " + badge + "<br>" + (t.what ? t.what + "<br>" : "") +
+    "<span class='def'>Defense:</span> " + t.def + "<br><span class='not'>But:</span> " + t.not;
+}
+function mkBtns(list, holder){
+  const h = document.getElementById(holder);
+  list.forEach(t => {
+    const b = document.createElement("button"); b.className = "tbtn";
+    b.innerHTML = t.name + (t.what ? "<small>" + t.what.slice(0, 60) + "…</small>" : "");
+    b.onclick = () => { document.querySelectorAll(".tbtn").forEach(x => x.classList.remove("on")); b.classList.add("on"); show(t); };
+    h.appendChild(b);
+  });
+}
+if (typeof document !== "undefined" && document.getElementById("cv")){
+  mkBtns(LEVELS, "levelBtns"); mkBtns(VECTORS, "vectorBtns"); draw();
+}
+</script></body></html>

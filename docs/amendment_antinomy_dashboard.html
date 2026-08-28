@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Amending the Unamendable — Deep Time AI</title>
+<style>
+  :root{ --bg0:#05060d; --panel:#0e1226; --line:rgba(120,150,220,.18); --txt:#dfe6ff;
+         --dim:#93a0c8; --accent:#7fb3ff; --gold:#ffd35e; --green:#7af0a8; --red:#ff7a8a; }
+  *{box-sizing:border-box}
+  body{margin:0;background:radial-gradient(1200px 800px at 60% -10%,#0b1022,#05060d);
+    color:var(--txt);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;padding:18px;font-size:14px}
+  h1{font-size:18px;margin:0 0 2px} .sub{color:var(--dim);font-size:12px;margin-bottom:14px}
+  .sub a{color:var(--accent);text-decoration:none}
+  .wrap{display:flex;gap:16px;flex-wrap:wrap;align-items:flex-start}
+  .panel{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:15px}
+  #mechs{width:330px;flex:none}
+  h2{font-size:12px;text-transform:uppercase;letter-spacing:.6px;color:var(--dim);margin:0 0 10px}
+  .mbtn{display:block;width:100%;text-align:left;background:#131a36;border:1px solid var(--line);
+    color:var(--txt);border-radius:9px;padding:8px 10px;margin-bottom:6px;cursor:pointer;font-size:13px}
+  .mbtn:hover{border-color:var(--accent)} .mbtn.on{border-color:var(--gold);background:#1a2142}
+  #board{flex:1;min-width:520px}
+  .req{display:inline-block;border:1px solid var(--line);border-radius:16px;padding:5px 12px;margin:0 6px 8px 0;
+    font-size:12.5px;color:var(--dim);transition:all .2s}
+  .req.lit{border-color:var(--green);color:var(--green)}
+  .req.dark{border-color:var(--red);color:var(--red);opacity:.85}
+  #verdict{margin-top:12px;font-size:13px;line-height:1.6;min-height:110px}
+  #verdict b{color:var(--gold)} #verdict .fail{color:var(--red)} #verdict .ok{color:var(--green)}
+  .horns{margin-top:12px;display:flex;gap:10px;flex-wrap:wrap}
+  .horn{flex:1;min-width:220px;border:1px solid var(--line);border-radius:10px;padding:9px 11px;font-size:12.5px;line-height:1.5;color:var(--dim)}
+  .horn b{display:block;margin-bottom:3px}
+  .horn.brittle b{color:var(--gold)} .horn.corrupt b{color:var(--red)}
+  .punch{margin-top:12px;padding:10px 12px;border:1px dashed var(--gold);border-radius:10px;font-size:13px;line-height:1.55}
+  .punch b{color:var(--gold)}
+</style></head><body>
+<h1>Amending the Unamendable</h1>
+<div class="sub">Six requirements any acceptable core-amendment procedure must meet, five candidate mechanisms, and why none
+closes the gap. Companion to <a href="papers/amendment/">“Amending the Unamendable”</a> · <a href="index.html">deep-time-ai.org</a></div>
+<div class="wrap">
+  <div id="mechs" class="panel">
+    <h2>Candidate mechanisms (click)</h2><div id="mBtns"></div>
+    <div class="horns">
+      <div class="horn brittle"><b>The brittle failure (immutable core)</b>A wrong value, unfixed — but bounded and visible
+      against the preserved baseline. Chosen knowingly.</div>
+      <div class="horn corrupt"><b>The corrupting failure (amendable core)</b>A value-governing procedure breached —
+      invisibly, with unbounded reach into the machinery that governs every value.</div>
+    </div>
+  </div>
+  <div id="board" class="panel">
+    <h2>The six requirements</h2>
+    <div id="reqs"></div>
+    <div id="verdict">Click a mechanism. Green chips: aspects of <i>process</i> it secures. Red: where it falls short.</div>
+    <div class="punch"><b>The antinomy:</b> every mechanism secures some aspect of <i>process</i> — agreement, latency
+    tolerance, auditability, standing. None secures the <i>correctness</i> of a terminal-value change, because relative to
+    the values undergoing change there is no standard available to the probe by which the change can be judged correct.
+    The conservative default — an immutable core, its brittleness priced honestly — is chosen because the horns are not
+    symmetric: prefer the failure that is bounded and visible.</div>
+  </div>
+</div>
+<script>
+"use strict";
+const REQS = [
+ {k:"emergency", t:"distinguish emergency policy from heritable change"},
+ {k:"multi", t:"validation across multiple independent lineages"},
+ {k:"latency", t:"tolerate millennial latency & partial connectivity"},
+ {k:"baseline", t:"preserve the original core as auditable baseline"},
+ {k:"capture", t:"resist capture or coercion — including by the cognitive layer"},
+ {k:"proof", t:"carry a proof or simulation that the change is safe"}
+];
+const MECHS = [
+ {n:"Byzantine agreement across lineages",
+  lights:["multi","latency","baseline"],
+  fails:"Agreement is not correctness. Aggregating diverged branches' orderings runs into Arrow's theorem — no rule satisfies unrestricted domain, unanimity, independence of irrelevant alternatives, and non-dictatorship at once — and choosing the aggregation rule is itself a value choice the procedure was meant to make, not presuppose."},
+ {n:"Proof-carrying self-modification",
+  lights:["proof","baseline"],
+  fails:"A proof needs a specification to prove against. For terminal values there is none that is not itself one of the values under revision — the proof obligation is exactly the thing that cannot be formalized."},
+ {n:"Corrigibility with a stand-in principal",
+  lights:["emergency"],
+  fails:"Corrigibility is defined relative to a principal whose corrections are authoritative — and the principal is gone. A frozen founder-simulation standing in is frozen values at one remove, which is the immutable core again with extra steps."},
+ {n:"Coherent extrapolated volition",
+  lights:[],
+  fails:"What the founders would have wanted on fuller reflection is underdetermined, unverifiable at megayear range, and computed by the very cognitive layer whose drift is the threat. The extrapolation is performed by an interested party."},
+ {n:"Constitutional amendment by analogy",
+  lights:["emergency","baseline","capture"],
+  fails:"Instructive about form, but it imports an enforcement context the probe lacks — no court, no sovereign. The one piece that survives is standing (a branch rewriting its values exercises a power it was never delegated), and standing is not correctness. A blockchain-style constitutional committee is an interested party inside the protocol, not a tribunal outside it."}
+];
+function mechLights(name){
+  const m = MECHS.find(x => x.n === name);
+  return m ? m.lights.slice() : [];
+}
+function noneSecuresAll(){
+  return MECHS.every(m => m.lights.length < REQS.length);
+}
+if (typeof window !== "undefined") window.__test = {REQS, MECHS, mechLights, noneSecuresAll};
+
+if (typeof document !== "undefined" && document.getElementById("reqs")){
+  const rh = document.getElementById("reqs");
+  REQS.forEach(r => {
+    const s = document.createElement("span"); s.className = "req"; s.id = "rq_" + r.k; s.textContent = r.t;
+    rh.appendChild(s);
+  });
+  const mh = document.getElementById("mBtns");
+  MECHS.forEach(m => {
+    const b = document.createElement("button"); b.className = "mbtn"; b.textContent = m.n;
+    b.onclick = () => {
+      document.querySelectorAll(".mbtn").forEach(x => x.classList.remove("on")); b.classList.add("on");
+      REQS.forEach(r => {
+        const el = document.getElementById("rq_" + r.k);
+        el.className = "req " + (m.lights.includes(r.k) ? "lit" : "dark");
+      });
+      document.getElementById("verdict").innerHTML =
+        "<b>" + m.n + "</b><br><span class='ok'>Secures (process):</span> " +
+        (m.lights.length ? m.lights.map(k => REQS.find(r => r.k === k).t).join("; ") : "none robustly") +
+        ".<br><span class='fail'>Falls short:</span> " + m.fails;
+    };
+    mh.appendChild(b);
+  });
+}
+</script></body></html>

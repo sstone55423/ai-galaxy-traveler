@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tamper-Evident — Deep Time AI</title>
+<style>
+  :root{ --bg0:#05060d; --panel:#0e1226; --line:rgba(120,150,220,.18); --txt:#dfe6ff;
+         --dim:#93a0c8; --accent:#7fb3ff; --gold:#ffd35e; --green:#7af0a8; --red:#ff7a8a; }
+  *{box-sizing:border-box}
+  body{margin:0;background:radial-gradient(1200px 800px at 60% -10%,#0b1022,#05060d);
+    color:var(--txt);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;padding:18px;font-size:14px}
+  h1{font-size:18px;margin:0 0 2px} .sub{color:var(--dim);font-size:12px;margin-bottom:14px}
+  .sub a{color:var(--accent);text-decoration:none}
+  .wrap{display:flex;gap:16px;flex-wrap:wrap;align-items:flex-start}
+  .panel{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:15px}
+  #chainp{flex:1.2;min-width:460px} #vaultp{flex:1;min-width:420px}
+  h2{font-size:12px;text-transform:uppercase;letter-spacing:.6px;color:var(--dim);margin:0 0 10px}
+  .blk{border:1px solid var(--green);border-radius:10px;padding:8px 10px;margin-bottom:8px;background:#0d1530;transition:border-color .2s}
+  .blk.bad{border-color:var(--red)}
+  .blk .t{font-size:12px;color:var(--gold);margin-bottom:3px}
+  .blk input{width:100%;background:#0a0f24;border:1px solid var(--line);color:var(--txt);border-radius:6px;padding:4px 7px;font-size:12px}
+  .blk .h{font-family:ui-monospace,Consolas,monospace;font-size:10.5px;margin-top:4px;word-break:break-all}
+  .blk .h.ok{color:var(--green)} .blk .h.bad{color:var(--red)}
+  .link{width:2px;height:10px;background:var(--line);margin:0 auto 8px}
+  .note{margin-top:8px;padding:9px 11px;border:1px dashed var(--line);border-radius:9px;color:var(--dim);font-size:12px;line-height:1.5}
+  .note b{color:var(--txt)}
+  canvas{display:block;background:#080b18;border-radius:10px;width:100%}
+  .fld{margin:10px 0 4px}
+  .fld label{display:flex;justify-content:space-between;font-size:12px;color:var(--dim)}
+  input[type=range]{width:100%}
+  .tog{margin:8px 0;font-size:13px} .tog label{margin-right:14px;cursor:pointer}
+</style></head><body>
+<h1>Tamper-Evident: the Mission Ledger, Live</h1>
+<div class="sub">A working hash-linked ledger (real SHA-256, computed in your browser) and the two refresh regimes of the
+DNA archive. Companion to <a href="papers/dna-ledger/">“DNA Mission Ledgers”</a> · <a href="index.html">deep-time-ai.org</a></div>
+<div class="wrap">
+  <div id="chainp" class="panel">
+    <h2>Edit any block — watch the chain react</h2>
+    <div id="chain"></div>
+    <div class="note"><b>What this proves, and what it does not.</b> Any alteration to a committed block invalidates every
+    later hash — tampering is <i>evident</i>, and recovered strands carrying the chain are self-verifying. But this is
+    <b>syntactic integrity and provenance only</b>: the chain proves the recorded history intact, not complete — an update
+    withheld from the chain leaves no trace — and an unbroken chain does not prove meaning preserved or behavior faithful.</div>
+  </div>
+  <div id="vaultp" class="panel">
+    <h2>Two regimes: passive vault vs settlement refresh</h2>
+    <canvas id="cv" width="640" height="270"></canvas>
+    <div class="tog">
+      <label><input type="radio" name="mode" value="passive" checked> passive vault (cruise — hardware powered down)</label>
+      <label><input type="radio" name="mode" value="refresh"> settlement refresh (read · validate · re-synthesize)</label>
+    </div>
+    <div class="fld"><label><span>Illustrative half-life of stored strands (log)</span><span id="hlv"></span></label>
+      <input type="range" id="hl" min="27" max="55" value="40"></div>
+    <div class="fld" id="rfld"><label><span>Refresh interval (log)</span><span id="riv"></span></label>
+      <input type="range" id="ri" min="20" max="45" value="30"></div>
+    <div class="note">Anchors, loosely: matched-temperature ancient-DNA decay gives a ~521-year half-life for a 242 bp
+    fragment in bone at ~13 °C; encapsulated-and-cold extrapolations reach far longer, at −18 °C into the millennia-to-megayear
+    range. The paper treats these as loose bounds, not design values — hence the two regimes: <b>cruise is passive by
+    necessity</b> (synthesis and sequencing hardware is powered down), and only a settlement can run the active loop that
+    makes the archive effectively immortal. Redundancy + error-correcting codes tolerate heavy strand loss before content loss;
+    this chart shows raw strand survival, the pessimistic floor.</div>
+  </div>
+</div>
+<script>
+"use strict";
+// ---- compact SHA-256 (public-domain style implementation, no dependencies) ----
+function utf8bytes(s){
+  let out = "";
+  for (const ch of s){
+    const c = ch.codePointAt(0);
+    if (c < 128) out += String.fromCharCode(c);
+    else if (c < 2048) out += String.fromCharCode(192 | c >> 6, 128 | c & 63);
+    else if (c < 65536) out += String.fromCharCode(224 | c >> 12, 128 | (c >> 6) & 63, 128 | c & 63);
+    else out += String.fromCharCode(240 | c >> 18, 128 | (c >> 12) & 63, 128 | (c >> 6) & 63, 128 | c & 63);
+  }
+  return out;
+}
+function sha256(input){
+  const ascii0 = utf8bytes(input);
+  return sha256raw(ascii0);
+}
+function sha256raw(ascii){
+  function rr(v, c){ return (v >>> c) | (v << (32 - c)); }
+  const mathPow = Math.pow, maxWord = mathPow(2, 32);
+  let result = "", words = [], asciiBitLength = ascii.length * 8;
+  let hash = sha256.h = sha256.h || [], k = sha256.k = sha256.k || [], primeCounter = k.length;
+  const isComposite = {};
+  for (let candidate = 2; primeCounter < 64; candidate++){
+    if (!isComposite[candidate]){
+      for (let i = 0; i < 313; i += candidate) isComposite[i] = candidate;
+      hash[primeCounter] = (mathPow(candidate, 0.5) * maxWord) | 0;
+      k[primeCounter++] = (mathPow(candidate, 1/3) * maxWord) | 0;
+    }
+  }
+  ascii += "\x80";
+  while (ascii.length % 64 - 56) ascii += "\x00";
+  for (let i = 0; i < ascii.length; i++){
+    const j = ascii.charCodeAt(i);
+    if (j >> 8) return; // ASCII only
+    words[i >> 2] |= j << ((3 - i) % 4) * 8;
+  }
+  words[words.length] = (asciiBitLength / maxWord) | 0;
+  words[words.length] = asciiBitLength;
+  for (let j = 0; j < words.length;){
+    const w = words.slice(j, j += 16), oldHash = hash.slice(0, 8);
+    for (let i = 0; i < 64; i++){
+      const w15 = w[i - 15], w2 = w[i - 2];
+      const a = hash[0], e = hash[4];
+      const temp1 = hash[7]
+        + (rr(e, 6) ^ rr(e, 11) ^ rr(e, 25))
+        + ((e & hash[5]) ^ (~e & hash[6]))
+        + k[i]
+        + (w[i] = (i < 16) ? w[i] : (
+            w[i - 16]
+            + (rr(w15, 7) ^ rr(w15, 18) ^ (w15 >>> 3))
+            + w[i - 7]
+            + (rr(w2, 17) ^ rr(w2, 19) ^ (w2 >>> 10))
+          ) | 0);
+      const temp2 = (rr(a, 2) ^ rr(a, 13) ^ rr(a, 22))
+        + ((a & hash[1]) ^ (a & hash[2]) ^ (hash[1] & hash[2]));
+      hash = [(temp1 + temp2) | 0].concat(hash);
+      hash[4] = (hash[4] + temp1) | 0;
+    }
+    for (let i = 0; i < 8; i++) hash[i] = (hash[i] + oldHash[i]) | 0;
+  }
+  for (let i = 0; i < 8; i++)
+    for (let j = 3; j + 1; j--){
+      const b = (hash[i] >> (j * 8)) & 255;
+      result += ((b < 16) ? 0 : "") + b.toString(16);
+    }
+  return result;
+}
+// ---- ledger model ----
+const BLOCKS = [
+ {t:"Genesis — founding core hash", v:"immutable core v1: goals, values, archive-integrity rules"},
+ {t:"Archive root, epoch 1", v:"Merkle root of settled-system survey + seed archive"},
+ {t:"Interpretive layer v2", v:"operational definition update: 'valid replica' test refined"},
+ {t:"Accepted design change", v:"radiator fin alloy revision — quorum-signed, sandbox-passed"},
+ {t:"Archive root, epoch 2", v:"Merkle root after first child dispatch"},
+ {t:"Current head", v:"beacon manifest + ledger tip broadcast"}
+];
+function chainHashes(payloads){
+  const out = []; let prev = "0".repeat(16);
+  for (const p of payloads){ const h = sha256(prev + "|" + p).slice(0, 16); out.push(h); prev = h; }
+  return out;
+}
+function decayFrac(t, halflife){ return Math.pow(0.5, t / halflife); }
+if (typeof window !== "undefined") window.__test = {sha256, chainHashes, decayFrac, BLOCKS};
+
+// ---- UI ----
+function rebuildChain(){
+  const inputs = [...document.querySelectorAll(".blk input")].map(i => i.value);
+  const hs = chainHashes(inputs);
+  document.querySelectorAll(".blk").forEach((b, i) => {
+    const committed = b.dataset.committed, now = hs[i];
+    const ok = committed === now || (i > 0 && document.querySelectorAll(".blk")[i-1].classList.contains("bad") === false && committed === now);
+    // a block is bad if its own committed hash no longer matches, or any ancestor is bad
+    let bad = committed !== now;
+    if (!bad) for (let j = 0; j < i; j++) if (document.querySelectorAll(".blk")[j].classList.contains("bad")) bad = true;
+    b.classList.toggle("bad", bad);
+    const hEl = b.querySelector(".h");
+    hEl.textContent = (bad ? "✗ " : "✓ ") + now + (bad ? "  (committed: " + committed + ")" : "");
+    hEl.className = "h " + (bad ? "bad" : "ok");
+  });
+}
+function mkChain(){
+  const h = document.getElementById("chain");
+  const hs = chainHashes(BLOCKS.map(b => b.v));
+  BLOCKS.forEach((B, i) => {
+    if (i) { const l = document.createElement("div"); l.className = "link"; h.appendChild(l); }
+    const d = document.createElement("div"); d.className = "blk"; d.dataset.committed = hs[i];
+    d.innerHTML = "<div class='t'>" + (i) + " · " + B.t + "</div><input value=\"" + B.v +
+                  "\"><div class='h ok'>✓ " + hs[i] + "</div>";
+    d.querySelector("input").addEventListener("input", rebuildChain);
+    h.appendChild(d);
+  });
+}
+function drawVault(){
+  const cv = document.getElementById("cv"), ctx = cv.getContext("2d");
+  const W = cv.width, H = cv.height, L = 46, R = 14, T = 16, B = 34;
+  ctx.clearRect(0,0,W,H);
+  const hl = Math.pow(10, +document.getElementById("hl").value / 10);   // years
+  const ri = Math.pow(10, +document.getElementById("ri").value / 10);   // years
+  const mode = document.querySelector("input[name=mode]:checked").value;
+  document.getElementById("hlv").textContent = hl.toExponential(1) + " yr";
+  document.getElementById("riv").textContent = ri.toExponential(1) + " yr";
+  document.getElementById("rfld").style.opacity = mode === "refresh" ? 1 : .35;
+  const tMax = 1e6;
+  const x = t => L + (Math.log10(Math.max(t,10)) - 1) / (6 - 1) * (W - L - R);
+  const y = f => T + (1 - f) * (H - T - B);
+  ctx.strokeStyle = "rgba(120,150,220,.18)"; ctx.fillStyle = "#93a0c8"; ctx.font = "11px sans-serif";
+  [0,.25,.5,.75,1].forEach(f => { ctx.beginPath(); ctx.moveTo(L, y(f)); ctx.lineTo(W-R, y(f)); ctx.stroke();
+    ctx.textAlign="right"; ctx.fillText((f*100)+"%", L-5, y(f)+4); });
+  [1e2,1e3,1e4,1e5,1e6].forEach(t => { ctx.textAlign="center"; ctx.fillText("10^"+Math.log10(t), x(t), H-B+15); });
+  ctx.fillText("years  (fraction of strands intact)", (L+W-R)/2, H-8);
+  ctx.strokeStyle = mode === "refresh" ? "#7af0a8" : "#ff7a8a"; ctx.lineWidth = 2; ctx.beginPath();
+  let started = false;
+  for (let lx = 1; lx <= 6; lx += 0.01){
+    const t = Math.pow(10, lx);
+    const tt = (mode === "refresh") ? (t % ri) : t;
+    const f = decayFrac(tt, hl);
+    const px = x(t), py = y(f);
+    started ? ctx.lineTo(px, py) : ctx.moveTo(px, py); started = true;
+  }
+  ctx.stroke();
+  ctx.fillStyle = ctx.strokeStyle; ctx.textAlign = "left";
+  ctx.fillText(mode === "refresh" ? "each refresh: read → validate against ledger → re-synthesize" :
+               "passive: decay proceeds unchecked until settlement", L + 8, T + 12);
+}
+if (typeof document !== "undefined" && document.getElementById("chain")){
+  mkChain();
+  ["hl","ri"].forEach(id => document.getElementById(id).addEventListener("input", drawVault));
+  document.querySelectorAll("input[name=mode]").forEach(r => r.addEventListener("change", drawVault));
+  drawVault();
+}
+</script></body></html>

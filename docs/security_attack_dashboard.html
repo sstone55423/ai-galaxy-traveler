@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Targeted Removal — Deep Time AI</title>
+<style>
+  :root{ --bg0:#05060d; --panel:#0e1226; --line:rgba(120,150,220,.18); --txt:#dfe6ff;
+         --dim:#93a0c8; --accent:#7fb3ff; --gold:#ffd35e; --green:#7af0a8; --red:#ff7a8a; }
+  *{box-sizing:border-box}
+  body{margin:0;background:radial-gradient(1200px 800px at 60% -10%,#0b1022,#05060d);
+    color:var(--txt);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;padding:18px;font-size:14px}
+  h1{font-size:18px;margin:0 0 2px} .sub{color:var(--dim);font-size:12px;margin-bottom:14px}
+  .sub a{color:var(--accent);text-decoration:none}
+  .wrap{display:flex;gap:16px;flex-wrap:wrap;align-items:flex-start}
+  .panel{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:15px}
+  #controls{width:300px;flex:none}
+  #controls h2{font-size:11px;text-transform:uppercase;letter-spacing:.6px;color:var(--dim);margin:12px 0 8px}
+  #controls h2:first-child{margin-top:0}
+  button{background:#131a36;border:1px solid var(--line);color:var(--txt);border-radius:9px;
+    padding:7px 11px;margin:0 6px 6px 0;cursor:pointer;font-size:12.5px}
+  button:hover{border-color:var(--accent)}
+  .tog{font-size:12.5px;margin:4px 0;color:var(--dim)} .tog input{margin-right:5px}
+  #mapp{flex:1;min-width:560px}
+  canvas{display:block;background:#080b18;border-radius:10px;width:100%;cursor:crosshair}
+  #read{font-size:13px;margin-top:10px;line-height:1.6;min-height:84px}
+  #read b{color:var(--gold)} #read .g{color:var(--green)} #read .r{color:var(--red)}
+  .note{margin-top:8px;padding:9px 11px;border:1px dashed var(--line);border-radius:9px;color:var(--dim);font-size:12px;line-height:1.5}
+  .note b{color:var(--txt)}
+  .legend{font-size:11.5px;color:var(--dim);margin-top:6px}
+  .legend span{margin-right:14px}
+</style></head><body>
+<h1>Targeted Removal: Attacking the Reachability Graph</h1>
+<div class="sub">The security paper's central computation, live: remove stars from the real 127-star catalogue and watch
+what the Sun can still reach. Companion to <a href="papers/security/">“Security Without Victory”</a> and
+<a href="papers/routing/">“Three Dispatches”</a> · <a href="index.html">deep-time-ai.org</a></div>
+<div class="wrap">
+  <div id="controls" class="panel">
+    <h2>Attack</h2>
+    <button id="bGreedy1">greedy strike ×1</button>
+    <button id="bGreedy6">run greedy ×6</button>
+    <button id="bDeg">degree attack ×3</button>
+    <button id="bReset">reset</button>
+    <div class="tog" style="margin-top:6px">…or click any star on the map to remove / restore it.</div>
+    <h2>Defense — harden nodes (unremovable)</h2>
+    <div class="tog"><label><input type="radio" name="hard" value="0" checked> none</label></div>
+    <div class="tog"><label><input type="radio" name="hard" value="6"> the six a greedy attacker reaches first</label></div>
+    <div class="tog"><label><input type="radio" name="hard" value="9"> all nine articulation points</label></div>
+    <h2>Show</h2>
+    <div class="tog"><label><input type="checkbox" id="showAP" checked> articulation points (gold rings)</label></div>
+    <div class="tog"><label><input type="checkbox" id="showEdges" checked> edges (15 ly hops)</label></div>
+    <div class="note" id="verify"></div>
+  </div>
+  <div id="mapp" class="panel">
+    <canvas id="cv" width="900" height="560"></canvas>
+    <div class="legend">
+      <span style="color:#7af0a8">● reachable from Sun</span>
+      <span style="color:#ff7a8a">● cut off</span>
+      <span style="color:#93a0c8">✕ removed</span>
+      <span style="color:#ffd35e">◯ articulation point</span>
+      <span style="color:#7fb3ff">▣ hardened</span>
+    </div>
+    <div id="read"></div>
+    <div class="note"><b>What the numbers mean.</b> Three targeted removals cost more catalogue reachability than ten random
+    failures — a 3–4× leverage multiplier at small k — but articulation-point leverage is finite: from the seventh strike
+    onward every removal costs exactly one star. Hardening the six a greedy attacker reaches first only <i>halves</i> the
+    advantage (nesting revives three more cut vertices); hardening all nine articulation points removes it entirely. And a
+    degree-ordered attack achieves almost nothing here — the six highest-degree stars each cost exactly one — because a
+    geometric graph has no hubs: its vulnerability lives in cut vertices, not in degree. Random-failure baseline: mean of
+    200 trials per k (precomputed by routing.py and embedded).</div>
+  </div>
+</div>
+<script>
+"use strict";
+const DATA = {"hop":15.0,"n":127,"baseline":106,"aps":[{"i":80,"lost":3},{"i":94,"lost":3},{"i":72,"lost":2},{"i":78,"lost":1},{"i":79,"lost":1},{"i":85,"lost":1},{"i":97,"lost":1},{"i":104,"lost":1},{"i":106,"lost":1}],"greedy12":[{"i":80,"remaining":102},{"i":94,"remaining":98},{"i":72,"remaining":95},{"i":78,"remaining":93},{"i":79,"remaining":91},{"i":85,"remaining":89},{"i":1,"remaining":88},{"i":2,"remaining":87},{"i":3,"remaining":86},{"i":4,"remaining":85},{"i":5,"remaining":84},{"i":6,"remaining":83}],"hardened6":[72,78,79,80,85,94],"hardened9":[72,78,79,80,85,94,97,104,106],"greedy3_h6":[{"i":97,"remaining":104},{"i":104,"remaining":102},{"i":106,"remaining":100}],"greedy3_h9":[{"i":1,"remaining":105},{"i":2,"remaining":104},{"i":3,"remaining":103}],"random_mean_frac":{"1":0.8339,"2":0.8263,"3":0.8188,"4":0.8115,"5":0.804,"6":0.7965,"7":0.7888,"8":0.781,"9":0.7726,"10":0.7659,"11":0.7581,"12":0.7512,"13":0.7438,"14":0.7367,"15":0.7287,"16":0.7218,"17":0.7143,"18":0.7066,"19":0.7001,"20":0.6924},"degree6":[{"i":3,"deg":42,"cost":1},{"i":2,"deg":42,"cost":1},{"i":1,"deg":42,"cost":1},{"i":10,"deg":39,"cost":1},{"i":9,"deg":39,"cost":1},{"i":4,"deg":38,"cost":1}],"stars":[{"name":"Sun","x":0.0,"y":0.0,"z":0.0,"cat":"sun"},{"name":"Proxima Centauri","x":-1.547,"y":-1.185,"z":-3.772,"cat":"planet-host"},{"name":"Alpha Centauri A","x":-1.624,"y":-1.358,"z":-3.793,"cat":"named"},{"name":"Alpha Centauri B","x":-1.624,"y":-1.358,"z":-3.793,"cat":"named"},{"name":"Barnard's Star","x":-0.057,"y":-5.943,"z":0.488,"cat":"planet-host"},{"name":"Wolf 359","x":-7.498,"y":2.139,"z":0.959,"cat":"nearest"},{"name":"Lalande 21185","x":-6.519,"y":1.645,"z":4.879,"cat":"planet-host"},{"name":"Sirius A","x":-1.612,"y":8.078,"z":-2.474,"cat":"named"},{"name":"Sirius B","x":-1.612,"y":8.078,"z":-2.474,"cat":"white-dwarf"},{"name":"Luyten 726-8 A","x":7.541,"y":3.474,"z":-2.691,"cat":"nearest"},{"name":"Luyten 726-8 B","x":7.541,"y":3.474,"z":-2.691,"cat":"nearest"},{"name":"Ross 154","x":1.917,"y":-8.669,"z":-3.922,"cat":"nearest"},{"name":"Ross 248","x":7.364,"y":-0.584,"z":7.178,"cat":"nearest"},{"name":"Epsilon Eridani","x":6.186,"y":8.276,"z":-1.721,"cat":"planet-host"},{"name":"Lacaille 9352","x":8.465,"y":-2.036,"z":-6.292,"cat":"planet-host"},{"name":"Ross 128","x":-10.991,"y":0.583,"z":0.154,"cat":"planet-host"},{"name":"EZ Aquarii A","x":10.041,"y":-3.725,"z":-2.929,"cat":"nearest"},{"name":"61 Cygni A","x":6.463,"y":-6.109,"z":7.138,"cat":"named"},{"name":"61 Cygni B","x":6.468,"y":-6.105,"z":7.136,"cat":"named"},{"name":"Procyon A","x":-4.793,"y":10.361,"z":1.044,"cat":"named"},{"name":"Procyon B","x":-4.793,"y":10.361,"z":1.044,"cat":"white-dwarf"},{"name":"Struve 2398 A","x":1.081,"y":-5.726,"z":9.943,"cat":"nearest"},{"name":"Struve 2398 B","x":1.081,"y":-5.726,"z":9.943,"cat":"nearest"},{"name":"Groombridge 34 A","x":8.331,"y":0.671,"z":8.078,"cat":"planet-host"},{"name":"Groombridge 34 B","x":8.331,"y":0.671,"z":8.078,"cat":"nearest"},{"name":"DX Cancri","x":-6.342,"y":8.277,"z":5.262,"cat":"nearest"},{"name":"Epsilon Indi A","x":5.678,"y":-3.165,"z":-9.928,"cat":"planet-host"},{"name":"Tau Ceti","x":10.293,"y":5.024,"z":-3.271,"cat":"planet-host"},{"name":"GJ 1061","x":5.024,"y":6.913,"z":-8.401,"cat":"planet-host"},{"name":"YZ Ceti","x":11.026,"y":3.611,"z":-3.546,"cat":"planet-host"},{"name":"Luyten's Star","x":-4.577,"y":11.413,"z":1.125,"cat":"planet-host"},{"name":"Teegarden's Star","x":8.711,"y":8.193,"z":3.629,"cat":"planet-host"},{"name":"SCR 1845-6357","x":1.077,"y":-5.413,"z":-11.295,"cat":"nearest"},{"name":"Kapteyn's Star","x":1.898,"y":8.87,"z":-9.076,"cat":"planet-host"},{"name":"Lacaille 8760","x":7.644,"y":-6.57,"z":-8.123,"cat":"nearest"},{"name":"Kruger 60 A","x":6.468,"y":-2.745,"z":11.114,"cat":"nearest"},{"name":"Kruger 60 B","x":6.468,"y":-2.745,"z":11.114,"cat":"nearest"},{"name":"DEN 1048-3956","x":-9.605,"y":3.112,"z":-8.454,"cat":"nearest"},{"name":"Ross 614 A","x":-1.706,"y":13.223,"z":-0.658,"cat":"nearest"},{"name":"Wolf 1061","x":-5.229,"y":-12.672,"z":-3.08,"cat":"planet-host"},{"name":"Van Maanen's Star","x":13.683,"y":2.982,"z":1.321,"cat":"white-dwarf"},{"name":"Gliese 1","x":11.26,"y":0.266,"z":-8.598,"cat":"nearest"},{"name":"Wolf 424 A","x":-13.986,"y":-2.048,"z":2.242,"cat":"nearest"},{"name":"TZ Arietis","x":12.305,"y":7.116,"z":3.295,"cat":"nearest"},{"name":"Gliese 687","x":-0.56,"y":-5.427,"z":13.75,"cat":"planet-host"},{"name":"LHS 292","x":-13.813,"y":4.475,"z":-2.892,"cat":"nearest"},{"name":"Gliese 674","x":-1.378,"y":-10.024,"z":-10.813,"cat":"planet-host"},{"name":"Gliese 1245 A","x":5.043,"y":-9.299,"z":10.368,"cat":"nearest"},{"name":"Gliese 1245 B","x":5.043,"y":-9.299,"z":10.368,"cat":"nearest"},{"name":"LP 145-141","x":-6.39,"y":0.399,"z":-13.631,"cat":"white-dwarf"},{"name":"Gliese 876","x":14.147,"y":-4.239,"z":-3.754,"cat":"planet-host"},{"name":"GJ 1002","x":15.174,"y":0.445,"z":-2.008,"cat":"planet-host"},{"name":"LHS 288","x":-7.116,"y":2.432,"z":-13.679,"cat":"nearest"},{"name":"Gliese 412 A","x":-11.157,"y":2.702,"z":10.903,"cat":"nearest"},{"name":"Gliese 412 B","x":-11.157,"y":2.702,"z":10.903,"cat":"nearest"},{"name":"Groombridge 1618","x":-9.188,"y":4.713,"z":12.077,"cat":"named"},{"name":"AD Leonis","x":-13.578,"y":6.358,"z":5.418,"cat":"named"},{"name":"Gliese 832","x":8.512,"y":-6.321,"z":-12.2,"cat":"planet-host"},{"name":"Gliese 682","x":-1.166,"y":-11.625,"z":-11.405,"cat":"nearest"},{"name":"40 Eridani A","x":7.14,"y":14.53,"z":-2.175,"cat":"planet-host"},{"name":"40 Eridani B","x":7.14,"y":14.53,"z":-2.175,"cat":"white-dwarf"},{"name":"40 Eridani C","x":7.14,"y":14.53,"z":-2.175,"cat":"nearest"},{"name":"EV Lacertae","x":11.184,"y":-3.697,"z":11.508,"cat":"nearest"},{"name":"70 Ophiuchi A","x":0.4,"y":-16.566,"z":0.724,"cat":"named"},{"name":"70 Ophiuchi B","x":0.4,"y":-16.566,"z":0.724,"cat":"named"},{"name":"Altair","x":7.683,"y":-14.636,"z":2.579,"cat":"named"},{"name":"Sigma Draconis","x":2.666,"y":-5.965,"z":17.626,"cat":"named"},{"name":"Gliese 570 A","x":-12.766,"y":-12.74,"z":-6.947,"cat":"named"},{"name":"Eta Cassiopeiae A","x":10.108,"y":2.199,"z":16.436,"cat":"named"},{"name":"36 Ophiuchi A","x":-3.364,"y":-17.103,"z":-8.729,"cat":"named"},{"name":"82 Eridani","x":9.258,"y":11.027,"z":-13.46,"cat":"planet-host"},{"name":"Delta Pavonis","x":4.284,"y":-6.809,"z":-18.224,"cat":"named"},{"name":"Gliese 581","x":-13.02,"y":-15.432,"z":-2.738,"cat":"planet-host"},{"name":"EQ Pegasi A","x":19.034,"y":-2.344,"z":6.955,"cat":"nearest"},{"name":"HD 219134","x":11.285,"y":-2.318,"z":17.856,"cat":"planet-host"},{"name":"HR 8832","x":11.338,"y":-2.34,"z":17.943,"cat":"planet-host"},{"name":"Xi Bootis A","x":-15.165,"y":-14.068,"z":7.163,"cat":"named"},{"name":"Gliese 667 C","x":-3.444,"y":-19.04,"z":-13.547,"cat":"planet-host"},{"name":"Beta Hydri","x":5.334,"y":0.602,"z":-23.73,"cat":"named"},{"name":"107 Piscium","x":20.612,"y":9.865,"z":8.44,"cat":"named"},{"name":"Mu Cassiopeiae","x":13.515,"y":4.154,"z":20.131,"cat":"named"},{"name":"TW Piscis Austrini","x":20.288,"y":-5.81,"z":-13.365,"cat":"named"},{"name":"Vega","x":3.132,"y":-19.266,"z":15.685,"cat":"named"},{"name":"Fomalhaut","x":21.042,"y":-5.87,"z":-12.421,"cat":"planet-host"},{"name":"Chi Draconis","x":0.702,"y":-7.774,"z":25.115,"cat":"named"},{"name":"Pi3 Orionis","x":7.871,"y":24.912,"z":3.19,"cat":"named"},{"name":"p Eridani A","x":13.434,"y":6.257,"z":-22.137,"cat":"named"},{"name":"Chara","x":-20.515,"y":-3.041,"z":18.257,"cat":"named"},{"name":"61 Virginis","x":-24.901,"y":-8.867,"z":-8.741,"cat":"planet-host"},{"name":"Zeta Tucanae","x":11.848,"y":1.041,"z":-25.36,"cat":"named"},{"name":"Chi1 Orionis","x":0.644,"y":26.501,"z":9.793,"cat":"named"},{"name":"HD 192310","x":14.224,"y":-21.245,"z":-13.039,"cat":"planet-host"},{"name":"Gamma Leporis","x":1.811,"y":27.019,"z":-11.188,"cat":"named"},{"name":"Groombridge 1830","x":-23.482,"y":0.723,"z":18.17,"cat":"named"},{"name":"Beta Comae Berenices","x":-25.182,"y":-8.168,"z":14.005,"cat":"named"},{"name":"Gamma Pavonis","x":9.872,"y":-7.817,"z":-27.461,"cat":"named"},{"name":"Gliese 436","x":-28.322,"y":2.202,"z":14.291,"cat":"planet-host"},{"name":"12 Ophiuchi","x":-11.323,"y":-29.797,"z":-1.239,"cat":"named"},{"name":"Alpha Mensae","x":-0.391,"y":8.695,"z":-31.935,"cat":"named"},{"name":"Pollux","x":-13.226,"y":26.725,"z":15.873,"cat":"planet-host"},{"name":"Iota Persei","x":15.13,"y":16.368,"z":26.202,"cat":"named"},{"name":"Denebola","x":-34.706,"y":1.657,"z":9.032,"cat":"named"},{"name":"54 Piscium","x":32.668,"y":8.439,"z":13.117,"cat":"planet-host"},{"name":"Gamma Serpentis","x":-17.916,"y":-30.011,"z":9.8,"cat":"named"},{"name":"Theta Persei A","x":18.111,"y":15.597,"z":27.718,"cat":"named"},{"name":"Arcturus","x":-28.765,"y":-19.341,"z":12.059,"cat":"giant"},{"name":"Eta Bootis","x":-30.805,"y":-16.842,"z":11.678,"cat":"named"},{"name":"Gamma Virginis A","x":-37.461,"y":-6.884,"z":-0.964,"cat":"named"},{"name":"Beta Trianguli Australis","x":-9.364,"y":-15.455,"z":-36.133,"cat":"named"},{"name":"TRAPPIST-1","x":39.404,"y":-9.37,"z":-3.573,"cat":"planet-host"},{"name":"HD 69830","x":-22.744,"y":32.913,"z":-8.969,"cat":"planet-host"},{"name":"55 Cancri A","x":-24.72,"y":26.366,"z":19.485,"cat":"planet-host"},{"name":"HD 147513","x":-13.184,"y":-29.761,"z":-26.542,"cat":"planet-host"},{"name":"Capella Aa","x":5.599,"y":29.271,"z":30.859,"cat":"giant"},{"name":"Upsilon Andromedae","x":30.104,"y":13.524,"z":29.101,"cat":"planet-host"},{"name":"Beta Aquilae","x":21.414,"y":-38.918,"z":4.988,"cat":"named"},{"name":"Gamma Cephei","x":9.578,"y":-0.865,"z":43.858,"cat":"planet-host"},{"name":"47 Ursae Majoris","x":-33.73,"y":9.109,"z":29.768,"cat":"planet-host"},{"name":"Gliese 1214","x":-9.211,"y":-46.417,"z":4.11,"cat":"planet-host"},{"name":"Rasalhague","x":-5.178,"y":-47.154,"z":10.569,"cat":"named"},{"name":"LHS 1140","x":46.269,"y":9.19,"z":-12.881,"cat":"planet-host"},{"name":"51 Pegasi","x":45.428,"y":-12.708,"z":17.889,"cat":"planet-host"},{"name":"Castor A","x":-17.368,"y":39.667,"z":26.942,"cat":"named"},{"name":"Tau Bootis A","x":-43.411,"y":-21.965,"z":15.299,"cat":"planet-host"},{"name":"HD 10647","x":30.319,"y":14.738,"z":-45.962,"cat":"planet-host"},{"name":"Pi Mensae","x":0.877,"y":9.846,"z":-58.876,"cat":"planet-host"},{"name":"HD 189733","x":29.855,"y":-51.467,"z":24.902,"cat":"planet-host"}]};
+// ---- graph (JS re-implementation of routing.py; verified against DATA at load) ----
+function buildGraph(hop){
+  const s = DATA.stars, n = s.length, adj = Array.from({length: n}, () => []);
+  for (let i = 0; i < n; i++) for (let j = i + 1; j < n; j++){
+    const dx = s[i].x - s[j].x, dy = s[i].y - s[j].y, dz = s[i].z - s[j].z;
+    if (Math.sqrt(dx*dx + dy*dy + dz*dz) <= hop){ adj[i].push(j); adj[j].push(i); }
+  }
+  return adj;
+}
+function reachable(adj, removed){
+  if (removed.has(0)) return new Set();
+  const seen = new Set([0]), q = [0];
+  while (q.length){
+    const u = q.pop();
+    for (const v of adj[u]) if (!seen.has(v) && !removed.has(v)){ seen.add(v); q.push(v); }
+  }
+  seen.delete(0); return seen;
+}
+function sunReach(adj, removed){ return reachable(adj, removed).size; }
+function articulation(adj){
+  const base = reachable(adj, new Set()), out = [];
+  for (const i of base){
+    const lost = base.size - 1 - sunReach(adj, new Set([i]));
+    if (lost > 0) out.push({i, lost});
+  }
+  out.sort((a, b) => b.lost - a.lost || a.i - b.i);
+  return out;
+}
+function greedyStep(adj, removed, forbid){
+  let best = null, bi = -1;
+  const n = adj.length;
+  for (let i = 1; i < n; i++){
+    if (removed.has(i) || forbid.has(i)) continue;
+    const r = sunReach(adj, new Set([...removed, i]));
+    if (best === null || r < best){ best = r; bi = i; }
+  }
+  return bi;
+}
+if (typeof window !== "undefined")
+  window.__test = {buildGraph, sunReach, articulation, greedyStep, DATA};
+
+// ---- state & UI ----
+let adj, removed = new Set(), aps = [];
+const $ = id => document.getElementById(id);
+function hardenedSet(){
+  const v = document.querySelector("input[name=hard]:checked").value;
+  return new Set(v === "6" ? DATA.hardened6 : v === "9" ? DATA.hardened9 : []);
+}
+function project(){
+  // fit x,y to canvas
+  const s = DATA.stars, cv = $("cv");
+  let minx = 1e9, maxx = -1e9, miny = 1e9, maxy = -1e9;
+  for (const p of s){ minx = Math.min(minx, p.x); maxx = Math.max(maxx, p.x);
+                      miny = Math.min(miny, p.y); maxy = Math.max(maxy, p.y); }
+  const pad = 26, sc = Math.min((cv.width - 2*pad) / (maxx - minx), (cv.height - 2*pad) / (maxy - miny));
+  return p => [pad + (p.x - minx) * sc, cv.height - pad - (p.y - miny) * sc];
+}
+let P;
+function draw(){
+  const cv = $("cv"), ctx = cv.getContext("2d");
+  ctx.clearRect(0, 0, cv.width, cv.height);
+  const hard = hardenedSet(), reach = reachable(adj, removed);
+  if ($("showEdges").checked){
+    ctx.strokeStyle = "rgba(120,150,220,.10)"; ctx.lineWidth = 1;
+    for (let i = 0; i < adj.length; i++){
+      if (removed.has(i)) continue;
+      for (const j of adj[i]){
+        if (j < i || removed.has(j)) continue;
+        const a = P(DATA.stars[i]), b = P(DATA.stars[j]);
+        ctx.beginPath(); ctx.moveTo(a[0], a[1]); ctx.lineTo(b[0], b[1]); ctx.stroke();
+      }
+    }
+  }
+  for (let i = 0; i < DATA.stars.length; i++){
+    const [px, py] = P(DATA.stars[i]);
+    if (removed.has(i)){
+      ctx.strokeStyle = "#93a0c8"; ctx.lineWidth = 1.6;
+      ctx.beginPath(); ctx.moveTo(px-4, py-4); ctx.lineTo(px+4, py+4);
+      ctx.moveTo(px+4, py-4); ctx.lineTo(px-4, py+4); ctx.stroke();
+      continue;
+    }
+    ctx.fillStyle = i === 0 ? "#ffd35e" : reach.has(i) ? "#7af0a8" : "#ff7a8a";
+    ctx.beginPath(); ctx.arc(px, py, i === 0 ? 5 : 3, 0, Math.PI * 2); ctx.fill();
+    if ($("showAP").checked && aps.some(a => a.i === i)){
+      ctx.strokeStyle = "#ffd35e"; ctx.lineWidth = 1.4;
+      ctx.beginPath(); ctx.arc(px, py, 7, 0, Math.PI * 2); ctx.stroke();
+    }
+    if (hard.has(i)){
+      ctx.strokeStyle = "#7fb3ff"; ctx.lineWidth = 1.4;
+      ctx.strokeRect(px - 6, py - 6, 12, 12);
+    }
+  }
+  const sunP = P(DATA.stars[0]);
+  ctx.fillStyle = "#ffd35e"; ctx.font = "11px sans-serif"; ctx.textAlign = "left";
+  ctx.fillText("Sun", sunP[0] + 8, sunP[1] + 4);
+  // readout
+  const k = removed.size, r = sunReach(adj, removed), tot = DATA.n - 1;
+  const lost = DATA.baseline - r;
+  let html = "Removed: <b>" + k + "</b> · Sun reaches <b>" + r + "/" + tot + "</b> (" +
+             (100 * r / tot).toFixed(1) + "%) · stars lost beyond the removals themselves: <b>" +
+             Math.max(0, lost - k) + "</b>";
+  if (k >= 1 && k <= 20){
+    const randR = DATA.random_mean_frac[k] * tot;
+    const tLoss = DATA.baseline - r, rLoss = DATA.baseline - randR;
+    if (rLoss > 0.2){
+      const mult = tLoss / rLoss;
+      html += "<br>Random-failure baseline at k=" + k + ": " + randR.toFixed(1) +
+              " reachable → your attack is <b class='" + (mult > 1.5 ? "r" : "g") + "'>" +
+              mult.toFixed(2) + "×</b> as damaging as random loss.";
+    }
+  }
+  $("read").innerHTML = html;
+}
+function reset(){ removed = new Set(); draw(); }
+function init(){
+  adj = buildGraph(DATA.hop);
+  aps = articulation(adj);
+  P = project();
+  // self-verification against the embedded python reference
+  const okBase = sunReach(adj, new Set()) === DATA.baseline;
+  const okAP = aps.length === DATA.aps.length &&
+    DATA.aps.every(a => aps.some(b => b.i === a.i && b.lost === a.lost));
+  let okGreedy = true; const rm = new Set();
+  for (const step of DATA.greedy12.slice(0, 6)){
+    const pick = greedyStep(adj, rm, new Set());
+    rm.add(pick);
+    if (sunReach(adj, rm) !== step.remaining) okGreedy = false;
+  }
+  $("verify").innerHTML = (okBase && okAP && okGreedy)
+    ? "<b style='color:#7af0a8'>✓ self-check passed:</b> this page's JS reproduces routing.py exactly — baseline " +
+      DATA.baseline + "/" + (DATA.n - 1) + " reachable at " + DATA.hop + " ly, " + DATA.aps.length +
+      " articulation points, and the greedy sequence, all match the embedded Python-computed reference."
+    : "<b style='color:#ff7a8a'>✗ self-check FAILED — do not trust this page's numbers.</b>";
+  $("bGreedy1").onclick = () => { const i = greedyStep(adj, removed, hardenedSet()); if (i >= 0) removed.add(i); draw(); };
+  $("bGreedy6").onclick = () => { const h = hardenedSet();
+    for (let s = 0; s < 6; s++){ const i = greedyStep(adj, removed, h); if (i >= 0) removed.add(i); } draw(); };
+  $("bDeg").onclick = () => { DATA.degree6.slice(0, 3).forEach(d => removed.add(d.i)); draw(); };
+  $("bReset").onclick = reset;
+  document.querySelectorAll("input").forEach(i => i.addEventListener("change", draw));
+  $("cv").addEventListener("click", ev => {
+    const rect = $("cv").getBoundingClientRect();
+    const mx = (ev.clientX - rect.left) * $("cv").width / rect.width;
+    const my = (ev.clientY - rect.top) * $("cv").height / rect.height;
+    let bi = -1, bd = 1e9;
+    for (let i = 1; i < DATA.stars.length; i++){
+      const [px, py] = P(DATA.stars[i]);
+      const d = (px - mx) ** 2 + (py - my) ** 2;
+      if (d < bd){ bd = d; bi = i; }
+    }
+    if (bi >= 0 && bd < 150){
+      if (removed.has(bi)) removed.delete(bi);
+      else if (!hardenedSet().has(bi)) removed.add(bi);
+      draw();
+    }
+  });
+  draw();
+}
+if (typeof document !== "undefined" && document.getElementById("cv")) init();
+</script></body></html>
