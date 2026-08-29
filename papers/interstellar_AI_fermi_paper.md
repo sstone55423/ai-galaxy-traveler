@@ -192,7 +192,7 @@ First, search should include **low-luminosity industrial systems**, not only hig
 
 Second, surveys should take **small-body reservoirs** seriously. Asteroid belts, Kuiper-belt analogues, comet clouds, and dynamically stable minor-body populations may be more relevant than planetary surfaces.
 
-Third, SETI should attend to **transient narrow-beam signals**. A quiet lineage may communicate rarely and directionally, so non-detection of broad beacons is weak evidence against such systems. Current instruments are largely built for the opposite case: the COSMIC system on the VLA searches commensally for narrowband signals drifting in frequency, beamforming toward Gaia-catalogue stars in the field of view (Myburgh et al. 2026). That design assumes a persistent, Doppler-drifting carrier — precisely the signature a rarely and directionally communicating lineage would not produce.
+Third, SETI should attend to **transient narrow-beam signals**. A quiet lineage may communicate rarely and directionally, so non-detection of broad beacons is weak evidence against such systems. Current instruments are largely built for the opposite case: the COSMIC system on the VLA searches commensally for narrowband signals drifting in frequency, beamforming toward Gaia-catalogue stars in the field of view (Myburgh et al. 2026). That design assumes a persistent, Doppler-drifting carrier — precisely the signature a rarely and directionally communicating lineage would not produce. The sensitivity floor makes the same point quantitatively. A deep FAST pointing at TRAPPIST-1 — five L-band pointings, 1.67 hr on source, ~7.5 Hz resolution — reaches a minimum detectable EIRP of about 1.44 × 10^10 W for minimally drifting narrowband signals, degrading to about 3.84 × 10^11 W at drift rates of 20 Hz/s, and found nothing (Song et al. 2026). A settled node whose entire manufacturing load is ~4 kW does not approach that floor except by deliberately beaming at Earth with extreme antenna gain during the hours the dish happens to be pointed at it; non-detection at 10^10 W is a statement about beacons, not about a lineage that never intended to be heard.
 
 Fourth, interstellar objects deserve scrutiny as possible **messenger probes**, in the sense developed in Section 8. The prior probability may be low, but the scientific value of discriminating natural from artificial interstellar objects is high.
 
@@ -283,6 +283,8 @@ Myburgh, T., Stiegler, N., Tremblay, C. D., Bright, J. S., & Donnachie, R. A. (2
 Omohundro, S. M. (2008). The basic AI drives. In *Proceedings of the First Conference on Artificial General Intelligence (AGI 2008)* (pp. 483–492). IOS Press.
 
 Sagan, C., & Newman, W. I. (1983). The solipsist approach to extraterrestrial intelligence. *Quarterly Journal of the Royal Astronomical Society*, 24, 113–121.
+
+Song, G.-Y., Tao, Z.-Z., Huang, B.-L., Yu, B., & Zhang, T.-J. (2026). A deep SETI search for technosignatures in the TRAPPIST-1 system with FAST. *The Astronomical Journal*, 172(3), 181. https://doi.org/10.3847/1538-3881/ae8516
 
 Tipler, F. J. (1980). Extraterrestrial intelligent beings do not exist. *Quarterly Journal of the Royal Astronomical Society*, 21, 267–281.
 
