@@ -79,10 +79,10 @@ record, the vehicle paper goes first — it is the series' entry point.
 - **JBIS**: before depositing whichever paper is submitted to JBIS, confirm JBIS's
   prior-posting policy. If it is restrictive, hold that one paper out of wave 1;
   everything else is unaffected.
-- **Metadata**: per-paper record metadata (title, byline S. Stone, abstract as
-  description, keywords, related-identifier links among the sixteen and to cited arXiv
-  IDs) can be generated from the sources; upload itself is the user's step (API token
-  or web UI).
+- **Metadata**: per-paper record metadata (title, byline S. Stone with ORCID
+  0000-0003-2718-6848, abstract as description, keywords, related-identifier links
+  among the sixteen and to cited arXiv IDs) can be generated from the sources; upload
+  itself is the user's step (API token or web UI).
 
 ## Current per-paper bibliographic exposure (arXiv-only refs / total)
 
