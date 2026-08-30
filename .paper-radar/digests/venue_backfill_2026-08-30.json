@@ -1,0 +1,1867 @@
+[
+ {
+  "source": "venue",
+  "title": "When Performance Persists Beyond Admissibility: A Comparative Modeling Study of Supervisory Autonomy Under Delay in Lunar Surface Operations",
+  "authors": [
+   "RALPH FIGUEROA"
+  ],
+  "date": "2026-08-01",
+  "year": 2026,
+  "venue": "Journal of the British Interplanetary Society",
+  "doi": "10.59332/jbis-079-08-0280",
+  "arxiv_id": null,
+  "url": "https://doi.org/10.59332/jbis-079-08-0280",
+  "abstract": "Lunar surface operations will require supervisory autonomy because communication delay prevents continuous human validation of local decisions. Under such conditions, an autonomous system may remain functionally effective after the conditions justifying continued action have begun to fail. This paper compares a simplified performance-only continuation policy with an assurance-bounded policy. The comparison uses a supervisory-strain model in which delay and hazard drift increase the burden of continued action while decision fidelity reduces it. Because the policies use different decision variables, divergence is expected by construction. The contribution is to show where, how much, and in which mission contexts that divergence appears. Across representative contexts, the assurance-bounded policy constrains or defers in cases where the performance-only policy still continues. The study also includes a preliminary proxy-based anchoring step using 60 public Perseverance cases to support limited threshold adjustme",
+  "paper_key": "probe",
+  "found_via": "venue backfill: Journal of the British Interplanetary Society"
+ },
+ {
+  "source": "venue",
+  "title": "CARD as a Mission Assurance Dataset for Autonomous Lunar Surface Operations under Artemis and CLPS",
+  "authors": [
+   "SYLVESTER KACZMAREK"
+  ],
+  "date": "2026-08-01",
+  "year": 2026,
+  "venue": "Journal of the British Interplanetary Society",
+  "doi": "10.59332/jbis-079-08-0308",
+  "arxiv_id": null,
+  "url": "https://doi.org/10.59332/jbis-079-08-0308",
+  "abstract": "Autonomous lunar surface operations under Artemis and the Commercial Lunar Payload Services (CLPS) initiative require assurance evidence for onboard anomaly detection, fault response, communications integrity and safe operation under limited supervision. This paper presents the Cislunar Anomaly and Risk Dataset (CARD) as a release-aware mission-assurance dataset architecture for such operations. Rather than presenting CARD as a single public monolithic benchmark, the paper defines a structured evidence model with simulated scenario families, mission-derived analogue source families, provenance-preserving manifests, split definitions, anomaly labels, severity fields and bounded public reproducibility artefacts. The contribution is methodological and architectural: it specifies what evidence a lunar autonomy benchmark must preserve to make anomaly-detection results interpretable, reproducible where possible and safe to release. The paper defines the lunar surface anomaly taxonomy, explains provenance-aware eval",
+  "paper_key": "probe",
+  "found_via": "venue backfill: Journal of the British Interplanetary Society"
+ },
+ {
+  "source": "venue",
+  "title": "Pulpal Hemodynamics in Microgravity: An Exhaustive and Speculative Analysis of Aerospace Endodontic Physiology",
+  "authors": [
+   "LUCIANO BARRETO SILVA"
+  ],
+  "date": "2026-08-01",
+  "year": 2026,
+  "venue": "Journal of the British Interplanetary Society",
+  "doi": "10.59332/jbis-079-08-0274",
+  "arxiv_id": null,
+  "url": "https://doi.org/10.59332/jbis-079-08-0274",
+  "abstract": "Long-duration space exploration imposes unprecedented physiological challenges on the human body. While muscular atrophy, bone demineralization, and Spaceflight Associated Neuro-ocular Syndrome (SANS) have been extensively studied, the physiological response of the dental pulp, a low-compliance connective tissue encapsulated within a rigid chamber, remains an unexplored frontier in aerospace medicine. This report proposes an in-depth speculative analysis, grounded in the extrapolation of terrestrial physiological data and space analogs, to model the behavior of pulpal circulation in intact teeth under microgravity conditions. The central hypothesis suggests that the dental pulp is not a passive bystander but an active participant in the cephalad fluid redistribution, subject to a hydrostatic conflict between passive venous congestion and reflex sympathetic vasoconstriction. This phenomenon, herein termed “Aerospace Pulpal Hemodynamic Stress,” may precipitate accelerated tissue aging, early calcific obliterati",
+  "paper_key": "probe",
+  "found_via": "venue backfill: Journal of the British Interplanetary Society"
+ },
+ {
+  "source": "venue",
+  "title": "Decision Freshness Boundaries Under Delayed Supervision in Lunar Surface Operations",
+  "authors": [
+   "RALPH FIGUEROA"
+  ],
+  "date": "2026-08-01",
+  "year": 2026,
+  "venue": "Journal of the British Interplanetary Society",
+  "doi": "10.59332/jbis-079-08-0291",
+  "arxiv_id": null,
+  "url": "https://doi.org/10.59332/jbis-079-08-0291",
+  "abstract": "Lunar surface operations will depend on remote supervision under persistent nonzero communication delay, yet the literature still lacks a compact framework for identifying when delayed supervisory input remains useful for local action. Existing studies show that delay can degrade teleoperation performance, increase workload, disrupt crew-ground coordination, and weaken common ground, but these effects vary with task structure, communication medium, and operational tempo. This paper reframes the problem as decision freshness, defined here as the operational validity of delayed supervisory input at the moment of local execution. From this premise, the paper develops a boundary framework that distinguishes three supervisory roles under delay: corrective, in which delayed input still improves immediate local action; advisory, in which input remains useful for interpretation, planning, constraints, or trend assessment but no longer reliably improves immediate correction; and historical, in which supervision primar",
+  "paper_key": "probe",
+  "found_via": "venue backfill: Journal of the British Interplanetary Society"
+ },
+ {
+  "source": "venue",
+  "title": "Operational Sustainability of Geosynchronous Equatorial Orbit: Analyzing the Impact of Localized Fragmentation Events on Space Operations in GEO",
+  "authors": [
+   "JAKUB LÉS"
+  ],
+  "date": "2026-08-01",
+  "year": 2026,
+  "venue": "Journal of the British Interplanetary Society",
+  "doi": "10.59332/jbis-079-08-0297",
+  "arxiv_id": null,
+  "url": "https://doi.org/10.59332/jbis-079-08-0297",
+  "abstract": "By 2025, the number of artificial space objects within a 200-kilometer altitude band surrounding geosynchronous equatorial orbit (GEO) and within a latitudinal range of ±15 degrees from the equator exceeded 4,000. While the growth rate of objects in GEO is low compared to that observed in low Earth orbit (LEO), their number is nonetheless increasing. Despite a lower collision probability compared to LEO, the risk of satellite-debris collisions in GEO remains a concern - particularly in light of high-energy fragmentation events such as the Intelsat 33e incident, resulting in generation of over 700 debris fragments. Given the relatively stable environment of GEO, necessity for satellites to maintain precise positions, high cost of placement, and limited capabilities for collision avoidance maneuvers, localized fragmentation events could pose significant operational risks. With a definitive lack of atmospheric drag, natural cleansing mechanisms present at GEO possess limited influence. As a result, debris in GEO can persist longer than in LEO and due to the greater distance, their detection from Earth remains even more challenging. In 2025, public agencies and leading companies in the field (e.g. ExoAnalytic Solutions) are unable to observe fragments smaller than 0.1 m. This paper presents the results of Monte Carlo simulations examining the short- term effects of satellite collisions and explosion-based fragmentation events within GEO. In the course of the simulations, performe",
+  "paper_key": "probe",
+  "found_via": "venue backfill: Journal of the British Interplanetary Society"
+ },
+ {
+  "source": "venue",
+  "title": "Rethinking the Space Elevator: Magnetic Load Offloading in Earth’s Geomagnetic Field",
+  "authors": [
+   "MICHAL KROUPA"
+  ],
+  "date": "2026-07-09",
+  "year": 2026,
+  "venue": "Journal of the British Interplanetary Society",
+  "doi": "10.59332/jbis-079-07-0250",
+  "arxiv_id": null,
+  "url": "https://doi.org/10.59332/jbis-079-07-0250",
+  "abstract": "The concept of a space elevator promises a fundamentally different approach to accessing space, with the potential to dramatically reduce the cost of transporting payloads and energy beyond Earth. The primary obstacle to its realization has long been the extreme tensile strength required of a continuous tether extending from Earth’s surface to geostationary orbit. Even the strongest commercially available materials fail by orders of magnitude, while more exotic candidates such as graphene or carbon nanotubes remain far beyond current manufacturing capabilities at the necessary scale. This article explores an alternative architectural approach that reduces structural demands by redistributing the load along the tether. Instead of relying on a single ultra-strong cable, the proposed concept employs periodic offloading of the tether’s weight using Lorentz forces generated by electric currents flowing through superconducting segments interacting with Earth’s magnetic field. A ladder-like structure, composed of ho",
+  "paper_key": "probe",
+  "found_via": "venue backfill: Journal of the British Interplanetary Society"
+ },
+ {
+  "source": "venue",
+  "title": "Retaining Earth’s Habitability Beyond the Life of the Sun",
+  "authors": [
+   "GABRIEL HARRY"
+  ],
+  "date": "2026-07-09",
+  "year": 2026,
+  "venue": "Journal of the British Interplanetary Society",
+  "doi": "10.59332/jbis-079-07-0230",
+  "arxiv_id": null,
+  "url": "https://doi.org/10.59332/jbis-079-07-0230",
+  "abstract": "The Earth is rare and large-scale interstellar travel may be unfeasible – instead of migrating to other solar systems, future civilisations on Earth may have to remain. However, left unchecked, the Earth’s current habitability will end in one billion years. This paper investigates and conceptualises a set of megaengineering concepts required to safeguard against seven long-term threats to Earth’s habitability: solar luminosity, solar engulfment, the end of tectonics, water loss, obliquity and rotation, object collision, and extra-system threats. Implementing and maintaining the set of safeguards would allow the Earth to remain habitable for 9.1 million billion years. This could be raised by an order of magnitude via lifting and moving solar photospheric mass. Compared with alternatives, advantages of the safeguards such as greater feasibility, lower requisite rate of energy production, and utilisation of economically viable space mining infrastructure may present remaining on Earth as a more attractive long-t",
+  "paper_key": "probe",
+  "found_via": "venue backfill: Journal of the British Interplanetary Society"
+ },
+ {
+  "source": "venue",
+  "title": "The Challenge of Accumulated Double-strand Breaks for Space Colonization",
+  "authors": [
+   "SAMUEL MCKEE"
+  ],
+  "date": "2026-07-09",
+  "year": 2026,
+  "venue": "Journal of the British Interplanetary Society",
+  "doi": "10.59332/jbis-079-07-0244",
+  "arxiv_id": null,
+  "url": "https://doi.org/10.59332/jbis-079-07-0244",
+  "abstract": "Astronauts are exposed to far higher levels of radiation in space than on earth, which is compounded in deep space travel. Furthermore, human physiology underperforms, and the immune system is suppressed in microgravity. Research on astronauts in short and long duration missions has shown elevated levels of DNA repair breakdown as well as on model organisms studied in space. Solar radiation and galactic cosmic rays in particular pose an enormous threat due to high levels of double-strand breaks in the DNA which pose the highest risks of cancer, and potential fatality. In this paper we shall outline several courses of action, some potentially exciting possibilities, and how people could survive long term under the risk of accruing larger levels of double-strand breaks, drawing on protein study at the University of Reading.",
+  "paper_key": "probe",
+  "found_via": "venue backfill: Journal of the British Interplanetary Society"
+ },
+ {
+  "source": "venue",
+  "title": "The Prospective Evolution of the Human Cranium in Zero-g Environments",
+  "authors": [
+   "LUCIANO BARRETO SILVA"
+  ],
+  "date": "2026-07-09",
+  "year": 2026,
+  "venue": "Journal of the British Interplanetary Society",
+  "doi": "10.59332/jbis-079-07-0257",
+  "arxiv_id": null,
+  "url": "https://doi.org/10.59332/jbis-079-07-0257",
+  "abstract": "This paper explores the hypothetical future evolution of the human cranium, specifically focusing on the profound influence of prolonged exposure to microgravity environments. Building upon established trends of cranial gracilization and neurocranial expansion observed throughout hominization, it is proposed that the unique selective pressures of space colonization could significantly accelerate these processes. While past evolutionary changes were driven by factors such as diet, locomotion, and encephalization, the absence of terrestrial gravity introduces novel physiological challenges and opportunities for adaptation. The hypothetical nature of these projections is reinforced, particularly for “multiple generations” (estimated within 100-500 years), drawing parallels with rapid demineralization observed in NASA data and accelerated geographical isolation in primate populations. This analysis integrates insights from paleoanthropology, developmental biology, and space medicine to present a comprehensive, albeit speculative, model of future human cranial morphology, emphasizing the acceleration of existing evolutionary trends rather than entirely new causal mechanisms. The potential for phenotypic divergence and its societal implications are also briefly discussed, recognizing the complex interplay between biological adaptation and cultural evolution.",
+  "paper_key": "probe",
+  "found_via": "venue backfill: Journal of the British Interplanetary Society"
+ },
+ {
+  "source": "venue",
+  "title": "The Viability of Systems for Orbital-discarded Upper Stage Remediation and Salvage",
+  "authors": [
+   "GRIFFITH INGRAM"
+  ],
+  "date": "2026-07-09",
+  "year": 2026,
+  "venue": "Journal of the British Interplanetary Society",
+  "doi": "10.59332/jbis-079-07-0262",
+  "arxiv_id": null,
+  "url": "https://doi.org/10.59332/jbis-079-07-0262",
+  "abstract": "Future growth of the debris population will be driven primarily by collisions between large “derelicts”—expended final stages of launch vehicles and defunct payloads. Historically, final stages have been left in orbits essential for active utilisation. While de-orbiting preserves these orbits, it poses two distinct hazards: pollution of the upper atmosphere and impact danger to the Earth's surface. Furthermore, these derelicts possess monetary value due to their position and their composition of high- grade aerospace alloys. This paper will examine a specific case, chosen for its technical difficulty and the degree of danger to space sustainability, and will posit two possible options for salvaging such derelicts: firstly, a two-component system, comprising a “Seeker-Tug” vehicle capable of grappling with satellite objects and altering their orbit, and an “Orbital Recycling Centre” to repurpose such objects or recycle their materials and components; secondly, a vehicle which combines both functions, designed",
+  "paper_key": "probe",
+  "found_via": "venue backfill: Journal of the British Interplanetary Society"
+ },
+ {
+  "source": "venue",
+  "title": "From AlphaFold to Astronauts: Implications of Bioinformatics and Computational Biology for the Space Age",
+  "authors": [
+   "SAMUEL MCKEE"
+  ],
+  "date": "2026-07-09",
+  "year": 2026,
+  "venue": "Journal of the British Interplanetary Society",
+  "doi": "10.59332/jbis-079-07-0268",
+  "arxiv_id": null,
+  "url": "https://doi.org/10.59332/jbis-079-07-0268",
+  "abstract": "\"When considering technologies the space industry should be investing in, as well as the integration of AI and automation into new space activities, it can no longer be ignored how much computational biology has transformed over the past two decades. With the award of the 2024 Nobel Prize [1] for AlphaFold [2] and the breakthrough work of David Baker [3], the radical development of bioinformatics and what it promises for genomic medicine, the space age (as well as life on earth) faces its next technological leap in personalised medicine. In thinking about how to reframe our priorities to remain relevant in this new era, this paper breaks down the potential avenues of disruption and development that bioinformatics and computational biology could bring to human space settlement, both long term in low earth orbit (LEO), and for Moon and Mars missions. Following our recent advances witnessed in the Critical Assessment of Structure Prediction (CASP) experiments, we are now capable of predicting medically relevant macromolecular structures for disease and drug design which promise faster drug development, disruption in antimicrobials and new understanding in genomic medicine. The potential applications for human space sustainability could mean humans travel further, thrive longer, and perhaps could even colonize Mars in ways previously unconsidered as these applications of AI and machine learning can assist in overcoming many current physiological limitations. \"",
+  "paper_key": "probe",
+  "found_via": "venue backfill: Journal of the British Interplanetary Society"
+ },
+ {
+  "source": "venue",
+  "title": "Surrogate model-based multi-objective optimization for modular spaceborne antenna panels",
+  "authors": [
+   "Rongmao Yang",
+   "Song Xue",
+   "Qiankun Fan",
+   "Wanlu Hu",
+   "Peiyuan Lian",
+   "Shikun Zheng",
+   "Congsi Wang"
+  ],
+  "date": "2026-12",
+  "year": 2026,
+  "venue": "Acta Astronautica",
+  "doi": "10.1016/j.actaastro.2026.07.059",
+  "arxiv_id": null,
+  "url": "https://doi.org/10.1016/j.actaastro.2026.07.059",
+  "abstract": "",
+  "paper_key": "probe",
+  "found_via": "venue backfill: Acta Astronautica"
+ },
+ {
+  "source": "venue",
+  "title": "Energy-aware hybrid rolling-hopping locomotion control for six-bar tensegrity robots on Mars",
+  "authors": [
+   "Ruiwei Liu",
+   "Xinyue Chen",
+   "Tengfei Wang",
+   "Xiaowei Ji",
+   "Yuanrong Hong",
+   "Jian Teng"
+  ],
+  "date": "2026-12",
+  "year": 2026,
+  "venue": "Acta Astronautica",
+  "doi": "10.1016/j.actaastro.2026.07.040",
+  "arxiv_id": null,
+  "url": "https://doi.org/10.1016/j.actaastro.2026.07.040",
+  "abstract": "",
+  "paper_key": "probe",
+  "found_via": "venue backfill: Acta Astronautica"
+ },
+ {
+  "source": "venue",
+  "title": "Chang'e-5 lunar regolith simulant with artificial lunar glass guided by agglutinate samples",
+  "authors": [
+   "Jiayuan Liu",
+   "Siqi Zhou",
+   "Feng Li",
+   "Yutong Deng",
+   "Jingdong Zhao"
+  ],
+  "date": "2026-12",
+  "year": 2026,
+  "venue": "Acta Astronautica",
+  "doi": "10.1016/j.actaastro.2026.08.024",
+  "arxiv_id": null,
+  "url": "https://doi.org/10.1016/j.actaastro.2026.08.024",
+  "abstract": "",
+  "paper_key": "probe",
+  "found_via": "venue backfill: Acta Astronautica"
+ },
+ {
+  "source": "venue",
+  "title": "Corrigendum to “Integrated 2D two-phase flow simulation with porous media model for 98% hydrogen peroxide monopropellant thruster” [Acta Astronaut. 246 (2026) 32-48]",
+  "authors": [
+   "Yuchen Zhang",
+   "Yuanjun Zhang",
+   "Guobiao Cai",
+   "Minzhang Tong",
+   "Chaoliang Mu",
+   "Hui Tian",
+   "Hao Zhu"
+  ],
+  "date": "2026-12",
+  "year": 2026,
+  "venue": "Acta Astronautica",
+  "doi": "10.1016/j.actaastro.2026.08.049",
+  "arxiv_id": null,
+  "url": "https://doi.org/10.1016/j.actaastro.2026.08.049",
+  "abstract": "",
+  "paper_key": "probe",
+  "found_via": "venue backfill: Acta Astronautica"
+ },
+ {
+  "source": "venue",
+  "title": "Reinforcement learning-based landing control of an asteroid-hopping rover",
+  "authors": [
+   "Tino Train",
+   "Sajjad Keshtkar",
+   "Hirohisa Kojima"
+  ],
+  "date": "2026-12",
+  "year": 2026,
+  "venue": "Acta Astronautica",
+  "doi": "10.1016/j.actaastro.2026.08.046",
+  "arxiv_id": null,
+  "url": "https://doi.org/10.1016/j.actaastro.2026.08.046",
+  "abstract": "",
+  "paper_key": "probe",
+  "found_via": "venue backfill: Acta Astronautica"
+ },
+ {
+  "source": "venue",
+  "title": "Gaussian-disturbance-aware deep reinforcement learning for event-triggered MPC in satellite attitude reorientation",
+  "authors": [
+   "Liushuai Zheng",
+   "Yadong Chen",
+   "Zixuan Zhou",
+   "Peng Cheng"
+  ],
+  "date": "2026-12",
+  "year": 2026,
+  "venue": "Acta Astronautica",
+  "doi": "10.1016/j.actaastro.2026.08.022",
+  "arxiv_id": null,
+  "url": "https://doi.org/10.1016/j.actaastro.2026.08.022",
+  "abstract": "",
+  "paper_key": "probe",
+  "found_via": "venue backfill: Acta Astronautica"
+ },
+ {
+  "source": "venue",
+  "title": "Robust online MPC tracking of tychastic hypersonic trajectories via decoupled EKF–DSF estimation",
+  "authors": [
+   "Yutang Li",
+   "Songzhou Li",
+   "Di Zhou",
+   "Zhen He"
+  ],
+  "date": "2026-12",
+  "year": 2026,
+  "venue": "Acta Astronautica",
+  "doi": "10.1016/j.actaastro.2026.08.008",
+  "arxiv_id": null,
+  "url": "https://doi.org/10.1016/j.actaastro.2026.08.008",
+  "abstract": "",
+  "paper_key": "probe",
+  "found_via": "venue backfill: Acta Astronautica"
+ },
+ {
+  "source": "venue",
+  "title": "A design-oriented review of legged mobile landers for planetary surface exploration",
+  "authors": [
+   "Azhar Mahmood",
+   "Xianmin Zhang",
+   "Chendong Zeng",
+   "Muhammad Ammar",
+   "Youcheng Han"
+  ],
+  "date": "2026-12",
+  "year": 2026,
+  "venue": "Acta Astronautica",
+  "doi": "10.1016/j.actaastro.2026.07.058",
+  "arxiv_id": null,
+  "url": "https://doi.org/10.1016/j.actaastro.2026.07.058",
+  "abstract": "",
+  "paper_key": "probe",
+  "found_via": "venue backfill: Acta Astronautica"
+ },
+ {
+  "source": "venue",
+  "title": "Adaptive control of spacecraft with uncertain flexible appendages using theory of functional connections and Integral Concurrent Learning: Numerical and testbed validation",
+  "authors": [
+   "Nicolo Woodward",
+   "Carlo Lombardi",
+   "Riccardo Bevilacqua"
+  ],
+  "date": "2026-12",
+  "year": 2026,
+  "venue": "Acta Astronautica",
+  "doi": "10.1016/j.actaastro.2026.07.012",
+  "arxiv_id": null,
+  "url": "https://doi.org/10.1016/j.actaastro.2026.07.012",
+  "abstract": "",
+  "paper_key": "probe",
+  "found_via": "venue backfill: Acta Astronautica"
+ },
+ {
+  "source": "venue",
+  "title": "Scaling laws for vibration-based propellant mass gauging in microgravity",
+  "authors": [
+   "Kevin M. Crosby",
+   "Justin Wheeler",
+   "Teagan Steineke",
+   "Gabe Klinepeter",
+   "Eric A. Hurlbert"
+  ],
+  "date": "2026-12",
+  "year": 2026,
+  "venue": "Acta Astronautica",
+  "doi": "10.1016/j.actaastro.2026.07.045",
+  "arxiv_id": null,
+  "url": "https://doi.org/10.1016/j.actaastro.2026.07.045",
+  "abstract": "",
+  "paper_key": "probe",
+  "found_via": "venue backfill: Acta Astronautica"
+ },
+ {
+  "source": "venue",
+  "title": "High-density nano-capillary ionic liquid electrospray thrusters with improved emitter uniformity and extended operating voltage range",
+  "authors": [
+   "Shotaro Shimizu",
+   "Sorai Hisamatsu",
+   "Masayoshi Nagao",
+   "Katsuhisa Murakami",
+   "Hiromasa Murata",
+   "Yoshinori Takao"
+  ],
+  "date": "2026-12",
+  "year": 2026,
+  "venue": "Acta Astronautica",
+  "doi": "10.1016/j.actaastro.2026.08.005",
+  "arxiv_id": null,
+  "url": "https://doi.org/10.1016/j.actaastro.2026.08.005",
+  "abstract": "",
+  "paper_key": "probe",
+  "found_via": "venue backfill: Acta Astronautica"
+ },
+ {
+  "source": "venue",
+  "title": "Effects of visual–body axis misalignment on spatial ability under altered visuospatial conditions",
+  "authors": [
+   "Faezeh Salehi",
+   "Manish Kumar Dixit"
+  ],
+  "date": "2026-12",
+  "year": 2026,
+  "venue": "Acta Astronautica",
+  "doi": "10.1016/j.actaastro.2026.07.032",
+  "arxiv_id": null,
+  "url": "https://doi.org/10.1016/j.actaastro.2026.07.032",
+  "abstract": "",
+  "paper_key": "probe",
+  "found_via": "venue backfill: Acta Astronautica"
+ },
+ {
+  "source": "venue",
+  "title": "Aspergillus niger growth on upcycled cyanobacterial biomass, and Martian and lunar minerals",
+  "authors": [
+   "Isabel Santos de Sousa",
+   "Guillaume Gégo",
+   "Cyprien Verseux",
+   "Joana Azevedo",
+   "Catarina Magalhães",
+   "Paula Tamagnini",
+   "Nuno F. Azevedo",
+   "Marta Cortesão"
+  ],
+  "date": "2026-12",
+  "year": 2026,
+  "venue": "Acta Astronautica",
+  "doi": "10.1016/j.actaastro.2026.07.034",
+  "arxiv_id": null,
+  "url": "https://doi.org/10.1016/j.actaastro.2026.07.034",
+  "abstract": "",
+  "paper_key": "probe",
+  "found_via": "venue backfill: Acta Astronautica"
+ },
+ {
+  "source": "venue",
+  "title": "Effects of inflow total temperature on the operating characteristics of a liquid kerosene fueled rotating detonation combustor",
+  "authors": [
+   "Yibing Chang",
+   "Shanguang Guo",
+   "Xiaorui Xu",
+   "Yun Wu",
+   "Zhao Yang",
+   "Zhangyi Meng",
+   "Lvmeng Huang",
+   "Zhanming chen"
+  ],
+  "date": "2026-12",
+  "year": 2026,
+  "venue": "Acta Astronautica",
+  "doi": "10.1016/j.actaastro.2026.07.052",
+  "arxiv_id": null,
+  "url": "https://doi.org/10.1016/j.actaastro.2026.07.052",
+  "abstract": "",
+  "paper_key": "probe",
+  "found_via": "venue backfill: Acta Astronautica"
+ },
+ {
+  "source": "venue",
+  "title": "The VLA and high-frequency SETI: Expanding the search for life",
+  "authors": [
+   "Talon Myburgh",
+   "Noah Stiegler",
+   "Chenoa D. Tremblay",
+   "Joe S. Bright",
+   "Ross A. Donnachie"
+  ],
+  "date": "2026-12",
+  "year": 2026,
+  "venue": "Acta Astronautica",
+  "doi": "10.1016/j.actaastro.2026.08.032",
+  "arxiv_id": null,
+  "url": "https://doi.org/10.1016/j.actaastro.2026.08.032",
+  "abstract": "",
+  "paper_key": "probe",
+  "found_via": "venue backfill: Acta Astronautica"
+ },
+ {
+  "source": "venue",
+  "title": "Additive manufacturing of lunar regolith for reconfigurable building blocks toward lunar habitation",
+  "authors": [
+   "Cole McCallum",
+   "Youwen Liang",
+   "Nahid Tushar",
+   "Ben Xu",
+   "Bo Zhao",
+   "Hao Zeng",
+   "Wan Shou"
+  ],
+  "date": "2026-08-29",
+  "year": 2026,
+  "venue": "npj Advanced Manufacturing",
+  "doi": "10.1038/s44334-026-00111-x",
+  "arxiv_id": null,
+  "url": "https://doi.org/10.1038/s44334-026-00111-x",
+  "abstract": "",
+  "paper_key": "bootstrap",
+  "found_via": "venue backfill: npj Advanced Manufacturing"
+ },
+ {
+  "source": "venue",
+  "title": "Powder-to-near net shape manufacturing: in-situ friction stir forging of soft magnetic composites",
+  "authors": [
+   "Rajib Kalsar",
+   "Hrishikesh Das",
+   "Lei Li",
+   "Shivakant Shukla",
+   "Tej Bahadur Poudel Chhetri",
+   "James V. Haag",
+   "Tanvi Ajantiwalay",
+   "Farhan Ishrak",
+   "Bharat Gwalani",
+   "Ayoub Soulami",
+   "Chins Chinnasamy",
+   "James A. Haynes"
+  ],
+  "date": "2026-08-22",
+  "year": 2026,
+  "venue": "npj Advanced Manufacturing",
+  "doi": "10.1038/s44334-026-00105-9",
+  "arxiv_id": null,
+  "url": "https://doi.org/10.1038/s44334-026-00105-9",
+  "abstract": "Abstract Soft magnetic materials are critical to the performance, energy efficiency, and miniaturization of electric motors. While laminated soft magnetic materials have dominated the industry, the demand for soft magnetic composites (SMCs) is rapidly growing in applications requiring three-dimensional magnetic flux paths, reduced eddy current losses, and high-frequency operation. This study reports for the first time, in-situ friction stir forging (I-FSF), an innovative and single-step consolidation process for Fe-3.5Si soft magnetic powders. By leveraging pre-oxidized powders, the process generates oxide layers that enhance electrical resistivity. Unlike conventional sintering methods that require prolonged diffusion times, I-FSF promotes rapid densification and enables near-net-shape fabrication of dense SMC components with exceptional structural integrity in a single-step. The resulting components exhibit outstanding performance metrics, including tensile strength exceeding 650 MPa, saturation magnetization of 187 emu/g, and coercivity below 10 Oe, achieving the ideal balance between mechanical durability and magnetic efficiency. The proposed I-FSF process offers a simplified manufacturing route for producing advanced SMCs tailored for next generation electric motor applications, providing an alternative approach to magnetic material fabrication.",
+  "paper_key": "bootstrap",
+  "found_via": "venue backfill: npj Advanced Manufacturing"
+ },
+ {
+  "source": "venue",
+  "title": "Porous reaction-bonded silicon nitride: Size effects for pressureless nitriding of binder jet additively manufactured silicon",
+  "authors": [
+   "Trevor G. Aguirre",
+   "Ercan Cakmak",
+   "M. Dylan Richardson",
+   "Michael J. Lance",
+   "Corson L. Cramer",
+   "Steven E. Bullock",
+   "Beth L. Armstrong"
+  ],
+  "date": "2026-08-09",
+  "year": 2026,
+  "venue": "npj Advanced Manufacturing",
+  "doi": "10.1038/s44334-026-00110-y",
+  "arxiv_id": null,
+  "url": "https://doi.org/10.1038/s44334-026-00110-y",
+  "abstract": "",
+  "paper_key": "bootstrap",
+  "found_via": "venue backfill: npj Advanced Manufacturing"
+ },
+ {
+  "source": "venue",
+  "title": "Effects of reduced gravity and reduced atmospheric pressure on in-space manufacturing of carbon-fiber-reinforced structures",
+  "authors": [
+   "Raphael Strecker",
+   "Tizian Rieger",
+   "Alexander Tabelander",
+   "Victor Cudmani",
+   "Ulrich Huber",
+   "Dennis Klingenberg",
+   "Gabriel Wildt",
+   "Eric Hennig",
+   "Julian Pfender",
+   "Johannes Degenfeld-Schonburg",
+   "Lukas Rauch"
+  ],
+  "date": "2026-08-04",
+  "year": 2026,
+  "venue": "npj Advanced Manufacturing",
+  "doi": "10.1038/s44334-026-00104-w",
+  "arxiv_id": null,
+  "url": "https://doi.org/10.1038/s44334-026-00104-w",
+  "abstract": "Abstract This study investigates the manufacturing of carbon-fiber-reinforced composite structures performed during the flight of a suborbital rocket. The authors adapted the Direct Robotic Extrusion of Photopolymers process to allow the manufacturing of more complex and carbon-fiber-reinforced structures. A dedicated degassing procedure was developed to effectively limit void formation caused by vacuum conditions: For circular specimens, no statistically significant difference in void volume fraction was observed between ambient pressure (2.2%) and vacuum conditions (2.1%), demonstrating the effectiveness of the implemented degassing approach. A thermogravimetric analysis showed a mass loss of the carbon-fiber filament of 4.4%, supporting the conclusion that its outgassing was responsible for void formation. Under reduced gravity, the void volume fraction increased to 16.5%. Furthermore, adhesion forces dominated the extrusion process in the absence of a gravitational vector, leading to incomplete extrusion of two of the four structures. These results demonstrate that reduced gravity and reduced atmospheric pressure constitute distinct challenges for viscous liquid-based in-space manufacturing processes, and that ground-based vacuum tests alone are insufficient to qualify such processes for spaceflight. A systematic review identified zero eligible studies investigating the manufacturing of carbon-fiber-reinforced structures under simultaneous reduced gravity and reduced atmo",
+  "paper_key": "bootstrap",
+  "found_via": "venue backfill: npj Advanced Manufacturing"
+ },
+ {
+  "source": "venue",
+  "title": "AssemblyMate: an interactive context-aware AI-XR co-worker with multimodal spatial-temporal reasoning for manufacturing assembly",
+  "authors": [
+   "Xueting Wang",
+   "Xiwen Dengxiong",
+   "Jie-Ke Pan",
+   "Ke Jing",
+   "Zipeng Guo",
+   "Rui Liu",
+   "Qinqin Xiao",
+   "Yunbo Zhang"
+  ],
+  "date": "2026-08-04",
+  "year": 2026,
+  "venue": "npj Advanced Manufacturing",
+  "doi": "10.1038/s44334-026-00108-6",
+  "arxiv_id": null,
+  "url": "https://doi.org/10.1038/s44334-026-00108-6",
+  "abstract": "",
+  "paper_key": "bootstrap",
+  "found_via": "venue backfill: npj Advanced Manufacturing"
+ },
+ {
+  "source": "venue",
+  "title": "Scalable on-machine inspection of direct ink write additive manufacturing",
+  "authors": [
+   "Brian T. Weston",
+   "Michael E. Zelinski",
+   "Hamed Ziad Ammar",
+   "Aldair E. Gongora",
+   "Brian Au",
+   "Robert Cerda",
+   "Joshua R. DeOtte",
+   "William Smith",
+   "Brian Giera"
+  ],
+  "date": "2026-08-01",
+  "year": 2026,
+  "venue": "npj Advanced Manufacturing",
+  "doi": "10.1038/s44334-026-00107-7",
+  "arxiv_id": null,
+  "url": "https://doi.org/10.1038/s44334-026-00107-7",
+  "abstract": "Abstract Direct Ink Writing (DIW) enables the fabrication of complex, architected elastomeric parts, but ensuring filament-scale geometric fidelity during production remains a critical bottleneck. Existing inspection relies on post-print X-ray computed tomography (CT), constrained by volume-resolution tradeoffs, or surface-only optical methods that lack internal spatial awareness. We present a scalable software pipeline for on-machine inspection of DIW polymer lattices that combines layerwise camera imaging, a compact convolutional segmentation network, and a computer-vision skeletonization algorithm to extract filament diameter. Across face-centered tetragonal, helicoidal, and simple cubic geometries, it achieves robust segmentation (Dice ≈ 0.973) and reliable measurements, with a mean absolute percentage error of 2.6%, a root mean squared error of 3.4 μm, and high correlation with human labels. We further inspect a production-scale cushion whose dimensions exceed the practical limits of CT: processing ~2.4k images per layer yields continuous spatial diameter maps that diagnose macroscopic anomalies such as substrate tilt entirely in situ. The workflow provides a practical, on-machine metrology stream for DIW, demonstrated on a single platform, suitable for quality control and as a foundation for future closed-loop control; code and curated datasets are provided to enable reproducibility.",
+  "paper_key": "bootstrap",
+  "found_via": "venue backfill: npj Advanced Manufacturing"
+ },
+ {
+  "source": "venue",
+  "title": "Unraveling the potential of Fe-6.5Si Cold Spray laminates",
+  "authors": [
+   "Hrishikesh Das",
+   "Julian D. Escobar Atehortua",
+   "Aditya Nittala",
+   "Shivakant Shukla",
+   "Tingkun Liu",
+   "Tej Bahadur Poudel Chhetri",
+   "Rajib Kalsar",
+   "Christopher B. Smith",
+   "Darrell R. Herling",
+   "Keerti Kappagantula"
+  ],
+  "date": "2026-07-30",
+  "year": 2026,
+  "venue": "npj Advanced Manufacturing",
+  "doi": "10.1038/s44334-026-00091-y",
+  "arxiv_id": null,
+  "url": "https://doi.org/10.1038/s44334-026-00091-y",
+  "abstract": "Abstract This study explores the development of cold-spray-deposited Fe-6.5 wt.%Si for soft magnetic material applications. We present experimental evidence for the successful deposition of Fe-6.5 wt.%Si powder via cold spray, emphasizing the role of carrier gas in optimizing deposition performance for high-temperature materials. Detailed scanning electron microscopy, energy dispersive spectroscopy, and electron back-scattered diffraction analysis reveal the impact of annealing on enhancing magnetic performance through grain growth and stored-strain relaxation. Additionally, the fabrication and analysis of a dual-layer gradient composition, consisting of Fe-3.5 wt.%Si and Fe-6.5 wt.%Si, is successfully demonstrated and characterized using scanning electron-based microscopy. These findings provide insights into leveraging cold spray technology as an additive manufacturing approach for developing magnetic laminates.",
+  "paper_key": "bootstrap",
+  "found_via": "venue backfill: npj Advanced Manufacturing"
+ },
+ {
+  "source": "venue",
+  "title": "PFAS-free waterproof breathable membrane technologies",
+  "authors": [
+   "Brainy Happy Ana Tasiman",
+   "Muhammad Ihsan Alfikro",
+   "Rizky Aflaha",
+   "Joshua Williams",
+   "Aloysius Farrel",
+   "Linda Ardita Putri",
+   "Yuliyan Dwi Prabowo",
+   "Sri Ageng Sukowati",
+   "Verena Wallner",
+   "Vesna Mueller",
+   "Sebastian Anzinger",
+   "Marc Fueldner"
+  ],
+  "date": "2026-07-28",
+  "year": 2026,
+  "venue": "npj Advanced Manufacturing",
+  "doi": "10.1038/s44334-026-00106-8",
+  "arxiv_id": null,
+  "url": "https://doi.org/10.1038/s44334-026-00106-8",
+  "abstract": "Abstract Waterproof and breathable membranes (WBMs) enable air and moisture vapor transfer while blocking solid particles and water penetration, and are widely used in medical healthcare, outdoor apparel, and environmental protection. However, most commercial WBMs rely on per- and polyfluoroalkyl substances (PFAS), raising environmental and health concerns and driving the development of PFAS-free alternatives. Despite rapid progress, a comprehensive understanding of how fabrication strategies govern membrane structure, performance, and scalability remains lacking. This review systematically compares PFAS-free WBMs fabricated by phase inversion, film stretching, melt extrusion, sacrificial templating, and electrospinning, emphasizing the structure-property-performance relationships and trade-offs among water resistance, vapor permeability, mechanical strength, thermal stability, durability, and sustainability. The advantages, limitations, and industrial prospects of each approach are critically evaluated, thereby providing a practical framework for designing the next generation of sustainable PFAS-free WBMs.",
+  "paper_key": "bootstrap",
+  "found_via": "venue backfill: npj Advanced Manufacturing"
+ },
+ {
+  "source": "venue",
+  "title": "Probabilistic digital twin for aerosol jet printing",
+  "authors": [
+   "Aayushya Agarwal",
+   "Jace Rozsa",
+   "Matteo Pozzi",
+   "Rahul Panat",
+   "Gary K. Fedder"
+  ],
+  "date": "2026-07-27",
+  "year": 2026,
+  "venue": "npj Advanced Manufacturing",
+  "doi": "10.1038/s44334-026-00102-y",
+  "arxiv_id": null,
+  "url": "https://doi.org/10.1038/s44334-026-00102-y",
+  "abstract": "",
+  "paper_key": "bootstrap",
+  "found_via": "venue backfill: npj Advanced Manufacturing"
+ },
+ {
+  "source": "venue",
+  "title": "Civil additive manufacturing: foundations and frontiers of the modern construction industry",
+  "authors": [
+   "Arshdeep Kaur",
+   "Caitlin Lee",
+   "Sayali Kulkarni",
+   "Molly Code",
+   "Utkarsh Chadha"
+  ],
+  "date": "2026-07-20",
+  "year": 2026,
+  "venue": "npj Advanced Manufacturing",
+  "doi": "10.1038/s44334-026-00094-9",
+  "arxiv_id": null,
+  "url": "https://doi.org/10.1038/s44334-026-00094-9",
+  "abstract": "Abstract Civil additive manufacturing represents a specialized subset of additive manufacturing technologies operating at the construction scale and governed by distinct material, process, and regulatory constraints. This study presents a taxonomy-driven narrative-conceptual review of Civil AM using peer-reviewed literature alongside select gray literature, including institutional reports, industry white papers, and documented construction demonstrations. Through comparative discussion of construction-scale materials, printing techniques, and deployment strategies, this article assesses conditional benefits and limitations of Civil AM relative to conventional construction practices, with emphasis on scalability, cost efficiency, sustainability, and structural performance. This review highlights the absence of AM-specific construction standards as a critical barrier to industrial adoption and regulatory approval, complicating safety assessment and life-cycle evaluation of 3D-printed structures. By integrating technological developments with performance considerations, life-cycle perspectives, and standardization challenges, this study provides a structured foundation for evaluating construction methods and outlines future research directions necessary for scalable, automated, and code-compliant construction.",
+  "paper_key": "bootstrap",
+  "found_via": "venue backfill: npj Advanced Manufacturing"
+ },
+ {
+  "source": "venue",
+  "title": "Regolith–polymer composites for structurally functional components in extraterrestrial environments",
+  "authors": [
+   "Xinnian Wang",
+   "Juan Alanis",
+   "Yinong Chen",
+   "Didem Ozevin",
+   "Yayue Pan"
+  ],
+  "date": "2026-07-10",
+  "year": 2026,
+  "venue": "npj Advanced Manufacturing",
+  "doi": "10.1038/s44334-026-00103-x",
+  "arxiv_id": null,
+  "url": "https://doi.org/10.1038/s44334-026-00103-x",
+  "abstract": "",
+  "paper_key": "bootstrap",
+  "found_via": "venue backfill: npj Advanced Manufacturing"
+ },
+ {
+  "source": "venue",
+  "title": "PFAS-free laser-textured triple-scale architectures for durable passivation against pitting corrosion of aluminum alloys",
+  "authors": [
+   "Ahnaf Sadi",
+   "Prakirti Singh",
+   "Oliver Dilly",
+   "Christopher L. Alexander",
+   "Avik Samanta"
+  ],
+  "date": "2026-07-08",
+  "year": 2026,
+  "venue": "npj Advanced Manufacturing",
+  "doi": "10.1038/s44334-026-00100-0",
+  "arxiv_id": null,
+  "url": "https://doi.org/10.1038/s44334-026-00100-0",
+  "abstract": "",
+  "paper_key": "bootstrap",
+  "found_via": "venue backfill: npj Advanced Manufacturing"
+ },
+ {
+  "source": "venue",
+  "title": "Building Ecuador's space ecosystem: Capability baseline, development pathways, and policy priorities for a capability-constrained space actor",
+  "authors": [
+   "Bernard Moscoso",
+   "Steven González",
+   "Denis Leclerc",
+   "Juan José Jibaja"
+  ],
+  "date": "2026-08",
+  "year": 2026,
+  "venue": "Space Policy",
+  "doi": "10.1016/j.spacepol.2026.101787",
+  "arxiv_id": null,
+  "url": "https://doi.org/10.1016/j.spacepol.2026.101787",
+  "abstract": "",
+  "paper_key": "governance",
+  "found_via": "venue backfill: Space Policy"
+ },
+ {
+  "source": "venue",
+  "title": "NATO's space policy: Response and adaptation to China's rise in space",
+  "authors": [
+   "Zhou Shun",
+   "He Qisong"
+  ],
+  "date": "2026-08",
+  "year": 2026,
+  "venue": "Space Policy",
+  "doi": "10.1016/j.spacepol.2026.101786",
+  "arxiv_id": null,
+  "url": "https://doi.org/10.1016/j.spacepol.2026.101786",
+  "abstract": "",
+  "paper_key": "governance",
+  "found_via": "venue backfill: Space Policy"
+ },
+ {
+  "source": "venue",
+  "title": "A Model of UV–Blue Absorbance in Bulk Liquid of Venusian Cloud Aerosols Is Consistent with Efficient Organic Absorbers at High Concentrations",
+  "authors": [
+   "Jan Spacek",
+   "Paul B. Rimmer",
+   "Janusz J. Petkowski",
+   "Yeon Joo Lee"
+  ],
+  "date": "2026-08-25",
+  "year": 2026,
+  "venue": "Astrobiology",
+  "doi": "10.1177/15311074261477502",
+  "arxiv_id": null,
+  "url": "https://doi.org/10.1177/15311074261477502",
+  "abstract": "At visible wavelengths, Venus appears serene and pale yellow. But since the 1920s, observers have noted high-contrast features in the ultraviolet. These features track the ∼4-day superrotation of the upper cloud deck and vary widely over time and space. The identity of the UV absorber(s)—active between at least 280 and 500 nm—remains unknown, as no proposed candidate fully matches all observational data. From remote observations of Venus, and accounting for light scattering by cloud droplets, we modeled the 365–455 nm decadic absorption coefficient, a λ , of the bulk liquid that forms Venus’s clouds. Assuming a uniform distribution in mode 1 and mode 2 particles across a 6 km layer below the cloud top at 65 km, we constrained the decadic absorption coefficient within the modeled range to a peak at a 375 = 1278 cm −1 , equivalent to a decadic absorbance of A 375 = 1278 for a 1 cm path length. This extremely high absorption coefficient implies the presence of a highly efficient absorber, for example, conjugated organics, at relatively high concentrations—for example, ∼12 g/L for porphyrin-type pigments with a representative peak molar absorption coefficient of ∼10 5 M −1 cm −1 . Inorganic absorbers, typically below 10 4 M −1 cm −1 , would either need to constitute a large portion of the aerosols or still not be sufficiently light-absorbing, even in pure form. We emphasize that all candidate absorbers must be evaluated against Venus’s reflectance curve using (1) known molar abso",
+  "paper_key": "governance",
+  "found_via": "venue backfill: Astrobiology"
+ },
+ {
+  "source": "venue",
+  "title": "Assessing the Climate and Habitability of Tidally Locked Rocky Exoplanets",
+  "authors": [
+   "Erica Bisesi",
+   "Giuseppe Murante",
+   "Jost von Hardenberg",
+   "José A. Caballero",
+   "Michele Maris",
+   "Daniela Billi",
+   "Nicoletta La Rocca",
+   "Laura Silva"
+  ],
+  "date": "2026-08-22",
+  "year": 2026,
+  "venue": "Astrobiology",
+  "doi": "10.1177/15311074261479167",
+  "arxiv_id": null,
+  "url": "https://doi.org/10.1177/15311074261479167",
+  "abstract": "Tidally locked exoplanets orbiting M dwarf stars are prime targets in the search for habitable worlds, yet their complex climate dynamics challenge conventional models of habitability. We homogeneously estimated the liquid–water habitability of exoplanets with the highest up-to-date Earth similarity index (ESI). We modified the climate model PLASIM to apply it to tidally locked exoplanets across a range of parameters. We systematically classified and compared potentially habitable exoplanets and selected among the ones featuring the highest ESI in the conservative sample of the Habitable Worlds Catalog, both relative to each other and as a function of atmospheric pressure. Our analysis revealed three main climate regimes: Snowball, Hot, and Eyeball planets—the latter having a warm and habitable substellar region with T &gt; 273 K and a localized hydrological cycle. Although surface temperature generally increases with pressure, Eyeball planet climates remain stable in a wide pressure range. Complex atmospheric dynamics rules the behavior of the climate, highlighting the need for detailed climate simulations to guide future observations.",
+  "paper_key": "governance",
+  "found_via": "venue backfill: Astrobiology"
+ },
+ {
+  "source": "venue",
+  "title": "Wavelength Requirements for Life Detection via Reflected Light Spectroscopy of Rocky Exoplanets",
+  "authors": [
+   "Joshua Krissansen-Totton",
+   "Anna Grace Ulses",
+   "Maxwell K. Frissell",
+   "Samantha Gilbert-Janizek",
+   "Amber Young",
+   "Jacob Lustig-Yaeger",
+   "Tyler D. Robinson",
+   "Stephanie Olson",
+   "Eleonora Alei",
+   "Giada Arney",
+   "Celeste Hagee",
+   "Chester Harman"
+  ],
+  "date": "2026-08-17",
+  "year": 2026,
+  "venue": "Astrobiology",
+  "doi": "10.1177/15311074261477497",
+  "arxiv_id": null,
+  "url": "https://doi.org/10.1177/15311074261477497",
+  "abstract": "Searching for signs of life is a primary goal of the Habitable Worlds Observatory (HWO). However, merely detecting oxygen, methane, or other widely discussed biosignatures is insufficient evidence for a biosphere. In parallel with biosignature detection, exoplanet life detection additionally requires characterization of the broader physicochemical context to evaluate planetary habitability and the plausibility that life could produce a particular biosignature in a given environment. Life detection further requires that we can confidently rule out photochemical or geological phenomena that can mimic life (i.e., “false positives”). Evaluating false-positive scenarios may require different observatory specifications than biosignature detection surveys. Here, we explore the coronagraph requirements for assessing habitability and for cautiously excluding known false-positive (and false-negative) scenarios for oxygen and methane, the two most widely discussed biosignatures for Earth-like exoplanets. We find that broad wavelength coverage ranging from the near ultraviolet (UV; 0.26 µm) and extending into the near infrared (NIR; 1.7 µm) is necessary to contextualize these potential biosignatures with HWO. The short-wavelength cutoff is driven by the need to identify Proterozoic-like biospheres via O 3 , whereas the long-wavelength cutoff is driven by the need to contextualize O 2 and CH 4 biosignatures via constraints on carbon-bearing atmospheric species. The ability to obtain spect",
+  "paper_key": "governance",
+  "found_via": "venue backfill: Astrobiology"
+ },
+ {
+  "source": "venue",
+  "title": "Reactive Iron Mineral Phases on Mars: Implications for Organic Carbon Preservation",
+  "authors": [
+   "Emily Bonsall",
+   "Eileen Tisdall",
+   "Christian Schröder"
+  ],
+  "date": "2026-08-13",
+  "year": 2026,
+  "venue": "Astrobiology",
+  "doi": "10.1177/15311074261475984",
+  "arxiv_id": null,
+  "url": "https://doi.org/10.1177/15311074261475984",
+  "abstract": "It is estimated that ∼20% of organic carbon stored in sediments on Earth is bound to reactive iron minerals. They often occur as nanoparticulate or X-ray amorphous iron (hydr)oxides, which are challenging to identify with mineralogical techniques—especially those that require any type of heating, which also makes them susceptible to alteration in response to diagenetic processes. Reactive iron species have been identified on Mars in the form of nanophase ferric oxides in Gusev crater and at Meridiani Planum with Spirit’s and Opportunity’s Mössbauer spectrometers, respectively, and as Fe-rich amorphous material in Gale crater with Curiosity’s CheMin X-ray diffraction channel. Here, we use the amount of reactive iron minerals and geochemical evidence for diagenetic processes to assess the relative preservation potential of sedimentary rocks at these three landing sites. Sedimentary rocks in Gale crater show the highest preservation potential, and organic carbon compounds have been identified in these rocks. Sedimentary rocks in Gusev crater show equally high preservation potential. However, reactive Fe minerals can also react with organic carbon when heat is added during pyrolysis and laser desorption. These effects need to be considered to determine accurately the organic carbon inventory measured during current and future missions as well as in returned samples.",
+  "paper_key": "governance",
+  "found_via": "venue backfill: Astrobiology"
+ },
+ {
+  "source": "venue",
+  "title": "<i>In Vitro</i> -Selected DNA Aptamers Enable Detection of the Ancestral Peptide 3C8Y in [FeFe]-Hydrogenase CpI and in Metal-Rich, Acidic Environments: Implications for Astrobiology",
+  "authors": [
+   "Yolanda Blanco",
+   "Shuvankar Naskar",
+   "Ángeles Aguilera",
+   "María Fernández-Algar",
+   "Thomas Happe",
+   "Carlos Briones"
+  ],
+  "date": "2026-08-11",
+  "year": 2026,
+  "venue": "Astrobiology",
+  "doi": "10.1177/15311074261474801",
+  "arxiv_id": null,
+  "url": "https://doi.org/10.1177/15311074261474801",
+  "abstract": "Selecting molecular biosignatures of unequivocal biological origin and sufficient complexity is essential for developing next-generation biosensors in astrobiology-driven missions. Among the most promising candidates are ancestral peptides, molecular relics that preserve functional signatures of early life. Here, we report the in-vitro selection and characterization of single-stranded DNA aptamers that specifically bind to the 15-amino acid 3C8Y peptide, derived from the [FeFe]-hydrogenase CpI of Clostridium pasteurianum . This ancestral peptide, a candidate biosignature of anaerobic metabolism, contains metal-binding cysteines associated with [FeS] clusters. Three DNA aptamers were selected through a Systematic Evolution of Ligands by EXponential Enrichment-based approach and subsequently validated using colorimetric ELONA assays. The aptamers exhibited high affinity ( K d in the low nanomolar range) and robust specificity toward both the synthetic 3C8Y peptide (compared with three structurally related peptides) and the heterologously expressed CpI protein in native and denatured states (relative to two other hydrogenases). Dual-aptamer sandwich ELONA confirmed the recognition of distinct binding sites, enabling sensitive detection of the peptide in both free and [FeS]-clustered states. Notably, the aptamers detected 3C8Y-containing targets in complex environmental samples from Río Tinto (Spain), a metal-rich acidic analog, but not in samples from less iron-abundant Icelandi",
+  "paper_key": "governance",
+  "found_via": "venue backfill: Astrobiology"
+ },
+ {
+  "source": "venue",
+  "title": "Atmospheres as Habitats",
+  "authors": [
+   "Noam R. Izenberg",
+   "Diana M. Gentry",
+   "Rakesh Mogul",
+   "Kevin McGouldrick",
+   "Paul A. Burke",
+   "Paul K. Byrne",
+   "Stephen R. Kane",
+   "Tom A. Nordheim",
+   "Kevin B. Stevenson",
+   "Michael J. Way",
+   "Thomas D. Curtis"
+  ],
+  "date": "2026-08-05",
+  "year": 2026,
+  "venue": "Astrobiology",
+  "doi": "10.1177/15311074261475054",
+  "arxiv_id": null,
+  "url": "https://doi.org/10.1177/15311074261475054",
+  "abstract": "The potential of planetary atmospheres as habitats is understudied and likely underestimated. Although planetary atmospheres can provide the fundamental physical, chemical, and energetic requirements for life, they also represent unique challenges to survival and biosphere stability. Atmospheric habitats, either self-contained or dependent on surface biospheres, may exist elsewhere in the solar system and on exoplanets. Four hypotheses essential to airborne habitats and their potential importance to astrobiology include: H-I: Earth can host fully airborne life. H-II: Fully airborne microbial life can be experimentally evolved and sustained in the laboratory. H-III: Atmospheres within our solar system can be assessed for a potential aerobiosphere, with Venus the most likely candidate. H-IV: Atmospheres around exoplanets can be modeled, simulated, and observed to assess the likelihood of aerobiospheres. New theory, modeling, observation, and experimentation are required to improve our understanding of the constraints and likelihood of airborne life. Notably, we can neither confirm nor rule out multigenerational airborne life on Earth yet.",
+  "paper_key": "governance",
+  "found_via": "venue backfill: Astrobiology"
+ },
+ {
+  "source": "venue",
+  "title": "The Search for Life Elsewhere: Avoiding Hype and Fostering Public Understanding",
+  "authors": [
+   "Danilo Albergaria",
+   "Marieke Baan",
+   "Jordan Bimm",
+   "Martin Devecka",
+   "Maria Cristina Fortuna",
+   "Thilina Heenatigala",
+   "Inge Loes ten Kate",
+   "Anastasia Kokori",
+   "Juan Carlos Muñoz-Mateos",
+   "Julie Nekola Nováková",
+   "Tan Vu Nguyen",
+   "Iris Nijman"
+  ],
+  "date": "2026-08-05",
+  "year": 2026,
+  "venue": "Astrobiology",
+  "doi": "10.1177/15311074261475082",
+  "arxiv_id": null,
+  "url": "https://doi.org/10.1177/15311074261475082",
+  "abstract": "The search for life beyond Earth presents unique challenges for science communication due to its interdisciplinary nature, the potential for groundbreaking discoveries, and the inherent uncertainties involved. The Lorentz Center workshop Breaking News: We Found Extraterrestrial Life! brought together scientists, historians, philosophers, science journalists, and press information officers to reflect on these challenges. The event took place from the 2nd to the 6th of September 2024 in Leiden, the Netherlands. The goal was to prepare the community for different future scenarios of life detection. Participants aimed to develop strategies to communicate research results properly with the public. We provide here a synthesis of the discussions and conclusions reached during the event. To summarize, effective communication about the search for life elsewhere requires balancing scientific rigor with public engagement. To build public trust and understanding, it is essential to set realistic expectations, avoid sensationalism, and promote transparency. By using clear and accessible language, addressing ethical considerations, and managing expectations, we can communicate the complexities of astrobiology research effectively to a broad audience. Additionally, fostering critical thinking, encouraging independent verification, and tailoring communication for different audiences can help ensure that astrobiology discoveries are understood, appreciated, and used responsibly.",
+  "paper_key": "governance",
+  "found_via": "venue backfill: Astrobiology"
+ },
+ {
+  "source": "venue",
+  "title": "The Search for Life and Biosignatures on Mars: A Mars System Science Approach (Atmosphere, Hydrosphere, Cryosphere, Lithosphere, Geologic History)",
+  "authors": [
+   "James W. Head",
+   "Robin D. Wordsworth",
+   "James L. Fastook"
+  ],
+  "date": "2026-08-04",
+  "year": 2026,
+  "venue": "Astrobiology",
+  "doi": "10.1177/15311074261470203",
+  "arxiv_id": null,
+  "url": "https://doi.org/10.1177/15311074261470203",
+  "abstract": "The most important quest in Mars exploration is the search for biosignatures. We adopt a Mars System Science approach, calling on information from the atmosphere, hydrosphere, cryosphere, lithosphere, and geologic history for an integrated organizational framework of inquiry. We “follow the water” by focusing on the characteristics of the hydrological system/cycle, their individual component water reservoirs, and their relationships and interconnectedness through time. We examine the ancillary hydrological cycle environments/processes (fluvial, lacustrine, glacial, cryospheric, groundwater) required for a robust, vertically integrated hydrological cycle to support long-duration northern lowlands oceans, arguably the largest proposed water reservoirs in Mars’ history. We find that northern lowlands marine environments are likely to be low volume, transient, and short lived, prior to freezing and sublimation. Temporally associated hydrological system components (e.g., valley networks, lakes) are generally poorly integrated and characterized by intermittent, short-duration wet periods. This highly abbreviated hydrological cycle is likely to be not vertically integrated but instead horizontally stratified and thus potentially characterized by a global cryosphere separating the surface from a deeper, subsurface geothermally warmed groundwater system. Evidence for a horizontally stratified hydrological system can be traced back in time to the Late Noachian. The observed high erosio",
+  "paper_key": "governance",
+  "found_via": "venue backfill: Astrobiology"
+ },
+ {
+  "source": "venue",
+  "title": "Note",
+  "authors": [],
+  "date": "2026-07-31",
+  "year": 2026,
+  "venue": "Astrobiology",
+  "doi": "10.1177/15311074261470476",
+  "arxiv_id": null,
+  "url": "https://doi.org/10.1177/15311074261470476",
+  "abstract": "",
+  "paper_key": "governance",
+  "found_via": "venue backfill: Astrobiology"
+ },
+ {
+  "source": "venue",
+  "title": "IMPRESS: A Planetary Penetrator Network for Astrobiology, Prospecting, and Exploration of Mars",
+  "authors": [
+   "Jan Spacek",
+   "Holden Alpern",
+   "Thomas Dineen",
+   "Janusz J. Petkowski",
+   "Gabriella Rizzo",
+   "Steven A. Benner",
+   "May Lui",
+   "Charles Cockell",
+   "Marshall Eubanks",
+   "Dirk Schulze-Makuch",
+   "Christopher Temby",
+   "Mitchell Richburg"
+  ],
+  "date": "2026-07-23",
+  "year": 2026,
+  "venue": "Astrobiology",
+  "doi": "10.1177/15311074261471218",
+  "arxiv_id": null,
+  "url": "https://doi.org/10.1177/15311074261471218",
+  "abstract": "The International Mars Prospecting Ride-Share System (IMPRESS) is presented here as a scalable, democratized, and low-cost mission architecture for distributed measurements on the martian surface and in the shallow subsurface. IMPRESS is intended to prospect on Mars in advance of sample return and human exploration. Its primary objective is to survey Mars for extant life, but it also supports geophysical, soil chemistry, resource, and landing-site risk assessments. Instead of relying on soft landers and drilling systems, IMPRESS deploys swarms of planetary penetrators that use descent kinetic energy to emplace instruments 0.2–1 m below the surface. This architecture provides spatial coverage, measurement replication, and mission redundancy. This increases the chance of detecting unevenly distributed biosignatures and gives negative results stronger context. Small penetrator platforms with standardized design, power, and communication interfaces lower the cost per experiment. The probes operate as independent nodes within a network, which enables time-correlated atmospheric, seismic, and environmental measurements that support the broader Mars exploration campaign. Repeatable mission deployments can range from small rideshare implementations with tens of penetrators to larger dedicated campaigns with hundreds or more. We describe the IMPRESS mission architecture, penetrator platforms, compatible payload classes, and how distributed shallow-subsurface surveys reduce scientific ",
+  "paper_key": "governance",
+  "found_via": "venue backfill: Astrobiology"
+ },
+ {
+  "source": "venue",
+  "title": "A Comprehensive Radiobiological Characterization of Anhydrobiotic <i>Saccharomyces cerevisiae</i>",
+  "authors": [
+   "Michel Lapointe",
+   "Sebastian Tattenberg",
+   "Camille Bélanger-Champagne",
+   "Stan Yen",
+   "Douglas Boreham",
+   "Cornelia Hoehr",
+   "Christopher Thome"
+  ],
+  "date": "2026-07-09",
+  "year": 2026,
+  "venue": "Astrobiology",
+  "doi": "10.1177/15311074261466922",
+  "arxiv_id": null,
+  "url": "https://doi.org/10.1177/15311074261466922",
+  "abstract": "The anhydrobiotic (living without water) yeast Saccharomyces cerevisiae has gained considerable interest for its use in a variety of fields, from investigation of the biological effects of deep space radiation exposure to its utilization as a radiation dosimeter and its applicability in the study of preservation of microbial life in martian regolith. A complete radiobiological characterization of yeast during anhydrobiosis must be undertaken to ensure the informed interpretation of these works. This study investigated the radiobiological properties of a desiccated recombinational repair-deficient rad51 knockout strain of S. cerevisiae . We focused on radiation tolerance, oxygen enhancement ratio (OER), and relative biological effectiveness (RBE). Desiccation-induced radioresistance was significantly higher compared with hydrated yeast; it required a threefold higher dose for an equivalent biological response. Desiccated yeast exhibited no OER, which indicates the absence of oxygen-dependent radiosensitization due to the lack of indirect damage pathways. RBE measurements for a 74 MeV proton beam (1.10 ± 0.01) and a neutron beam (12.2 ± 0.7) align with prior studies and demonstrate consistency between desiccated and hydrated systems when appropriately scaled. These findings support the use of the desiccated yeast model as a robust and translatable system for addressing fundamental questions in astrobiology and radiobiology.",
+  "paper_key": "governance",
+  "found_via": "venue backfill: Astrobiology"
+ },
+ {
+  "source": "venue",
+  "title": "Insights into the Possible Composition of a Martian Biota",
+  "authors": [
+   "J. William Schopf"
+  ],
+  "date": "2026-07-01",
+  "year": 2026,
+  "venue": "Astrobiology",
+  "doi": "10.1177/15311074261464025",
+  "arxiv_id": null,
+  "url": "https://doi.org/10.1177/15311074261464025",
+  "abstract": "In the half-century since the Viking Mission’s imaginative, trail-blazing effort to detect extant life on Mars, much has been learned about the current and past martian environment, the biology and ecology of Earth’s present-day microbial biota, and Earth’s most ancient fossils, a preserved record of life inhabiting environments much like those then prevalent on Mars. Earth’s earliest known biota was entirely anaerobic—as would be expected of all lifeforms on Mars, whether past or present—composed of at least four principal lineages: sulfuretum microbes, photosynthetic bacteria, methanogenic archaea, and methanotrophic archaea. Given their existence on the early Earth, it seems reasonable to suggest that similar lineages might also have originated on Mars and, if so, might subsequently have coevolved with and adapted to the slowly changing martian environment to continue to be extant even to the present day.",
+  "paper_key": "governance",
+  "found_via": "venue backfill: Astrobiology"
+ },
+ {
+  "source": "venue",
+  "title": "Biological Validation and Agnostic Experiments for Extant and Extinct Microbial Life within the Martian Subsurface",
+  "authors": [
+   "Scott M. Perl",
+   "Charles S. Cockell",
+   "Woodward W. Fischer",
+   "Sunanda Sharma",
+   "Karen G. Lloyd",
+   "Mary Beth Wilhelm",
+   "Frank A. Corsetti",
+   "Tina Treude",
+   "Jared Leadbetter",
+   "Donato Giovannelli",
+   "Christine M. Foreman",
+   "Kevin Freedman"
+  ],
+  "date": "2026-07-01",
+  "year": 2026,
+  "venue": "Astrobiology",
+  "doi": "10.1177/15311074261464716",
+  "arxiv_id": null,
+  "url": "https://doi.org/10.1177/15311074261464716",
+  "abstract": "Over the last several decades, investigations of Earth’s subsurface and other extremely low-biomass systems have refined our understanding of the environmental limits of life, driven by methodological advances that permit agnostic life detection of biology and their respective physical biosignatures and chemical biomarkers. These advances enable mission concepts centered on microbiological processes that facilitate identification of both active life and preserved biosignatures through measurements of metabolism and associated biochemical markers that, on Mars, are more likely to be retained below the surface. Terrestrially, although biological processes can exert a significant influence on Earth’s crust, the presence of habitable conditions does not necessarily imply the existence of cellular life. The Viking missions constituted the first direct life-detection experiments on Mars but produced equivocal outcomes, prompting subsequent exploration strategies to emphasize surface habitability rather than direct biological testing. Leveraging progress in subsurface microbiology and planetary exploration, we contend that Mars missions are now poised to shift toward direct tests for extant microbial activity in the subsurface, with metabolic processes serving as a broadly applicable indicator of life.",
+  "paper_key": "governance",
+  "found_via": "venue backfill: Astrobiology"
+ },
+ {
+  "source": "venue",
+  "title": "A Pressure-Supported Pneumatic Architecture for Robust Deep Drilling on Mars: Performance Modeling, Sizing, and Mission Integration",
+  "authors": [
+   "Luis Phillipe Tosi",
+   "Marcel Veismann",
+   "Scott M. Perl",
+   "Kristopher Sherrill",
+   "Scott Howe",
+   "Marcello Gori"
+  ],
+  "date": "2026-07-01",
+  "year": 2026,
+  "venue": "Astrobiology",
+  "doi": "10.1177/15311074261466550",
+  "arxiv_id": null,
+  "url": "https://doi.org/10.1177/15311074261466550",
+  "abstract": "Accessing the martian deep subsurface is a long-standing scientific priority for astrobiology, climate reconstruction, and planetary evolution, yet robotic drilling missions have historically been limited by wellbore instability, loss of working-fluid circulation, and the risk of irrecoverable tool entrapment. This work presents and evaluates a wireline, downhole-actuated pneumatic drilling architecture designed to directly mitigate these mission-ending risks through active wellbore pressure support and continuous cuttings removal within a single, sealed CO 2 circulation system. The proposed system combines a rotary-percussive bottomhole assembly with a deployable sealing membrane and a closed CO 2 pneumatic circuit that provides both mechanical support to the borehole wall and transport of generated cuttings to the surface. Reduced-order flow physics models are developed to capture compressible gas transport, particle entrainment, porous leak-off, junction losses, incompressible liquid tether flow, and phase-change thermodynamics. These models are assembled into section-wise drilling and cleanout cycles and integrated into a mission-level simulator that enforces realistic sol-level constraints on time, energy, battery usage, and working-fluid mass. Mission simulations demonstrate that cleanout operations dominate both energy and CO 2 mass budgets, establishing wellbore pressure support as a first-order design variable rather than a secondary constraint. Modest relaxation of ",
+  "paper_key": "governance",
+  "found_via": "venue backfill: Astrobiology"
+ },
+ {
+  "source": "venue",
+  "title": "Smart Enough to Go Extinct? An Evolutionary Challenge to the Value of General Intelligence and Its Ethical Implications for AGI",
+  "authors": [
+   "David Klotz"
+  ],
+  "date": "2026-08-29",
+  "year": 2026,
+  "venue": "Philosophy & Technology",
+  "doi": "10.1007/s13347-026-01176-4",
+  "arxiv_id": null,
+  "url": "https://doi.org/10.1007/s13347-026-01176-4",
+  "abstract": "",
+  "paper_key": "amendment",
+  "found_via": "venue backfill: Philosophy & Technology"
+ },
+ {
+  "source": "venue",
+  "title": "Autonomy, Externality, and the Ontological Stakes of Artificial Structures: The Mirage of Reality and the Erosion of Paediatric Dentistry",
+  "authors": [
+   "Muhammed Al-Huda BALLOUK",
+   "Mohamed ALTINAWI"
+  ],
+  "date": "2026-08-26",
+  "year": 2026,
+  "venue": "Philosophy & Technology",
+  "doi": "10.1007/s13347-026-01174-6",
+  "arxiv_id": null,
+  "url": "https://doi.org/10.1007/s13347-026-01174-6",
+  "abstract": "",
+  "paper_key": "amendment",
+  "found_via": "venue backfill: Philosophy & Technology"
+ },
+ {
+  "source": "venue",
+  "title": "Rules Without Models: Why Europe Must Build the AI It Regulates",
+  "authors": [
+   "Luciano Floridi"
+  ],
+  "date": "2026-08-25",
+  "year": 2026,
+  "venue": "Philosophy & Technology",
+  "doi": "10.1007/s13347-026-01171-9",
+  "arxiv_id": null,
+  "url": "https://doi.org/10.1007/s13347-026-01171-9",
+  "abstract": "",
+  "paper_key": "amendment",
+  "found_via": "venue backfill: Philosophy & Technology"
+ },
+ {
+  "source": "venue",
+  "title": "Made, Not Suffered: A Reply to Ballouk and Altinawi on Artificial Externality and Disciplinary Autonomy",
+  "authors": [
+   "Keisuke Suzuki"
+  ],
+  "date": "2026-08-25",
+  "year": 2026,
+  "venue": "Philosophy & Technology",
+  "doi": "10.1007/s13347-026-01175-5",
+  "arxiv_id": null,
+  "url": "https://doi.org/10.1007/s13347-026-01175-5",
+  "abstract": "",
+  "paper_key": "amendment",
+  "found_via": "venue backfill: Philosophy & Technology"
+ },
+ {
+  "source": "venue",
+  "title": "Functional Intelligence without Closure. A Reply to Mariusz Mazurek",
+  "authors": [
+   "Simone Conversano"
+  ],
+  "date": "2026-08-21",
+  "year": 2026,
+  "venue": "Philosophy & Technology",
+  "doi": "10.1007/s13347-026-01151-z",
+  "arxiv_id": null,
+  "url": "https://doi.org/10.1007/s13347-026-01151-z",
+  "abstract": "",
+  "paper_key": "amendment",
+  "found_via": "venue backfill: Philosophy & Technology"
+ },
+ {
+  "source": "venue",
+  "title": "Communicative Action in the Age of Artificial Intelligence: Theorizing LLMs as Communicative and Strategic Agents",
+  "authors": [
+   "Angjelin A. Hila"
+  ],
+  "date": "2026-08-21",
+  "year": 2026,
+  "venue": "Philosophy & Technology",
+  "doi": "10.1007/s13347-026-01168-4",
+  "arxiv_id": null,
+  "url": "https://doi.org/10.1007/s13347-026-01168-4",
+  "abstract": "Abstract The emergence of LLMs necessitates a re-evaluation of communicative agency in social systems. Integrating Habermas’s theory of communicative action with speech act theory, this paper investigates whether LLMs can engage in communicative action, produce speech acts, and function as social agents. We advance the novel claim that LLMs are “asymmetrical communicative agents” that satisfy behavioral but not intentional conditions for communicative action. While LLMs cannot yet generate genuine illocutionary acts, they produce significant perlocutionary effects. We adopt a gradualist position, arguing that LLMs lack a full-fledged “cognitive-volitional” complex, making them susceptible to co-option for strategic action even as they intervene in canonical communicative scenarios. This dual-status ontology suggests LLMs are quasi-social agents capable of advancing validity claims and influencing social norms. After anchoring LLMs within a “digital lifeworld,” we analyze their evolving roles across the strategic-communicative spectrum and their implications for the construction of social reality.",
+  "paper_key": "amendment",
+  "found_via": "venue backfill: Philosophy & Technology"
+ },
+ {
+  "source": "venue",
+  "title": "AI and Democracy: Mapping Notions, Debates and Challenges",
+  "authors": [
+   "Joachim Wiewiura",
+   "Amanda Jørgensen",
+   "Thomas Ploug"
+  ],
+  "date": "2026-08-21",
+  "year": 2026,
+  "venue": "Philosophy & Technology",
+  "doi": "10.1007/s13347-026-01167-5",
+  "arxiv_id": null,
+  "url": "https://doi.org/10.1007/s13347-026-01167-5",
+  "abstract": "Abstract Artificial intelligence (AI) is widely discussed as either a threat to democracy or a means of strengthening it. But democracy, an essentially contested concept, invokes many different levels at which AI may assist and obstruct the legitimacy of democratic government. Therefore, the aim of this review is to map how the democratic value of AI, whether positive or negative, depends on different democratic models. The review examines what there is currently no examination of: how democracy is conceptualized, what the cross-cutting patterns are, and how we should prescriptively use democracy in relation to assessing how AI supports or undermines democracy. From this, the review maps three dynamics currently at play in the literature. It shows that conceptual unclarity and pessimistic views on AI’s contribution to democracy often coincide, prescribing the need for conceptual clarity. It shows that democratic models are often “inherited” rather than reworked, prompting the need for greater engagement with how AI reshapes democratic theory. And it maps how democratic assumptions shape evaluations of AI’s democratic implications. From these results, we assess the limits of existing scholarship: without greater conceptual clarity regarding democracy, empirical findings and normative arguments risk talking past one another. Taken together, this review suggests that progress in research on democracy and AI depends not only on further empirical investigation or technical refinem",
+  "paper_key": "amendment",
+  "found_via": "venue backfill: Philosophy & Technology"
+ },
+ {
+  "source": "venue",
+  "title": "Beyond Two Errors: Institutional Anthropomorphism and the Displacement of Responsibility",
+  "authors": [
+   "Johnny Sakr"
+  ],
+  "date": "2026-08-20",
+  "year": 2026,
+  "venue": "Philosophy & Technology",
+  "doi": "10.1007/s13347-026-01173-7",
+  "arxiv_id": null,
+  "url": "https://doi.org/10.1007/s13347-026-01173-7",
+  "abstract": "",
+  "paper_key": "amendment",
+  "found_via": "venue backfill: Philosophy & Technology"
+ },
+ {
+  "source": "venue",
+  "title": "Punk, Puccini and the Karate Kid: A Reply to Mooradian",
+  "authors": [
+   "Garry Young"
+  ],
+  "date": "2026-08-20",
+  "year": 2026,
+  "venue": "Philosophy & Technology",
+  "doi": "10.1007/s13347-026-01172-8",
+  "arxiv_id": null,
+  "url": "https://doi.org/10.1007/s13347-026-01172-8",
+  "abstract": "Abstract My reply to Mooradian’s (2026) commentary on my co-authored paper (Young &amp; Whitty, 2026) – about the potential for a life in virtual reality (VR) to be just as meaningful as a life outside of it – focuses on the potential difference he correctly identifies between the objective value of some virtual activities and their corresponding physical activity (e.g., various forms of art and specifically karate). As a consequence of this potential difference, Mooradian is concerned with whether there will be “enough virtual worthwhile activities to support living much of our lives in VR environments”. In my response, I argue that, in my original co-authored paper, I do not require equivalence in meaningfulness to be centred on equivalent objective values (between virtual and physical activities), but instead on the potential of each activity to satisfy the conditioned for meaningfulness, in much the same way as I do not require two physical activities (e.g., composing punk music or a classical opera) to be of equivalent objective value to satisfy these conditions.",
+  "paper_key": "amendment",
+  "found_via": "venue backfill: Philosophy & Technology"
+ },
+ {
+  "source": "venue",
+  "title": "LLMs as a Foreign-Policy Tool: Justification, Global Distribution, and Global Domination",
+  "authors": [
+   "Ezekiel Vergara"
+  ],
+  "date": "2026-08-19",
+  "year": 2026,
+  "venue": "Philosophy & Technology",
+  "doi": "10.1007/s13347-026-01169-3",
+  "arxiv_id": null,
+  "url": "https://doi.org/10.1007/s13347-026-01169-3",
+  "abstract": "Abstract States, like China, are increasingly engaging in LLM foreign policy : They are using LLMs as foreign-policy tools. Is LLM foreign policy justifiable in Scanlonian terms? I map some of the normative terrain that matters for determining whether it is justifiable to use LLMs as a foreign-policy tool. I argue that the distributive effects of LLM foreign policy affect its justifiability. While LLM foreign policy can alleviate some extant distributive concerns, it can generate novel distributive concerns. We must be sensitive to both when thinking about the justifiability of LLM foreign policy. Furthermore, I argue that we should be sensitive to domination-related considerations when assessing the justifiability of LLM foreign policy. I contend that LLM foreign policy risks exposing some to economic and political domination. I conclude by suggesting that global institutions might be created to mitigate the distributive and domination-related concerns associated with LLM foreign policy.",
+  "paper_key": "amendment",
+  "found_via": "venue backfill: Philosophy & Technology"
+ },
+ {
+  "source": "venue",
+  "title": "Pseudotechnology Revisited: A Commentary",
+  "authors": [
+   "Daniele Chiffi",
+   "Stefano Moroni"
+  ],
+  "date": "2026-08-18",
+  "year": 2026,
+  "venue": "Philosophy & Technology",
+  "doi": "10.1007/s13347-026-01155-9",
+  "arxiv_id": null,
+  "url": "https://doi.org/10.1007/s13347-026-01155-9",
+  "abstract": "Abstract This commentary discusses Gustavo Fernández Acevedo’s recent proposal for the definition of pseudotechnology. While recognising the value of his attempt to refine Hansson’s influential account, we argue that several aspects of the proposed definition require further clarification. First, we investigate the logical relationship among the proposed defining conditions and argue that they do not perform the same philosophical function. We then question whether the falsity of the declarative statements underlying a technology can be regarded as constitutive of its pseudotechnological status, drawing on historical examples in which technological success preceded or persisted despite changes in its theoretical justification. Finally, we discuss the implications of treating contemporary evaluative standards as an independent defining criterion. We conclude that irreparable dysfunctionality should remain the constitutive feature of pseudotechnology, whereas the falsity of underlying statements and the absence of appropriate validation are better understood as defeasible epistemic indicators rather than defining conditions.",
+  "paper_key": "amendment",
+  "found_via": "venue backfill: Philosophy & Technology"
+ },
+ {
+  "source": "venue",
+  "title": "The Architecture of Moral Responsibility: Re-Structuring Moral Blame to fill in the Responsibility gap",
+  "authors": [
+   "Vipra Chopra"
+  ],
+  "date": "2026-08-15",
+  "year": 2026,
+  "venue": "Philosophy & Technology",
+  "doi": "10.1007/s13347-026-01165-7",
+  "arxiv_id": null,
+  "url": "https://doi.org/10.1007/s13347-026-01165-7",
+  "abstract": "Abstract The increasing integration of artificial intelligence into decision-making processes has intensified questions about how responsibility should be understood within socio-technical systems. Although debates surrounding the responsibility gap have identified important challenges for existing models of responsibility, they often leave underexamined the internal structure of responsibility itself, treating it as a one-dimensional concept despite comprising multiple analytically distinct normative relations. This paper argues that a more adequate account can be developed by drawing on Gary Watson’s distinction between attributability and accountability, together with his later elaboration of responsibility in terms of attributability, accountability, answerability, and culpability. These distinctions provide the basis for analysing responsibility as a multi-layered structure composed of distinct but related normative dimensions. This perspective makes it possible to examine responsibility under conditions of technological mediation without attributing moral agency or moral responsibility to artificial intelligence systems. Building on this framework, I develop eight sub-dimensions of blame designed to capture how responsibility relations are differentiated and reconfigured within socio-technical systems. The resulting account reconceives the responsibility gap not as a single problem, but as a set of structurally distinct layers between responsibility relations. The paper",
+  "paper_key": "amendment",
+  "found_via": "venue backfill: Philosophy & Technology"
+ },
+ {
+  "source": "venue",
+  "title": "Authorship After Generative AI: Distributed Creativity and Relational Responsibility",
+  "authors": [
+   "Michael Uebel",
+   "Bilal Hamamra"
+  ],
+  "date": "2026-08-12",
+  "year": 2026,
+  "venue": "Philosophy & Technology",
+  "doi": "10.1007/s13347-026-01170-w",
+  "arxiv_id": null,
+  "url": "https://doi.org/10.1007/s13347-026-01170-w",
+  "abstract": "Abstract Generative AI exposes the historical fragility of Romantic myths of the sovereign, self-transparent writer without inaugurating a crisis of authorship itself. Tracing a genealogy from symbolic AI to large language models, we show how creativity has always depended on distributed infrastructures, archives, and labour that the figure of the solitary author conceals. Drawing on Barthes, Foucault, Butler, Haraway, Hayles, and recent legal and bibliometric debates, we argue that “AI authorship” is a category mistake: statistical systems cannot occupy positions of accountability, vulnerability, and justificatory dialogue. They operate as powerful catalysts within socio-technical assemblages whose conditions of possibility lie in data extraction, platform governance, and planetary logistics. On this basis, we advance a relational conception of authorship as ethical and epistemic stewardship over hybrid writing systems, contending that even under conditions of distributed agency and technical opacity, identifiable human agents must remain answerable for AI-mediated outputs. We conclude by sketching implications for copyright doctrine, contributorship taxonomies, and research ethics in an era of pervasive generative automation.",
+  "paper_key": "amendment",
+  "found_via": "venue backfill: Philosophy & Technology"
+ },
+ {
+  "source": "venue",
+  "title": "Artificial Externality: A Three-Layer Model of Reality from Substrate to Smart Contract",
+  "authors": [
+   "Keisuke Suzuki"
+  ],
+  "date": "2026-08-11",
+  "year": 2026,
+  "venue": "Philosophy & Technology",
+  "doi": "10.1007/s13347-026-01158-6",
+  "arxiv_id": null,
+  "url": "https://doi.org/10.1007/s13347-026-01158-6",
+  "abstract": "",
+  "paper_key": "amendment",
+  "found_via": "venue backfill: Philosophy & Technology"
+ },
+ {
+  "source": "venue",
+  "title": "AI Workslop: The Moral Significance of Withholding Effort",
+  "authors": [
+   "Karl de Fine Licht"
+  ],
+  "date": "2026-08-10",
+  "year": 2026,
+  "venue": "Philosophy & Technology",
+  "doi": "10.1007/s13347-026-01164-8",
+  "arxiv_id": null,
+  "url": "https://doi.org/10.1007/s13347-026-01164-8",
+  "abstract": "Abstract This paper examines the moral status of “AI workslop”: AI-generated output that appears adequate but lacks the substance a task requires. Existing research has measured its prevalence and costs and suggested managerial responses, but has not addressed when producing workslop is wrong, permissible, or required. I connect AI workslop to an older problem in workplace ethics: effort-withholding, as in shirking or slacking. Workslop is often perceived as continuous with these practices because it can shift burdens onto others while appearing to spare the sender effort. But the inference from workslop to withheld effort is insecure. Workslop is individuated by output and tool use, not by intention or effort. Its distinctive profile lies in intention-independence, its uncertain relation between output and effort, and the distance AI delegation can place between workers and burdens imposed on others. I argue that responsibility for producing, preventing, and responding to workslop turns on the distribution of control. Managers shape structural conditions, including workloads, deadlines, metrics, AI policies, and training; workers control local choices about whether and how to use AI, how carefully to check its output, and how much burden they pass on. Drawing on harm-based considerations shared across moral traditions, I argue that producing workslop is wrong when it imposes substantial, avoidable, and nonredundant burdens that could reasonably have been prevented; permissib",
+  "paper_key": "amendment",
+  "found_via": "venue backfill: Philosophy & Technology"
+ },
+ {
+  "source": "venue",
+  "title": "From Afro-pessimism to Afrofuturism: Epistemic educational justice through reparations – Lessons for CARICOM countries",
+  "authors": [
+   "Tavis D. Jules",
+   "Dre Parker"
+  ],
+  "date": "2026-10",
+  "year": 2026,
+  "venue": "Futures",
+  "doi": "10.1016/j.futures.2026.103893",
+  "arxiv_id": null,
+  "url": "https://doi.org/10.1016/j.futures.2026.103893",
+  "abstract": "",
+  "paper_key": "fermi",
+  "found_via": "venue backfill: Futures"
+ },
+ {
+  "source": "venue",
+  "title": "The Maré Framework: Converting liminal uncertainty into collective agency",
+  "authors": [
+   "Felipe Koch",
+   "Noelle Resende",
+   "Anika Keils",
+   "Rute Sousa Dinis",
+   "Fernando Bozza"
+  ],
+  "date": "2026-10",
+  "year": 2026,
+  "venue": "Futures",
+  "doi": "10.1016/j.futures.2026.103907",
+  "arxiv_id": null,
+  "url": "https://doi.org/10.1016/j.futures.2026.103907",
+  "abstract": "",
+  "paper_key": "fermi",
+  "found_via": "venue backfill: Futures"
+ },
+ {
+  "source": "venue",
+  "title": "The adaptability of actors in socio-technical transformation: The case of artificial intelligence in the Korean automotive sector",
+  "authors": [
+   "Jong-Seok KIM",
+   "Kritsada Patluang",
+   "Jinwon KANG"
+  ],
+  "date": "2026-10",
+  "year": 2026,
+  "venue": "Futures",
+  "doi": "10.1016/j.futures.2026.103902",
+  "arxiv_id": null,
+  "url": "https://doi.org/10.1016/j.futures.2026.103902",
+  "abstract": "",
+  "paper_key": "fermi",
+  "found_via": "venue backfill: Futures"
+ },
+ {
+  "source": "venue",
+  "title": "When the future feels solastalgic: Understanding how anticipatory solastalgia predicts pro-environmental intentions",
+  "authors": [
+   "Junpeng Chen",
+   "Liuna Geng"
+  ],
+  "date": "2026-10",
+  "year": 2026,
+  "venue": "Futures",
+  "doi": "10.1016/j.futures.2026.103885",
+  "arxiv_id": null,
+  "url": "https://doi.org/10.1016/j.futures.2026.103885",
+  "abstract": "",
+  "paper_key": "fermi",
+  "found_via": "venue backfill: Futures"
+ },
+ {
+  "source": "venue",
+  "title": "What we cannot surrender: Bounded anticipation in education fiction on AI futures",
+  "authors": [
+   "Iosif Gidiotis"
+  ],
+  "date": "2026-10",
+  "year": 2026,
+  "venue": "Futures",
+  "doi": "10.1016/j.futures.2026.103897",
+  "arxiv_id": null,
+  "url": "https://doi.org/10.1016/j.futures.2026.103897",
+  "abstract": "",
+  "paper_key": "fermi",
+  "found_via": "venue backfill: Futures"
+ },
+ {
+  "source": "venue",
+  "title": "Sustainability and ecotopian futures in nordic forestry: A viewpoint study",
+  "authors": [
+   "Ayonghe Nebasifu",
+   "Emilia Jääskeläinen",
+   "Anna-Emilia Haapakoski",
+   "Salla Jutila",
+   "Stefanie Linser"
+  ],
+  "date": "2026-10",
+  "year": 2026,
+  "venue": "Futures",
+  "doi": "10.1016/j.futures.2026.103898",
+  "arxiv_id": null,
+  "url": "https://doi.org/10.1016/j.futures.2026.103898",
+  "abstract": "",
+  "paper_key": "fermi",
+  "found_via": "venue backfill: Futures"
+ },
+ {
+  "source": "venue",
+  "title": "Studying climate futures: Capturing content and processes",
+  "authors": [
+   "Oliver Clifford Pedersen"
+  ],
+  "date": "2026-10",
+  "year": 2026,
+  "venue": "Futures",
+  "doi": "10.1016/j.futures.2026.103899",
+  "arxiv_id": null,
+  "url": "https://doi.org/10.1016/j.futures.2026.103899",
+  "abstract": "",
+  "paper_key": "fermi",
+  "found_via": "venue backfill: Futures"
+ },
+ {
+  "source": "venue",
+  "title": "Artificial intelligence in strategic foresight: Evidence from a longitudinal case at Siemens Professional Education",
+  "authors": [
+   "René Rohrbeck",
+   "Stephan Szuppa",
+   "Julia Schmidt"
+  ],
+  "date": "2026-10",
+  "year": 2026,
+  "venue": "Futures",
+  "doi": "10.1016/j.futures.2026.103883",
+  "arxiv_id": null,
+  "url": "https://doi.org/10.1016/j.futures.2026.103883",
+  "abstract": "",
+  "paper_key": "fermi",
+  "found_via": "venue backfill: Futures"
+ },
+ {
+  "source": "venue",
+  "title": "Analyzing blockchain entrepreneurial ecosystems with foresight: A data-driven approach",
+  "authors": [
+   "Levan Bzhalava",
+   "Sohaib S. Hassan",
+   "Miroslav Šipikal",
+   "Štefan Rehák",
+   "Teemu Makkonen"
+  ],
+  "date": "2026-10",
+  "year": 2026,
+  "venue": "Futures",
+  "doi": "10.1016/j.futures.2026.103904",
+  "arxiv_id": null,
+  "url": "https://doi.org/10.1016/j.futures.2026.103904",
+  "abstract": "",
+  "paper_key": "fermi",
+  "found_via": "venue backfill: Futures"
+ },
+ {
+  "source": "venue",
+  "title": "Water infrastructures in the territories they traverse: The challenge of environing in uncertain times",
+  "authors": [
+   "Gabrielle Bouleau",
+   "Clémence Guimont",
+   "Rémy Petitimbert"
+  ],
+  "date": "2026-10",
+  "year": 2026,
+  "venue": "Futures",
+  "doi": "10.1016/j.futures.2026.103896",
+  "arxiv_id": null,
+  "url": "https://doi.org/10.1016/j.futures.2026.103896",
+  "abstract": "",
+  "paper_key": "fermi",
+  "found_via": "venue backfill: Futures"
+ },
+ {
+  "source": "venue",
+  "title": "Living worlds for net zero: Sensory and embodied visioning in transition management",
+  "authors": [
+   "Darren Sharp",
+   "Emma Quilty",
+   "Sarah Pink",
+   "Dion Tuckwell",
+   "Sam Rye",
+   "Megan Farrelly",
+   "Rob Raven"
+  ],
+  "date": "2026-10",
+  "year": 2026,
+  "venue": "Futures",
+  "doi": "10.1016/j.futures.2026.103884",
+  "arxiv_id": null,
+  "url": "https://doi.org/10.1016/j.futures.2026.103884",
+  "abstract": "",
+  "paper_key": "fermi",
+  "found_via": "venue backfill: Futures"
+ },
+ {
+  "source": "venue",
+  "title": "Future design as temporal-ethical pedagogy: Towards “open futures” in education",
+  "authors": [
+   "Peter Sutoris",
+   "Yoshinori Nakagawa"
+  ],
+  "date": "2026-10",
+  "year": 2026,
+  "venue": "Futures",
+  "doi": "10.1016/j.futures.2026.103905",
+  "arxiv_id": null,
+  "url": "https://doi.org/10.1016/j.futures.2026.103905",
+  "abstract": "",
+  "paper_key": "fermi",
+  "found_via": "venue backfill: Futures"
+ },
+ {
+  "source": "venue",
+  "title": "Nationalised futures: Olympic ceremonies and the politics of historical destiny (1980–2004)",
+  "authors": [
+   "Daniel Malanski"
+  ],
+  "date": "2026-10",
+  "year": 2026,
+  "venue": "Futures",
+  "doi": "10.1016/j.futures.2026.103901",
+  "arxiv_id": null,
+  "url": "https://doi.org/10.1016/j.futures.2026.103901",
+  "abstract": "",
+  "paper_key": "fermi",
+  "found_via": "venue backfill: Futures"
+ },
+ {
+  "source": "venue",
+  "title": "Images of the future and temporal complexity among young adult asylum seekers and refugees in Finland",
+  "authors": [
+   "Seyedeh Akhgar Kaboli"
+  ],
+  "date": "2026-10",
+  "year": 2026,
+  "venue": "Futures",
+  "doi": "10.1016/j.futures.2026.103894",
+  "arxiv_id": null,
+  "url": "https://doi.org/10.1016/j.futures.2026.103894",
+  "abstract": "",
+  "paper_key": "fermi",
+  "found_via": "venue backfill: Futures"
+ },
+ {
+  "source": "venue",
+  "title": "Future technology-based clothing design scenario development and innovative application of AI visualization",
+  "authors": [
+   "Chahong Chung",
+   "Jisoo Ha"
+  ],
+  "date": "2026-10",
+  "year": 2026,
+  "venue": "Futures",
+  "doi": "10.1016/j.futures.2026.103895",
+  "arxiv_id": null,
+  "url": "https://doi.org/10.1016/j.futures.2026.103895",
+  "abstract": "",
+  "paper_key": "fermi",
+  "found_via": "venue backfill: Futures"
+ },
+ {
+  "source": "venue",
+  "title": "Implications for Care Relationships in Technology-Supported Stroke Rehabilitation: A Qualitative Interview Study",
+  "authors": [
+   "Julie Bechtel",
+   "Alena Buyx",
+   "Bettina M. Zimmermann"
+  ],
+  "date": "2026-08-27",
+  "year": 2026,
+  "venue": "Science and Engineering Ethics",
+  "doi": "10.1007/s11948-026-00625-9",
+  "arxiv_id": null,
+  "url": "https://doi.org/10.1007/s11948-026-00625-9",
+  "abstract": "Abstract This study explores how technology-supported rehabilitation reshapes the relationships between patients and therapists. Additionally, it examines how empirical findings can inform early design decisions. Qualitative interviews with patients and therapists identified their perceptions of PhysioMio, a wearable sensor-based rehabilitation device that detects muscle activity to monitor rehabilitation progress and enable independent home-based training. Adapting an ethics of care perspective, we focus on the significance of therapeutic relationships when discussing ethical nuances that emerge with the introduction of technology. Our findings show that, while patients value enhanced opportunities for agency and involvement, they do not seek full detachment from therapists. The successful integration of technology into rehabilitation hinges on strong, trust-based relationships, in which therapists take on an expanded role as contextual evaluators. This illustrates that rather than replace physical therapists, technology demands them to assume new roles. While participants generally prioritized purposeful and beneficial data collection over abstract privacy concerns, this acceptance was challenged when monitoring risked shifting therapists’ roles toward judging supervisors. Visualizing the rehabilitation process through data raised fears of information overload and sparked mixed reactions regarding motivation and peer comparisons. These insights influenced design choices, in",
+  "paper_key": "ethics",
+  "found_via": "venue backfill: Science and Engineering Ethics"
+ },
+ {
+  "source": "venue",
+  "title": "The Embodiment Criterion for Moral Status in Virtual Reality",
+  "authors": [
+   "Yiyi Yang",
+   "Linfan Zhu"
+  ],
+  "date": "2026-08-25",
+  "year": 2026,
+  "venue": "Science and Engineering Ethics",
+  "doi": "10.1007/s11948-026-00627-7",
+  "arxiv_id": null,
+  "url": "https://doi.org/10.1007/s11948-026-00627-7",
+  "abstract": "Abstract The moral status of simulated entities in virtual reality remains an open and urgent ethical question. Existing approaches tie moral status to consciousness, but consciousness is not directly observable, and the hard problem forecloses any near-term empirical resolution. Drawing on Birch’s (2024) precautionary framework, this paper argues that what is needed is not a better theory of consciousness, but a criterion that can guide action under irreducible uncertainty. To that end, we propose the Embodiment Criterion (EC), which separates the moral ground of moral status from its operational indicator. We argue that the capacity for valenced experience grounds moral status, and that in virtual environments the functional architecture of embodiment provides the most tractable observable basis for precautionary inference about that capacity. The EC holds that moral consideration is proportional to the degree to which an entity instantiates three integrated mechanisms: multisensory signal integration distinguishing self from world, a closed sensorimotor prediction loop, and a continuously updated egocentric spatial reference frame. Unlike behavioral approaches, which derive moral status from output equivalence with recognized moral patients (Danaher, 2020, 2021), the EC derives it from the underlying functional architecture, an evidential basis more resistant to the difficulties that behavioral assessment faces in virtual environments. Applied to three types of virtual ent",
+  "paper_key": "ethics",
+  "found_via": "venue backfill: Science and Engineering Ethics"
+ },
+ {
+  "source": "venue",
+  "title": "Harm Reduction, Alternatives, and the Ethics of Transition",
+  "authors": [
+   "Nico Dario Müller"
+  ],
+  "date": "2026-08-20",
+  "year": 2026,
+  "venue": "Science and Engineering Ethics",
+  "doi": "10.1007/s11948-026-00623-x",
+  "arxiv_id": null,
+  "url": "https://doi.org/10.1007/s11948-026-00623-x",
+  "abstract": "Abstract Turner (2026) articulates and defends the Proactive Principle of Choosing Less Harmful Alternatives, which asks agents and communities to develop new alternatives to current harmful practices. Drawing on examples from animal experimentation, this commentary argues that an overly alternatives-oriented approach to harm reduction has problematic limitations. The ethics of proactive harm reduction should be understood not just as an ethics of alternatives, but more broadly as an ethics of transition.",
+  "paper_key": "ethics",
+  "found_via": "venue backfill: Science and Engineering Ethics"
+ },
+ {
+  "source": "venue",
+  "title": "An Identity-Based Ethics for Engineering",
+  "authors": [
+   "Collin Lucken"
+  ],
+  "date": "2026-08-19",
+  "year": 2026,
+  "venue": "Science and Engineering Ethics",
+  "doi": "10.1007/s11948-026-00622-y",
+  "arxiv_id": null,
+  "url": "https://doi.org/10.1007/s11948-026-00622-y",
+  "abstract": "Abstract Engineering ethics education often relies on case-study methods focused on disaster prevention and professional codes. Recent work in virtue ethics and professional identity has begun to develop a possible alternative, but the philosophical foundations of engineering’s ethical character remain underdeveloped. This paper argues that engineering constitutes a morally significant professional identity: a life-shaping practice whose internal goods are oriented toward the development of central human capabilities. Drawing on Appiah’s (2005, 2018) identity framework, MacIntyre’s (2007, 1999) theory of practices and his account of compartmentalization, the capability approach as formalized by Robeyns (2017), and Wolfendale’s (2007) regulative-ideal account of professional integrity, I analyze engineering identity through institutional analyses of France’s École Polytechnique and the United States’ Accreditation Board for Engineering and Technology (ABET). I argue that engineering’s normative regulative ideal is the development of human capabilities, and that this orientation provides the philosophical grounding for an identity-based approach to engineering ethics education that connects ethical development to the cultivation of engineering character. The account developed here deepens Davis’s (1991) identity-inflected reading of engineering professionalism and translates across the Franco-American tradition to non-Western frameworks (e.g., Lan et al., 2021) with which it co",
+  "paper_key": "ethics",
+  "found_via": "venue backfill: Science and Engineering Ethics"
+ },
+ {
+  "source": "venue",
+  "title": "Habituation and the Human Will: How Passive Reliance on Human-AI Collaboration Erodes Ethical Agency to Prevent It",
+  "authors": [
+   "Francisco Herrera"
+  ],
+  "date": "2026-08-18",
+  "year": 2026,
+  "venue": "Science and Engineering Ethics",
+  "doi": "10.1007/s11948-026-00621-z",
+  "arxiv_id": null,
+  "url": "https://doi.org/10.1007/s11948-026-00621-z",
+  "abstract": "",
+  "paper_key": "ethics",
+  "found_via": "venue backfill: Science and Engineering Ethics"
+ },
+ {
+  "source": "venue",
+  "title": "Beyond the Surface: Identifying Ethical Blind Spots in the Development of Locator Devices for Dementia Care",
+  "authors": [
+   "Jared Howes",
+   "Yvonne Denier",
+   "Tijs Vandemeulebroucke",
+   "Chris Gastmans"
+  ],
+  "date": "2026-08-14",
+  "year": 2026,
+  "venue": "Science and Engineering Ethics",
+  "doi": "10.1007/s11948-026-00599-8",
+  "arxiv_id": null,
+  "url": "https://doi.org/10.1007/s11948-026-00599-8",
+  "abstract": "",
+  "paper_key": "ethics",
+  "found_via": "venue backfill: Science and Engineering Ethics"
+ },
+ {
+  "source": "venue",
+  "title": "Language Models as a Challenge for Business Ethics – A Partially Open-Source Approach",
+  "authors": [
+   "Patrick Hedfeld"
+  ],
+  "date": "2026-08-14",
+  "year": 2026,
+  "venue": "Science and Engineering Ethics",
+  "doi": "10.1007/s11948-026-00620-0",
+  "arxiv_id": null,
+  "url": "https://doi.org/10.1007/s11948-026-00620-0",
+  "abstract": "Abstract Large language models have become central infrastructures of contemporary digital economies while raising persistent ethical concerns regarding linguistic inequality, opacity, data governance, and the concentration of technological power. Much of the current debate on AI ethics focuses on normative principles such as fairness, transparency, and accountability. While these principles remain essential, they often do not sufficiently explain why ethically problematic outcomes persist under competitive market conditions. This paper addresses that gap by applying Karl Homann’s institutional economic ethics to the governance of large language models. From this perspective, ethical deficits in AI development are not merely the result of individual failures of responsibility, but are also shaped by institutional incentive structures that reward speed, scale, proprietary control, and strategic secrecy. The paper analyses three central ethical challenges in LLM development: linguistic and cultural asymmetries, transparency and accountability deficits, and contested practices of data governance and intellectual property. It then argues that the familiar opposition between open and closed AI systems is conceptually and institutionally inadequate. In response, the paper develops the concept of partially open AI governance, understood as a differentiated arrangement of access, disclosure, and oversight across distinct layers of AI systems. Such an approach offers a more realistic ",
+  "paper_key": "ethics",
+  "found_via": "venue backfill: Science and Engineering Ethics"
+ },
+ {
+  "source": "venue",
+  "title": "From Blind Spot to Stakeholder: Animals in Technology Ethics and Responsible Innovation",
+  "authors": [
+   "Eline de Jong"
+  ],
+  "date": "2026-08-11",
+  "year": 2026,
+  "venue": "Science and Engineering Ethics",
+  "doi": "10.1007/s11948-026-00617-9",
+  "arxiv_id": null,
+  "url": "https://doi.org/10.1007/s11948-026-00617-9",
+  "abstract": "Abstract Technologies increasingly shape animals’ lives, yet animal interests are still largely marginal in mainstream technology ethics and in frameworks of Responsible Research and Innovation (RRI). This paper argues that this neglect constitutes a serious moral blind spot that sits in tension with these fields’ own ethical aspirations. Debates about the ethical acceptability and societal desirability of technologies often take human interests as the normative baseline. This anthropocentrism runs deep in both RRI and technology ethics, yet it is ethically indefensible for two mutually reinforcing reasons. First, technological innovations have profound direct and indirect impacts on animals, which will only intensify with the rise of new system technologies such as artificial intelligence. Second, as sentient beings, animals possess moral status and are worthy of moral consideration. Together, these grounds a responsibility to take animal interests seriously in our technological activities. To give this responsibility a practical foothold, I mobilise the concept of stakeholdership — a cornerstone of both RRI and technology ethics — arguing that reinterpreting it to include animals can facilitate their inclusion in ethical deliberation and decision-making about technology. The paper sketches potential pathways for recognising animals as stakeholders in ethical discussions on technology, and engages with some key challenges such an extension is likely to face. I conclude that ",
+  "paper_key": "ethics",
+  "found_via": "venue backfill: Science and Engineering Ethics"
+ },
+ {
+  "source": "venue",
+  "title": "Are You Sure This is What You Really Want? Conversational Recommender Systems for Enhancing Human Autonomy",
+  "authors": [
+   "Francisco Lara",
+   "Juan Ignacio del Valle"
+  ],
+  "date": "2026-08-08",
+  "year": 2026,
+  "venue": "Science and Engineering Ethics",
+  "doi": "10.1007/s11948-026-00619-7",
+  "arxiv_id": null,
+  "url": "https://doi.org/10.1007/s11948-026-00619-7",
+  "abstract": "Abstract Recommender systems are widely used to help users navigate information overload in digital environments. While they are often portrayed as tools that enhance autonomy by optimizing choice and personalizing content, this article argues that many current recommender systems designs in fact undermine user autonomy. Drawing on a conception of autonomy in which the formation and configuration of preferences, particularly higher-level desires in the Frankfurtian sense, play a prominent role, we examine how dominant recommendation techniques shape users’ desires and, to a greater extent, their identities. We first analyze what we call conjectural recommenders, systems that infer preferences from behavioral data such as clicks or viewing histories. These systems conflate observed choices with genuine preferences, reinforcing first-order desires, narrowing the diversity of recommendations, and trapping users in homogeneous digital environments that impede identity development and degrade deliberative capacities. We then assess interrogative recommenders, which incorporate explicit user feedback as a form of positive friction in the user interface. Although these recommenders prompt users to articulate evaluations, we argue that they remain insufficient for capturing second-order desires and raise new design challenges concerning paternalism and usability. In response, we propose the Socratic conversational recommender system, a model that combines conversational recommendatio",
+  "paper_key": "ethics",
+  "found_via": "venue backfill: Science and Engineering Ethics"
+ },
+ {
+  "source": "venue",
+  "title": "Navigating Access: Opportunities and Risks of AI-Mediated Hiring for People with Disabilities",
+  "authors": [
+   "Beyza Nur Guler",
+   "Qin Zhu"
+  ],
+  "date": "2026-08-08",
+  "year": 2026,
+  "venue": "Science and Engineering Ethics",
+  "doi": "10.1007/s11948-026-00618-8",
+  "arxiv_id": null,
+  "url": "https://doi.org/10.1007/s11948-026-00618-8",
+  "abstract": "",
+  "paper_key": "ethics",
+  "found_via": "venue backfill: Science and Engineering Ethics"
+ },
+ {
+  "source": "venue",
+  "title": "Untold Stories of Future Engineers: Engineering Students’ Reflections in a Fiction-Based Ethics Course",
+  "authors": [
+   "Sara M. Andersson",
+   "Eva M. Brodin"
+  ],
+  "date": "2026-08-03",
+  "year": 2026,
+  "venue": "Science and Engineering Ethics",
+  "doi": "10.1007/s11948-026-00615-x",
+  "arxiv_id": null,
+  "url": "https://doi.org/10.1007/s11948-026-00615-x",
+  "abstract": "Abstract The integration of micro- and macroethical perspectives remains a challenge in engineering ethics education (EEE). Fiction-based EEE has been advocated as a pedagogical approach that can help students in this regard. However, how students actually use fiction to engage with micro- and macroethics remains underexplored. Therefore, this case study aimed to (1) identify how students’ engagement with fictions connected to micro and macro perspectives on engineering and technology ethics, (2) examine how students realized pedagogical potentials of fiction-based pedagogy in this regard, and (3) explore how the outcomes related to the pedagogical framing and activities of the course. The selected case was an elective, fiction-based EEE course, during which the written course work of students, teacher and student interviews, course materials, and data from workshop observations were collected for qualitative analysis. Findings show that several expected pedagogical potentials of fiction-based pedagogy were realized as students reflected on what guides human behavior and on the societal impact of technology, both within and beyond the fictions. However, students’ reflections rarely connected to their future professional role. These findings could be related to characteristics of the employed pedagogy and fictions, but also to students’ prior knowledge and expectations regarding professional engineering practice. We conclude that students may need targeted support towards conn",
+  "paper_key": "ethics",
+  "found_via": "venue backfill: Science and Engineering Ethics"
+ },
+ {
+  "source": "venue",
+  "title": "Beyond the Algorithm: Artificial Intelligence, Clinical Decision-Making, and the Moral Ecology of Care in Africa",
+  "authors": [
+   "Kirubel Manyazewal Mussie"
+  ],
+  "date": "2026-08-01",
+  "year": 2026,
+  "venue": "Science and Engineering Ethics",
+  "doi": "10.1007/s11948-026-00616-w",
+  "arxiv_id": null,
+  "url": "https://doi.org/10.1007/s11948-026-00616-w",
+  "abstract": "Abstract Artificial intelligence (AI) is increasingly promoted as a tool to enhance clinical decision-making and thus improve the quality of healthcare. While much of the emerging scholarship on AI and healthcare in Africa has focused broadly on opportunities and systemic challenges, what remains underexplored is the specific application of AI to clinical decision-making. This paper contributes to addressing this gap by offering a conceptual and critical analysis of AI-based clinical decision support systems (AI-CDSS) in African contexts. Drawing on philosophical accounts of medical reasoning and relational moral frameworks such as Ubuntu, the paper draws on the moral ecology of care and shows that algorithmic systems can reconfigure epistemic authority, redistribute responsibility, and risk marginalising context-sensitive and relational dimensions of care. The paper further argues that AI systems are better understood as socio-technical mirrors that reflect and amplify existing human values, institutional arrangements, and power asymmetries. Moving beyond the algorithm, it proposes a shift toward relational and context-sensitive AI governance, including the development of relational impact assessments, the redistribution of responsibility across the AI lifecycle, and the co-production of knowledge with local stakeholders. While focusing on African clinical contexts, the analysis offers broader insights for global debates on AI ethics and clinical decision-making.",
+  "paper_key": "ethics",
+  "found_via": "venue backfill: Science and Engineering Ethics"
+ },
+ {
+  "source": "venue",
+  "title": "What if I Want to be an Avatar: Moral and Legal Implications of Opting for a Life in the Metaverse",
+  "authors": [
+   "Iñigo de Miguel Beriain",
+   "Anibal M. Astobiza",
+   "Mercedes Lopez de la Peña de Pablo",
+   "Francesca Tassinari"
+  ],
+  "date": "2026-07-29",
+  "year": 2026,
+  "venue": "Science and Engineering Ethics",
+  "doi": "10.1007/s11948-026-00614-y",
+  "arxiv_id": null,
+  "url": "https://doi.org/10.1007/s11948-026-00614-y",
+  "abstract": "Abstract The rise of virtual worlds, collectively known as the Metaverse, compels a re-examination of longstanding debates concerning personal freedom, moral responsibility, and legal accountability. These immersive digital environments differ from prior communication technologies not merely in degree but in the phenomenological quality they produce: a pervasive sense of presence that blurs the boundary between the virtual and the physical. This article examines the ethical and legal challenges that arise when individuals choose to spend a substantial portion of their lives within such digital spaces. We introduce the concept of “Meta-Autonomy” as a theoretical framework for understanding personal agency in algorithmically mediated environments. We argue that existing accounts of autonomy — Kantian, procedural, and enactivist — each capture important dimensions of this challenge but face specific difficulties when confronted simultaneously with four structural properties of Metaverse environments: algorithmic mediation of choice architecture, radical fluidity of identity, networked and distributed causal agency, and the moral embeddedness of virtual experience. Meta-Autonomy is proposed as a framework that holds these four dimensions together and derives from their interaction both a set of diagnostic criteria for identifying autonomy deficits and a set of normative implications for regulation. We develop the thought experiment of “Plato’s Digital Cave” to illustrate the firs",
+  "paper_key": "ethics",
+  "found_via": "venue backfill: Science and Engineering Ethics"
+ },
+ {
+  "source": "venue",
+  "title": "The Ethical Issues of Social Media Companies and the Attention Economy Business Model",
+  "authors": [
+   "Mahon McCann",
+   "Fiachra O’Brolchain",
+   "Joss Moorkens",
+   "Bert Gordijn"
+  ],
+  "date": "2026-07-27",
+  "year": 2026,
+  "venue": "Science and Engineering Ethics",
+  "doi": "10.1007/s11948-026-00611-1",
+  "arxiv_id": null,
+  "url": "https://doi.org/10.1007/s11948-026-00611-1",
+  "abstract": "",
+  "paper_key": "ethics",
+  "found_via": "venue backfill: Science and Engineering Ethics"
+ },
+ {
+  "source": "venue",
+  "title": "Bias in the Machine? A Solution to the Isolationist Problem Through a Sociotechnical Understanding of Bias in AI Ethics",
+  "authors": [
+   "Gabriela Arriagada-Bruneau"
+  ],
+  "date": "2026-07-25",
+  "year": 2026,
+  "venue": "Science and Engineering Ethics",
+  "doi": "10.1007/s11948-026-00612-0",
+  "arxiv_id": null,
+  "url": "https://doi.org/10.1007/s11948-026-00612-0",
+  "abstract": "Abstract Dominant approaches to bias in artificial intelligence (AI) are structured by what I identify as the isolationist problem: the tendency to treat bias as a discrete, technically addressable flaw within the AI development pipeline, rather than as a relational phenomenon embedded in social, institutional, and political arrangements. This problem is sustained by two mutually reinforcing orientations: technocentrism, which reframes ethical challenges as engineering problems amenable to computational resolution, and the bias-centric conception of fairness, which reduces fairness to statistical mitigation and obscures its contested, context-dependent character. Together, these orientations produce ontological, epistemic, and practical forms of narrowing ethical imagination and channel intervention into technically tractable but socially limited responses. Against this, I propose sociotechnical sensitivity as both an analytical orientation and a normative commitment: a sustained attentiveness to the ways in which AI systems are constitutively embedded in social relations, institutional arrangements, cultural norms, and power structures. The paper’s central argumentative shift is to change the narrative from bias mitigation to bias management—treating bias not as a defect to be corrected but as an ongoing condition to be governed. These arguments are developed through an extended analysis of the well-known case of the COMPAS algorithm, a recidivism risk-assessment prediction ",
+  "paper_key": "ethics",
+  "found_via": "venue backfill: Science and Engineering Ethics"
+ }
+]

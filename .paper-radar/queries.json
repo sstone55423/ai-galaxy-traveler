@@ -89,6 +89,28 @@
       ],
       "exclude": [
         "magnetic sail solar wind turbine"
+      ],
+      "venue_watch": [
+        {
+          "issn": [
+            "0007-084X"
+          ],
+          "name": "Journal of the British Interplanetary Society"
+        },
+        {
+          "issn": [
+            "0094-5765"
+          ],
+          "name": "Acta Astronautica"
+        }
+      ],
+      "cites_watch": [
+        {
+          "label": "Freitas 1980",
+          "id": null,
+          "title": "A self-reproducing interstellar probe",
+          "year": 1980
+        }
       ]
     },
     {
@@ -147,6 +169,14 @@
         "self-supervised representation learning",
         "soft robotics survey",
         "surgical robot"
+      ],
+      "venue_watch": [
+        {
+          "issn": [
+            "3004-8621"
+          ],
+          "name": "npj Advanced Manufacturing"
+        }
       ]
     },
     {
@@ -257,7 +287,22 @@
         "planetary protection policy autonomous probe",
         "post-detection protocol SETI contact"
       ],
-      "exclude": []
+      "exclude": [],
+      "venue_watch": [
+        {
+          "issn": [
+            "0265-9646"
+          ],
+          "name": "Space Policy"
+        },
+        {
+          "issn": [
+            "1531-1074",
+            "1557-8070"
+          ],
+          "name": "Astrobiology"
+        }
+      ]
     },
     {
       "key": "amendment",
@@ -289,6 +334,15 @@
         "electoral law",
         "tax amendment",
         "amendment act 19"
+      ],
+      "venue_watch": [
+        {
+          "issn": [
+            "2210-5433",
+            "2210-5441"
+          ],
+          "name": "Philosophy & Technology"
+        }
       ]
     },
     {
@@ -327,6 +381,47 @@
         "fermi gas",
         "fermi energy",
         "fermi arc"
+      ],
+      "venue_watch": [
+        {
+          "issn": [
+            "0016-3287"
+          ],
+          "name": "Futures"
+        }
+      ],
+      "cites_watch": [
+        {
+          "label": "Hart 1975",
+          "id": null,
+          "title": "An explanation for the absence of extraterrestrials on Earth",
+          "year": 1975
+        },
+        {
+          "label": "Tipler 1980",
+          "id": null,
+          "title": "Extraterrestrial intelligent beings do not exist",
+          "year": 1980
+        },
+        {
+          "label": "Sagan & Newman 1983",
+          "id": null,
+          "title": "The solipsist approach to extraterrestrial intelligence",
+          "year": 1983
+        },
+        {
+          "label": "Bracewell 1960",
+          "id": null,
+          "doi": "10.1038/186670a0",
+          "title": "Communications from superior galactic communities",
+          "year": 1960
+        },
+        {
+          "label": "Cirkovic 2008",
+          "id": null,
+          "title": "Against the Empire",
+          "year": 2008
+        }
       ]
     },
     {
@@ -448,6 +543,15 @@
         "call graph",
         "wireless sensor",
         "onion routing"
+      ],
+      "venue_watch": [
+        {
+          "issn": [
+            "1473-5504",
+            "1475-3006"
+          ],
+          "name": "International Journal of Astrobiology"
+        }
       ]
     },
     {
@@ -484,6 +588,24 @@
         "suicidology",
         "bioethics education",
         "clinical ethics"
+      ],
+      "venue_watch": [
+        {
+          "issn": [
+            "1353-3452",
+            "1471-5546"
+          ],
+          "name": "Science and Engineering Ethics"
+        }
+      ],
+      "cites_watch": [
+        {
+          "label": "Birch 2024",
+          "id": null,
+          "doi": "10.1093/9780191966729.001.0001",
+          "title": "The Edge of Sentience",
+          "year": 2024
+        }
       ]
     },
     {
@@ -560,5 +682,6 @@
       ],
       "_retune_note": "2026-08-25: first post-retune sweep returned 17 hits, all applied cybersecurity/security-studies noise (digest 08-25). Every query now carries a graph-structural or probe/replication token, mirroring the ethics fix; the network-robustness leg is scoped to spatial/geometric graphs, which is the class whose results transfer (the paper itself demonstrates degree/spectral heuristics do not)."
     }
-  ]
+  ],
+  "_watch_note": "venue_watch sweeps whole journals by ISSN via Crossref regardless of keywords; cites_watch sweeps new works citing a canon paper via OpenAlex filter=cites:. Entries with id:null are skipped by the sweep; run .paper-radar/resolve_canon.py once (OpenAlex quota permitting) to fill them from the stored doi/title/year hints. ISSNs verified via Crossref journals API 2026-08-30."
 }

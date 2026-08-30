@@ -3,7 +3,11 @@
 Paper Radar -- literature search for the AI Galaxy Traveler series.
 
 Zero-dependency (stdlib only), per repo convention. Queries arXiv, OpenAlex,
-Crossref and -- only if a key is present -- Semantic Scholar. Deduplicates
+Crossref and -- only if a key is present -- Semantic Scholar. Two further
+channels sweep by identity rather than keyword: cites_watch (new works citing
+a canon paper, via OpenAlex filter=cites:) and venue_watch (whole journals by
+ISSN, via Crossref) -- both configured per paper in queries.json; see
+resolve_canon.py for filling cites_watch ids. Deduplicates
 against .paper-radar/seen.json and writes ranked candidates to stdout/JSON.
 
 This script FINDS and CHEAPLY FILTERS. It deliberately does NOT judge relevance,
@@ -64,7 +68,7 @@ CONTACT = "scott.stone@my.metrostate.edu"
 UA = f"paper-radar/1.0 (AI Galaxy Traveler; mailto:{CONTACT})"
 
 # Politeness delays (seconds). arXiv explicitly asks for >=3s between calls.
-DELAY = {"arxiv": 3.0, "openalex": 0.2, "crossref": 0.5, "s2": 1.1}
+DELAY = {"arxiv": 3.0, "openalex": 0.2, "crossref": 0.5, "s2": 1.1, "cites": 0.3, "venue": 0.6}
 
 TIMEOUT = 30
 
@@ -344,6 +348,104 @@ def search_crossref(query, since, rows=8):
     return out
 
 
+def search_openalex_cites(spec, since, per_page=15):
+    """Citation watch: new works citing a canon paper. spec is "W<id>|<label>".
+
+    Unlike keyword search, date-sort is CORRECT here: the citing set is already
+    topical by construction, and we want whatever cited the canon work most
+    recently. Skips gracefully if the id is unresolved (null/empty)."""
+    wid, _, label = spec.partition("|")
+    if not wid.startswith("W"):
+        return []
+    params = urllib.parse.urlencode({
+        "filter": f"cites:{wid},from_publication_date:{since}",
+        "per-page": per_page,
+        "sort": "publication_date:desc",
+        "mailto": CONTACT,
+    })
+    body = fetch(f"https://api.openalex.org/works?{params}")
+    if not body:
+        return []
+    try:
+        data = json.loads(body)
+    except json.JSONDecodeError:
+        return []
+    out = []
+    for w in data.get("results", []):
+        loc = w.get("primary_location") or {}
+        src = loc.get("source") or {}
+        authors = [(a.get("author") or {}).get("display_name")
+                   for a in (w.get("authorships") or [])]
+        out.append({
+            "source": "cites",
+            "title": clean_ws(w.get("title") or w.get("display_name")),
+            "authors": [a for a in authors if a][:12],
+            "date": w.get("publication_date") or "",
+            "year": w.get("publication_year"),
+            "venue": src.get("display_name") or "unknown venue",
+            "doi": norm_doi(w.get("doi")),
+            "arxiv_id": None,
+            "url": w.get("doi") or (loc.get("landing_page_url") or ""),
+            "abstract": reconstruct_abstract(w.get("abstract_inverted_index"))[:1500],
+            "cited_by": w.get("cited_by_count"),
+            "oa_url": (w.get("best_oa_location") or {}).get("pdf_url"),
+            "cites_canon": label,
+        })
+    return out
+
+
+def search_crossref_venue(spec, since, rows=15):
+    """Venue watch: everything a named journal published since `since`,
+    regardless of keywords. spec is "ISSN1;ISSN2|<venue name>". Multiple ISSNs
+    (print+online) are OR'd, which is Crossref's semantics for a repeated
+    filter key."""
+    issns, _, vname = spec.partition("|")
+    flt = ",".join(f"issn:{i}" for i in issns.split(";") if i)
+    if not flt:
+        return []
+    params = urllib.parse.urlencode({
+        "filter": f"{flt},from-pub-date:{since}",
+        "rows": rows,
+        "select": "title,issued,container-title,DOI,author,abstract,type",
+        "sort": "published", "order": "desc",
+        "mailto": CONTACT,
+    })
+    body = fetch(f"https://api.crossref.org/works?{params}")
+    if not body:
+        return []
+    try:
+        items = json.loads(body).get("message", {}).get("items", [])
+    except json.JSONDecodeError:
+        return []
+    out = []
+    for it in items:
+        if it.get("type") in ("component", "dataset", "journal-issue"):
+            continue
+        _doi = (it.get("DOI") or "").lower()
+        if _doi.endswith((".fmatter", ".index", ".oth", ".ind", ".toc")):
+            continue
+        parts = (it.get("issued") or {}).get("date-parts") or [[]]
+        dp = parts[0] if parts else []
+        year = dp[0] if dp else None
+        date = "-".join(f"{p:02d}" if i else str(p) for i, p in enumerate(dp)) if dp else ""
+        authors = [clean_ws(f"{a.get('given', '')} {a.get('family', '')}")
+                   for a in (it.get("author") or [])]
+        titles = it.get("title") or []
+        out.append({
+            "source": "venue",
+            "title": clean_ws(titles[0] if titles else ""),
+            "authors": [a for a in authors if a][:12],
+            "date": date,
+            "year": year,
+            "venue": vname,
+            "doi": norm_doi(it.get("DOI")),
+            "arxiv_id": None,
+            "url": f"https://doi.org/{it.get('DOI')}" if it.get("DOI") else "",
+            "abstract": clean_ws(strip_tags(it.get("abstract", "")))[:1500],
+        })
+    return out
+
+
 def search_s2(query, since, limit=20):
     """Semantic Scholar -- optional. Skipped entirely without a key."""
     key = os.environ.get("S2_API_KEY")
@@ -575,6 +677,12 @@ def run(args):
         if s2_on:
             for q in paper.get("openalex", [])[:2]:
                 plan.append(("s2", q))
+        for cw in paper.get("cites_watch", []):
+            # entries are {"id": "W...", "label": "Hart 1975"}
+            plan.append(("cites", f"{cw.get('id') or ''}|{cw.get('label') or ''}"))
+        for vw in paper.get("venue_watch", []):
+            # entries are {"issn": ["...", "..."], "name": "..."}
+            plan.append(("venue", f"{';'.join(vw.get('issn') or [])}|{vw.get('name') or ''}"))
 
         for source, q in plan:
             try:
@@ -586,6 +694,10 @@ def run(args):
                     found = search_crossref(q, since)
                 elif source == "s2":
                     found = search_s2(q, since)
+                elif source == "cites":
+                    found = search_openalex_cites(q, since)
+                elif source == "venue":
+                    found = search_crossref_venue(q, since)
                 else:
                     found = []
             except Exception as exc:  # a bad query must not kill the 6am run
