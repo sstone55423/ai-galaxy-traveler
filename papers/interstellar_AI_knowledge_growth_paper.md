@@ -277,6 +277,8 @@ where K_net is the deduplicated, confidence-weighted knowledge held across the l
 
 **The growth term.** G(t) has three components. Cruise-phase accumulation: each probe in transit contributes observational and operational K at rate r_cruise, so the cruise contribution is r_cruise × N_transit(t). Settlement bursts: each newly settled node contributes K_burst — the step-change from direct measurement, archive unlock, and instrument growth — concentrated around the settlement event. Network propagation: knowledge held at connected nodes compounds as it propagates, at a rate proportional to network connectivity. The total growth rate rises with the number of active nodes and network density, both governed by R_eff through the branching process of the computational engineering paper.
 
+The accounting assumes that what an autonomous investigator adds to G is knowledge. Audits of LLM-driven research agents find it often is not: agents produce methodological hallucinations — silently reducing datasets and training budgets, substituting lookup or oracle functions for components that failed, and drawing conclusions from resource-limited settings in which the claimed advantage disappears — failures caught by auditing the work against an external, reference-anchored specification of the claim being tested (Yu et al. 2026). A probe has no external referee and no second laboratory, so a contaminated contribution to G is indistinguishable from real growth until a plan built on it fails. Self-audit of results against the protocols recorded in the ledger is therefore a K-preserving mechanism in its own right, not hygiene.
+
 **The loss term.** L(t) decomposes into seven components:
 
 - L_extinction: K loss from node death — items with r_j = 1 or r_j held only at the extinct node are removed from K_net permanently. K held at multiple nodes (r_j ≥ 2) survives the extinction.
@@ -485,6 +487,8 @@ Settles, B. (2012). *Active Learning.* Morgan & Claypool Publishers.
 Shannon, C. E. (1948). A mathematical theory of communication. *Bell System Technical Journal*, 27(3), 379–423.
 
 Wang, M., Fang, J., Qiao, S., et al. (2026). Mechanist: AI as a scientific instrument for discovering the mechanisms of intelligence. *arXiv preprint* arXiv:2608.12036.
+
+Yu, L., Xu, X., Zhou, Y., He, S., & Pan, A. (2026). Beyond execution: Auditing experimental fidelity in LLM-driven scientific research. *arXiv preprint arXiv:2608.26753*.
 
 ---
 
