@@ -270,7 +270,7 @@ Hart, M. H. (1975). An explanation for the absence of extraterrestrials on Earth
 
 Ivliev, S. (2026). Autonomous AI-cosmoindustry and the quiet expansion filter: A threshold-based resolution of the Fermi paradox. *arXiv preprint* arXiv:2606.13914.
 
-Klotz, D. (2026). Smart enough to go extinct? An evolutionary challenge to the value of general intelligence and its ethical implications for AGI. *arXiv preprint* arXiv:2608.10730.
+Klotz, D. (2026). Smart enough to go extinct? An evolutionary challenge to the value of general intelligence and its ethical implications for AGI. *Philosophy & Technology*, 39(3), 164. https://doi.org/10.1007/s13347-026-01176-4
 
 Lam, C., Ballard, S., Sagear, S., & Daniel, K. J. (2026). An increase in the Galactic planet-host fraction fails to reproduce the Galactic height trend in planet occurrence. *The Astronomical Journal*, 172, 143.
 

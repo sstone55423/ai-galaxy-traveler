@@ -390,7 +390,7 @@ Hedman, N., Coustenis, A., Doran, P., Worms, J.-C., et al. (2026). The COSPAR Pa
 
 Jonas, H. (1984). *The Imperative of Responsibility: In Search of an Ethics for the Technological Age.* University of Chicago Press.
 
-Klotz, D. (2026). Smart enough to go extinct? An evolutionary challenge to the value of general intelligence and its ethical implications for AGI. *arXiv preprint* arXiv:2608.10730.
+Klotz, D. (2026). Smart enough to go extinct? An evolutionary challenge to the value of general intelligence and its ethical implications for AGI. *Philosophy & Technology*, 39(3), 164. https://doi.org/10.1007/s13347-026-01176-4
 
 Korbitz, A. (2014). Toward understanding the active SETI debate: Insights from risk communication and perception. *Acta Astronautica*, 105(2), 517–520.
 

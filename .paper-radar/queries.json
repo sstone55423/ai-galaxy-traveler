@@ -435,7 +435,7 @@
       "openalex": [
         "percolation threshold random geometric graph connectivity",
         "k-connectivity articulation point spatial network robustness",
-        "k-out-of-n redundancy mission reliability"
+        "\"k-out-of-n\" system reliability redundancy"
       ],
       "crossref": [
         "interstellar colonization network graph reachability"
@@ -466,7 +466,7 @@
       "openalex": [
         "space colonization ethics obligations planetary protection",
         "moral status artificial agents machine personhood",
-        "non-identity problem future generations population ethics",
+        "\"non-identity problem\" Parfit future generations",
         "longtermism existential risk space settlement",
         "directed panspermia ethics astrobiology moratorium"
       ],
@@ -535,7 +535,7 @@
         "physics.soc-ph"
       ],
       "openalex": [
-        "articulation points targeted attack spatial networks",
+        "articulation point attack tolerance network robustness",
         "self-replicating spacecraft probe security adversarial",
         "quarantine autoimmunity false positive distributed agents",
         "network dismantling spatial geometric lattice robustness"
