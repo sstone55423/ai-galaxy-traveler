@@ -133,18 +133,20 @@
         "cs.RO"
       ],
       "openalex": [
-        "self-replicating factory industrial closure",
-        "in-situ resource utilization space manufacturing bootstrap",
-        "kinematic self-replicating machines"
+        "in-situ resource utilization regolith processing manufacturing closure",
+        "self-replicating machine factory automation closure",
+        "lunar regolith additive manufacturing sintering construction"
       ],
       "crossref": [
-        "self-replicating factory closure space manufacturing",
-        "in-situ resource utilization bootstrapping industry"
+        "in-situ resource utilization autonomous manufacturing closure"
       ],
       "exclude": [
-        "self-replicating rna",
+        "self-replicating peptide",
         "self-replicating protocell",
-        "self-replicating peptide"
+        "self-replicating rna",
+        "self-supervised representation learning",
+        "soft robotics survey",
+        "surgical robot"
       ]
     },
     {
@@ -222,11 +224,15 @@
         "DNA information storage longevity degradation"
       ],
       "exclude": [
-        "dna origami",
-        "dna methylation",
+        "chaotic encryption",
+        "circulating tumor dna",
         "dna barcoding",
+        "dna methylation",
+        "dna origami",
         "dna vaccine",
-        "circulating tumor dna"
+        "fluorescent probe",
+        "image encryption",
+        "molecular probe assay"
       ]
     },
     {
@@ -372,20 +378,24 @@
         "delay tolerant networking deep space bundle protocol"
       ],
       "exclude": [
-        "optical access network",
         "5g",
         "6g",
-        "wireless sensor network",
+        "NFT",
+        "blockchain consensus",
         "network-on-chip",
+        "neural network",
+        "optical access network",
+        "proof-of-stake",
+        "smart contract",
         "social network analysis",
-        "neural network"
+        "wireless sensor network"
       ]
     },
     {
       "key": "subsystem",
       "file": "papers/interstellar_AI_subsystem_paper.md",
       "title": "Subsystem budget",
-      "thesis": "Second-level decomposition of the ~3,700 kg seed: per-subsystem mass, 4 kW cruise power, two-mode thermal (11 m^2 cruise radiators vs hundreds-thousands m^2 built in situ). Central result: mass coupling runs through the 54% manufacturing fraction; cognition is mass-free at ~5%. Relevant work: space nuclear reactors, radiator/thermal mass scaling, spacecraft subsystem mass models.",
+      "thesis": "Second-level decomposition of the ~3,700 kg seed: per-subsystem mass, cruise power of 50-150 W (4 kW is the reactor rating and the manufacturing-phase load, never the cruise draw), two-mode thermal (11 m^2 cruise radiators vs hundreds-thousands m^2 built in situ). Central result: mass coupling runs through the 54% manufacturing fraction; cognition is mass-free at ~5%. Relevant work: space nuclear reactors, radiator/thermal mass scaling, spacecraft subsystem mass models.",
       "arxiv": [
         "\"space nuclear reactor\" AND power",
         "\"spacecraft radiator\" AND \"thermal\" AND mass",
@@ -513,7 +523,7 @@
       "title": "Security -- Security Without Victory",
       "thesis": "Probe-vs-probe security for a deep-time lineage: defenses built against entropy fail against adaptive adversaries; security relocates from node to lineage (bounding blast radius, not preventing compromise); targeted articulation-point removal gives 3-4x leverage; counselor posture, suppressed state, symmetry argument, autoimmunity risk. Relevant work: targeted attacks on network robustness, adversarial multi-agent systems, containment architectures, acceptance-rule mimicry, quarantine/autoimmunity trade-offs.",
       "arxiv": [
-        "\"articulation point\" AND attack AND network",
+        "\"articulation point\" AND graph AND (attack OR robustness)",
         "\"spatial network\" AND robustness AND attack",
         "\"self-replicating\" AND probe AND security",
         "quarantine AND agents AND \"false positive\""
@@ -534,16 +544,19 @@
         "targeted attack articulation point spatial network robustness"
       ],
       "exclude": [
+        "5g security",
+        "audiovisual synchronization",
+        "bardic satire",
+        "blockchain security survey",
+        "cyber-physical system survey",
         "intrusion detection dataset",
         "iot botnet",
-        "smart grid security",
-        "5g security",
-        "blockchain security survey",
-        "ransomware",
         "malware detection",
         "national security policy",
-        "zero trust enterprise",
-        "cyber-physical system survey"
+        "ransomware",
+        "smart grid security",
+        "speech articulation",
+        "zero trust enterprise"
       ],
       "_retune_note": "2026-08-25: first post-retune sweep returned 17 hits, all applied cybersecurity/security-studies noise (digest 08-25). Every query now carries a graph-structural or probe/replication token, mirroring the ethics fix; the network-robustness leg is scoped to spatial/geometric graphs, which is the class whose results transfer (the paper itself demonstrates degree/spectral heuristics do not)."
     }
