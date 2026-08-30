@@ -34,5 +34,88 @@
   "cites_canon": "Bracewell 1960",
   "paper_key": "fermi",
   "found_via": "cites backfill: Bracewell 1960"
+ },
+ {
+  "source": "ads",
+  "title": "Redshifted civilizations, galactic empires, and the Fermi paradox",
+  "authors": [
+   "Reiss, Chris",
+   "Feng, Justin C."
+  ],
+  "date": "2026-09-01",
+  "year": "2026",
+  "venue": "Acta Astronautica",
+  "doi": "10.1016/j.actaastro.2026.04.003",
+  "arxiv_id": null,
+  "url": "https://ui.adsabs.harvard.edu/abs/2026AcAau.246..114R/abstract",
+  "abstract": "Given the vast distances between stars in the Milky Way and the long timescales required for interstellar travel, we consider how a civilization might overcome the constraints arising from finite lifespans and the speed of light without invoking exotic or novel physics. We consider several scenarios in which a civilization can migrate to a time-dilated frame within the scope of classical general relativity and without incurring a biologically intolerable level of acceleration. Remarkably, the power requirements are lower than one might expect; biologically tolerable orbits near the photon radius of Sgr A* can be maintained by a civilization well below the Type II threshold, and a single Type II civilization can establish a galaxy-spanning civilization with a time dilation factor of <mml:math><mml:mrow><mml:mn>1</mml:mn><mml:msup><mml:mrow><mml:mn>0</mml:mn></mml:mrow><mml:mrow><mml:mn>4</mml:mn></mml:mrow></mml:msup></mml:mrow></mml:math>, enabling trips spanning the diameter of the Milky Way within a human lifetime in the civilizational reference frame. We also find that isotropic, monochromatic signals from orbits near the photon radius of a black hole exhibit a downward frequency drift. The vulnerability of ultrarelativistic vessels to destruction, combined with the relatively short timescales on which adversarial civilizations can arise, provides a strong motivating element for the \"dark forest\" hypothesis.",
+  "cites_canon": "Hart 1975",
+  "paper_key": "fermi",
+  "found_via": "cites backfill (90d): Hart 1975"
+ },
+ {
+  "source": "ads",
+  "title": "Micron-Scale Technosignatures: How a Cubic Metre of Lunar Regolith May Begin to Constrain the Number of Past Technological Civilisations in the Galaxy",
+  "authors": [
+   "Pinault, Lewis J.",
+   "Lacki, Brian C.",
+   "Crawford, Ian A.",
+   "Siemion, Andrew P. V."
+  ],
+  "date": "2026-06-01",
+  "year": "2026",
+  "venue": "arXiv e-prints",
+  "doi": "10.48550/arxiv.2606.24028",
+  "arxiv_id": null,
+  "url": "https://ui.adsabs.harvard.edu/abs/2026arXiv260624028P/abstract",
+  "abstract": "Building on Arkhipov's proposal that technogenic artefacts may survive natural interstellar transport and accumulate on Solar System surfaces, we examine the prospects for identifying micron-scale engineered particulate material within the lunar regolith. We analyse the transport of micron and submicron grains through the interstellar medium, including gas drag, sputtering, and ISM phase-dependent survival, and show that refractory particles with characteristic radii of order 0.3 microns may traverse kiloparsec scales over residence times of 0.1-1 Gyr. Solar radiation pressure and heliospheric filtering define a dynamically constrained slow-arrival channel in which a small fraction of grains reach the Earth-Moon system at relative velocities compatible with survival upon impact. Combining these properties with regolith-mixing constraints yields quantitative upper limits on the cumulative undirected technomaterial output of large-scale spacefaring civilisations: a null detection in a cubic metre of regolith excludes scenarios in which Solar-type stars typically disperse more than approximately 0.10 Earth mass equivalents of long-lived artificial particulate debris over Galactic history. Deliberate targeting of the inner Solar System with artificial particulate matter defines a complementary regime characterised by the visitation frequency and deposited mass of such releases, for which the probabilities of detection may be orders of magnitude higher. We outline a multi-modal de",
+  "cites_canon": "Tipler 1980",
+  "paper_key": "fermi",
+  "found_via": "cites backfill (90d): Tipler 1980"
+ },
+ {
+  "source": "ads",
+  "title": "A Search for Radio Technosignatures from Interstellar Object 3I/ATLAS with the Allen Telescope Array",
+  "authors": [
+   "Sheikh, Sofia Z.",
+   "Garcia Lopez, Valeria",
+   "Gerrard, Isabel",
+   "Davenport, James R. A.",
+   "Farah, Wael",
+   "Griffin, Blayne",
+   "Croft, Steve",
+   "Cruz, Luigi F.",
+   "de Pater, Imke",
+   "Jacobson-Bell, Ben",
+   "Masters, Mark",
+   "Perez, Karen I."
+  ],
+  "date": "2026-07-01",
+  "year": "2026",
+  "venue": "The Astronomical Journal",
+  "doi": "10.3847/1538-3881/ae6651",
+  "arxiv_id": null,
+  "url": "https://ui.adsabs.harvard.edu/abs/2026AJ....172....1S/abstract",
+  "abstract": "In 2025 July, the third-ever interstellar object, 3I/ATLAS, was discovered on its ingress into the solar system. Similar to the NASA Voyager missions sent in 1977, science probes by extraterrestrial life (\"artifact technosignatures\") could be sent to explore other stellar systems like our own. In this campaign, we used the SETI Institute's Allen Telescope Array to observe 3I/ATLAS from 1─9 GHz. We detected nearly 74 million narrowband hits in 7.25 hr of data using the newly developed search pipeline bliss. We then blanked hits by frequency and drift rate to mitigate radio frequency interference in our dataset, narrowing the dataset down to ∼2 million hits. These hits were further filtered by the localization code NBeamAnalysis, and the remaining 211 hits were visually inspected in the time-frequency domain. We did not find any signals worthy of additional follow-up. Accounting for the Doppler drift correction and given the nondetection, we are able to set an effective isotropic radiated power upper limit of 10─110 W on radio technosignatures from 3I/ATLAS across the frequency and drift rate ranges covered by our survey.",
+  "cites_canon": "Bracewell 1960",
+  "paper_key": "fermi",
+  "found_via": "cites backfill (90d): Bracewell 1960"
+ },
+ {
+  "source": "ads",
+  "title": "Autonomous AI-Cosmoindustry and the Quiet Expansion Filter: A Threshold-Based Resolution of the Fermi Paradox",
+  "authors": [
+   "Ivliev, Sergey"
+  ],
+  "date": "2026-06-01",
+  "year": "2026",
+  "venue": "arXiv e-prints",
+  "doi": "10.48550/arxiv.2606.13914",
+  "arxiv_id": null,
+  "url": "https://ui.adsabs.harvard.edu/abs/2026arXiv260613914I/abstract",
+  "abstract": "The Fermi paradox is sharpened, not weakened, by plausible extrapolations of artificial intelligence, autonomous robotics, in-situ resource utilization, orbital manufacturing, space-based computing, and uncrewed interstellar probes. Once a civilization can design, launch, and maintain autonomous industrial systems beyond its home planet, interstellar expansion no longer requires biological starships or a human-like empire. It can proceed through low-mass probes, robotic seed factories, archival payloads, biological repositories, local computation, and slow replication across nearby stellar systems. This paper proposes the quiet expansion filter: old, stable civilizations that reached autonomous AI-cosmoindustry probably did not arise in the part of the Galaxy capable of reaching the Solar System, because after that threshold interstellar expansion becomes too useful, inexpensive, and rational for all civilizations to refuse; however, successful expansion would be machine-mediated, distributed, low-noise, and partly biological rather than Kardashev-like or imperial. Order-of-magnitude estimates indicate that a single post-threshold civilization could saturate its reachable stellar neighborhood within ~10^7 yr -- less than 0.1% of Galactic age -- at modest energy cost per probe. The novelty of the proposal lies not in any new mechanism but in extending the AI-filter literature toward post-threshold observability predictions. The hypothesis predicts that successful advanced expa",
+  "cites_canon": "Bracewell 1960",
+  "paper_key": "fermi",
+  "found_via": "cites backfill (90d): Bracewell 1960"
  }
 ]
