@@ -446,6 +446,61 @@ def search_crossref_venue(spec, since, rows=15):
     return out
 
 
+def search_ads_citations(bibcode, label, since):
+    """NASA ADS citation watch: works citing a canon bibcode, newly indexed
+    since `since` (entdate catches back-dated ingests, which matters for the
+    conference and JBIS material ADS ingests late). Requires ADS_API_TOKEN in
+    .paper-radar/.env; returns [] quietly without one."""
+    token = os.environ.get("ADS_API_TOKEN")
+    if not token or not bibcode:
+        return []
+    params = urllib.parse.urlencode({
+        "q": f"citations(bibcode:{bibcode}) entdate:[{since} TO *]",
+        "fl": "bibcode,title,year,author,pub,doi,abstract,pubdate",
+        "rows": 15, "sort": "date desc",
+    })
+    body = fetch(f"https://api.adsabs.harvard.edu/v1/search/query?{params}",
+                 headers={"Authorization": f"Bearer {token}"})
+    if not body:
+        return []
+    try:
+        docs = json.loads(body).get("response", {}).get("docs", [])
+    except json.JSONDecodeError:
+        return []
+    out = []
+    for d in docs:
+        dois = d.get("doi") or []
+        date = (d.get("pubdate") or "").replace("-00", "-01")
+        out.append({
+            "source": "ads",
+            "title": clean_ws((d.get("title") or [""])[0]),
+            "authors": (d.get("author") or [])[:12],
+            "date": date,
+            "year": d.get("year"),
+            "venue": clean_ws(d.get("pub") or "unknown venue"),
+            "doi": norm_doi(dois[0]) if dois else None,
+            "arxiv_id": None,
+            "url": f"https://ui.adsabs.harvard.edu/abs/{d.get('bibcode')}/abstract",
+            "abstract": clean_ws(d.get("abstract") or "")[:1500],
+            "cites_canon": label,
+        })
+    return out
+
+
+def search_cites(spec, since):
+    """Dispatch a citation-watch entry: spec is "Wid|bibcode|label". Prefer the
+    ADS graph (better for the pre-DOI canon) when a bibcode and token exist;
+    fall back to OpenAlex filter=cites: when only a W-id is resolved; skip
+    quietly when neither is."""
+    parts = spec.split("|", 2)
+    wid, bibcode, label = (parts + ["", "", ""])[:3]
+    if bibcode and os.environ.get("ADS_API_TOKEN"):
+        return search_ads_citations(bibcode, label, since)
+    if wid.startswith("W"):
+        return search_openalex_cites(f"{wid}|{label}", since)
+    return []
+
+
 def search_s2(query, since, limit=20):
     """Semantic Scholar -- optional. Skipped entirely without a key."""
     key = os.environ.get("S2_API_KEY")
@@ -640,9 +695,11 @@ def run(args):
     if args.no_s2:
         os.environ.pop("S2_API_KEY", None)
     s2_on = bool(os.environ.get("S2_API_KEY"))
+    ads_on = bool(os.environ.get("ADS_API_TOKEN"))
 
     log(f"Paper Radar: {len(papers)} paper(s), since {since}")
-    log(f"Sources: arxiv, openalex, crossref" + (", semanticscholar" if s2_on else " (s2: no key, skipped)"))
+    log(f"Sources: arxiv, openalex, crossref" + (", semanticscholar" if s2_on else " (s2: no key, skipped)")
+        + (", ads" if ads_on else " (ads: no key, citation watch falls back to openalex)"))
 
     stats = {"raw": 0, "excluded": 0, "future_dated": 0, "dupe_seen": 0, "dupe_run": 0, "kept": 0}
 
@@ -678,8 +735,9 @@ def run(args):
             for q in paper.get("openalex", [])[:2]:
                 plan.append(("s2", q))
         for cw in paper.get("cites_watch", []):
-            # entries are {"id": "W...", "label": "Hart 1975"}
-            plan.append(("cites", f"{cw.get('id') or ''}|{cw.get('label') or ''}"))
+            # entries: {"id": "W..."|null, "bibcode": "..."|absent, "label": "..."}
+            plan.append(("cites",
+                f"{cw.get('id') or ''}|{cw.get('bibcode') or ''}|{cw.get('label') or ''}"))
         for vw in paper.get("venue_watch", []):
             # entries are {"issn": ["...", "..."], "name": "..."}
             plan.append(("venue", f"{';'.join(vw.get('issn') or [])}|{vw.get('name') or ''}"))
@@ -695,7 +753,7 @@ def run(args):
                 elif source == "s2":
                     found = search_s2(q, since)
                 elif source == "cites":
-                    found = search_openalex_cites(q, since)
+                    found = search_cites(q, since)
                 elif source == "venue":
                     found = search_crossref_venue(q, since)
                 else:
@@ -771,7 +829,7 @@ def run(args):
     payload = {
         "generated": dt.datetime.now().isoformat(timespec="seconds"),
         "since": since,
-        "sources": ["arxiv", "openalex", "crossref"] + (["semanticscholar"] if s2_on else []),
+        "sources": ["arxiv", "openalex", "crossref"] + (["semanticscholar"] if s2_on else []) + (["ads"] if ads_on else []),
         "stats": stats,
         "complete": complete,
         "remaining": remaining,

@@ -1,0 +1,38 @@
+[
+ {
+  "source": "ads",
+  "title": "Stellar J-Harvesting: a novel angular momentum technosignature and first search in the Kepler field",
+  "authors": [
+   "Torlakcik, Sahin"
+  ],
+  "date": "2026-07-01",
+  "year": "2026",
+  "venue": "arXiv e-prints",
+  "doi": "10.48550/arxiv.2607.07781",
+  "arxiv_id": null,
+  "url": "https://ui.adsabs.harvard.edu/abs/2026arXiv260707781T/abstract",
+  "abstract": "We introduce Stellar J-Harvesting (SJH), a technosignature in which an engineered system extracts rotational angular momentum from a star. Unlike a classical Dyson sphere, such a system need not produce a detectable mid-infrared excess; its clearest signature would be a star rotating more slowly than comparable peers. We derive the energy-period relation for this effect, outline several possible coupling channels, and apply a population-relative slow-rotator search to Kepler stars using colour-gravity bins. After eight false-positive filters, the clean sample contains 6,725 FGK main-sequence stars. We find two &gt;4 sigma slow rotators, but Gaia DR3 indicators and WISE imaging point to more ordinary explanations, including unresolved binaries and low metallicity. We therefore make no detection claim and place a conservative pilot upper limit on the occurrence of strong SJH-like signals, f_SJH &lt; 4.5e-4. The main result is a search framework: angular-momentum technosignatures are testable with existing stellar-rotation catalogues, and the strongest outliers define concrete targets for spectroscopic, imaging, and radio follow-up.",
+  "cites_canon": "Hart 1975",
+  "paper_key": "fermi",
+  "found_via": "cites backfill: Hart 1975"
+ },
+ {
+  "source": "ads",
+  "title": "Narrowband Radio Technosignature Search Toward 3I/ATLAS with FAST",
+  "authors": [
+   "Li, Jian-Kang",
+   "Tao, Zhen-Zhao",
+   "Zhang, Tong-Jie"
+  ],
+  "date": "2026-08-01",
+  "year": "2026",
+  "venue": "The Astrophysical Journal",
+  "doi": "10.3847/1538-4357/ae8025",
+  "arxiv_id": null,
+  "url": "https://ui.adsabs.harvard.edu/abs/2026ApJ..1006..163L/abstract",
+  "abstract": "3I/ATLAS is the third confirmed interstellar object passing through the solar system. In this work, we conduct a narrowband radio technosignature search toward 3I/ATLAS using the Five-hundred-meter Aperture Spherical Telescope (FAST) L-band multibeam receiver from 2025 October to 2026 January on four separate dates (i.e., Mars closest, perihelion, Earth closest, and a post-Earth-closest epoch, respectively). We carry out frequency-drifting signal searching with signal-to-noise ratio (SNR) over 10 within 1.05─1.45 GHz via bliss pipeline. These signal hits are grouped into event by beam, frequency, and drift rate matching. The events are then filtered by cluster analysis and drift rate cutoff. We also characterized the events by their significance in SNR, structure tensor, and principal component analysis. No credible narrowband radio technosignatures are detected from 3I/ATLAS after visual inspections. The null results place constraints on the presence of transmitters above 2.862 × 10<SUP>−3</SUP> W. We further introduce a Bayesian inference framework to assess the occurrence probability of hypothetical transmitters while accounting for uncertainty in their characteristic transmitter power through physically motivated priors.",
+  "cites_canon": "Bracewell 1960",
+  "paper_key": "fermi",
+  "found_via": "cites backfill: Bracewell 1960"
+ }
+]

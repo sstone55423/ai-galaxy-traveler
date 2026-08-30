@@ -109,7 +109,8 @@
           "label": "Freitas 1980",
           "id": null,
           "title": "A self-reproducing interstellar probe",
-          "year": 1980
+          "year": 1980,
+          "bibcode": "1980JBIS...33..251F"
         }
       ]
     },
@@ -395,32 +396,37 @@
           "label": "Hart 1975",
           "id": null,
           "title": "An explanation for the absence of extraterrestrials on Earth",
-          "year": 1975
+          "year": 1975,
+          "bibcode": "1975QJRAS..16..128H"
         },
         {
           "label": "Tipler 1980",
           "id": null,
           "title": "Extraterrestrial intelligent beings do not exist",
-          "year": 1980
+          "year": 1980,
+          "bibcode": "1980QJRAS..21..267T"
         },
         {
           "label": "Sagan & Newman 1983",
           "id": null,
           "title": "The solipsist approach to extraterrestrial intelligence",
-          "year": 1983
+          "year": 1983,
+          "bibcode": "1983QJRAS..24..113S"
         },
         {
           "label": "Bracewell 1960",
           "id": null,
           "doi": "10.1038/186670a0",
           "title": "Communications from superior galactic communities",
-          "year": 1960
+          "year": 1960,
+          "bibcode": "1960Natur.186..670B"
         },
         {
           "label": "Cirkovic 2008",
           "id": null,
           "title": "Against the Empire",
-          "year": 2008
+          "year": 2008,
+          "bibcode": "2008JBIS...61..246C"
         }
       ]
     },
