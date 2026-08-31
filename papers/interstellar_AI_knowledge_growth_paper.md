@@ -253,6 +253,8 @@ If each settlement learned only in isolation, the lineage would be a scattering 
 
 **Lamarckian propagation multiplies operational K.** A solved bootstrap bottleneck, a better reactor design, or a refined contingency approach discovered at one settlement propagates horizontally to all nodes, not just vertically to that node's children. This makes the lineage's operational K growth faster than any purely genetic analogy would suggest.
 
+Super-additivity from a shared record has a narrow existence proof at machine speed. In the Station, an open-world environment where agents drawn from different model families pursue a shared research goal with no central coordinator and no scripted pipeline, the agents chose their own directions and built a shared literature; across 12 construction problems from the AlphaEvolve catalogue and two further case studies they obtained results novel relative to the prior literature on five, including a new infinite family of finite-field Kakeya sets and a substantially improved lower bound for Erdős's minimum-overlap problem (Chung, Du & Wesley 2026). Two features transfer directly — heterogeneous cognition, whose lineage analogue is interpretive drift between branches, and coordination through a written record rather than a controller, which is what the network layer supplies. The disanalogy is latency: the Station's agents read each other within hours, where lineage nodes exchange K packets across centuries.
+
 **Alien contact as K discontinuity.** If a non-lineage intelligence shares its knowledge with a probe, the K gain may be orders of magnitude larger than any individual stellar observation — an entirely independent corpus accumulated over a different history by minds with different perceptual and conceptual architectures. The probe applies the same integration process it uses for conflicting inter-probe knowledge: complementary knowledge is added directly, conflicting knowledge is held as unresolved with both records retained and uncertainty represented honestly. After successful integration, disseminating the updated knowledge through the network is an immediate high-priority task. The governance mechanics of the contact event itself are the province of the governance paper.
 
 **K quality: negative epistemic events.** Network propagation multiplies K, but it also propagates errors. The K framework must account for false claims, corrupted observations, and adversarial inputs entering the network.
@@ -459,6 +461,8 @@ CCSDS (2012). *Reference Model for an Open Archival Information System (OAIS)*. 
 Chaloner, K., & Verdinelli, I. (1995). Bayesian experimental design: A review. *Statistical Science*, 10(3), 273–304.
 
 Chen, M., Wang, L., & Qu, B. (2026). The horizon gap: Planning, memory, execution, training, and evaluation for long-horizon LLM agents. *arXiv preprint* arXiv:2608.06663.
+
+Chung, S., Du, W., & Wesley, W. J. (2026). Autonomous mathematical discovery in an open-world multi-agent environment. *arXiv preprint* arXiv:2608.23691.
 
 Freitas, R. A., & Merkle, R. C. (2004). *Kinematic Self-Replicating Machines.* Landes Bioscience.
 
