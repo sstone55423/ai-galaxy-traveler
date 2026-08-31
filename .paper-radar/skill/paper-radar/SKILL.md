@@ -325,6 +325,17 @@ that were never reported. The script refuses to mark an incomplete sweep.
 
 ---
 
+## Step 7 — Email the summary (best-effort, never blocking)
+
+After the digest is written (and regardless of whether anything was staged), run:
+
+    python3 .paper-radar/send_digest_email.py
+
+It emails a compact summary — staged titles, flagged titles, counts — to the
+address configured in `.paper-radar/.env` (RADAR_SMTP_* / RADAR_EMAIL_TO). With
+no credentials present it prints one line and exits 0; a send failure must not
+fail the run. Never print or log the credential values.
+
 ## Reporting back
 
 Two or three sentences: how many candidates were swept, what survived, whether a

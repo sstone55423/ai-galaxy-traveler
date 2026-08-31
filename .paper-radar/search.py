@@ -443,6 +443,29 @@ def search_crossref_venue(spec, since, rows=15):
             "url": f"https://doi.org/{it.get('DOI')}" if it.get("DOI") else "",
             "abstract": clean_ws(strip_tags(it.get("abstract", "")))[:1500],
         })
+    # Elsevier journals rarely deposit abstracts to Crossref, which left the
+    # 2026-08-31 venue sweep dumping title-only ToC batches on the screeners
+    # (16/18 vehicle candidates, 15/18 Fermi). Best-effort enrichment: fill
+    # missing abstracts from OpenAlex by DOI, capped and fault-tolerant.
+    enriched = 0
+    for rec in out:
+        if enriched >= 12:
+            break
+        if rec["abstract"] or not rec["doi"]:
+            continue
+        oa = fetch("https://api.openalex.org/works/https://doi.org/"
+                   + urllib.parse.quote(rec["doi"]) + f"?mailto={CONTACT}")
+        time.sleep(0.3)
+        if not oa:
+            continue
+        try:
+            w = json.loads(oa)
+        except json.JSONDecodeError:
+            continue
+        ab = reconstruct_abstract(w.get("abstract_inverted_index"))
+        if ab:
+            rec["abstract"] = ab[:1500]
+            enriched += 1
     return out
 
 
