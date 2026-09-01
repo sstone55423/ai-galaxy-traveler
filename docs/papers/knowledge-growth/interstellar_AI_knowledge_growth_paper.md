@@ -185,6 +185,8 @@ Both forms generate **meta-knowledge**: insights about what cognitive architectu
 
 The credit-assignment problem behind these criteria is structural, not incidental. A survey of 1,547 papers on long-horizon agents finds the same pattern across planning, memory, execution, training, and evaluation: outcome-only signals grow less informative as horizons lengthen, and the field's response is to manufacture denser step-level signals — process reward models, credit assignment, trajectory-level diagnostics (Chen et al. 2026). The probe faces the limiting case, since the mission's terminal outcome arrives once, millennia after most cognitive changes were made; the sandboxed tests, rollback checks, and ledger provenance above are exactly such step-level surrogates, and their quality bounds how much operational K a cruise can produce.
 
+The survey-level pattern now has a study-scale measurement. Across 20 computational-biology tasks mirroring the delegation of a complete analysis from scientist to agent — 138 gradeable artifacts checked against the published originals — the best of 13 frontier models reproduces 0.48 of artifacts, and both measured gradients run the wrong way for a probe: scores fall from 0.36 on one-to-two-step analyses to 0.24 at three or more sequential steps, and from 0.36 to 0.10 as raw data cross 100 GB (Koch et al. 2026). A settlement's science program is deeply sequential and its archive is nothing but large; the degradation is measured on exactly the two axes where the probe has no choice.
+
 The constraint during cruise is that the probe works from the active working memory subset, not the full DNA archive. This bounds what the cognitive layer can reference, though the bound is less severe than it appears: a corpus-first research-problem discovery system running entirely on a locally served 9B open-weight model — no external queries — structures a fixed literature corpus into an evidence graph, detects unresolved structural gaps across it, and emits research problems with traceable assumptions and success criteria (Gharat & Komiyama 2026). The configuration is the probe's — a closed archive, modest local compute, every generated claim carrying provenance back to its evidence. At settlement, when the full archive unlocks, a second wave of AI development becomes possible as the probe integrates transit insights with the full depth of the Earth knowledge base.
 
 ---
@@ -477,6 +479,8 @@ King, R. D. (2026). The past and future of AI scientists. *arXiv preprint arXiv:
 King, R. D., Rowland, J., Oliver, S. G., et al. (2009). The automation of science. *Science*, 324(5923), 85–89.
 
 King, R. D., Whelan, K. E., Jones, F. M., et al. (2004). Functional genomic hypothesis generation and experimentation by a robot scientist. *Nature*, 427(6971), 247–252.
+
+Koch, Z., Wassie, A. T., Valdés-Alemán, J., et al. (2026). BixBench3: Benchmarking AI agents on research-study-scale computational biology tasks. *arXiv preprint arXiv:2608.25286*.
 
 Lamport, L., Shostak, R., & Pease, M. (1982). The Byzantine Generals Problem. *ACM Transactions on Programming Languages and Systems*, 4(3), 382–401.
 

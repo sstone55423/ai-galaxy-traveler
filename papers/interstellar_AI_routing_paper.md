@@ -39,6 +39,8 @@ At h = 15 ly, the graph consolidates to 19 components, and the Sun reaches 106 s
 
 At h = 20 ly, 10 components remain, covering 117 stars (93%) reachable from the Sun. The graph's mean degree rises to 31 — each star can directly reach, on average, 31 others within a single hop — providing substantial routing redundancy within the connected component.
 
+Reachability, however, is a single-path criterion, and single paths are what articulation points sever. The network-robustness literature draws the stronger notion: a connection is robust when at least two independent paths join a pair of nodes, and the robustly connected nodes form the graph's bicomponent — a giant bicomponent whose appearance coincides with the ordinary giant component's but which is never larger than it (Newman & Ghoshal 2008). The reachable fractions quoted here are therefore upper bounds on durable coverage: a star connected through a single chain of hops is reachable but not robustly so, and the articulation-point analysis below identifies exactly where those single chains concentrate.
+
 Even at h = 20 ly, the Sun cannot reach 9 stars (7%) through the curated catalogue. These isolated stars lie in separate components at distances greater than 20 ly from any star reachable from the Sun via the curated catalogue's sparse edges. In the actual stellar neighbourhood, faint M-dwarfs and other uncharacterised systems at intermediate distances would bridge these gaps; within the curated catalogue, they represent a floor that no finite dispatch budget can overcome without longer-range direct hops.
 
 **A note on catalogue completeness.** The series' canonical "127 stars within 100 ly" refers to this curated list. The actual farthest catalogued star is at ~65 ly, and many stars between 65 ly and 100 ly exist but are absent because they are not among the most notable nearby systems. Fleet routing in the full stellar neighbourhood would use a much larger, denser graph; the results here are conservative because the catalogue undersamples the available relay points.
@@ -220,6 +222,8 @@ Gaia Collaboration; Vallenari, A., et al. (2023). Gaia Data Release 3: Summary o
 Harris, T. E. (1963). *The Theory of Branching Processes.* Springer-Verlag.
 
 Landis, G. A. (1998). The Fermi paradox: An approach based on percolation theory. *Journal of the British Interplanetary Society*, 51, 163–166.
+
+Newman, M. E. J., & Ghoshal, G. (2008). Bicomponents and the robustness of networks to failure. *Physical Review Letters*, 100, 138701.
 
 Redfield, S., & Linsky, J. L. (2008). The structure of the local interstellar medium. IV. Dynamics, morphology, physical properties, and implications of cloud-cloud interactions. *The Astrophysical Journal*, 673, 283–314.
 

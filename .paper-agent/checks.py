@@ -222,6 +222,63 @@ def check_references(text: str) -> list[dict]:
     return findings
 
 
+_CITE_SKIP = {
+    "Section", "Sections", "Level", "Class", "Classes", "Scenario", "Scenarios",
+    "Tier", "Stage", "Voyager", "Project", "Earth", "Galaxy", "Table", "Figure",
+    "The", "In", "As", "At", "See", "By", "On", "For", "If", "But", "This",
+    "These", "Those", "With", "From", "Under", "Over", "After", "Before",
+    "During", "However", "Also", "Since", "While", "Their", "Its", "What",
+    "When", "Where", "Both", "Each", "Per", "Via", "Between", "Within",
+}
+
+
+def check_citation_entries(text: str) -> list[dict]:
+    """The reverse direction of check_references (a): every in-text citation
+    must have a matching reference entry. Added 2026-09-01 after two separate
+    insertion-script failures (Zwitter 2026-08-24; Sensintaffar 2026-09-01)
+    left a citation briefly entry-less while every existing check stayed green.
+    Matching is by surname token against ALL tokens in the reference block, so
+    multi-word surnames ("Rivera León"), co-authors, and organisational
+    authors ("Gaia Collaboration", "NAIC Staff") all resolve."""
+    findings = []
+    body, refs = split_body_refs(text)
+    if not refs:
+        return findings
+    entry_tokens = set()
+    for line in refs.splitlines():
+        for tok in re.findall(r"[A-Z][\wÀ-ſ-]+", line):
+            entry_tokens.add(tok)
+    name_cls = r"[A-Z][\wÀ-ſ-]+"
+    cited = {}
+    # narrative: Surname (2026) / Surname's (2026) / Surname et al. (2026) /
+    # Surname and Other (2026) / Surname & Other (2026)
+    pat_nar = (name_cls + r"(?:'s)?(?:,? et al\.| and " + name_cls +
+               r"| & " + name_cls + r")? \((?:19|20)\d{2}[a-z]?\)")
+    for m in re.finditer(pat_nar, body):
+        nm = re.match(name_cls, m.group(0)).group(0)
+        cited.setdefault(nm, m.start())
+    # parenthetical: (Surname 2026; Other & Third 1999, p. 7)
+    for m in re.finditer(r"\(([^()]*(?:19|20)\d{2}[a-z]?[^()]*)\)", body):
+        for part in m.group(1).split(";"):
+            part = part.strip()
+            if not re.search(r"(?:19|20)\d{2}", part):
+                continue
+            pm = re.match(r"(?:e\.g\.,?\s*|cf\.\s*|see\s+)?(" + name_cls + ")", part)
+            if pm:
+                cited.setdefault(pm.group(1), m.start())
+    for name, pos in sorted(cited.items(), key=lambda kv: kv[1]):
+        if name in _CITE_SKIP or len(name) < 3:
+            continue
+        if name not in entry_tokens:
+            findings.append({
+                "check": "citation-without-entry",
+                "severity": "medium",
+                "line": _lineno(text, pos),
+                "message": f"in-text citation '{name}' has no matching reference entry",
+            })
+    return findings
+
+
 def check_cross_reference_naming(text: str) -> list[dict]:
     findings = []
     body, _ = split_body_refs(text)
@@ -343,6 +400,7 @@ ALL_CHECKS = [
     check_latex,
     check_tables,
     check_references,
+    check_citation_entries,
     check_cross_reference_naming,
     check_canonical_numbers,
 ]

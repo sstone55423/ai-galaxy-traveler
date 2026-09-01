@@ -73,6 +73,8 @@ The renewability property admits a spectrum of operating regimes, and a real pro
 
 **Living archive.** The most speculative regime encodes selected information into the genomes of self-reproducing organisms, which copy it as they divide — demonstrated in principle for digital data written into living bacterial populations (Shipman et al. 2017). Such an archive could be extraordinarily robust and self-propagating, but it introduces mutation and selection, which threaten fidelity, and it raises *biological containment* as a first-order concern — the same ethical fork as deliberate life-seeding (directed panspermia) discussed in the bootstrapping work, and one we flag rather than resolve. We regard the living archive as a frontier option, suitable at most for robustly error-corrected, low-priority, deliberately contained payloads, not for the mission core.
 
+The three regimes are distinguished above by refresh policy, but the random-access mechanics of DNA pools add a physical requirement the logical distinction does not capture. Retrieval from a pool is by primer pair, and a read retrieves every strand the pair addresses, so layouts that co-locate frequently and rarely accessed data under shared primers suffer read amplification — each access to the working set drags the cold data with it (Sensintaffar et al. 2026). For the probe the implication is architectural: a vault that shares primer pools with the working archive is physically pulled on every refresh cycle of its neighbours, the opposite of the read-rarely condition its durability argument assumes. The regimes must therefore be separated at the level of primer namespaces and physical pools, not only in retention policy — activity-aware placement of the kind now appearing in DNA-storage firmware design, applied at synthesis time.
+
 ## 9. What the Architecture Secures, and What It Does Not
 
 Honesty about scope is essential, because the architecture is powerful in a narrow way. It secures **syntactic** integrity and **historical accountability**: it makes tampering evident, proves the provenance and version history of archives and updates, authenticates lineage membership, and guarantees that whatever a probe holds is attributable and reconcilable. These are real and non-trivial guarantees, and they are exactly the substrate on which any higher governance must rest.
@@ -140,6 +142,8 @@ Organick, L., Ang, S. D., Chen, Y.-J., Lopez, R., Yekhanin, S., Makarychev, K., 
 Ossowski, J., Affenberger, O., Lutz, J.-F., & Nerantzaki, M. (2026). Dynamic operations in macromolecular data storage. *Angewandte Chemie International Edition*. https://doi.org/10.1002/anie.5128253
 
 Sebeok, T. A. (1984). *Communication measures to bridge ten millennia* (Report No. BMI/ONWI-532). Office of Nuclear Waste Isolation, Battelle Memorial Institute.
+
+Sensintaffar, A., Kiran, R., Chen, Y., Zheng, M., & Li, B. (2026). HORIZON: A read-efficient firmware for DNA storage with horizontal layout. *arXiv preprint* arXiv:2608.24839.
 
 Shipman, S. L., Nivala, J., Macklis, J. D., & Church, G. M. (2017). CRISPR–Cas encoding of a digital movie into the genomes of a population of living bacteria. *Nature*, 547(7663), 345–349.
 
