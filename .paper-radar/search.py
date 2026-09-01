@@ -97,14 +97,30 @@ def load_env():
         log(f"  ! could not read .env: {exc}")
 
 
+_HOST_GIVEUPS = {}
+
+
 def fetch(url, headers=None, retries=3):
-    """GET with backoff. Returns body text, or None on give-up."""
+    """GET with backoff. Returns body text, or None on give-up.
+
+    Circuit breaker: after 3 give-ups on a host within one run (each give-up is
+    a full 429-backoff cycle), further calls to that host return None
+    immediately. The 2026-09-01 run lost the whole ethics sweep to OpenAlex
+    429ing every attempt at ~36 s each; failing fast preserves the wall clock
+    for the sources that are still answering."""
+    host = urllib.parse.urlsplit(url).netloc
+    if _HOST_GIVEUPS.get(host, 0) >= 3:
+        if _HOST_GIVEUPS.get(host) == 3:
+            log(f"  ! circuit open for {host}: skipping it for the rest of this run")
+            _HOST_GIVEUPS[host] = 4
+        return None
     headers = dict(headers or {})
     headers.setdefault("User-Agent", UA)
     for attempt in range(retries):
         try:
             req = urllib.request.Request(url, headers=headers)
             with urllib.request.urlopen(req, timeout=TIMEOUT) as resp:
+                _HOST_GIVEUPS[host] = 0
                 return resp.read().decode("utf-8", errors="replace")
         except urllib.error.HTTPError as exc:
             # True exponential backoff with jitter, on both rate-limit and
@@ -124,6 +140,7 @@ def fetch(url, headers=None, retries=3):
         except (urllib.error.URLError, TimeoutError, OSError) as exc:
             log(f"  ! network error ({exc}); retry {attempt + 1}/{retries}")
             time.sleep((2 ** attempt) * 2 + random.uniform(0, 1))
+    _HOST_GIVEUPS[host] = _HOST_GIVEUPS.get(host, 0) + 1
     return None
 
 
@@ -717,7 +734,10 @@ def run(args):
     global_exclude = cfg.get("defaults", {}).get("exclude", [])
     if args.no_s2:
         os.environ.pop("S2_API_KEY", None)
-    s2_on = bool(os.environ.get("S2_API_KEY"))
+    # S2 is opt-in: its first live run (2026-09-01) returned zero hits on every
+    # completed query while its 429 backoffs consumed the call budget, and the
+    # agent had to --no-s2 mid-run. Set RADAR_ENABLE_S2=1 in .env to re-enable.
+    s2_on = bool(os.environ.get("S2_API_KEY")) and os.environ.get("RADAR_ENABLE_S2") == "1"
     ads_on = bool(os.environ.get("ADS_API_TOKEN"))
 
     log(f"Paper Radar: {len(papers)} paper(s), since {since}")
