@@ -322,10 +322,9 @@
         "cs.CY"
       ],
       "openalex": [
-        "AI corrigibility goal preservation self-modification",
-        "reward tampering mesa-optimization inner alignment",
-        "constitutional unamendability eternity clause entrenchment",
-        "value drift autonomous agents over time"
+        "\"corrigibility\" goal preservation self-modification",
+        "\"eternity clause\" OR \"constitutional entrenchment\" unamendable",
+        "\"value lock-in\" irreversible institutional"
       ],
       "crossref": [
         "corrigibility artificial agent goal preservation"
@@ -344,7 +343,8 @@
           ],
           "name": "Philosophy & Technology"
         }
-      ]
+      ],
+      "_retune_note_0903": "09-02 digest: sweep returned thirteen keyword collisions, zero on corrigibility/entrenchment. Terms of art now quoted per the screener's note."
     },
     {
       "key": "fermi",
