@@ -187,6 +187,8 @@ The credit-assignment problem behind these criteria is structural, not incidenta
 
 The survey-level pattern now has a study-scale measurement. Across 20 computational-biology tasks mirroring the delegation of a complete analysis from scientist to agent — 138 gradeable artifacts checked against the published originals — the best of 13 frontier models reproduces 0.48 of artifacts, and both measured gradients run the wrong way for a probe: scores fall from 0.36 on one-to-two-step analyses to 0.24 at three or more sequential steps, and from 0.36 to 0.10 as raw data cross 100 GB (Koch et al. 2026). A settlement's science program is deeply sequential and its archive is nothing but large; the degradation is measured on exactly the two axes where the probe has no choice.
 
+The conversion step is where the measurements are least encouraging. Evaluating multi-turn research agents on ten ML engineering tasks along three axes — novelty relative to the agent's own prior solutions, novelty relative to the human solution corpus, and task performance — finds that every agent's self-relative novelty declines as a run shifts from exploration to exploitation, and that agents reach higher corpus-relative novelty than medal-winning humans while performing worse (Bhushan et al. 2026). Novelty is not the scarce quantity; converting it into demonstrated improvement is. For a probe this sharpens the acceptance criteria above from a safety mechanism into the binding one: a cruise that generates candidate architectures faster than it can validate them adds to the quarantine, not to K.
+
 The constraint during cruise is that the probe works from the active working memory subset, not the full DNA archive. This bounds what the cognitive layer can reference, though the bound is less severe than it appears: a corpus-first research-problem discovery system running entirely on a locally served 9B open-weight model — no external queries — structures a fixed literature corpus into an evidence graph, detects unresolved structural gaps across it, and emits research problems with traceable assumptions and success criteria (Gharat & Komiyama 2026). The configuration is the probe's — a closed archive, modest local compute, every generated claim carrying provenance back to its evidence. At settlement, when the full archive unlocks, a second wave of AI development becomes possible as the probe integrates transit insights with the full depth of the Earth knowledge base.
 
 ---
@@ -455,6 +457,8 @@ K and the demographic reproduction model R_eff = Σ p_i V_i are explicitly coupl
 ---
 
 ## References
+
+Bhushan, S., Zhang, Y., & Wang, L. (2026). Can LLM agents discover? Evaluating creativity on ML engineering tasks. *arXiv preprint* arXiv:2608.30047.
 
 Buneman, P., Khanna, S., & Tan, W. C. (2001). Why and where: A characterization of data provenance. In *Proceedings of the 8th International Conference on Database Theory* (pp. 316–330). Springer.
 
