@@ -412,11 +412,23 @@ def search_openalex_cites(spec, since, per_page=15):
 
 
 def search_crossref_venue(spec, since, rows=15):
-    """Venue watch: everything a named journal published since `since`,
-    regardless of keywords. spec is "ISSN1;ISSN2|<venue name>". Multiple ISSNs
+    """Venue watch: everything a named journal published since `since`.
+    spec is "ISSN1;ISSN2|<venue name>|<gate1;gate2;...>". Multiple ISSNs
     (print+online) are OR'd, which is Crossref's semantics for a repeated
-    filter key."""
-    issns, _, vname = spec.partition("|")
+    filter key.
+
+    The optional third field is a subject gate: a venue hit is kept only if one
+    of its terms appears in the title or abstract. Without it a venue feed is
+    keyword-blind, which is the point for a narrow journal but ruinous for a
+    broad one -- on 2026-09-04 and 09-05 the Futures ISSN feed supplied 4 of 5
+    and then 4 of 4 of the Fermi paper's candidates, every one a
+    foresight-methodology table-of-contents entry with no subject-side match.
+    Gating beats deleting the feed: Futures does occasionally publish
+    Fermi-adjacent work. An empty gate preserves the old keyword-blind
+    behaviour."""
+    issns, _, rest = spec.partition("|")
+    vname, _, gate = rest.partition("|")
+    gate_terms = [g.strip().lower() for g in gate.split(";") if g.strip()]
     flt = ",".join(f"issn:{i}" for i in issns.split(";") if i)
     if not flt:
         return []
@@ -483,6 +495,18 @@ def search_crossref_venue(spec, since, rows=15):
         if ab:
             rec["abstract"] = ab[:1500]
             enriched += 1
+    # Gate AFTER enrichment, so a record whose abstract only exists in OpenAlex
+    # is still judged on it rather than on its title alone.
+    if gate_terms:
+        kept = []
+        for rec in out:
+            hay = (rec["title"] + " " + rec["abstract"]).lower()
+            if any(t in hay for t in gate_terms):
+                kept.append(rec)
+        if len(out) != len(kept):
+            log(f"      venue gate: {len(out) - len(kept)} of {len(out)} dropped "
+                f"(no subject match in {vname})")
+        return kept
     return out
 
 
@@ -782,8 +806,10 @@ def run(args):
             plan.append(("cites",
                 f"{cw.get('id') or ''}|{cw.get('bibcode') or ''}|{cw.get('label') or ''}"))
         for vw in paper.get("venue_watch", []):
-            # entries are {"issn": ["...", "..."], "name": "..."}
-            plan.append(("venue", f"{';'.join(vw.get('issn') or [])}|{vw.get('name') or ''}"))
+            # entries are {"issn": [...], "name": "...", "subject_gate": [...]}
+            # subject_gate is optional; see search_crossref_venue.
+            plan.append(("venue", f"{';'.join(vw.get('issn') or [])}|{vw.get('name') or ''}"
+                                  f"|{';'.join(vw.get('subject_gate') or [])}"))
 
         for source, q in plan:
             try:

@@ -322,18 +322,24 @@
         "cs.CY"
       ],
       "openalex": [
-        "\"corrigibility\" goal preservation self-modification",
+        "\"corrigibility\" artificial agent shutdown problem",
+        "\"goal-content integrity\" self-modification value preservation",
         "\"eternity clause\" OR \"constitutional entrenchment\" unamendable",
         "\"value lock-in\" irreversible institutional"
       ],
       "crossref": [
-        "corrigibility artificial agent goal preservation"
+        "corrigibility artificial agent goal preservation",
+        "unamendability eternity clause constitutional entrenchment"
       ],
       "exclude": [
         "indonesia",
         "electoral law",
         "tax amendment",
-        "amendment act 19"
+        "amendment act 19",
+        "in-group",
+        "coalition formation",
+        "shibboleth",
+        "zimbabwe"
       ],
       "venue_watch": [
         {
@@ -381,14 +387,37 @@
         "fermi liquid",
         "fermi gas",
         "fermi energy",
-        "fermi arc"
+        "fermi arc",
+        "strategic foresight",
+        "horizon scanning",
+        "megatrend",
+        "pestel",
+        "steepv",
+        "sustainability transition",
+        "scenario planning"
       ],
       "venue_watch": [
         {
           "issn": [
             "0016-3287"
           ],
-          "name": "Futures"
+          "name": "Futures",
+          "subject_gate": [
+            "fermi paradox",
+            "great filter",
+            "extraterrestrial",
+            "technosignature",
+            "seti",
+            "interstellar",
+            "colonization",
+            "colonisation",
+            "von neumann",
+            "astrobiolog",
+            "drake equation",
+            "alien",
+            "panspermia",
+            "self-replicating"
+          ]
         }
       ],
       "cites_watch": [
@@ -448,12 +477,19 @@
       "openalex": [
         "autonomous scientific discovery artificial intelligence",
         "knowledge accumulation measurement agent",
-        "long-term digital preservation information loss"
+        "long-term digital preservation information loss",
+        "closed-loop autonomous experimentation self-driving laboratory",
+        "archival storage media degradation century timescale"
       ],
       "crossref": [
-        "autonomous scientific discovery machine learning"
+        "long-term digital preservation archival integrity bit rot"
       ],
-      "exclude": []
+      "exclude": [
+        "knowledge graph",
+        "literature-based discovery",
+        "medical writing",
+        "learning analytics"
+      ]
     },
     {
       "key": "network",
@@ -536,10 +572,13 @@
       "openalex": [
         "percolation threshold random geometric graph connectivity",
         "k-connectivity articulation point spatial network robustness",
-        "\"k-out-of-n\" system reliability redundancy"
+        "\"k-out-of-n\" system reliability redundancy",
+        "maximum coverage problem greedy approximation guarantee",
+        "targeted versus random node removal attack tolerance"
       ],
       "crossref": [
-        "interstellar colonization network graph reachability"
+        "random geometric graph connectivity threshold",
+        "targeted attack tolerance complex network node removal"
       ],
       "exclude": [
         "vehicle routing problem",
@@ -548,7 +587,12 @@
         "fuzzing",
         "call graph",
         "wireless sensor",
-        "onion routing"
+        "onion routing",
+        "graph neural network",
+        "graph convolutional",
+        "traffic prediction",
+        "recommender",
+        "link prediction"
       ],
       "venue_watch": [
         {
@@ -582,7 +626,8 @@
       ],
       "crossref": [
         "ethics space colonization moral obligation",
-        "moral status of artificial agents"
+        "moral status artificial agent legal personhood",
+        "non-identity problem future generations obligation"
       ],
       "exclude": [
         "nursing ethics",
@@ -663,7 +708,7 @@
         "physics.soc-ph"
       ],
       "openalex": [
-        "articulation point attack tolerance network robustness",
+        "targeted node removal articulation point connectivity loss",
         "self-replicating spacecraft probe security adversarial",
         "quarantine autoimmunity false positive distributed agents",
         "network dismantling spatial geometric lattice robustness"
@@ -684,10 +729,14 @@
         "ransomware",
         "smart grid security",
         "speech articulation",
-        "zero trust enterprise"
+        "zero trust enterprise",
+        "graph neural network",
+        "federated learning",
+        "adversarial example",
+        "network robustness survey"
       ],
       "_retune_note": "2026-08-25: first post-retune sweep returned 17 hits, all applied cybersecurity/security-studies noise (digest 08-25). Every query now carries a graph-structural or probe/replication token, mirroring the ethics fix; the network-robustness leg is scoped to spatial/geometric graphs, which is the class whose results transfer (the paper itself demonstrates degree/spectral heuristics do not)."
     }
   ],
-  "_watch_note": "venue_watch sweeps whole journals by ISSN via Crossref regardless of keywords; cites_watch sweeps new works citing a canon paper via OpenAlex filter=cites:. Entries with id:null are skipped by the sweep; run .paper-radar/resolve_canon.py once (OpenAlex quota permitting) to fill them from the stored doi/title/year hints. ISSNs verified via Crossref journals API 2026-08-30."
+  "_watch_note": "venue_watch sweeps whole journals by ISSN via Crossref; an optional subject_gate list keeps only hits whose title or abstract contains one of its terms (added 2026-09-05 after the Futures feed supplied 4 of 4 Fermi candidates as foresight-methodology ToC noise) -- omit it for a narrow journal, set it for a broad one; cites_watch sweeps new works citing a canon paper via OpenAlex filter=cites:. Entries with id:null are skipped by the sweep; run .paper-radar/resolve_canon.py once (OpenAlex quota permitting) to fill them from the stored doi/title/year hints. ISSNs verified via Crossref journals API 2026-08-30."
 }
