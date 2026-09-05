@@ -25,7 +25,7 @@ Each run: search -> screen -> verify -> digest -> stage on a branch.
 
 ## Setup
 
-Repo: `C:\Users\sston\OneDrive - Minnesota State\AI\AI galaxy traveler`
+Repo: `C:\Users\sston\OneDrive - Minnesota State\AI\projects\AI galaxy traveler`
 In the Linux shell it is mounted under `/sessions/<session>/mnt/`.
 
 Resolve the mount first — the session id changes on every run:
