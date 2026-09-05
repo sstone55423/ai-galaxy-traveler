@@ -26,19 +26,33 @@ Each run: search -> screen -> verify -> digest -> stage on a branch.
 ## Setup
 
 Repo: `C:\Users\sston\OneDrive - Minnesota State\AI\projects\AI galaxy traveler`
-In the Linux shell it is mounted under `/sessions/<session>/mnt/`.
+In the Linux shell it is mounted under `/sessions/<session>/mnt/` — either as
+`mnt/AI galaxy traveler` directly, or nested, when what is connected is a parent
+folder (`mnt/AI/projects/AI galaxy traveler`). Do not assume the shallow form.
 
-Resolve the mount first — the session id changes on every run:
+Resolve the mount first — the session id changes on every run, and the depth
+changes whenever the folder is reorganised:
 
 ```bash
-REPO=$(ls -d /sessions/*/mnt/"AI galaxy traveler" 2>/dev/null | head -1)
+REPO=$(find /sessions/*/mnt -maxdepth 4 -type d -name "AI galaxy traveler" 2>/dev/null |
+       while IFS= read -r d; do
+         [ -d "$d/.paper-radar" ] && { printf '%s\n' "$d"; break; }
+       done)
 echo "repo: $REPO"
 ```
 
-**If `$REPO` is empty, STOP.** Do not improvise a path, and do not go hunting
-the filesystem for a substitute. Report plainly that the *AI galaxy traveler*
-folder is not connected to this session and that the radar cannot run without
-it. This is the most likely cause of a failed scheduled run.
+The `.paper-radar` test is what makes a deeper match trustworthy: it confirms
+this is the real folder and not a same-named copy, so the search can tolerate
+depth without becoming a guess.
+
+**If `$REPO` is empty, STOP.** The search above already covered every connected
+mount to four levels, so an empty result means the folder genuinely is not
+there. Do not improvise a path and do not widen the search. Report plainly that
+the *AI galaxy traveler* folder is not connected to this session and that the
+radar cannot run without it. This is the most likely cause of a failed
+scheduled run: on 2026-09-05 the 06:00 run died here in silence after the folder
+moved to `AI/projects/`, and the only outward signs were a missing digest and no
+morning email.
 
 Then confirm it is a real git repo, and read the project conventions:
 
