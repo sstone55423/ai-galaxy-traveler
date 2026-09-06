@@ -12,13 +12,39 @@ leaving you a diff to review first.
 
 ```
 .paper-radar/
-  search.py          the search engine -- stdlib only, no dependencies
-  queries.json       hand-curated queries + exclude lists, per paper   <- tune this
-  seen.json          dedup ledger; why most mornings are quiet
-  digests/           YYYY-MM-DD.md, one per run (+ .patch on the fallback path)
-  skill/paper-radar/ the skill source; rebuild the .skill bundle from here
-  .env               optional, gitignored: S2_API_KEY=...
+  search.py           the search engine -- stdlib only, no dependencies
+  queries.json        hand-curated queries + exclude lists, per paper   <- tune this
+  seen.json           dedup ledger; why most mornings are quiet
+  digests/            YYYY-MM-DD.md, one per run (+ .patch on the fallback path)
+  check_freshness.py  dead-man's switch: has the radar stopped running?
+  send_digest_email.py  emails the morning summary (Step 7)
+  skill/paper-radar/  the skill source; rebuild the .skill bundle from here
+  .env                optional, gitignored: S2_API_KEY=...
 ```
+
+## Is it still running?
+
+The radar's own failure mode is silence. When the scheduled run dies, no digest
+is written and no email arrives — and a missing email is indistinguishable from a
+quiet morning with nothing to report. That is not hypothetical: the 06:00 job
+died on 2026-09-05 when the repo moved under `AI/projects/` and the mount
+resolution stopped finding it, and both that morning and the next passed
+unnoticed.
+
+```bash
+python3 .paper-radar/check_freshness.py            # print status; exit 1 if stale
+python3 .paper-radar/check_freshness.py --email    # ...and send one alert per day
+```
+
+Staleness is judged against the clock, not just the calendar: once `--run-hour`
+(default 6) plus `--grace-hours` (default 2) has passed, today's run is owed;
+before that, only yesterday's is. So it will not cry stale at 05:00, and will not
+call a radar that missed this morning fresh at 18:00.
+
+**Run it from a scheduler that is not the radar's own.** A check that only fires
+when the radar works cannot report that the radar stopped working. The 06:00 job
+is a cloud routine, so a local Windows scheduled task is the right host — the two
+then fail independently, which is the whole point.
 
 ## Running it by hand
 

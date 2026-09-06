@@ -11,6 +11,10 @@ build/
 ._radar_probe*
 .paper-radar/.trash/
 
+# Machine state: the date check_freshness.py last emailed a staleness alert,
+# so an hourly scheduler sends one mail a day rather than twenty-four.
+.paper-radar/.freshness_alert
+
 # Wrangler local state. cache/wrangler-account.json holds the Cloudflare
 # account id and name; wrangler.jsonc deliberately keeps those out of the repo.
 .wrangler/
