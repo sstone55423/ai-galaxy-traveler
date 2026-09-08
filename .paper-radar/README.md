@@ -94,6 +94,28 @@ in `queries.json` are a different thing: they kill unambiguous homonyms
 ("Fermi level" is solid-state physics, a "fluorescent probe" is a lab reagent,
 "speciation" is also a chemistry term), not weak matches.
 
+**One book can eat a paper's whole day.** When a volume is indexed, its chapters
+arrive as separate DOIs and flood that paper's candidate list. On 2026-09-06 a
+single Turkish edited volume supplied 6 of the Fermi paper's 7 candidates, and
+one monograph supplied 8 of the ethics paper's 21 — including its Introduction
+and Conclusion; on 2026-09-08 one book gave 4 of the vehicle paper's 5. The
+screeners caught every one, but each cost a full read. `cap_containers` now keeps
+one record per volume. It fires only on records whose *type* says book component:
+grouping by DOI stem alone would also collapse consecutive articles in one
+journal issue (`10.1016/j.actaastro.2026.08` covers `.062` and `.075`, two
+unrelated papers), which would drop real work.
+
+**arXiv's search index can freeze while the API keeps answering.** From
+2026-09-04 17:51 UTC it stopped taking new submissions; queries still returned
+200 with well-formed results, just nothing newer. The radar cannot distinguish
+that from a quiet week — both are zero arXiv candidates — so it went unnoticed
+for five days across four digests, each day's zero blamed on dedup. Every sweep
+now probes `cat:cs.AI` once (it has submissions every weekday) and warns when the
+newest indexed item is more than two days old. The `id_list` endpoint used for
+verification is unaffected and keeps working. **When the index recovers, re-sweep
+with an explicit `--since` covering the outage**: the rolling 7-day window will
+otherwise move past those submissions and they will never be seen.
+
 **The sweep cannot finish in one shell call.** Shell calls are capped at ~45s
 and the sandbox kills background processes when the spawning call exits
 (`bwrap --die-with-parent`) — so `nohup ... &` dies silently partway through,

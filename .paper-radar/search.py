@@ -188,6 +188,102 @@ def record_key(rec):
     return "title:" + norm_title(rec.get("title"))
 
 
+# Crossref and OpenAlex type strings for "a component of a book", i.e. the
+# things that arrive dozens at a time when one volume is indexed.
+BOOK_PART_TYPES = {
+    "book-chapter", "book-part", "book-section", "book-track", "book-entry",
+    "reference-entry", "book", "edited-book", "monograph", "reference-book",
+    "book-series", "book-set",
+}
+# Deliberately excludes OpenAlex's catch-all "other", which covers far more than
+# book components and would drop real work.
+
+
+def container_key(rec):
+    """Identify the volume a book component belongs to, or None.
+
+    Deliberately narrow: it fires only on records whose *type* says they are a
+    book component. Grouping by DOI stem alone would be wrong -- consecutive
+    articles in one journal issue share a stem too (10.1016/j.actaastro.2026.08
+    covers .062 and .075, two unrelated papers), and capping those would drop
+    real work.
+    """
+    if (rec.get("cr_type") or "").lower() not in BOOK_PART_TYPES:
+        return None
+    doi = rec.get("doi") or ""
+    # Chapter DOIs hang off the volume's DOI: 10.58830/ozgur.pub1404.c5650,
+    # 10.33196/9783704699633-107, 10.1017/9781009639057.029,
+    # 10.1016/b978-0-44-333941-7.00020-2, 10.1002/9781394422791.ch6
+    m = re.match(r"^(10\.\d{4,9}/.+?)[.-](?:c|ch|chapter|pt|sec)?\d{1,6}(?:-\d{1,3})?$",
+                 doi, re.I)
+    if m:
+        return "doi:" + m.group(1)
+    venue = (rec.get("venue") or "").strip().lower()
+    if venue and venue != "unknown venue":
+        return "venue:" + venue
+    return None
+
+
+def cap_containers(records, cap=1):
+    """Keep at most `cap` records per book volume, preserving order.
+
+    One indexed volume can otherwise consume a paper's entire daily budget
+    through its chapter records. Measured on real sweeps: 2026-09-06 gave 6 of
+    the Fermi paper's 7 candidates from a single edited volume and 8 of the
+    ethics paper's 21 from one monograph, including its Introduction and
+    Conclusion; 2026-09-08 gave 4 of the vehicle paper's 5 from one book. The
+    screeners caught every one, but each cost a full read.
+
+    Records are already sorted best-first, so the survivor is the volume's
+    strongest entry rather than an arbitrary one.
+    """
+    seen_containers = {}
+    out, dropped = [], 0
+    for rec in records:
+        ck = container_key(rec)
+        if ck is None:
+            out.append(rec)
+            continue
+        n = seen_containers.get(ck, 0)
+        if n >= cap:
+            dropped += 1
+            continue
+        seen_containers[ck] = n + 1
+        out.append(rec)
+    if dropped:
+        flooded = sum(1 for v in seen_containers.values() if v >= cap)
+        log(f"      container cap: {dropped} book-component record(s) dropped "
+            f"across {flooded} volume(s)")
+    return out
+
+
+def arxiv_index_freshness(since, stale_after_days=2):
+    """How current is arXiv's *search* index? Returns a dict, or None if unknown.
+
+    arXiv's search API can keep answering normally while its index stops taking
+    new submissions, and the radar cannot tell that from a genuinely quiet week:
+    both look like zero arXiv candidates. That is exactly what happened from
+    2026-09-04 17:51 UTC, and it went unnoticed for five days across four
+    digests because each day's zero was attributed to dedup.
+
+    One broad query settles it. `cat:cs.AI` has submissions every weekday, so if
+    its newest result is days old the index is behind, whatever the topical
+    queries return. The id_list endpoint is unaffected by this and keeps working
+    for verification.
+    """
+    probe = search_arxiv("cat:cs.AI", "2000-01-01", None, max_results=1)
+    if not probe:
+        return None
+    newest = probe[0].get("date") or ""
+    if not newest:
+        return None
+    try:
+        lag = (dt.date.today() - dt.date.fromisoformat(newest)).days
+    except ValueError:
+        return None
+    return {"newest": newest, "lag_days": lag, "stale": lag > stale_after_days}
+
+
 def strip_tags(text):
     return re.sub(r"<[^>]+>", "", text or "")
 
@@ -292,6 +388,7 @@ def search_openalex(query, since, per_page=10):
             "url": w.get("doi") or (loc.get("landing_page_url") or ""),
             "abstract": reconstruct_abstract(w.get("abstract_inverted_index"))[:1500],
             "cited_by": w.get("cited_by_count"),
+            "cr_type": w.get("type") or "",
             "oa_url": (w.get("best_oa_location") or {}).get("pdf_url"),
         })
     return out
@@ -361,6 +458,7 @@ def search_crossref(query, since, rows=8):
             "arxiv_id": None,
             "url": f"https://doi.org/{it.get('DOI')}" if it.get("DOI") else "",
             "abstract": clean_ws(strip_tags(it.get("abstract", "")))[:1500],
+            "cr_type": it.get("type") or "",
         })
     return out
 
@@ -405,6 +503,7 @@ def search_openalex_cites(spec, since, per_page=15):
             "url": w.get("doi") or (loc.get("landing_page_url") or ""),
             "abstract": reconstruct_abstract(w.get("abstract_inverted_index"))[:1500],
             "cited_by": w.get("cited_by_count"),
+            "cr_type": w.get("type") or "",
             "oa_url": (w.get("best_oa_location") or {}).get("pdf_url"),
             "cites_canon": label,
         })
@@ -471,6 +570,7 @@ def search_crossref_venue(spec, since, rows=15):
             "arxiv_id": None,
             "url": f"https://doi.org/{it.get('DOI')}" if it.get("DOI") else "",
             "abstract": clean_ws(strip_tags(it.get("abstract", "")))[:1500],
+            "cr_type": it.get("type") or "",
         })
     # Elsevier journals rarely deposit abstracts to Crossref, which left the
     # 2026-08-31 venue sweep dumping title-only ToC batches on the screeners
@@ -769,6 +869,16 @@ def run(args):
         + (", ads" if ads_on else " (ads: no key, citation watch falls back to openalex)"))
 
     stats = {"raw": 0, "excluded": 0, "future_dated": 0, "dupe_seen": 0, "dupe_run": 0, "kept": 0}
+    arxiv_index = arxiv_index_freshness(since)
+    if arxiv_index:
+        stats["arxiv_index_newest"] = arxiv_index["newest"]
+        stats["arxiv_index_lag_days"] = arxiv_index["lag_days"]
+        if arxiv_index["stale"]:
+            log(f"  ! arXiv SEARCH INDEX IS STALE: newest indexed submission is "
+                f"{arxiv_index['newest']} ({arxiv_index['lag_days']}d behind). "
+                f"arXiv results this run cover nothing newer than that -- a zero "
+                f"arXiv yield is upstream, not dedup. Re-sweep with an explicit "
+                f"--since once it recovers.")
 
     results = dict(prior)
     truncated = False
@@ -878,6 +988,7 @@ def run(args):
             key=lambda r: (r.get("date") or "", r.get("cited_by") or 0),
             reverse=True,
         )
+        ranked = cap_containers(ranked)
         if args.limit:
             ranked = ranked[: args.limit]
         stats["kept"] += len(ranked)
