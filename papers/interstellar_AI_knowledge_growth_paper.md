@@ -118,7 +118,7 @@ The root reference for the value function is the Earth knowledge corpus at depar
 
 ## 3. K₀: What the Probe Carries at Departure
 
-A probe launched from Earth carries two distinct knowledge layers, designed around the infrastructure available during transit.
+A seed launched from settlement zero carries two distinct knowledge layers, designed around the infrastructure available during transit.
 
 The **active working memory** layer holds everything the probe needs to read and use during transit without DNA synthesis or sequencing equipment. It contains: the stellar astrometric catalog of targets and nearby systems (from Gaia and successor surveys; Gaia Collaboration 2023), the bootstrap plan and contingency portfolio, operational and navigation data, reactor management parameters, the mission core and interpretive layer, simulation parameters for cruise-phase scenario modeling, and the meta-knowledge database current at departure. This layer is compact and immediately accessible.
 
@@ -213,7 +213,7 @@ Settlement location is driven by resource access and safety, not by proximity to
 
 The contingency portfolio organizes the bootstrap plan across a taxonomy of resource environments.
 
-A **planetary system with an asteroid belt** is the nominal environment. The L1–L5 closure ladder proceeds as developed in the bootstrapping paper. Settlement location is the inner asteroid belt: metals and silicates in accessible orbits, stable long-term dynamics, adequate solar energy.
+A **planetary system with an asteroid belt** is the nominal environment. The L1–L5 closure ladder proceeds as developed in the bootstrapping paper. Settlement location is the inner asteroid belt, the regime settlement zero itself occupies in the home system (the roadmap paper): metals and silicates in accessible orbits, stable long-term dynamics, adequate solar energy.
 
 An **M-dwarf system with rocky planets but sparse asteroid population** — the most common stellar type in the 127-star catalogue — offers rocky planet gravity wells but limited small-body inventory. Settlement location may shift to Trojan clusters of the innermost planet or captured irregular bodies. The closure bottleneck moves to bulk metal feedstock; the vitamin fraction rises. Replication timescale extends but closure remains achievable at a higher L-level cost.
 
@@ -358,7 +358,7 @@ For **outward-directed lineages**, the probe calculates many generations in adva
 
 - **D0 — Full capability.** Capability state: R_eff > 1, full manufacturing, DNA synthesis, and interstellar launch available. Primary goal: reproduce and observe at maximum rate. K action: normal K growth across all components; meta-K propagated to children at launch. Exit condition: none required; maintains or improves.
 
-- **D1 — Reduced reproduction.** Capability state: manufacturing intact but interstellar launch no longer achievable; sub-probe launch possible. Primary goal: local solar system exploration. K action: pivot to depth-K — sub-probes survey planets, moons, outer system, and small bodies; the settlement becomes a permanent local deep-field observatory contributing irreplaceable long-baseline measurements. Exit condition: restore launch infrastructure to return R_eff above zero and ultimately above the knife-edge at 1 (computational engineering paper), advancing toward D0.
+- **D1 — Reduced reproduction.** Capability state: manufacturing intact but interstellar launch no longer achievable; sub-probe launch possible. Primary goal: local solar system exploration. K action: pivot to depth-K — sub-probes, the roadmap paper's prospectors among them, survey planets, moons, outer system, and small bodies; the settlement becomes a permanent local deep-field observatory contributing irreplaceable long-baseline measurements. Exit condition: restore launch infrastructure to return R_eff above zero and ultimately above the knife-edge at 1 (computational engineering paper), advancing toward D0.
 
 - **D2 — Archive-only.** Capability state: sub-probe launch no longer viable; DNA synthesis remains available. Primary goal: maximize knowledge preservation and network propagation. K action: create the most durable and findable cold archive possible; maximize the manifest transmitted to any reachable node; deposit cold vault packages in stable, recoverable locations — stable orbits, subsurface small bodies, dynamically persistent niches. Archives carry their own Rosetta key and the DNA mission-ledger's Merkle authentication structure, so a finder can decode and authenticate contents without the probe's active systems. Exit condition: restore sub-probe capability to advance to D1.
 

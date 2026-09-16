@@ -66,7 +66,7 @@ The network does not achieve real-time consistency. It achieves eventual consist
 
 ## 4. Topology: Tree to Mesh
 
-At the moment the first probe departs Earth and settles its first target, the network is a two-node pair: the home system and Node 1, linked by one beam. When Node 1 launches a child, the topology becomes a three-node tree. In the early lineage, every node has exactly one parent and the network is a tree rooted at the home system.
+At the moment the first seed departs settlement zero and settles its first target, the network is a two-node pair: the home system and Node 1, linked by one beam. When Node 1 launches a child, the topology becomes a three-node tree. In the early lineage, every node has exactly one parent and the network is a tree rooted at the home system. If settlement zero dispatches many first-generation seeds, as the roadmap paper argues it should, the early tree is a star of high degree rather than a chain, and the root is the network's dominant single point of failure until cousins reconnect.
 
 The tree structure breaks down progressively under three conditions.
 
