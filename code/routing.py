@@ -169,9 +169,16 @@ def _viability(star):
 
 def simulate_expansion(cat, strategy="coverage", n_offspring=3, max_hop_ly=15.0,
                        p_stage=0.9, cruise_per_ly=0.99, tau_rep_yr=10_000.0,
-                       t_silence_yr=5_000.0, max_time_yr=500_000.0, rng_seed=42):
+                       t_silence_yr=5_000.0, max_time_yr=500_000.0, rng_seed=42,
+                       n_root=None):
     """
     Monte Carlo lineage expansion from the Sun across the catalogue.
+
+    n_root: offspring dispatched by the root (the Sun -- settlement zero in the
+            roadmap paper) at time zero.  None -> n_offspring, i.e. the root is an
+            ordinary node.  The roadmap paper argues the root has no transit loss
+            and a production lifetime bounded only by policy, so n_root >> 3.
+            The per-target cap of 3 dispatches still applies.
 
     strategy: 'nearest'  -- dispatch to the n_offspring nearest unsettled targets
               'viability' -- dispatch to the n_offspring highest-viability targets
@@ -218,8 +225,8 @@ def simulate_expansion(cat, strategy="coverage", n_offspring=3, max_hop_ly=15.0,
                 out.append((v, d))
         return out
 
-    # Initial dispatch from Sun
-    for tgt, d in _choose(sun_idx, n_offspring):
+    # Initial dispatch from the root (n_root offspring; defaults to n_offspring)
+    for tgt, d in _choose(sun_idx, n_root if n_root is not None else n_offspring):
         _dispatch(sun_idx, tgt, d, 0.0)
 
     events = [(0.0, stars[sun_idx]["name"])]
@@ -507,6 +514,19 @@ def _demo():
                   if r["mean_t90_yr"] else f"never ({r['n_reach_90pct']}/30)")
         print(f"  n_off={off}: mean_coverage={r['mean_coverage']*100:.0f}%  "
               f"t90={t90str}")
+
+    # ---- root degree (settlement zero) ----
+    print("\n=== 5. ROOT DEGREE n_root (coverage strategy, hop=20 ly, n_off=3, 30 trials) ===")
+    print("  (the roadmap paper: settlement zero can dispatch far more than three)")
+    for nr in (3, 6, 12, 24):
+        r = run_trials(cat, "coverage", n_trials=30, max_hop_ly=20.0,
+                       n_offspring=3, n_root=nr)
+        t90str = (f"{r['mean_t90_yr']/1000:.0f} kyr ({r['n_reach_90pct']}/30)"
+                  if r["mean_t90_yr"] else f"never ({r['n_reach_90pct']}/30)")
+        t95str = (f"{r['mean_t95_yr']/1000:.0f} kyr ({r['n_reach_95pct']}/30)"
+                  if r["mean_t95_yr"] else f"never ({r['n_reach_95pct']}/30)")
+        print(f"  n_root={nr:2d}: mean_coverage={r['mean_coverage']*100:.0f}%  "
+              f"min={r['min_coverage']*100:.0f}%  t90={t90str}  t95={t95str}")
 
 
 if __name__ == "__main__":

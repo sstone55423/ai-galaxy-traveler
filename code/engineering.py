@@ -144,6 +144,35 @@ def reproduction(offspring=2, **legkw):
             "per_node_R_eff": reffs}
 
 
+def root_dispatch(n_root=12, offspring=3, **legkw):
+    """Demographics of the ROOT node (the Sun -- settlement zero in the roadmap
+    paper), which exists with probability one and can dispatch n_root children
+    rather than the `offspring` every later node attempts.  Returns the root's
+    own R_eff over its n_root nearest targets, the probability that none of its
+    children settles, and a first-order lineage-extinction probability
+    q_lineage = prod_i (1 - s_i (1 - q_bar)), where q_bar is the mean
+    per-node extinction probability of an ordinary node with `offspring`
+    children (i.e. each surviving child founds a branch that dies with
+    probability q_bar).  Mean-field: branches are treated as independent."""
+    cat = gs.Catalog()
+    stars = cat.stars
+    pos = [(s["x"], s["y"], s["z"]) for s in stars]
+    host_kw = {k: legkw[k] for k in ("V_host", "V_dwarf", "V_hostile") if k in legkw}
+    leg_kw = {k: v for k, v in legkw.items() if k not in host_kw}
+    sun = next(i for i, s in enumerate(stars) if s["name"] == "Sun")
+    d = sorted(((math.dist(pos[sun], pos[j]), j) for j in range(len(stars)) if j != sun))
+    s_list = [leg_survival(dist_ly, **leg_kw) * viability(stars[j], **host_kw)
+              for dist_ly, j in d[:n_root]]
+    q_bar = reproduction(offspring=offspring, **dict(legkw))["mean_extinction_prob"]
+    q_lineage = 1.0
+    for s in s_list:
+        q_lineage *= (1.0 - s * (1.0 - q_bar))
+    return {"n_root": n_root, "root_R_eff": sum(s_list),
+            "p_no_child_settles": _extinction_prob(s_list),
+            "q_bar_ordinary_node": q_bar, "q_lineage": q_lineage,
+            "farthest_target_ly": d[n_root - 1][0]}
+
+
 # ===========================================================================
 # 4. CLOSURE BUDGET
 # ===========================================================================
@@ -199,6 +228,13 @@ def _demo():
         print(f"     per-stage p={p:.2f}: mean R_eff = {r['mean_R_eff']:.2f}  "
               f"-> {'EXPANDS' if r['mean_R_eff']>1 else 'extinction-prone'}")
     print("   -> R_eff sits on a knife-edge: a few % per-stage failure flips the outcome.")
+
+    print("\n=== 3b. ROOT DISPATCH (settlement zero; ordinary nodes at offspring=3) ===")
+    print("   n_root  root_R_eff  P(no child settles)  q_lineage (mean-field)  farthest target")
+    for nr in (3, 6, 12, 24):
+        rd = root_dispatch(n_root=nr, offspring=3)
+        print(f"   {nr:>6}  {rd['root_R_eff']:>10.2f}  {rd['p_no_child_settles']:>19.3f}  "
+              f"{rd['q_lineage']:>22.3f}  {rd['farthest_target_ly']:>10.1f} ly")
 
     print("\n=== 4. CLOSURE (capability binds, not material or energy) ===")
     cl = closure()
