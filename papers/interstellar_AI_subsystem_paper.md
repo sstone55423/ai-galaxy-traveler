@@ -137,9 +137,9 @@ The hardware class is flight-qualified at the relevant scale. The DESTINY+ μ10 
 
 Total magnetic sail subsystem: ~250 kg for the loop plus ~50 kg for control, spool, and insulation — the low end of the component ranges, on the ground that the control electronics share the seed's common avionics — giving ~300 kg, consistent with the computational engineering paper.
 
-**Braking distance check.** As both engineering papers establish, the braking distance d = m / (2ρA) is independent of cruise speed (Andrews & Zubrin 1990). For the reference seed m = 3,700 kg, a sail of effective radius 100 km giving area A = π × (10⁵)² = 3.14 × 10¹⁰ m², and interstellar-medium (ISM) density ρ ≈ 3.3 × 10⁻²² kg m⁻³ (Frisch et al. 2011; Redfield & Linsky 2008):
+**Braking distance check.** As both engineering papers establish, the braking distance d = m / (2ρA) is independent of cruise speed (Andrews & Zubrin 1990). For the reference seed m = 3,700 kg, a sail of effective radius 100 km giving area A = π × (10⁵)² = 3.14 × 10¹⁰ m², and the interstellar medium's ion density ρ ≈ 1.2 × 10⁻²² kg m⁻³ (n_e ≈ 0.07 cm⁻³; Frisch et al. 2011 — the local cloud's neutral hydrogen at n ≈ 0.2 cm⁻³, Redfield & Linsky 2008, passes a magnetic sail uncoupled, a correction the roadmap paper surfaced):
 
-d = 3,700 / (2 × 3.3 × 10⁻²² × 3.14 × 10¹⁰) ≈ 0.019 ly
+d = 3,700 / (2 × 1.2 × 10⁻²² × 3.14 × 10¹⁰) ≈ 0.05 ly
 
 The braking distance is a tiny fraction of any realistic hop and does not constrain hop range. The probe coasts at 450 km/s for essentially the entire transit and deploys the sail in the final approach. The superconducting sail draws no electrical power from the reactor during cruise; braking force comes from momentum transfer with the ISM, not from onboard power.
 
@@ -420,3 +420,5 @@ Redfield, S., & Linsky, J. L. (2008). The structure of the local interstellar me
 Tabata, K., Tsukizaki, R., Imai, S., Morishita, T., Yamashita, Y., & Nishiyama, K. (2026). Development and testing of the DESTINY+ microwave discharge ion engine system. *Journal of Electric Propulsion*. doi:10.1007/s44205-026-00219-4
 
 Turyshev, S. G. (2026). Operations, maintenance, and industrial scaling of MW-class orbital data centers. *arXiv preprint* arXiv:2608.27499.
+
+*Braking density corrected on 2026-09-15, after the roadmap paper's cross-paper audit, from the local cloud's total hydrogen density to its ion component (ρ ≈ 1.2 × 10⁻²² kg m⁻³, n_e ≈ 0.07 cm⁻³; Frisch et al. 2011), lengthening every quoted stopping distance and time by ~2.9×; braking remains feasible and no other canonical number changes.*

@@ -91,7 +91,7 @@ HTML = r'''<!DOCTYPE html>
         <div class="row">Braking time <b id="bt">0 yr</b></div>
         <div class="row">Peak deceleration <b id="bg">0 g</b></div>
         <div class="row">Sail for 0.01 ly stop <b id="bsail">0 km</b></div>
-        <p class="note">Stopping distance d = m/(2&rho;A) is independent of cruise speed; only time scales with it.</p>
+        <p class="note">Stopping distance d = m/(2&rho;A) is independent of cruise speed; only time scales with it. &rho; is the local cloud's ion density (n<sub>e</sub> &asymp; 0.07 cm&#8315;&sup3;); its neutral hydrogen passes a magsail uncoupled.</p>
       </div>
       <div class="panel card">
         <h3>Seed mass budget</h3>
@@ -119,7 +119,8 @@ HTML = r'''<!DOCTYPE html>
 
 <script>
 const STARS = __STARS_JSON__;
-const RHO=0.2e6*1.674e-27, C=299792458.0, LY=9.4607e15, YEAR=3.15576e7, SIGMA=5.670374e-8;
+// RHO: local-cloud ION density (n_e ~ 0.07 cm^-3, Slavin & Frisch 2008); the neutral H at 0.2 cm^-3 passes a magsail uncoupled.
+const RHO=0.07e6*1.674e-27, C=299792458.0, LY=9.4607e15, YEAR=3.15576e7, SIGMA=5.670374e-8;
 const BELT=3.0e21, U=8.2e13;
 // precompute nearest-6 neighbours per node (positions fixed)
 const NB = STARS.map((s,i)=>{

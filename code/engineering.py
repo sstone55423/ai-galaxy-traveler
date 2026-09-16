@@ -7,7 +7,7 @@ numbers, with the reproduction demographics computed across the REAL 127-star
 catalogue. Four models:
 
   1. mass_budget()    -- subsystem mass/power of a notional seed
-  2. braking()        -- magnetic-sail deceleration against the ISM
+  2. braking()        -- magnetic-sail deceleration against the ISM (ion density)
   3. reproduction()   -- R_eff = sum_i p_i V_i across the catalogue, as a
                          Galton-Watson branching process (extinction probability)
   4. closure()        -- closure ratio C, vitamin fraction, material/energy check
@@ -25,7 +25,11 @@ C = 299_792_458.0
 LY = 9.460_730_472e15
 YEAR = 31_557_600.0
 M_P = 1.674e-27
-RHO_ISM = 0.2e6 * M_P            # local ISM mass density ~0.2 atoms/cm^3
+N_H_TOTAL = 0.2e6                # local cloud hydrogen number density, m^-3 (~0.2 cm^-3, mostly neutral)
+N_E = 0.07e6                     # local cloud electron/ion density, m^-3 (Slavin & Frisch 2008; Frisch et al. 2011)
+RHO_ISM_TOTAL = N_H_TOTAL * M_P  # ~3.3e-22 kg/m^3 -- used by revisions before 2026-09-15
+RHO_ION = N_E * M_P              # ~1.2e-22 kg/m^3 -- what a magnetic sail actually sweeps
+RHO_ISM = RHO_ION                # default braking density: neutrals assumed uncoupled (roadmap paper, Sec. 9)
 SIGMA = 5.670_374e-8             # Stefan-Boltzmann
 U235_J_PER_KG = 8.2e13
 ASTEROID_BELT_KG = 3.0e21        # ~Solar-System main-belt mass (order of mag)
@@ -172,7 +176,7 @@ def _demo():
     print(f"   {'TOTAL':<28} {mb['_total_kg']:8.0f} kg   "
           f"(dominant: {mb['_dominant']}; radiator {mb['_radiator_area_m2']:.0f} m^2)")
 
-    print("\n=== 2. BRAKING (magsail vs ISM; d = m/(2 rho A), speed-independent) ===")
+    print("\n=== 2. BRAKING (magsail vs ISM ions, rho=%.2e kg/m^3; d = m/(2 rho A), speed-independent) ===" % RHO_ISM)
     for m in (1e3, 1e4):
         for R in (10, 30, 100):
             b = braking(m, R)
