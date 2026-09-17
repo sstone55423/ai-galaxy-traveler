@@ -42,6 +42,8 @@ The ladder is a sequence of demonstrators, and demonstrators under the no-resupp
 
 *Solar-wind volatiles, and helium-3.* Every regolith-processing site in the track heats regolith, for water and volatiles, and heating releases the solar-wind gases implanted in it: hydrogen, helium-4, nitrogen, carbon, and helium-3 at of order 10 ppb. The track's rule is that every mining, refining, and storage site captures and banks them, helium-3 included, as a by-product of work already being done; the KREEP mine that yields one rider's 250 kg of U-235 processes ~1.2 × 10^10 kg of regolith and so yields ~120 kg of helium-3 for the cost of a cold trap and a tank. The reason is an assumption this series states and isolates: that a fusion capability may become available to the lineage at some later time, and that nothing in the architecture depends on it. The energy is real, since deuterium-helium-3 fusion releases ~6 × 10^14 J per kilogram of helium-3, so a kilogram is worth roughly eight of the seed's 16.5 kg fission charges at comparable conversion; the reactor is not, and the banked stock is an option, not a budget line. Outside fusion, helium-3 is not a fuel in any form, being inert and not fissile, but the bank has present value that does not wait on the assumption: helium-3 gas is the standard thermal-neutron detector, which the seed's reactor instrumentation and the neutron assay of thorium and uranium ores both use, and it is the working fluid of the dilution refrigerators that cool detectors to millikelvin. The seed carries none of it in its vitamin set. It carries the extraction know-how, which is mass-free, because helium is a gas whose containment over millennia is an unsolved question, because it buys nothing under the fission design in flight, and because every airless regolith exposed to a stellar wind carries it, so a settlement that needs it, for detectors now or for fusion later, extracts it where it is.
 
+*The state of fusion, 2026.* The assumption should carry its date. As this is written no device has produced more electricity than it consumed, and none runs on deuterium-helium-3. What exists is research at three scales whose durations differ by a factor of a billion. The longest confined plasma is ~22 minutes: 1,337 seconds of hydrogen plasma in the WEST tokamak in February 2025 (CEA 2025), a control result with no meaningful fusion output. The longest fusion burn at scale is ~5 seconds: JET's deuterium-tritium pulses released 59 MJ at a plasma gain of ~0.33 (Maslov et al. 2023), raised to 69 MJ in the final campaign of 2023 (EUROfusion 2024), still below break-even on the plasma alone. The highest gain lasts a nanosecond: the National Ignition Facility's shot of December 2022 produced 3.1 MJ from 2.05 MJ of laser light, a target gain of 1.5 (Abu-Shawareb et al. 2024), and later shots have reached ~8 MJ at gains near four (Lawrence Livermore National Laboratory 2025), at most about one shot a day, with the lasers drawing hundreds of megajoules from the wall for each. Sustained net-energy fusion of any kind has therefore lasted zero seconds. The nearest milestones are a compact high-field tokamak designed for plasma gain above two in ten-second pulses (Creely et al. 2020), with first plasma now expected in 2027; ITER's deuterium-tritium operation, rebaselined to 2039 (ITER Organization 2024); and the one deuterium-helium-3 effort, a pulsed machine that reported measurable deuterium-tritium fusion at 150 million degrees in 2026 with no published net electricity (Helion Energy 2026). Deuterium-helium-3 is itself a step beyond deuterium-tritium, needing several times the temperature for a lower reaction rate (Wittenberg et al. 1986), so even a working deuterium-tritium plant would leave the bank one development away from use. That is why the assumption is stated as it is: fusion is recognised, not available, and the bank waits.
+
 Three rules govern the track. Supply sites are not evidence of closure, and their data feeds the S1 simulant and the prospector census rather than the vitamin trajectory. Fissile accounting is continuous and ledgered from mine to seed, because a lunar enrichment and breeding chain producing hundreds of kilograms of weapons-usable material is the ethics paper's dual-use problem (Section 9), and the roadmap paper's information clause, which the governance paper has since adopted for the home-system case, applies to the depot before it applies to the settlement. And storage is sized for the whole first generation. The seeds and riders are of order a tonne of fissile material (Section 2), plus thousands of tonnes of water banked in the belt. Settlement zero's own reactors are a separate and larger line: at the seed reactor's conversion and burn-up a megawatt-electric consumes ~14 kg of U-235 a year, hundreds of kilograms over the decades of S4, and the hundreds of megawatts a launcher needs would consume tonnes a year, which is why the settlement's industrial power must come from breeding or from arrays before settlement zero's launcher is built. The track is the content of the phrase "founded from Earth": the lineage's first generation leaves on Moon-bred fuel and belt-mined structure.
 
 ## 4. The Launch Platform
@@ -146,17 +148,29 @@ The lineage's first generation leaves on Moon-bred fuel and belt-mined structure
 
 Abney, C. W., Mayes, R. T., Saito, T., & Dai, S. (2017). Materials for the recovery of uranium from seawater. *Chemical Reviews*, 117(23), 13935–14013.
 
+Abu-Shawareb, H., Acree, R., Adams, P., Adams, J., Addis, B., Aden, R., et al. (2024). Achievement of target gain larger than unity in an inertial fusion experiment. *Physical Review Letters*, 132, 065102.
+
 Bailer-Jones, C. A. L., Rybizki, J., Andrae, R., & Fouesneau, M. (2018). New stellar encounters discovered in the second Gaia data release. *Astronomy & Astrophysics*, 616, A37.
+
+CEA (2025). *WEST sets a new plasma duration record.* CEA-IRFM press release, 12 February 2025.
+
+Creely, A. J., Greenwald, M. J., Ballinger, S. B., Brunner, D., Canik, J., Doody, J., et al. (2020). Overview of the SPARC tokamak. *Journal of Plasma Physics*, 86(5), 865860502.
 
 Dones, L., Brasser, R., Kaib, N., & Rickman, H. (2015). Origin and evolution of the cometary reservoirs. *Space Science Reviews*, 197, 191–269.
 
 Duncan, M., Levison, H., & Dones, L. (2004). Dynamical evolution of ecliptic comets. In M. C. Festou, H. U. Keller, & H. A. Weaver (Eds.), *Comets II* (pp. 193–204). University of Arizona Press.
 
+EUROfusion (2024). *JET's final fusion campaigns set a new energy record and hand ITER a legacy of irreplaceable data.* Press release, 8 February 2024.
+
 Emery, J. P., Marzari, F., Morbidelli, A., French, L. M., & Grav, T. (2015). The complex history of Trojan asteroids. In P. Michel, F. E. DeMeo, & W. F. Bottke (Eds.), *Asteroids IV* (pp. 203–220). University of Arizona Press.
 
 Glassmeier, K.-H., Boehnhardt, H., Koschny, D., Kührt, E., & Richter, I. (2007). The Rosetta mission: Flying towards the origin of the solar system. *Space Science Reviews*, 128, 1–21.
 
+Helion Energy (2026). *Helion achieves new industry-first fusion energy milestones, accelerating path to commercial fusion.* Newsroom release.
+
 Hoover, D. Z., Seligman, D. Z., & Payne, M. J. (2022). The population of interstellar objects detectable with the LSST and accessible for in situ rendezvous with various mission designs. *The Planetary Science Journal*, 3, 71.
+
+ITER Organization (2024). *New baseline to prioritize robust start to exploitation.* Press release, July 2024.
 
 International Panel on Fissile Materials (2022). *Global Fissile Material Report 2022: Fifty Years of the Nuclear Non-Proliferation Treaty.* IPFM.
 
@@ -170,11 +184,15 @@ Lawrence, D. J., Feldman, W. C., Barraclough, B. L., Binder, A. B., Elphic, R. C
 
 Lawrence, D. J., Feldman, W. C., Barraclough, B. L., Binder, A. B., Elphic, R. C., Maurice, S., Miller, M. C., & Prettyman, T. H. (2000). Thorium abundances on the lunar surface. *Journal of Geophysical Research*, 105(E8), 20307–20331.
 
+Lawrence Livermore National Laboratory (2025). *National Ignition Facility: 2025 annual report.* LLNL.
+
 Li, S., Lucey, P. G., Milliken, R. E., Hayne, P. O., Fisher, E., Williams, J.-P., Hurley, D. M., & Elphic, R. C. (2018). Direct evidence of surface exposed water ice in the lunar polar regions. *Proceedings of the National Academy of Sciences*, 115(36), 8907–8912.
 
 Lodders, K. (2003). Solar system abundances and condensation temperatures of the elements. *The Astrophysical Journal*, 591(2), 1220–1247.
 
 Mahaffy, P. R., Webster, C. R., Atreya, S. K., Franz, H., Wong, M., Conrad, P. G., et al. (2013). Abundance and isotopic composition of gases in the Martian atmosphere from the Curiosity rover. *Science*, 341(6143), 263–266.
+
+Maslov, M., Lerche, E., Auriemma, F., Belli, E., Bourdelle, C., Challis, C. D., et al. (2023). JET D-T scenario with optimized non-thermal fusion. *Nuclear Fusion*, 63(11), 112002.
 
 Meech, K. J., Weryk, R., Micheli, M., Kleyna, J. T., Hainaut, O. R., Jedicke, R., et al. (2017). A brief visit from a red and extremely elongated interstellar asteroid. *Nature*, 552, 378–381.
 
@@ -206,4 +224,4 @@ Yokoyama, T., Nagashima, K., Nakai, I., Young, E. D., Abe, Y., Aléon, J., et al
 
 ---
 
-*Revision 1 assembles, on 2026-09-17, the supply track, the interstellar-object rider, and the fuel budget that the roadmap paper carried at its second revision (each reviewed there and moved here with its references), and adds the launch platform, the scouting track, the comet rider, the first probes outward, and the Earth-era governance. The platform numbers reproduce from lunar_driver() in engineering.py; the rider, link, reach, battery, and rock-mass numbers from rider(), rider_link_budget(), rider_reach(), alpha_battery(), and fuel_from_rock().*
+*Revision 1 assembles, on 2026-09-17, the supply track, the interstellar-object rider, and the fuel budget that the roadmap paper carried at its second revision (each reviewed there and moved here with its references), and adds the launch platform, the scouting track, the comet rider, the first probes outward, and the Earth-era governance. The platform numbers reproduce from lunar_driver() in engineering.py; the rider, link, reach, battery, and rock-mass numbers from rider(), rider_link_budget(), rider_reach(), alpha_battery(), and fuel_from_rock(). A dated state-of-fusion note was added to Section 3 the same day.*
