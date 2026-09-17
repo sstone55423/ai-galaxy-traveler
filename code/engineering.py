@@ -12,7 +12,7 @@ catalogue. Four models:
                          Galton-Watson branching process (extinction probability)
   4. closure()        -- closure ratio C, vitamin fraction, material/energy check
   5. rider()          -- an active seed riding an interstellar object at ~26 km/s
-                         (roadmap paper, Sec. 12): crossing times, active window,
+                         (home-programme paper, Sec. 6): crossing times, active window,
                          stellar-pass intervals, sunlight flux, dormant survival
 
 All parameters are explicit and adjustable; the defaults are first-order proxies,
@@ -181,7 +181,7 @@ def root_dispatch(n_root=12, offspring=3, **legkw):
 
 
 # ===========================================================================
-# 3c. INTERSTELLAR-OBJECT RIDER  (roadmap paper, Sec. 12)
+# 3c. INTERSTELLAR-OBJECT RIDER  (home-programme paper, Sec. 6)
 # ===========================================================================
 def reactor_duration_yr(load_W_e, fuel_kg=16.5, efficiency=0.28, burnup=0.10,
                         j_per_kg=U235_J_PER_KG):
@@ -256,7 +256,7 @@ def rider_link_budget(tx_W=100.0, tx_aperture_m=1.0, rx_aperture_m=100.0,
                       wavelength_m=1e-6, dist_ly=1.0):
     """First-order optical link from a rider to settlement zero: Airy half-angle
     1.22 lambda/D, uniform disc, receiver aperture rx_aperture_m.  Returns the
-    received power and photon rate (roadmap paper Sec. 12)."""
+    received power and photon rate (home-programme paper Sec. 6)."""
     theta = 1.22 * wavelength_m / tx_aperture_m
     r_spot = theta * dist_ly * LY
     frac = (rx_aperture_m / 2.0) ** 2 / r_spot ** 2
@@ -267,7 +267,7 @@ def rider_link_budget(tx_W=100.0, tx_aperture_m=1.0, rx_aperture_m=100.0,
 
 def rider_reach(r_pc=(0.5, 1.0, 2.0, 3.0), v_release_kms=30.0, gaia_rate_per_myr_1pc=20.0,
                 cruise_W=50.0, fuel_kg=16.5, cruise_surv_per_ly=0.99, **legkw):
-    """Reach table for a rider's held seeds (roadmap paper Sec. 12).  For each
+    """Reach table for a rider's held seeds (home-programme paper Sec. 6).  For each
     reach radius: pass interval on the Gaia rate (Bailer-Jones et al. 2018:
     ~20 encounters within 1 pc per Myr, scaled as r^2), transit at v_release,
     extra cruise fuel at cruise_W (from the fuel model), survival over
@@ -294,7 +294,7 @@ ALPHA_EMITTERS = {  # (mass number, half-life yr, alpha energy MeV)
 
 def alpha_battery(te_efficiency=0.05, isotopes=ALPHA_EMITTERS):
     """Specific thermal power of long-lived alpha emitters and the mass per
-    watt-electric at a thermoelectric efficiency (roadmap paper Sec. 12).
+    watt-electric at a thermoelectric efficiency (home-programme paper Sec. 6).
     Decay energies are the alpha energy only (daughters neglected)."""
     N_A, MEV = 6.022e23, 1.602e-13
     out = {}
@@ -311,7 +311,7 @@ def fuel_from_rock(kg_fissile=250.0, u_ppb=8.0, th_ppb=30.0, u235_frac=0.0072,
     """Rock mass needed to mine kg_fissile of U-235 from chondritic rock at
     u_ppb uranium (Lodders 2003: ~8 ppb U, ~30 ppb Th), versus the rock
     needed if all fertile U+Th is bred to fissile; body diameter at rho;
-    comminution energy and time at plant_W (roadmap paper Sec. 12)."""
+    comminution energy and time at plant_W (home-programme paper Sec. 6)."""
     rock_u235 = kg_fissile / (u_ppb * 1e-9 * u235_frac)
     rock_bred = kg_fissile / ((u_ppb + th_ppb) * 1e-9)
     def diam(m): return 2.0 * (3.0 * m / (4.0 * math.pi * rho_kg_m3)) ** (1.0 / 3.0)
@@ -320,6 +320,23 @@ def fuel_from_rock(kg_fissile=250.0, u_ppb=8.0, th_ppb=30.0, u235_frac=0.0072,
             "rock_kg_breeding": rock_bred, "body_m_breeding": diam(rock_bred),
             "breeding_advantage": rock_u235 / rock_bred,
             "grind_J": grind_J, "grind_yr_at_plant": grind_J / plant_W / YEAR}
+
+
+def lunar_driver(v_kms=(2.4, 10.0, 30.0), accel_g=(100.0, 1000.0), payload_kg=18500.0,
+                 launches_per_yr=1.0):
+    """Lunar mass-driver scale for the home-programme paper (Sec. 4): track
+    length L = v^2/(2a) and duration v/a for each exit speed and acceleration,
+    kinetic energy of one payload, and the average power a launch cadence
+    needs.  O'Neill (1974) sited it; the 1977 Ames study (Kolm et al. 1979) sized it at 2.4 km/s and ~1,000 g, ~300 m."""
+    rows = []
+    for v in v_kms:
+        for g in accel_g:
+            a = g * 9.80665
+            rows.append({"v_kms": v, "accel_g": g, "length_m": (v * 1e3) ** 2 / (2 * a),
+                         "duration_s": v * 1e3 / a})
+    ke = 0.5 * payload_kg * (max(v_kms) * 1e3) ** 2
+    return {"rows": rows, "payload_kg": payload_kg, "ke_J_at_max_v": ke,
+            "avg_power_W": ke * launches_per_yr / YEAR}
 
 
 # ===========================================================================
@@ -385,7 +402,7 @@ def _demo():
         print(f"   {nr:>6}  {rd['root_R_eff']:>10.2f}  {rd['p_no_child_settles']:>19.3f}  "
               f"{rd['q_lineage']:>22.3f}  {rd['farthest_target_ly']:>10.1f} ly")
 
-    print("\n=== 3c. INTERSTELLAR-OBJECT RIDER (roadmap paper Sec. 12) ===")
+    print("\n=== 3c. INTERSTELLAR-OBJECT RIDER (home-programme paper Sec. 6) ===")
     r_2000au = 2000.0 * AU / PC
     rr = rider(encounter_r_pc=(0.01, r_2000au, 0.1, 0.5, 1.0))
     print(f"   body outbound at {rr['v_kms']:.0f} km/s; 16.5 kg U-235 at 150 / 50 W -> "
@@ -417,7 +434,7 @@ def _demo():
         print(f"   link 100 W / 1 m -> 100 m at {d:.0f} ly: {lb['received_W']:.1e} W, "
               f"{lb['photons_per_s']:.1e} photons/s")
 
-    print("\n=== 3d. RIDER PROVISIONING AND FUEL (roadmap paper Sec. 12 and Sec. 4) ===")
+    print("\n=== 3d. RIDER PROVISIONING AND FUEL (home-programme paper Sec. 6 and Sec. 3) ===")
     print("   reach (release 30 km/s, Gaia 20/Myr within 1 pc, extra fuel at 50 W, survival at the CRUISE figure):")
     print(f"   {'r_pc':>5} {'pass every':>12} {'transit':>10} {'extra kg':>9} {'survival':>9} {'EV/seed':>8}")
     for row in rider_reach():
@@ -433,6 +450,12 @@ def _demo():
         print(f"   {kg:5.1f} kg U-235 from chondrite: mine {fr['rock_kg_u235_mining']:.1e} kg rock (body ~{fr['body_m_u235']:,.0f} m, "
               f"grind {fr['grind_J']:.1e} J = {fr['grind_yr_at_plant']:.1f} yr at 500 MW); "
               f"breed {fr['rock_kg_breeding']:.1e} kg (~{fr['body_m_breeding']:,.0f} m), advantage {fr['breeding_advantage']:.0f}x")
+
+    print("\n=== 3e. LUNAR MASS DRIVER (home-programme paper Sec. 4) ===")
+    ld = lunar_driver()
+    for r in ld["rows"]:
+        print(f"   {r['v_kms']:5.1f} km/s at {r['accel_g']:6,.0f} g : length {r['length_m']/1e3:9,.2f} km, {r['duration_s']:6.1f} s")
+    print(f"   {ld['payload_kg']:,.0f} kg at 30 km/s: {ld['ke_J_at_max_v']:.1e} J; one launch/yr averages {ld['avg_power_W']/1e3:.0f} kW")
 
     print("\n=== 4. CLOSURE (capability binds, not material or energy) ===")
     cl = closure()
