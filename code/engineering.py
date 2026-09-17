@@ -265,6 +265,63 @@ def rider_link_budget(tx_W=100.0, tx_aperture_m=1.0, rx_aperture_m=100.0,
     return {"received_W": p_rx, "photons_per_s": p_rx / e_ph, "spot_radius_m": r_spot}
 
 
+def rider_reach(r_pc=(0.5, 1.0, 2.0, 3.0), v_release_kms=30.0, gaia_rate_per_myr_1pc=20.0,
+                cruise_W=50.0, fuel_kg=16.5, cruise_surv_per_ly=0.99, **legkw):
+    """Reach table for a rider's held seeds (roadmap paper Sec. 12).  For each
+    reach radius: pass interval on the Gaia rate (Bailer-Jones et al. 2018:
+    ~20 encounters within 1 pc per Myr, scaled as r^2), transit at v_release,
+    extra cruise fuel at cruise_W (from the fuel model), survival over
+    wait+transit at the CRUISE figure (see dormant_survival), and the expected
+    value per seed = survival x launch-braking-settlement product."""
+    legkw.setdefault("p_make", 1.0)
+    p_legs = leg_survival(0.0, cruise_surv_per_ly=cruise_surv_per_ly, **legkw)
+    kg_per_yr = fuel_kg / reactor_duration_yr(cruise_W, fuel_kg)
+    rows = []
+    for r in r_pc:
+        interval = 1e6 / (gaia_rate_per_myr_1pc * r * r)
+        transit = r * PC / (v_release_kms * 1e3) / YEAR
+        surv = dormant_survival(interval + transit, cruise_surv_per_ly)
+        rows.append({"r_pc": r, "pass_interval_yr": interval, "transit_yr": transit,
+                     "extra_fuel_kg": kg_per_yr * transit, "survival": surv,
+                     "ev_per_seed": surv * p_legs})
+    return rows
+
+
+ALPHA_EMITTERS = {  # (mass number, half-life yr, alpha energy MeV)
+    "Pu-238": (238, 87.7, 5.59), "Am-241": (241, 432.0, 5.64), "Am-243": (243, 7370.0, 5.44),
+    "U-233": (233, 1.59e5, 4.91), "Np-237": (237, 2.14e6, 4.96)}
+
+
+def alpha_battery(te_efficiency=0.05, isotopes=ALPHA_EMITTERS):
+    """Specific thermal power of long-lived alpha emitters and the mass per
+    watt-electric at a thermoelectric efficiency (roadmap paper Sec. 12).
+    Decay energies are the alpha energy only (daughters neglected)."""
+    N_A, MEV = 6.022e23, 1.602e-13
+    out = {}
+    for name, (A, t_half, E) in isotopes.items():
+        lam = math.log(2.0) / (t_half * YEAR)
+        w_kg = lam * N_A / (A / 1000.0) * E * MEV
+        out[name] = {"half_life_yr": t_half, "W_per_kg_thermal": w_kg,
+                     "kg_per_We": 1.0 / (w_kg * te_efficiency)}
+    return out
+
+
+def fuel_from_rock(kg_fissile=250.0, u_ppb=8.0, th_ppb=30.0, u235_frac=0.0072,
+                   rho_kg_m3=2000.0, grind_J_per_t=3.6e7, plant_W=5e8):
+    """Rock mass needed to mine kg_fissile of U-235 from chondritic rock at
+    u_ppb uranium (Lodders 2003: ~8 ppb U, ~30 ppb Th), versus the rock
+    needed if all fertile U+Th is bred to fissile; body diameter at rho;
+    comminution energy and time at plant_W (roadmap paper Sec. 12)."""
+    rock_u235 = kg_fissile / (u_ppb * 1e-9 * u235_frac)
+    rock_bred = kg_fissile / ((u_ppb + th_ppb) * 1e-9)
+    def diam(m): return 2.0 * (3.0 * m / (4.0 * math.pi * rho_kg_m3)) ** (1.0 / 3.0)
+    grind_J = rock_u235 / 1000.0 * grind_J_per_t
+    return {"rock_kg_u235_mining": rock_u235, "body_m_u235": diam(rock_u235),
+            "rock_kg_breeding": rock_bred, "body_m_breeding": diam(rock_bred),
+            "breeding_advantage": rock_u235 / rock_bred,
+            "grind_J": grind_J, "grind_yr_at_plant": grind_J / plant_W / YEAR}
+
+
 # ===========================================================================
 # 4. CLOSURE BUDGET
 # ===========================================================================
@@ -359,6 +416,23 @@ def _demo():
         lb = rider_link_budget(dist_ly=d)
         print(f"   link 100 W / 1 m -> 100 m at {d:.0f} ly: {lb['received_W']:.1e} W, "
               f"{lb['photons_per_s']:.1e} photons/s")
+
+    print("\n=== 3d. RIDER PROVISIONING AND FUEL (roadmap paper Sec. 12 and Sec. 4) ===")
+    print("   reach (release 30 km/s, Gaia 20/Myr within 1 pc, extra fuel at 50 W, survival at the CRUISE figure):")
+    print(f"   {'r_pc':>5} {'pass every':>12} {'transit':>10} {'extra kg':>9} {'survival':>9} {'EV/seed':>8}")
+    for row in rider_reach():
+        print(f"   {row['r_pc']:5.1f} {row['pass_interval_yr']:12,.0f} {row['transit_yr']:10,.0f} "
+              f"{row['extra_fuel_kg']:9.0f} {row['survival']:9.2f} {row['ev_per_seed']:8.2f}")
+    e_charge = 16.5 * U235_J_PER_KG * 0.28 * 0.10
+    print(f"   one charge = {e_charge:.1e} J: " + ", ".join(f"{e_charge/P/YEAR:,.0f} yr at {P:g} W" for P in (150, 10, 1)))
+    print("   alpha batteries at 5% thermoelectric (kg per watt-electric):")
+    for name, b in alpha_battery().items():
+        print(f"     {name:7s} t1/2 {b['half_life_yr']:>9.3g} yr  {b['W_per_kg_thermal']:8.3g} W/kg  {b['kg_per_We']:9.3g} kg/We")
+    for kg in (16.5, 250.0):
+        fr = fuel_from_rock(kg)
+        print(f"   {kg:5.1f} kg U-235 from chondrite: mine {fr['rock_kg_u235_mining']:.1e} kg rock (body ~{fr['body_m_u235']:,.0f} m, "
+              f"grind {fr['grind_J']:.1e} J = {fr['grind_yr_at_plant']:.1f} yr at 500 MW); "
+              f"breed {fr['rock_kg_breeding']:.1e} kg (~{fr['body_m_breeding']:,.0f} m), advantage {fr['breeding_advantage']:.0f}x")
 
     print("\n=== 4. CLOSURE (capability binds, not material or energy) ===")
     cl = closure()
