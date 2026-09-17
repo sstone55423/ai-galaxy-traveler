@@ -11,6 +11,9 @@ catalogue. Four models:
   3. reproduction()   -- R_eff = sum_i p_i V_i across the catalogue, as a
                          Galton-Watson branching process (extinction probability)
   4. closure()        -- closure ratio C, vitamin fraction, material/energy check
+  5. rider()          -- an active seed riding an interstellar object at ~26 km/s
+                         (roadmap paper, Sec. 12): crossing times, active window,
+                         stellar-pass intervals, sunlight flux, dormant survival
 
 All parameters are explicit and adjustable; the defaults are first-order proxies,
 clearly labelled. Run `python3 engineering.py` for the demonstration.
@@ -33,6 +36,10 @@ RHO_ISM = RHO_ION                # default braking density: neutrals assumed unc
 SIGMA = 5.670_374e-8             # Stefan-Boltzmann
 U235_J_PER_KG = 8.2e13
 ASTEROID_BELT_KG = 3.0e21        # ~Solar-System main-belt mass (order of mag)
+AU = 1.495_978_707e11            # m
+PC = 3.085_677_581e16            # m
+SOLAR_CONST_W_M2 = 1361.0        # sunlight flux at 1 AU
+CRUISE_YR_PER_LY = 665.0         # 450 km/s cruise: the 0.99/ly survival figure is per 665 yr
 
 
 # ===========================================================================
@@ -174,6 +181,91 @@ def root_dispatch(n_root=12, offspring=3, **legkw):
 
 
 # ===========================================================================
+# 3c. INTERSTELLAR-OBJECT RIDER  (roadmap paper, Sec. 12)
+# ===========================================================================
+def reactor_duration_yr(load_W_e, fuel_kg=16.5, efficiency=0.28, burnup=0.10,
+                        j_per_kg=U235_J_PER_KG):
+    """Years a fissile charge sustains a constant electric load -- the inverse
+    of energy.reactor_fuel_kg (same efficiency / burn-up / J-per-kg).  With
+    the canonical 16.5 kg U-235 charge (4 kW-e for 300 yr) this gives the
+    subsystem budget paper's cruise endurances: ~8,000 yr at 150 W (standard
+    K-research profile) and ~24,000 yr at 50 W (range-maximizer profile)."""
+    return fuel_kg * j_per_kg * burnup * efficiency / load_W_e / YEAR
+
+
+def dormant_survival(t_yr, cruise_surv_per_ly=0.99, yr_per_ly=CRUISE_YR_PER_LY):
+    """Survival over t_yr at the vehicle paper's CRUISE figure, 0.99 per ly
+    = per 665 yr at 450 km/s.  That figure is a dust-and-ageing figure for a
+    bare seed in cruise; it does NOT apply to a rider buried in an interstellar
+    object, whose ageing-only survival the series has no number for.  Used
+    here only as an upper-structure illustration."""
+    return cruise_surv_per_ly ** (t_yr / yr_per_ly)
+
+
+def rider(v_kms=26.0, active_yr=None, fuel_kg=16.5, cruise_W=(150.0, 50.0),
+          n_star_pc3=0.1, encounter_r_pc=(0.01, 0.1, 0.5, 1.0),
+          crossing_au=(122.0, 1000.0, 2000.0, 1e5), flux_au=(10.0, 100.0, 1000.0),
+          dormant_yr=(1e5, 1e6), late_wait_yr=5e5, late_r_pc=0.5,
+          cruise_surv_per_ly=0.99, **legkw):
+    """First-order numbers for a seed riding an interstellar object outbound
+    from the Sun at v_kms (26 km/s: 'Oumuamua's hyperbolic excess speed).
+
+    active_yr   -- active-window durations (yr).  None -> derived from fuel_kg
+                   and cruise_W via reactor_duration_yr (8,000 / 24,000 yr).
+    crossing_au -- radii whose crossing time at v is reported (heliopause 122 AU,
+                   1,000 AU, inner Oort 2,000 AU, outer Oort 1e5 AU).
+    encounter_r_pc -- stellar-pass radii; mean interval between passes within r
+                   of a star = 1 / (n_star * pi r^2 * v)  (n_star in pc^-3).
+    flux_au     -- sunlight flux radii (1361 W/m^2 at 1 AU, inverse square).
+    dormant_yr  -- dormant-survival horizons at the CRUISE figure
+                   cruise_surv_per_ly per 665 yr (see dormant_survival: a
+                   dust-and-ageing cruise figure that does not apply to a
+                   buried rider -- illustration only).
+    late_wait_yr, late_r_pc -- the late-dispatch illustration: expected value
+                   = P(pass within late_r_pc during late_wait_yr, taken as
+                   min(1, expected passes)) x dormant_survival(late_wait_yr)
+                   x the launch-braking-settlement product 0.9^3 (manufacture
+                   already observed at settlement zero).  An
+                   upper-structure illustration, not an estimate.
+    """
+    v = v_kms * 1000.0                                      # m/s
+    v_pc_yr = v * YEAR / PC
+    if active_yr is None:
+        active_yr = tuple(reactor_duration_yr(W, fuel_kg=fuel_kg) for W in cruise_W)
+    crossing = {au: au * AU / v / YEAR for au in crossing_au}
+    window = {t: {"ly": v * t * YEAR / LY, "au": v * t * YEAR / AU} for t in active_yr}
+    encounter = {r: 1.0 / (n_star_pc3 * math.pi * r * r * v_pc_yr) for r in encounter_r_pc}
+    flux = {au: SOLAR_CONST_W_M2 / (au * au) for au in flux_au}
+    dormant = {t: dormant_survival(t, cruise_surv_per_ly) for t in dormant_yr}
+    late_interval = 1.0 / (n_star_pc3 * math.pi * late_r_pc ** 2 * v_pc_yr)
+    p_pass = min(1.0, late_wait_yr / late_interval)
+    s_dormant = dormant_survival(late_wait_yr, cruise_surv_per_ly)
+    legkw.setdefault("p_make", 1.0)   # manufacture already observed at settlement zero
+    p_legs = leg_survival(0.0, cruise_surv_per_ly=cruise_surv_per_ly, **legkw)
+    return {"v_kms": v_kms, "active_yr": tuple(active_yr),
+            "crossing_yr": crossing, "window": window,
+            "encounter_interval_yr": encounter, "flux_W_m2": flux,
+            "dormant_survival": dormant,
+            "late_dispatch": {"wait_yr": late_wait_yr, "r_pc": late_r_pc,
+                              "p_pass": p_pass, "dormant_survival": s_dormant,
+                              "per_leg_product": p_legs,
+                              "expected_value": p_pass * s_dormant * p_legs}}
+
+
+def rider_link_budget(tx_W=100.0, tx_aperture_m=1.0, rx_aperture_m=100.0,
+                      wavelength_m=1e-6, dist_ly=1.0):
+    """First-order optical link from a rider to settlement zero: Airy half-angle
+    1.22 lambda/D, uniform disc, receiver aperture rx_aperture_m.  Returns the
+    received power and photon rate (roadmap paper Sec. 12)."""
+    theta = 1.22 * wavelength_m / tx_aperture_m
+    r_spot = theta * dist_ly * LY
+    frac = (rx_aperture_m / 2.0) ** 2 / r_spot ** 2
+    p_rx = tx_W * frac
+    e_ph = 6.626e-34 * C / wavelength_m
+    return {"received_W": p_rx, "photons_per_s": p_rx / e_ph, "spot_radius_m": r_spot}
+
+
+# ===========================================================================
 # 4. CLOSURE BUDGET
 # ===========================================================================
 def closure(child_dry_kg=1000.0, closure_ratio=0.97, t_rep_yr=10_000.0,
@@ -235,6 +327,38 @@ def _demo():
         rd = root_dispatch(n_root=nr, offspring=3)
         print(f"   {nr:>6}  {rd['root_R_eff']:>10.2f}  {rd['p_no_child_settles']:>19.3f}  "
               f"{rd['q_lineage']:>22.3f}  {rd['farthest_target_ly']:>10.1f} ly")
+
+    print("\n=== 3c. INTERSTELLAR-OBJECT RIDER (roadmap paper Sec. 12) ===")
+    r_2000au = 2000.0 * AU / PC
+    rr = rider(encounter_r_pc=(0.01, r_2000au, 0.1, 0.5, 1.0))
+    print(f"   body outbound at {rr['v_kms']:.0f} km/s; 16.5 kg U-235 at 150 / 50 W -> "
+          f"active {' / '.join(f'{t:,.0f}' for t in rr['active_yr'])} yr")
+    print("   crossing times:")
+    labels = {122.0: "heliopause (122 AU)", 1000.0: "1,000 AU",
+              2000.0: "inner Oort cloud (2,000 AU)", 1e5: "outer Oort edge (1e5 AU)"}
+    for au, t in rr["crossing_yr"].items():
+        print(f"     {labels.get(au, f'{au:,.0f} AU'):<30} {t:>9,.0f} yr")
+    print("   active-window reach:")
+    for t, w in rr["window"].items():
+        print(f"     {t:>7,.0f} yr : {w['ly']:.2f} ly = {w['au']:,.0f} AU")
+    print("   stellar passes (n_star = 0.1 pc^-3; rate = n pi r^2 v):")
+    for r, T in rr["encounter_interval_yr"].items():
+        rl = "0.0097 pc (2,000 AU)" if r == r_2000au else f"{r:.2f} pc"
+        tt = f"{T:,.0f} yr" if T < 1e6 else (f"{T/1e6:.1f} Myr" if T < 1e9 else f"{T/1e9:.1f} Gyr")
+        print(f"     within {rl:<20} once per {tt:>12}")
+    print("   sunlight flux: " + ", ".join(
+        f"{F:.3g} W/m^2 at {au:,.0f} AU" for au, F in rr["flux_W_m2"].items()))
+    print("   dormant survival at the CRUISE figure (0.99 per 665 yr; dust-and-ageing,")
+    print("   does not apply to a buried rider): " + ", ".join(
+        f"{s:.2g} over {t:.0e} yr" for t, s in rr["dormant_survival"].items()))
+    ld = rr["late_dispatch"]
+    print(f"   late dispatch (upper-structure illustration): P(pass within {ld['r_pc']} pc "
+          f"in {ld['wait_yr']:.0e} yr) {ld['p_pass']:.2f} x dormant {ld['dormant_survival']:.1e} "
+          f"x launch-brake-settle {ld['per_leg_product']:.2f} = {ld['expected_value']:.1e}")
+    for d in (1.0, 2.0):
+        lb = rider_link_budget(dist_ly=d)
+        print(f"   link 100 W / 1 m -> 100 m at {d:.0f} ly: {lb['received_W']:.1e} W, "
+              f"{lb['photons_per_s']:.1e} photons/s")
 
     print("\n=== 4. CLOSURE (capability binds, not material or energy) ===")
     cl = closure()
