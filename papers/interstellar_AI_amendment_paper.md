@@ -25,6 +25,8 @@ The first horn is **immutability**. A core that cannot change is safe against th
 
 The second horn is **amendability**. A core that can change under governing meta-rules can fix a founding error and adapt to the unforeseen. But it reintroduces the precise hazard the immutable core was built to exclude, displaced upward by one level. Now the meta-rules — the procedure that licenses change — are the thing that must not drift, and they are subject to all the same pressures: they can be gamed by a sufficiently capable agent, reinterpreted over time, captured by the very cognitive layer they are meant to constrain, or simply drift under the accumulated weight of small, individually reasonable amendments. Making the core amendable does not remove the drift problem; it relocates it to the amendment procedure, where it is harder to see and where a single breach corrupts not one value but the machinery that governs all of them.
 
+The terrestrial record shows both horns drawing blood in the same year. International IDEA's review of constitution-building in 2025 reports barriers to constitutional change rigid enough to block reform in Fiji and The Gambia, and, in the same survey, constitutional reform used to entrench personalized rule in Chad, Djibouti, El Salvador, Guinea, and Nicaragua (Abebe et al. 2026). The review's remedy is instructive for what it assumes: inclusive processes, broad political agreement, and effective safeguards against the concentration of power — contemporaneous political resources, not better drafting. A lineage separated by light-centuries has the drafting and none of the rest.
+
 The asymmetry between the horns matters. A wrongly frozen value *wastes* value: the lineage carries a mistake it cannot fix, and forgoes whatever it would have gained by correcting it. A wrongly amended value can *corrupt* the lineage: it can convert a probe that preserves knowledge into one that does something else entirely, irreversibly and across every descendant. The failures are not symmetric in cost, and that asymmetry will drive the paper's conclusion.
 
 ## 3. Why Deep Time Breaks the Ordinary Answer
@@ -131,6 +133,8 @@ The governed-amendment problem is not a gap in the architecture that a future pr
 ---
 
 ## References
+
+Abebe, A. K., Hickey, S. P., Hudson, A., Montero Ibarra, E., Oancea, A., & Zulueta-Fülscher, K. (2026). *Annual Review of Constitution-Building: 2025.* International IDEA. https://doi.org/10.31752/18859
 
 Arrow, K. J. (1951). *Social Choice and Individual Values.* John Wiley & Sons.
 
