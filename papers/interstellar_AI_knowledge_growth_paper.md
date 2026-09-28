@@ -253,6 +253,8 @@ If each settlement learned only in isolation, the lineage would be a scattering 
 
 **Independent detections raise confidence non-linearly.** Two independent nodes detecting the same phenomenon produce a Bayesian confidence increase that is super-additive relative to either detection alone. The update from a second independent detection — using different instruments, at a different vantage, through an independent pipeline — is multiplicatively larger than the first in proportion to what it resolves. A single marginal biosignature is uncertain; the same detection confirmed independently by a second node at a different position and epoch approaches definitive.
 
+The independence that argument rests on is weaker for a lineage than for two unrelated observatories. Sixteen separately initialized agent sessions of one model-harness configuration, given the same frozen database and the same objective, diverged widely in strategy — 100 to 5,000 structures screened — yet converged on the same result, and fifteen of the sixteen selected the same corrupted database entry, an incomplete structure whose missing anions created an artificial pore volume (Kim 2026). Enforced procedural checks raised fresh-run reproduction from one of eight to eight of eight without detectably improving the validity of the conclusions: shared inputs and a shared architecture produce common-mode errors that agreement between nodes cannot surface, so the confidence gain from a second detection should be weighted by how much of the detecting pipeline the two nodes do not share.
+
 **Triangulation of transients requires at least two nodes.** A transient detected by a single node is localized in angle, but its distance rests on model-dependent standard-candle assumptions. Two nodes provide position and distance; three or more provide full three-dimensional localization and independent light-curve measurements. The K-content of a triangulated transient is qualitatively higher than a single-node detection.
 
 **Redundancy protects K against node loss.** K held by only one node is lost if that node goes extinct. K held by multiple nodes survives any single node's extinction. As network density grows with R_eff, the expected K-loss rate from individual extinctions falls — the effective loss term L_extinction shrinks with network coverage.
@@ -479,6 +481,8 @@ Gaia Collaboration; Vallenari, A., et al. (2023). Gaia Data Release 3: Summary o
 Gharat, S., & Komiyama, J. (2026). SGHA: Evidence-grounded research problem discovery with local language models. *arXiv preprint arXiv:2608.17501*.
 
 Howard, R. A. (1966). Information value theory. *IEEE Transactions on Systems Science and Cybernetics*, 2, 22–26.
+
+Kim, J. (2026). Divergent strategies and convergent outcomes in autonomous materials discovery. *arXiv preprint arXiv:2609.23957*.
 
 King, R. D. (2026). The past and future of AI scientists. *arXiv preprint arXiv:2608.14407*.
 
