@@ -177,6 +177,8 @@ First, identify all reachable unsettled targets within the maximum hop distance.
 
 This strategy does not require central coordination. A settled node can determine its articulation-point targets from its local graph knowledge (the catalogue positions, carried in the mission ledger since launch), count prior dispatch attempts from its lineage-network K-packets, and execute the priority sequence autonomously. The lineage-network paper's four-tier knowledge governance allows the relevant operational K — catalogue positions and dispatch histories — to propagate freely among verified kin nodes (tier 2 of the governance ladder; a classification the security paper revisits, arguing that topology information deserves explicit protection). No back-channel is required; each node applies the same rule to the same information. We state but do not simulate the articulation-point refinement; the Monte Carlo runs of §6 use plain coverage-first.
 
+The decentralization claim rests on every node holding the same catalogue and the same dispatch history, and the cost of falling short of that is quantifiable. Loevenich et al. (2026) formalize this setting as local set cover — each node commits to its share of a global cover while seeing only its k-hop neighborhood — and prove that any deterministic selector whose horizon falls one hop short of the covering radius must either leave targets uncovered or accept a cost a factor Delta above optimal, with Delta the maximum degree; they further show that decision capacity cannot substitute for radius, since a selector reading out at the deciding node is exactly a horizon-limited selector however sophisticated it is. The priority sequence above is therefore only as good as the K-packet horizon that feeds it, which is the operative coupling between this paper and the lineage-network paper.
+
 ---
 
 ## 10. Discussion
@@ -224,6 +226,8 @@ Gaia Collaboration; Vallenari, A., et al. (2023). Gaia Data Release 3: Summary o
 Harris, T. E. (1963). *The Theory of Branching Processes.* Springer-Verlag.
 
 Landis, G. A. (1998). The Fermi paradox: An approach based on percolation theory. *Journal of the British Interplanetary Society*, 51, 163–166.
+
+Loevenich, J. F., Moehlenhof, T., Holz, L., Schwarzer, M., Huerten, T., & Lopes, R. R. F. (2026). Learning to cover locally: Graph neural combinatorial optimization under a hard information horizon. *arXiv preprint* arXiv:2610.00422.
 
 Newman, M. E. J., & Ghoshal, G. (2008). Bicomponents and the robustness of networks to failure. *Physical Review Letters*, 100, 138701.
 

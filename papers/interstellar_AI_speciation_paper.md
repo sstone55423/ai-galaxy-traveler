@@ -87,6 +87,8 @@ The consequence is not *whether* a branch crosses D_critical but *when*, and it 
 
 Neither δ, Δ_stress, T_decision, nor T_stress is derived here; all four are asserted as the parameters a follow-on computational model must supply, in the same spirit as the analytical engineering paper's first-order budgets before the computational engineering paper measured them across the real catalogue. What this section contributes is the structure of the model and a named threshold. Defining that threshold by its consequence — the divergence beyond which the knowledge-growth paper's "incompatible ledgers" case becomes permanently unresolvable — would make it diagnosable only after the failure it was meant to predict, which is the same *ex post* defect Section 9 identifies in Section 7's R_eff test. We therefore define it on an observable instead: **D_critical is the fraction of overlapping-domain K claims that survive an unsuccessful reconciliation attempt at a ledger audit, above which the branch pair has, on this model, no expectation of resolving them through further ordinary K arithmetic.** Permanence is then the interpretation rather than the definition. So defined, D_critical is measurable at every audit — Section 3's ledger-chain comparison supplies the separation depth, and the audit itself supplies the failure fraction — and whether its value is stable across branch pairs becomes the empirical question the follow-on model must answer rather than an assumption. Crossing D_critical is this paper's proposed formal definition of the boundary between speciation (Section 7) and schism (Section 8) — a definition the governed-amendment paper's original "lineage schism" label named but did not specify.
 
+Defining the threshold on an observable carries its own exposure, and the biological literature has already pressed it. Butlin and Stankowski (2026) argue that cline width across animal hybrid zones tells us less about progression toward completed reproductive isolation than its users suppose: a smoothly varying measurable quantity need not index how far a pair has traveled toward incompatibility. Reconciliation-failure fraction is this model's cline width, and the objection applies to it directly. The definition stands, because defining the threshold by its consequence would be diagnosable only after the failure it was meant to predict, but it makes the empirical question above load-bearing rather than optional: the follow-on model must test whether the fraction tracks permanence or merely correlates with it.
+
 ---
 
 ## 6. Horizontal Transfer and the Limits of the Tree Model
@@ -162,6 +164,8 @@ The **security paper** takes up that enforcement question and answers it by relo
 Alcaide, M., Scordato, E. S. C., Price, T. D., & Irwin, D. E. (2014). Genomic divergence in a ring species complex. *Nature*, 511(7507), 83–85.
 
 Budd, G. E., & Mann, R. P. (2025). Evolutionary tempo, supertaxa, and living fossils. *Systematic Biology*, 74(6), 917–934.
+
+Butlin, R. K., & Stankowski, S. (2026). Cline widths, barriers to gene flow and reproductive isolation: A comment on Gippner et al. 2026. *Molecular Ecology*. https://doi.org/10.1111/mec.70558
 
 Ciccarelli, F. D., Doerks, T., von Mering, C., Creevey, C. J., Snel, B., & Bork, P. (2006). Toward automatic reconstruction of a highly resolved tree of life. *Science*, 311(5765), 1283–1287.
 

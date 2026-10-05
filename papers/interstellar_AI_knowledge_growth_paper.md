@@ -393,6 +393,8 @@ Quarantine applies regardless of kin status. A compromised lineage member whose 
 
 **K arithmetic of the encounter.** The two probes' archives do not simply add. Redundant K — knowledge both probes inherited from their common ancestor — confirms and cross-validates, raising c_j for shared items, but does not increase K_net volume; r_j increases without ΔH_j increasing. Complementary K — knowledge acquired along different paths since the lineage diverged — adds directly; each probe holds what the other lacks from its unique trajectory. Conflicting K — cases where both probes measured the same phenomenon and got incompatible results — is held as unresolved. Both records are retained with their provenance; the AI reflects, with time measured in centuries if necessary. In a constantly changing universe some conflicts are genuine: a stellar metallicity measurement taken 500,000 years apart may reflect real stellar evolution rather than measurement error. Forcing reconciliation on conflicts that may not be resolvable is less honest and less useful than maintaining both records with uncertainty explicitly flagged.
 
+The same architecture is being proposed for terrestrial science, and for the same structural reasons. Kalinin et al. (2026) argue that machine-readable scientific knowledge should treat local evidence as versioned proposals rather than silent overwrites, and that a layer merging partially overlapping models must preserve competing branches and expose contradictions as open tests instead of resolving them. Their reason for keeping persistent links from every model back to the original measurements and instrument traces is this architecture's reason exactly: when the ontology itself changes, only the raw provenance makes old evidence reinterpretable.
+
 The DNA mission-ledger paper's fork-tolerance and eventual-consistency architecture handles the ledger side of this encounter: two divergent ledger histories are compared, common history confirmed, and divergences quarantined where unresolvable or reconciled where compatible.
 
 **Coordinated expansion.** Rather than duplicating efforts — both probes sending a child to the nearest unvisited star — the encounter enables coordinated outward division. The probe with higher local K takes the deep-science and observatory role; the probe with higher manufacturing capacity continues the outward mission. Where targets permit, the two probes divide the reachable sky rather than redundantly targeting the same nearest star. The K gain from coordination is substantial: the same resources cover more unique territory and more unique observations.
@@ -481,6 +483,8 @@ Gaia Collaboration; Vallenari, A., et al. (2023). Gaia Data Release 3: Summary o
 Gharat, S., & Komiyama, J. (2026). SGHA: Evidence-grounded research problem discovery with local language models. *arXiv preprint arXiv:2608.17501*.
 
 Howard, R. A. (1966). Information value theory. *IEEE Transactions on Systems Science and Cybernetics*, 2, 22–26.
+
+Kalinin, S. V., Slautin, B. N., Sanchez, S. L., Liu, Y., Ahmadi, M., Aydeniz, M., Qi, H., & Qing, C. (2026). From publications to physical knowledge models: Transferable physical understanding for AI-native experimental science. *ChemRxiv preprint*. https://doi.org/10.26434/chemrxiv.15009660/v1
 
 Kim, J. (2026). Divergent strategies and convergent outcomes in autonomous materials discovery. *arXiv preprint arXiv:2609.23957*.
 
