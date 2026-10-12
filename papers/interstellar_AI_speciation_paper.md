@@ -65,6 +65,8 @@ This is a testable, falsifiable-in-simulation claim rather than a metaphor: give
 
 The model class that test requires already exists. Hissa et al. (2026) simulate speciation in spatially extended environments under mating restricted by both spatial proximity and genetic similarity — formally the same pairing rule as K reconciliation between topologically adjacent, interpretively similar nodes — and find that environmental selection is not always necessary for reproductive isolation, which arises from restricted mating and limited dispersal alone, while two distinct environmental optima can accelerate diversification and reshape the timing of lineage splits. For the lineage network this fixes the division of labour between this section and Section 2: network distance is sufficient on its own to produce incompatible endpoints, and heterogeneous local adaptation sets how fast it happens rather than whether it happens.
 
+The test must also say what its outcome rate measures. Higaki et al. (2026) find that the two deeply divergent clades of the Japanese tree frog *Dryophytes japonicus* produce viable, fertile reciprocal F1 hybrids in captivity, yet meet in central Japan across a hybrid-index cline about 6 km wide, among the steepest relative to divergence time reported in frogs; they read it as a tension zone, held by dispersal against persistent selection on hybrids in the wild, with call-based assortative mating and later-generation breakdown as candidate mechanisms. Compatibility measured on the pair under controlled conditions and exchange realized at the contact are separate quantities. The same holds at a node encounter: two ledgers that would reconcile in an unhurried audit can fail to at a contact whose window, latency, and stakes work against the merged result, so a high reconciliation-failure fraction, the observable Section 5 defines D_critical on, is evidence about the encounter as well as about the pair. The simulation should score each failed reconciliation against both the pair's ledger-chain separation and the conditions of the contact before reading the rate as a function of network distance.
+
 ---
 
 ## 5. A Drift Clock for Interpretive Divergence
@@ -178,6 +180,8 @@ Dobzhansky, T. (1937). *Genetics and the Origin of Species.* Columbia University
 Doolittle, W. F. (1999). Phylogenetic classification and the universal tree. *Science*, 284(5423), 2124–2128.
 
 Eldredge, N., & Gould, S. J. (1972). Punctuated equilibria: An alternative to phyletic gradualism. In T. J. M. Schopf (Ed.), *Models in Paleobiology* (pp. 82–115). Freeman, Cooper and Company.
+
+Higaki, Y., Shams, F., Yarita, M., Ogata, M., Fujitani, T., Borzée, A., Jang, Y., Dufresnes, C., Konishi, S., Shimizu, N., Ezaz, T., & Miura, I. (2026). Dual northward overseas radiation from Japanese islands shaped the phylogeography of North-East Asian tree frog. *Scientific Reports*, 16(1), 28599. https://doi.org/10.1038/s41598-026-69101-5
 
 Hissa, L. D., de Aguiar, M. A. M., & Marquitti, F. M. D. (2026). Speciation by local adaptation and isolation by distance in extended environments. *Evolution*, qpag179.
 
