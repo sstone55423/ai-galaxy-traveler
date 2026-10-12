@@ -488,7 +488,7 @@ Gharat, S., & Komiyama, J. (2026). SGHA: Evidence-grounded research problem disc
 
 Howard, R. A. (1966). Information value theory. *IEEE Transactions on Systems Science and Cybernetics*, 2, 22–26.
 
-Kalinin, S. V., Slautin, B. N., Sanchez, S. L., Liu, Y., Ahmadi, M., Aydeniz, M., Qi, H., & Qing, C. (2026). From publications to physical knowledge models: Transferable physical understanding for AI-native experimental science. *ChemRxiv preprint*. https://doi.org/10.26434/chemrxiv.15009660/v1
+Kalinin, S. V., Slautin, B. N., Sanchez, S., Liu, Y., Ahmadi, M., Aydeniz, M., Qi, H., & Cao, Q. (2026). From publications to physical knowledge models: Transferable physical understanding for AI-native experimental science. *ChemRxiv preprint*. https://doi.org/10.26434/chemrxiv.15009660/v1
 
 Kim, J. (2026). Divergent strategies and convergent outcomes in autonomous materials discovery. *arXiv preprint arXiv:2609.23957*.
 
