@@ -1,0 +1,57 @@
+From b942a5013b57e097416feb99475fdf69689d5430 Mon Sep 17 00:00:00 2001
+From: Paper Radar <radar@local>
+Date: Mon, 12 Oct 2026 11:28:43 +0000
+Subject: [PATCH] paper-radar 2026-10-12: 2 insertions across 2 papers
+
+---
+ papers/interstellar_AI_knowledge_growth_paper.md | 4 ++++
+ papers/interstellar_AI_speciation_paper.md       | 4 ++++
+ 2 files changed, 8 insertions(+)
+
+diff --git a/papers/interstellar_AI_knowledge_growth_paper.md b/papers/interstellar_AI_knowledge_growth_paper.md
+index ecb2402..40615e9 100644
+--- a/papers/interstellar_AI_knowledge_growth_paper.md
++++ b/papers/interstellar_AI_knowledge_growth_paper.md
+@@ -191,6 +191,8 @@ The conversion step is where the measurements are least encouraging. Evaluating
+ 
+ The constraint during cruise is that the probe works from the active working memory subset, not the full DNA archive. This bounds what the cognitive layer can reference, though the bound is less severe than it appears: a corpus-first research-problem discovery system running entirely on a locally served 9B open-weight model — no external queries — structures a fixed literature corpus into an evidence graph, detects unresolved structural gaps across it, and emits research problems with traceable assumptions and success criteria (Gharat & Komiyama 2026). The configuration is the probe's — a closed archive, modest local compute, every generated claim carrying provenance back to its evidence. At settlement, when the full archive unlocks, a second wave of AI development becomes possible as the probe integrates transit insights with the full depth of the Earth knowledge base.
+ 
++How much a closed system recovers has now been measured. Given only the main research question from each of three recent ICLR oral papers, with the papers' results withheld and web access disabled, the Station environment discussed in Section 9 rediscovered 62.7 percent of the original findings on average, against 15.4 percent for a Codex multi-agent baseline and 14.4 to 20.6 percent for AI Scientist-v2, the gain attributed to a supervisor mechanism and periodic meta-reflection that sustain exploration when intermediate metrics are lacking (Du & Chung 2026). Both halves of that number bear on the cruise: a closed archive does not preclude real discovery, and the best configuration still missed roughly a third of what was there to be found, so cruise K-growth is bounded by the exploration machinery and not by the archive alone.
++
+ ---
+ 
+ ## 6. Cruise-Phase Operational K: Bootstrap Plan Refinement and Scenario Modeling
+@@ -470,6 +472,8 @@ Chen, M., Wang, L., & Qu, B. (2026). The horizon gap: Planning, memory, executio
+ 
+ Chung, S., Du, W., & Wesley, W. J. (2026). Autonomous mathematical discovery in an open-world multi-agent environment. *arXiv preprint* arXiv:2608.23691.
+ 
++Du, W., & Chung, S. (2026). Can AI agents make open-ended scientific discovery? Evidence from Station. *arXiv preprint* arXiv:2610.08927.
++
+ Freitas, R. A., & Merkle, R. C. (2004). *Kinematic Self-Replicating Machines.* Landes Bioscience.
+ 
+ Gaia Collaboration; Vallenari, A., et al. (2023). Gaia Data Release 3: Summary of the content and survey properties. *Astronomy & Astrophysics*, 674, A1.
+diff --git a/papers/interstellar_AI_speciation_paper.md b/papers/interstellar_AI_speciation_paper.md
+index fe15778..9065325 100644
+--- a/papers/interstellar_AI_speciation_paper.md
++++ b/papers/interstellar_AI_speciation_paper.md
+@@ -63,6 +63,8 @@ The lineage-network paper's topology is a structural setup for this outcome. Its
+ 
+ This is a testable, falsifiable-in-simulation claim rather than a metaphor: given the lineage-network paper's topology model and a drift-accumulation rate (Section 5), the rate of "incompatible ledgers" outcomes at simulated encounters should rise with topological distance and isolation time in a specific, checkable way. The test must control for a confound the knowledge-growth paper names: some conflicts reflect real change in the observed universe between measurements separated by 10^5 years, and that source scales with time and separation too. Only conflicts in *interpretive* and *operational* K, where no external referent has moved, are diagnostic of drift. Confirming or refuting this requires the first-order network simulator the lineage-network paper identifies as its own computational sequel and does not itself supply.
+ 
++The model class that test requires already exists. Hissa et al. (2026) simulate speciation in spatially extended environments under mating restricted by both spatial proximity and genetic similarity — formally the same pairing rule as K reconciliation between topologically adjacent, interpretively similar nodes — and find that environmental selection is not always necessary for reproductive isolation, which arises from restricted mating and limited dispersal alone, while two distinct environmental optima can accelerate diversification and reshape the timing of lineage splits. For the lineage network this fixes the division of labour between this section and Section 2: network distance is sufficient on its own to produce incompatible endpoints, and heterogeneous local adaptation sets how fast it happens rather than whether it happens.
++
+ ---
+ 
+ ## 5. A Drift Clock for Interpretive Divergence
+@@ -173,6 +175,8 @@ Doolittle, W. F. (1999). Phylogenetic classification and the universal tree. *Sc
+ 
+ Eldredge, N., & Gould, S. J. (1972). Punctuated equilibria: An alternative to phyletic gradualism. In T. J. M. Schopf (Ed.), *Models in Paleobiology* (pp. 82–115). Freeman, Cooper and Company.
+ 
++Hissa, L. D., de Aguiar, M. A. M., & Marquitti, F. M. D. (2026). Speciation by local adaptation and isolation by distance in extended environments. *Evolution*, qpag179.
++
+ Irwin, D. E., Bensch, S., & Price, T. D. (2001). Speciation in a ring. *Nature*, 409, 333–337.
+ 
+ Kimura, M. (1968). Evolutionary rate at the molecular level. *Nature*, 217(5129), 624–626.
+-- 
+2.34.1
+

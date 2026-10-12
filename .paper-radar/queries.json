@@ -9,7 +9,8 @@
     "arxiv_categories": "optional cat: filters, OR-ed",
     "openalex": "list of OpenAlex search strings",
     "crossref": "list of Crossref bibliographic queries -- keep these VERY specific, Crossref is the noisiest source",
-    "exclude": "substrings that, if present in a title, drop the hit outright (precision guardrails)"
+    "exclude": "substrings that, if present in a title, drop the hit outright (precision guardrails)",
+    "exclude_allow": "optional: entries of defaults.exclude that do NOT apply to this paper (a global homonym guard that is on-topic here, e.g. 'interstellar object' for the home-programme rider)"
   },
   "_exclude_note": "These are homonym guardrails, each one added after it actually polluted a live run. 'Fermi' is a physics surname before it is a paradox; 'probe' is a lab reagent before it is a spacecraft; 'Neumann' is an operator before it is a self-replicator. Add to this list rather than narrowing the queries -- broad query + sharp exclude preserves recall.",
   "defaults": {
@@ -736,6 +737,139 @@
         "network robustness survey"
       ],
       "_retune_note": "2026-08-25: first post-retune sweep returned 17 hits, all applied cybersecurity/security-studies noise (digest 08-25). Every query now carries a graph-structural or probe/replication token, mirroring the ethics fix; the network-robustness leg is scoped to spatial/geometric graphs, which is the class whose results transfer (the paper itself demonstrates degree/spectral heuristics do not)."
+    },
+    {
+      "key": "roadmap",
+      "file": "papers/interstellar_AI_roadmap_paper.md",
+      "title": "Roadmap -- Settlement Zero",
+      "thesis": "Validation / technology-readiness roadmap for a self-replicating probe: what the solar system can validate (industrial closure, the vitamin fraction, autonomous manufacturing, sub-probes, the launcher, manufacture and launch survival) and what it cannot (millennia of dormancy, cruise survival, core drift, R_eff). Six-rung ladder S0-S5 from capability inventory through terrestrial closed-loop plant, off-Earth ISRU demonstrator, near-Earth asteroid seed, a main-belt 'settlement zero' that builds the interstellar launcher (mass driver ~10^3-10^4 km, or beamed array), to first dispatch; no-resupply rule; orphaned-root rule; magnetic-sail braking coupling to ion (not neutral) density of the local interstellar cloud. Relevant work: ISRU demonstrations, asteroid resource census and ore fraction, autonomous/closed-loop space manufacturing, technology readiness assessment, mass drivers and beamed launch, magnetic sail drag, local interstellar cloud ionization.",
+      "arxiv": [
+        "\"in-situ resource utilization\" AND (demonstration OR asteroid OR regolith)",
+        "asteroid AND (mining OR \"resource assessment\") AND (ore OR volatiles OR metal)",
+        "\"magnetic sail\" AND (drag OR braking OR deceleration)",
+        "\"local interstellar cloud\" AND (ionization OR \"electron density\")",
+        "(\"mass driver\" OR \"electromagnetic launcher\") AND space",
+        "\"technology readiness\" AND (space OR autonomous) AND manufacturing"
+      ],
+      "arxiv_categories": [
+        "astro-ph.EP",
+        "physics.space-ph",
+        "astro-ph.IM",
+        "cs.RO"
+      ],
+      "openalex": [
+        "in-situ resource utilization demonstrator lunar regolith asteroid",
+        "asteroid mining ore-bearing fraction resource census",
+        "autonomous in-space manufacturing closed-loop self-replication",
+        "magnetic sail drag deceleration interstellar medium plasma",
+        "local interstellar cloud electron density ionization fraction",
+        "technology readiness level assessment space system roadmap"
+      ],
+      "crossref": [
+        "in-situ resource utilization asteroid demonstration mission",
+        "magnetic sail interstellar deceleration"
+      ],
+      "exclude": [
+        "data mining",
+        "process mining",
+        "text mining",
+        "bitcoin",
+        "cryptocurrency",
+        "mining equipment maintenance",
+        "open-pit",
+        "underground mine",
+        "coal mine",
+        "magnetic resonance",
+        "railgun armature",
+        "naval railgun"
+      ],
+      "cites_watch": [
+        {
+          "label": "Elvis 2014",
+          "id": null,
+          "doi": "10.1016/j.pss.2013.11.008",
+          "title": "How many ore-bearing asteroids?",
+          "year": 2014
+        },
+        {
+          "label": "Slavin & Frisch 2008",
+          "id": null,
+          "doi": "10.1051/0004-6361:20078101",
+          "title": "The boundary conditions of the heliosphere: photoionization models constrained by interstellar and in situ data",
+          "year": 2008
+        }
+      ],
+      "_added_note": "2026-10-12: added with the home-programme set; the radar had covered only the first sixteen papers. Canon DOIs verified via Crossref 2026-10-12; ids left null for resolve_canon.py."
+    },
+    {
+      "key": "home_programme",
+      "file": "papers/interstellar_AI_home_programme_paper.md",
+      "title": "Home programme -- Founded from Earth",
+      "thesis": "The Earth-and-Moon programme ahead of settlement zero: supply track (lunar Procellarum KREEP thorium, the belt, depots), fissile fuel from rock (CI chondrite U/Th, thorium breeding), ledgered fissile accounting and dual-use governance, a lunar mass driver as launch platform, helium-3 banked as a by-product of regolith processing (fusion assumed possible later, nothing depends on it), solar-system scouting by prospectors, comet riders on Jupiter-family comets, and riders on passing interstellar objects (dormancy, alpha-battery vigil, reach to stellar encounters at 1-2 pc). Relevant work: lunar thorium/KREEP mapping, uranium and thorium in meteorites, thorium breeder reactors, space nuclear power, lunar mass drivers, regolith helium-3, interstellar-object and comet rendezvous missions, stellar encounters from Gaia, fissile-material safeguards, fusion milestones.",
+      "arxiv": [
+        "\"interstellar object\" AND (rendezvous OR intercept OR mission OR spacecraft)",
+        "\"stellar encounters\" AND Gaia",
+        "(lunar OR Moon) AND (thorium OR KREEP) AND (abundance OR map)",
+        "\"helium-3\" AND (regolith OR lunar)",
+        "comet AND (lander OR rendezvous) AND (subsurface OR nucleus OR drilling)",
+        "\"space nuclear\" AND (reactor OR fission) AND (lunar OR surface)"
+      ],
+      "arxiv_categories": [
+        "astro-ph.EP",
+        "astro-ph.SR",
+        "physics.space-ph",
+        "nucl-th"
+      ],
+      "openalex": [
+        "lunar thorium Procellarum KREEP Terrane gamma-ray spectrometer",
+        "uranium thorium abundance carbonaceous chondrite",
+        "thorium breeder reactor fuel cycle U-233",
+        "lunar mass driver electromagnetic launch regolith",
+        "helium-3 lunar regolith solar wind volatiles extraction",
+        "interstellar object rendezvous intercept mission feasibility",
+        "fission surface power lunar reactor"
+      ],
+      "crossref": [
+        "lunar thorium KREEP distribution",
+        "interstellar object intercept mission",
+        "helium-3 lunar regolith extraction"
+      ],
+      "exclude_allow": [
+        "interstellar object"
+      ],
+      "exclude": [
+        "thorium-229 nuclear clock",
+        "thorium nuclear clock",
+        "helium-3 polarized",
+        "polarized helium-3",
+        "hyperpolarized",
+        "lung imaging",
+        "magnetic resonance imaging",
+        "uranium contamination",
+        "groundwater uranium",
+        "drinking water",
+        "radon",
+        "nuclear waste repository",
+        "comet assay",
+        "dna damage"
+      ],
+      "cites_watch": [
+        {
+          "label": "Jolliff et al. 2000",
+          "id": null,
+          "doi": "10.1029/1999JE001103",
+          "title": "Major lunar crustal terranes: Surface expressions and crust-mantle origins",
+          "year": 2000
+        },
+        {
+          "label": "Bailer-Jones et al. 2018",
+          "id": null,
+          "doi": "10.1051/0004-6361/201833456",
+          "title": "New stellar encounters discovered in the second Gaia data release",
+          "year": 2018
+        }
+      ],
+      "_added_note": "2026-10-12: added with the roadmap set. 'interstellar object' is a global exclude (an ISM-astronomy guard) but is the rider's subject here, so it is allowed back via exclude_allow; '3i/atlas' stays excluded (observation papers). Canon DOIs verified via Crossref 2026-10-12; ids left null for resolve_canon.py."
     }
   ],
   "_watch_note": "venue_watch sweeps whole journals by ISSN via Crossref; an optional subject_gate list keeps only hits whose title or abstract contains one of its terms (added 2026-09-05 after the Futures feed supplied 4 of 4 Fermi candidates as foresight-methodology ToC noise) -- omit it for a narrow journal, set it for a broad one; cites_watch sweeps new works citing a canon paper via OpenAlex filter=cites:. Entries with id:null are skipped by the sweep; run .paper-radar/resolve_canon.py once (OpenAlex quota permitting) to fill them from the stored doi/title/year hints. ISSNs verified via Crossref journals API 2026-08-30."

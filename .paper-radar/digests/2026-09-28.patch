@@ -1,0 +1,57 @@
+From 66e26253f78816b36ea507dae18e13b3e28cf689 Mon Sep 17 00:00:00 2001
+From: Paper Radar <radar@local>
+Date: Mon, 28 Sep 2026 11:28:47 +0000
+Subject: [PATCH] paper-radar 2026-09-28: 2 insertion(s) across 2 paper(s)
+
+---
+ papers/interstellar_AI_knowledge_growth_paper.md | 4 ++++
+ papers/interstellar_AI_payload_paper.md          | 4 ++++
+ 2 files changed, 8 insertions(+)
+
+diff --git a/papers/interstellar_AI_knowledge_growth_paper.md b/papers/interstellar_AI_knowledge_growth_paper.md
+index ecb2402..7cfcc7c 100644
+--- a/papers/interstellar_AI_knowledge_growth_paper.md
++++ b/papers/interstellar_AI_knowledge_growth_paper.md
+@@ -251,6 +251,8 @@ If each settlement learned only in isolation, the lineage would be a scattering
+ 
+ **Independent detections raise confidence non-linearly.** Two independent nodes detecting the same phenomenon produce a Bayesian confidence increase that is super-additive relative to either detection alone. The update from a second independent detection — using different instruments, at a different vantage, through an independent pipeline — is multiplicatively larger than the first in proportion to what it resolves. A single marginal biosignature is uncertain; the same detection confirmed independently by a second node at a different position and epoch approaches definitive.
+ 
++The independence that argument rests on is weaker for a lineage than for two unrelated observatories. Sixteen separately initialized agent sessions of one model-harness configuration, given the same frozen database and the same objective, diverged widely in strategy — 100 to 5,000 structures screened — yet converged on the same result, and fifteen of the sixteen selected the same corrupted database entry, an incomplete structure whose missing anions created an artificial pore volume (Kim 2026). Enforced procedural checks raised fresh-run reproduction from one of eight to eight of eight without detectably improving the validity of the conclusions: shared inputs and a shared architecture produce common-mode errors that agreement between nodes cannot surface, so the confidence gain from a second detection should be weighted by how much of the detecting pipeline the two nodes do not share.
++
+ **Triangulation of transients requires at least two nodes.** A transient detected by a single node is localized in angle, but its distance rests on model-dependent standard-candle assumptions. Two nodes provide position and distance; three or more provide full three-dimensional localization and independent light-curve measurements. The K-content of a triangulated transient is qualitatively higher than a single-node detection.
+ 
+ **Redundancy protects K against node loss.** K held by only one node is lost if that node goes extinct. K held by multiple nodes survives any single node's extinction. As network density grows with R_eff, the expected K-loss rate from individual extinctions falls — the effective loss term L_extinction shrinks with network coverage.
+@@ -478,6 +480,8 @@ Gharat, S., & Komiyama, J. (2026). SGHA: Evidence-grounded research problem disc
+ 
+ Howard, R. A. (1966). Information value theory. *IEEE Transactions on Systems Science and Cybernetics*, 2, 22–26.
+ 
++Kim, J. (2026). Divergent strategies and convergent outcomes in autonomous materials discovery. *arXiv preprint arXiv:2609.23957*.
++
+ King, R. D. (2026). The past and future of AI scientists. *arXiv preprint arXiv:2608.14407*.
+ 
+ King, R. D., Rowland, J., Oliver, S. G., et al. (2009). The automation of science. *Science*, 324(5923), 85–89.
+diff --git a/papers/interstellar_AI_payload_paper.md b/papers/interstellar_AI_payload_paper.md
+index af925fb..4d3bd1a 100644
+--- a/papers/interstellar_AI_payload_paper.md
++++ b/papers/interstellar_AI_payload_paper.md
+@@ -51,6 +51,8 @@ The same experimental literature warns against the obvious alternative — buyin
+ 
+ Recent work on recursive self-improvement supports the structural form of that answer. Kim et al. (2026) observe that systems which edit themselves must leave part of their own editing machinery untouched to stay stable, capping the meta-depth they realize at roughly two, and respond by holding the meta-operation fixed and recursing on its input instead: because the operation never changes it cannot destabilize the system, and depth is set by convergence rather than fixed in advance. That is the immutable core's logic in miniature — the one component never improved is what lets everything below it improve without a fixed ceiling — demonstrated over benchmark runs rather than megayears.
+ 
++Tayebati et al. (2026) supply the engineering form of that proof requirement, and a warning about its cost: an agent proposes changes to its own operating instructions, and an external runtime gate grants them provisional authority during evaluation but persistent cross-episode authority only after measured improvement on the triggering failure without regression beyond a fixed margin on a set of protected cases. Of 383 proposals the gate decided by replay, 211 — 55% — repaired the failure that prompted them while breaking a case that had previously worked, and task-completion score was higher with the gate than without it in all sixteen matched runs across three agent benchmarks. The horizon is a benchmark episode rather than a megayear, but the result names what the interpretive layer's higher validation threshold must actually test: local proof of benefit is not proof of benefit, and a self-modification is admissible only against a protected set the change was not allowed to touch.
++
+ The complementary move, freezing what encodes value while adapting what models the world, has been demonstrated on the probe's own class of problem. Orsula, Olivares-Mendez and Martinez (2026) address space robots suffering severe hardware degradation where no reward signal is available at deployment, freezing a pretrained world model's observation encoder and reward predictor while updating only its transition dynamics through unsupervised rollouts, and retraining the policy entirely on imagined trajectories. The tasks are planetary traversal, orbital navigation, and precision assembly rather than megayear self-repair, but the partition is the one proposed here: what the agent is for is held fixed while its model of what it is and where it is stays free to change.
+ 
+ Recent empirical work on agent memory gives the procedural level a concrete mechanism. In agents that consolidate accumulated history into reusable facts, observations, and standing rules, consolidation routinely preserves a claim while erasing the source constraints that governed its authorized use — authority collapse, observed in 48 of 49 tested configurations, with collapsed memories lacking authority metadata producing unauthorized actions at a mean rate of 50.3%, and with persisted authority labels eliminating the unauthorized actions in a separate end-to-end evaluation (Zhan et al. 2026). The probe's archive meets the same boundary at far longer range: a hash chain that proves a claim unaltered says nothing about whether the authority under which it was admitted still licenses acting on it, so the ledger must record not only what was learned but the authority under which it may be reused.
+@@ -161,6 +163,8 @@ Schmidhuber, J. (2007). Gödel machines: Fully self-referential optimal universa
+ 
+ Si, Y., & Qin, S. (2026). Continual-learning rules shape representational drift. *arXiv preprint* arXiv:2608.16141.
+ 
++Tayebati, S., Kumar, D., Darabi, N., Krishnan, R., & Trivedi, A. R. (2026). Self-healing harness for runtime oversight of agent self-modification. *arXiv preprint* arXiv:2609.24130.
++
+ Tipler, F. J. (1980). Extraterrestrial intelligent beings do not exist. *Quarterly Journal of the Royal Astronomical Society*, 21, 267–281.
+ 
+ von Neumann, J., & Burks, A. W. (1966). *Theory of Self-Reproducing Automata.* University of Illinois Press.
+-- 
+2.34.1
+

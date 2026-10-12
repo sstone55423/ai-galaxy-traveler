@@ -226,8 +226,11 @@ needs only the identifier, so run it in whichever shell has network (the cloud
 `bash` shell always does):
 
 ```bash
-# by DOI
-curl -s --max-time 20 "https://api.openalex.org/works/https://doi.org/<DOI>" \
+# by DOI -- OpenAlex needs the key from .paper-radar/.env (OPENALEX_API_KEY);
+# without it the call 429s "Insufficient budget". Fall back to Crossref
+# (https://api.crossref.org/works/<DOI>) or DataCite (https://api.datacite.org/dois/<DOI>).
+KEY=$(grep -s '^OPENALEX_API_KEY=' "$REPO/.paper-radar/.env" | cut -d= -f2-)
+curl -s --max-time 20 "https://api.openalex.org/works/https://doi.org/<DOI>?api_key=$KEY" \
   | python3 -c "import sys,json; d=json.load(sys.stdin); print(d.get('title'),'|',d.get('publication_year'),'|',((d.get('primary_location') or {}).get('source') or {}).get('display_name'))"
 
 # by arXiv id
@@ -399,7 +402,11 @@ incomplete sweep.
 
 ## Step 7 -- Email the summary (every run, never blocking)
 
-After the digest is written (and regardless of whether anything was staged), run:
+**This step is mandatory and is part of the run's success criteria.** The
+2026-09-14 run wrote a digest, marked the run done, and never sent the email;
+nobody knew the run had happened. After the digest is written (and regardless
+of whether anything was staged, and even on a PARTIAL day), run in the device
+shell:
 
 ```bash
 cd "$REPO" && python3 .paper-radar/send_digest_email.py

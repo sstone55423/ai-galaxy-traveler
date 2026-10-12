@@ -72,6 +72,26 @@ DELAY = {"arxiv": 3.0, "openalex": 0.2, "crossref": 0.5, "s2": 1.1, "cites": 0.3
 
 TIMEOUT = 30
 
+# OpenAlex has required an API key since Feb 2026. Keyless callers share a
+# ~$0.10/day pool that is normally exhausted before the morning run, and every
+# request then 429s with "Insufficient budget ... resets at midnight UTC". A
+# free key (openalex.org/settings/api) gives ~$1/day, plenty for a sweep. Put
+# OPENALEX_API_KEY=... in .paper-radar/.env (same name in the book-radar).
+_OPENALEX_DOWN = False
+
+
+def openalex_key():
+    return (os.environ.get("OPENALEX_API_KEY") or "").strip()
+
+
+def openalex_params(**kw):
+    """Query params every OpenAlex call must carry: mailto plus the API key."""
+    p = {"mailto": CONTACT}
+    if openalex_key():
+        p["api_key"] = openalex_key()
+    p.update(kw)
+    return p
+
 
 # --------------------------------------------------------------------------
 # small helpers
@@ -108,7 +128,10 @@ def fetch(url, headers=None, retries=3):
     immediately. The 2026-09-01 run lost the whole ethics sweep to OpenAlex
     429ing every attempt at ~36 s each; failing fast preserves the wall clock
     for the sources that are still answering."""
+    global _OPENALEX_DOWN
     host = urllib.parse.urlsplit(url).netloc
+    if host == "api.openalex.org" and _OPENALEX_DOWN:
+        return None
     if _HOST_GIVEUPS.get(host, 0) >= 3:
         if _HOST_GIVEUPS.get(host) == 3:
             log(f"  ! circuit open for {host}: skipping it for the rest of this run")
@@ -128,6 +151,25 @@ def fetch(url, headers=None, retries=3):
             # to apply exponential backoff specifically; the other hosts are
             # free services doing us a favour and deserve the same treatment.
             if exc.code == 429:
+                body = ""
+                try:
+                    body = exc.read().decode("utf-8", errors="replace")
+                except Exception:  # noqa: BLE001
+                    pass
+                if host == "api.openalex.org" and "budget" in body.lower():
+                    # Daily quota gone: final for the day, no point backing off.
+                    # Retrying it per query cost the 2026-09-14 run ~40 minutes
+                    # and half the papers.
+                    _OPENALEX_DOWN = True
+                    how = ("with the configured API key -- add funds or wait for the "
+                           "midnight-UTC reset" if openalex_key() else
+                           "NO API KEY -- keyless access is ~$0.10/day; put "
+                           "OPENALEX_API_KEY in .paper-radar/.env (free at "
+                           "openalex.org/settings/api)")
+                    log(f"  ! OpenAlex daily budget exhausted ({how}); "
+                        f"skipping OpenAlex for the rest of this run")
+                    _HOST_GIVEUPS[host] = 4
+                    return None
                 wait = (2 ** attempt) * 5 + random.uniform(0, 1)
                 log(f"  ! 429 rate-limited, backing off {wait:.1f}s")
                 time.sleep(wait)
@@ -353,13 +395,12 @@ def search_openalex(query, since, per_page=10):
     # Relevance-sort then date-filter; never date-sort.
     # (title_and_abstract.search is more precise but far too strict here --
     # it cut one query from 1447 matches to 1.)
-    params = urllib.parse.urlencode({
+    params = urllib.parse.urlencode(openalex_params(**{
         "search": query,
         "filter": f"from_publication_date:{since}",
         "per-page": per_page,
         "sort": "relevance_score:desc",
-        "mailto": CONTACT,
-    })
+    }))
     body = fetch(f"https://api.openalex.org/works?{params}")
     if not body:
         return []
@@ -472,12 +513,11 @@ def search_openalex_cites(spec, since, per_page=15):
     wid, _, label = spec.partition("|")
     if not wid.startswith("W"):
         return []
-    params = urllib.parse.urlencode({
+    params = urllib.parse.urlencode(openalex_params(**{
         "filter": f"cites:{wid},from_publication_date:{since}",
         "per-page": per_page,
         "sort": "publication_date:desc",
-        "mailto": CONTACT,
-    })
+    }))
     body = fetch(f"https://api.openalex.org/works?{params}")
     if not body:
         return []
@@ -583,7 +623,8 @@ def search_crossref_venue(spec, since, rows=15):
         if rec["abstract"] or not rec["doi"]:
             continue
         oa = fetch("https://api.openalex.org/works/https://doi.org/"
-                   + urllib.parse.quote(rec["doi"]) + f"?mailto={CONTACT}")
+                   + urllib.parse.quote(rec["doi"]) + "?"
+                   + urllib.parse.urlencode(openalex_params()))
         time.sleep(0.3)
         if not oa:
             continue
@@ -865,6 +906,9 @@ def run(args):
     ads_on = bool(os.environ.get("ADS_API_TOKEN"))
 
     log(f"Paper Radar: {len(papers)} paper(s), since {since}")
+    log("OpenAlex: api key present" if openalex_key() else
+        "OpenAlex: NO API KEY -- keyless access is ~$0.10/day and is usually exhausted "
+        "by morning; add OPENALEX_API_KEY to .paper-radar/.env (free at openalex.org/settings/api)")
     log(f"Sources: arxiv, openalex, crossref" + (", semanticscholar" if s2_on else " (s2: no key, skipped)")
         + (", ads" if ads_on else " (ads: no key, citation watch falls back to openalex)"))
 
@@ -892,7 +936,10 @@ def run(args):
             break
 
         log(f"\n[{key}] {paper['title']}")
-        excl = global_exclude + paper.get("exclude", [])
+        # exclude_allow lifts a global homonym guard for a paper whose subject it is
+        # (the home-programme rider needs "interstellar object").
+        allow = {x.lower() for x in paper.get("exclude_allow", [])}
+        excl = [x for x in global_exclude if x.lower() not in allow] + paper.get("exclude", [])
         hits = {}
         title_index = {}
 
@@ -994,6 +1041,7 @@ def run(args):
         stats["kept"] += len(ranked)
         results[key] = {
             "paper": paper["file"],
+            "file": paper["file"],  # SKILL.md and the screening prompts read "file"
             "title": paper["title"],
             "thesis": paper["thesis"],
             "candidates": ranked,
