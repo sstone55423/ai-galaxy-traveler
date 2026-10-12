@@ -102,7 +102,46 @@
           "issn": [
             "0094-5765"
           ],
-          "name": "Acta Astronautica"
+          "name": "Acta Astronautica",
+          "subject_gate": [
+            "interstellar",
+            "starship",
+            "star probe",
+            "breakthrough starshot",
+            "light sail",
+            "lightsail",
+            "solar sail",
+            "laser sail",
+            "relativistic",
+            "antimatter",
+            "fusion propulsion",
+            "nuclear electric",
+            "beamed propulsion",
+            "deep space autonomy",
+            "autonomous spacecraft",
+            "self-replicating",
+            "von neumann",
+            "mission architecture",
+            "interstellar precursor",
+            "oort",
+            "heliopause",
+            "proxima",
+            "alpha centauri",
+            "exoplanet",
+            "worldship",
+            "generation ship",
+            "long-duration autonomy",
+            "regolith",
+            "in-situ resource",
+            "isru",
+            "sample return",
+            "fusion",
+            "tokamak",
+            "nuclear thermal",
+            "specific mass",
+            "additive manufacturing",
+            "self-sufficien"
+          ]
         }
       ],
       "cites_watch": [
@@ -149,7 +188,7 @@
       "title": "Bootstrapping -- From Seed to Factory",
       "thesis": "Industrial closure: how a seed payload bootstraps a full manufacturing base from local material (the L1-L5 closure ladder, the ~3% vitamin fraction). Relevant work: self-replicating factories, ISRU, closure of manufacturing chains, lunar/asteroid industrial bootstrapping.",
       "arxiv": [
-        "\"self-replicating\" AND manufacturing AND closure",
+        "\"self-replicating\" AND manufacturing AND (\"material closure\" OR \"closure of the manufacturing\")",
         "\"in-situ resource utilization\" AND manufacturing"
       ],
       "arxiv_categories": [
@@ -157,12 +196,14 @@
         "cs.RO"
       ],
       "openalex": [
-        "in-situ resource utilization regolith processing manufacturing closure",
-        "self-replicating machine factory automation closure",
+        "in-situ resource utilization regolith processing material closure",
+        "self-replicating machine factory automation manufacturing closure",
+        "closed-loop manufacturing self-sufficiency autonomous factory",
         "lunar regolith additive manufacturing sintering construction"
       ],
       "crossref": [
-        "in-situ resource utilization autonomous manufacturing closure"
+        "in-situ resource utilization autonomous manufacturing material closure",
+        "self-replicating factory closed-loop manufacturing"
       ],
       "exclude": [
         "self-replicating peptide",
@@ -170,7 +211,25 @@
         "self-replicating rna",
         "self-supervised representation learning",
         "soft robotics survey",
-        "surgical robot"
+        "surgical robot",
+        "closure of the wound",
+        "wound closure",
+        "primary closure",
+        "fascial closure",
+        "closure property",
+        "algebraic closure",
+        "transitive closure",
+        "closure phase",
+        "mine closure",
+        "school closure",
+        "border closure",
+        "closure penalty",
+        "gap closure",
+        "industry 4.0",
+        "industry 5.0",
+        "innovation practice",
+        "technology adoption survey",
+        "maturity model"
       ],
       "venue_watch": [
         {
@@ -282,14 +341,41 @@
       ],
       "openalex": [
         "planetary protection autonomous spacecraft policy",
-        "SETI post-detection protocol contact",
+        "COSPAR planetary protection forward contamination policy",
+        "back contamination sample return containment policy",
+        "Outer Space Treaty Article IX harmful contamination",
+        "METI messaging extraterrestrial intelligence ethics consent",
         "noninterference principle extraterrestrial life"
       ],
       "crossref": [
         "planetary protection policy autonomous probe",
-        "post-detection protocol SETI contact"
+        "COSPAR planetary protection forward contamination",
+        "Outer Space Treaty Article IX contamination",
+        "messaging extraterrestrial intelligence ethics"
       ],
-      "exclude": [],
+      "exclude": [
+        "systematic review protocol",
+        "scoping review protocol",
+        "study protocol",
+        "randomised controlled",
+        "randomized controlled",
+        "prisma",
+        "cohort study protocol",
+        "trial protocol",
+        "protocol for a systematic",
+        "meta-analysis protocol",
+        "infection control protocol",
+        "anesthesia",
+        "nursing protocol",
+        "groundwater",
+        "leachate",
+        "landfill",
+        "wastewater",
+        "heavy metal",
+        "soil contamination",
+        "drinking water",
+        "microbial contamination of food"
+      ],
       "venue_watch": [
         {
           "issn": [
@@ -575,11 +661,14 @@
         "k-connectivity articulation point spatial network robustness",
         "\"k-out-of-n\" system reliability redundancy",
         "maximum coverage problem greedy approximation guarantee",
-        "targeted versus random node removal attack tolerance"
+        "targeted versus random node removal attack tolerance",
+        "galactic colonisation percolation interstellar settlement expansion",
+        "interstellar network connectivity stellar neighbourhood Gaia distances"
       ],
       "crossref": [
         "random geometric graph connectivity threshold",
-        "targeted attack tolerance complex network node removal"
+        "targeted attack tolerance complex network node removal",
+        "galactic colonization interstellar settlement percolation"
       ],
       "exclude": [
         "vehicle routing problem",
@@ -715,7 +804,8 @@
         "network dismantling spatial geometric lattice robustness"
       ],
       "crossref": [
-        "targeted attack articulation point spatial network robustness"
+        "targeted attack articulation point network dismantling robustness",
+        "adversarial node removal distributed autonomous agents"
       ],
       "exclude": [
         "5g security",
@@ -734,7 +824,17 @@
         "graph neural network",
         "federated learning",
         "adversarial example",
-        "network robustness survey"
+        "network robustness survey",
+        "spatial autocorrelation",
+        "kriging",
+        "geostatistic",
+        "variogram",
+        "measurement uncertainty",
+        "calibration uncertainty",
+        "metrolog",
+        "point pattern analysis",
+        "spatial regression",
+        "remote sensing classification"
       ],
       "_retune_note": "2026-08-25: first post-retune sweep returned 17 hits, all applied cybersecurity/security-studies noise (digest 08-25). Every query now carries a graph-structural or probe/replication token, mirroring the ethics fix; the network-robustness leg is scoped to spatial/geometric graphs, which is the class whose results transfer (the paper itself demonstrates degree/spectral heuristics do not)."
     },
@@ -872,5 +972,9 @@
       "_added_note": "2026-10-12: added with the roadmap set. 'interstellar object' is a global exclude (an ISM-astronomy guard) but is the rider's subject here, so it is allowed back via exclude_allow; '3i/atlas' stays excluded (observation papers). Canon DOIs verified via Crossref 2026-10-12; ids left null for resolve_canon.py."
     }
   ],
-  "_watch_note": "venue_watch sweeps whole journals by ISSN via Crossref; an optional subject_gate list keeps only hits whose title or abstract contains one of its terms (added 2026-09-05 after the Futures feed supplied 4 of 4 Fermi candidates as foresight-methodology ToC noise) -- omit it for a narrow journal, set it for a broad one; cites_watch sweeps new works citing a canon paper via OpenAlex filter=cites:. Entries with id:null are skipped by the sweep; run .paper-radar/resolve_canon.py once (OpenAlex quota permitting) to fill them from the stored doi/title/year hints. ISSNs verified via Crossref journals API 2026-08-30."
+  "_watch_note": "venue_watch sweeps whole journals by ISSN via Crossref; an optional subject_gate list keeps only hits whose title or abstract contains one of its terms (added 2026-09-05 after the Futures feed supplied 4 of 4 Fermi candidates as foresight-methodology ToC noise) -- omit it for a narrow journal, set it for a broad one; cites_watch sweeps new works citing a canon paper via OpenAlex filter=cites:. Entries with id:null are skipped by the sweep; run .paper-radar/resolve_canon.py once (OpenAlex quota permitting) to fill them from the stored doi/title/year hints. ISSNs verified via Crossref journals API 2026-08-30.",
+  "_tuning_log": [
+    "2026-10-12: first entry. Acted on the four feed notes in the 2026-10-12 digest, which had no home before this field existed. (1) Acta Astronautica was running keyword-blind on the probe paper -- it is a broad journal and had no subject_gate, so the whole ToC arrived; gated now, the way Futures was gated on 2026-09-05. (2) governance's \"post-detection protocol ... contact\" was dominated by medical protocol registrations; replaced with COSPAR planetary protection, forward/back contamination, OST Article IX and METI ethics, plus an exclude list for review/trial protocols. (3) routing's queries were domain-free and pulled almost no astronomy; each now carries an astrophysical anchor (stellar neighbourhood, Gaia distances, galactic colonisation front). (4) bootstrap's unqualified \"closure\" is now \"material closure\"/\"manufacturing closure\" with an exclude list for the surgical, algebraic and mine-closure senses; security's spatial-network Crossref query lost the statistics and metrology noise the same way.",
+    "2026-10-12 (second pass, after live checks): routing's anchored queries were tested and collapsed raw yield to 0-2 hits each, so the five domain-free generators are restored and the astronomy-anchored queries ADDED alongside rather than substituted -- the digest's theory that anchoring would raise yield is true only as an extra channel. The Acta Astronautica gate was widened after a live sweep showed the probe-only term list dropped the Chang'e-5 regolith nanoindentation paper and a space-tokamak fusion-power paper, both live subjects elsewhere in the series; Acta is the series' only window into that journal, so its gate has to serve every paper. Also excluded environmental-contamination work from governance and generic Industry-4.0/5.0 work from bootstrap."
+  ]
 }

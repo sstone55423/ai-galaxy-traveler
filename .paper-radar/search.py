@@ -615,27 +615,40 @@ def search_crossref_venue(spec, since, rows=15):
     # Elsevier journals rarely deposit abstracts to Crossref, which left the
     # 2026-08-31 venue sweep dumping title-only ToC batches on the screeners
     # (16/18 vehicle candidates, 15/18 Fermi). Best-effort enrichment: fill
-    # missing abstracts from OpenAlex by DOI, capped and fault-tolerant.
-    enriched = 0
-    for rec in out:
-        if enriched >= 12:
-            break
-        if rec["abstract"] or not rec["doi"]:
-            continue
-        oa = fetch("https://api.openalex.org/works/https://doi.org/"
-                   + urllib.parse.quote(rec["doi"]) + "?"
-                   + urllib.parse.urlencode(openalex_params()))
+    # missing abstracts from OpenAlex by DOI, fault-tolerant.
+    #
+    # Asked in batches: OpenAlex's `filter=doi:a|b|c` takes 50 at a time, so a
+    # whole ToC costs one request instead of one per record. The old per-record
+    # loop had to be capped at 12 to stay inside the time budget, which is why
+    # the 2026-10-12 digest still reported abstract-missing hits from Acta
+    # Astronautica and Futures -- the gate below was judging the remainder on
+    # their titles alone.
+    missing = {rec["doi"]: rec for rec in out if rec["doi"] and not rec["abstract"]}
+    dois = list(missing)
+    for i in range(0, len(dois), 50):
+        chunk = dois[i:i + 50]
+        oa = fetch("https://api.openalex.org/works?" + urllib.parse.urlencode(
+            openalex_params(**{"filter": "doi:" + "|".join(chunk),
+                               "select": "doi,abstract_inverted_index",
+                               "per-page": 50})))
         time.sleep(0.3)
         if not oa:
             continue
         try:
-            w = json.loads(oa)
+            found = json.loads(oa).get("results", [])
         except json.JSONDecodeError:
             continue
-        ab = reconstruct_abstract(w.get("abstract_inverted_index"))
-        if ab:
-            rec["abstract"] = ab[:1500]
-            enriched += 1
+        for w in found:
+            doi = norm_doi(w.get("doi"))
+            rec = missing.get(doi)
+            if not rec:
+                continue
+            ab = reconstruct_abstract(w.get("abstract_inverted_index"))
+            if ab:
+                rec["abstract"] = ab[:1500]
+    enriched = sum(1 for rec in missing.values() if rec["abstract"])
+    if missing:
+        log(f"      venue abstracts: filled {enriched} of {len(missing)} from OpenAlex")
     # Gate AFTER enrichment, so a record whose abstract only exists in OpenAlex
     # is still judged on it rather than on its title alone.
     if gate_terms:
