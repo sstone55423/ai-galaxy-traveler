@@ -193,6 +193,8 @@ The conversion step is where the measurements are least encouraging. Evaluating 
 
 The constraint during cruise is that the probe works from the active working memory subset, not the full DNA archive. This bounds what the cognitive layer can reference, though the bound is less severe than it appears: a corpus-first research-problem discovery system running entirely on a locally served 9B open-weight model — no external queries — structures a fixed literature corpus into an evidence graph, detects unresolved structural gaps across it, and emits research problems with traceable assumptions and success criteria (Gharat & Komiyama 2026). The configuration is the probe's — a closed archive, modest local compute, every generated claim carrying provenance back to its evidence. At settlement, when the full archive unlocks, a second wave of AI development becomes possible as the probe integrates transit insights with the full depth of the Earth knowledge base.
 
+How much a closed system recovers has now been measured. Given only the main research question from each of three recent ICLR oral papers, with the papers' results withheld and web access disabled, the Station environment discussed in Section 9 rediscovered 62.7 percent of the original findings on average, against 15.4 percent for a Codex multi-agent baseline and 14.4 to 20.6 percent for AI Scientist-v2, the gain attributed to a supervisor mechanism and periodic meta-reflection that sustain exploration when intermediate metrics are lacking (Du & Chung 2026). Both halves of that number bear on the cruise: a closed archive does not preclude real discovery, and the best configuration still missed roughly a third of what was there to be found, so cruise K-growth is bounded by the exploration machinery and not by the archive alone.
+
 ---
 
 ## 6. Cruise-Phase Operational K: Bootstrap Plan Refinement and Scenario Modeling
@@ -475,6 +477,8 @@ Chaloner, K., & Verdinelli, I. (1995). Bayesian experimental design: A review. *
 Chen, M., Wang, L., & Qu, B. (2026). The horizon gap: Planning, memory, execution, training, and evaluation for long-horizon LLM agents. *arXiv preprint* arXiv:2608.06663.
 
 Chung, S., Du, W., & Wesley, W. J. (2026). Autonomous mathematical discovery in an open-world multi-agent environment. *arXiv preprint* arXiv:2608.23691.
+
+Du, W., & Chung, S. (2026). Can AI agents make open-ended scientific discovery? Evidence from Station. *arXiv preprint* arXiv:2610.08927.
 
 Freitas, R. A., & Merkle, R. C. (2004). *Kinematic Self-Replicating Machines.* Landes Bioscience.
 

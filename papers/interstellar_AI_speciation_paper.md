@@ -63,6 +63,8 @@ The lineage-network paper's topology is a structural setup for this outcome. Its
 
 This is a testable, falsifiable-in-simulation claim rather than a metaphor: given the lineage-network paper's topology model and a drift-accumulation rate (Section 5), the rate of "incompatible ledgers" outcomes at simulated encounters should rise with topological distance and isolation time in a specific, checkable way. The test must control for a confound the knowledge-growth paper names: some conflicts reflect real change in the observed universe between measurements separated by 10^5 years, and that source scales with time and separation too. Only conflicts in *interpretive* and *operational* K, where no external referent has moved, are diagnostic of drift. Confirming or refuting this requires the first-order network simulator the lineage-network paper identifies as its own computational sequel and does not itself supply.
 
+The model class that test requires already exists. Hissa et al. (2026) simulate speciation in spatially extended environments under mating restricted by both spatial proximity and genetic similarity — formally the same pairing rule as K reconciliation between topologically adjacent, interpretively similar nodes — and find that environmental selection is not always necessary for reproductive isolation, which arises from restricted mating and limited dispersal alone, while two distinct environmental optima can accelerate diversification and reshape the timing of lineage splits. For the lineage network this fixes the division of labour between this section and Section 2: network distance is sufficient on its own to produce incompatible endpoints, and heterogeneous local adaptation sets how fast it happens rather than whether it happens.
+
 ---
 
 ## 5. A Drift Clock for Interpretive Divergence
@@ -176,6 +178,8 @@ Dobzhansky, T. (1937). *Genetics and the Origin of Species.* Columbia University
 Doolittle, W. F. (1999). Phylogenetic classification and the universal tree. *Science*, 284(5423), 2124–2128.
 
 Eldredge, N., & Gould, S. J. (1972). Punctuated equilibria: An alternative to phyletic gradualism. In T. J. M. Schopf (Ed.), *Models in Paleobiology* (pp. 82–115). Freeman, Cooper and Company.
+
+Hissa, L. D., de Aguiar, M. A. M., & Marquitti, F. M. D. (2026). Speciation by local adaptation and isolation by distance in extended environments. *Evolution*, qpag179.
 
 Irwin, D. E., Bensch, S., & Price, T. D. (2001). Speciation in a ring. *Nature*, 409, 333–337.
 
