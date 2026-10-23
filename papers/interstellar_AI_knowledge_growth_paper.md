@@ -243,6 +243,8 @@ Two step-changes occur at settlement. First, the **cold DNA archive unlocks**: a
 
 Second, the **instrument ceiling is set by the settlement's growing industrial capacity rather than by launch mass**. A flyby probe carries whatever instruments it left with; a settlement builds them. As the factory grows, the probe manufactures telescopes, interferometers, and sensor arrays far larger than any launched instrument — the decisive manufacturing advantage the payload paper (Section 4) identified. Observing power grows with the settlement rather than being fixed at departure. Life detection, stellar characterization, planetary spectroscopy, and long-baseline astrophysics all benefit from instruments manufactured in situ at scales impossible at launch.
 
+Settlement is also where the probe first experiments on matter rather than only observing it, and every experiment costs feedstock and machine time. A reinforcement-learning-guided robotic platform in asymmetric catalysis runs that loop autonomously on physical hardware: over 30 days it made more than 3,000 decisions and uncovered four highly enantioselective transformations, its control policies trained on a digital twin of the chemistry before transfer to the laboratory (Klochowicz et al. 2026). The reaction space was narrow and defined in advance, and the platform was built for it, so the study gives no discovery rate a settlement could expect in an unfamiliar system. What carries over, by our inference rather than the study's, is the order of operations: the cruise-phase scenario models of Section 6 can serve as the digital twin, so that the settlement rehearses in its own model and spends mass only on the experiments that model cannot settle.
+
 The settlement-phase science priority stack, consistent with the payload paper: life detection first (highest single-discovery K value), followed by planetary characterization, stellar characterization, small-body resource census, long-baseline astrophysics, and archive enrichment. This stack governs which instruments are built first and which observations are scheduled first. It does not govern settlement location, which was fixed by resource and safety criteria before arrival.
 
 Life detection, if it occurs, does not merely add to K; it potentially transforms the value weighting of the entire archive in the context of the galactic network. A confirmed biosignature at any node propagates through the network as the highest-priority update in the mission history.
@@ -501,6 +503,8 @@ King, R. D. (2026). The past and future of AI scientists. *arXiv preprint arXiv:
 King, R. D., Rowland, J., Oliver, S. G., et al. (2009). The automation of science. *Science*, 324(5923), 85–89.
 
 King, R. D., Whelan, K. E., Jones, F. M., et al. (2004). Functional genomic hypothesis generation and experimentation by a robot scientist. *Nature*, 427(6971), 247–252.
+
+Klochowicz, P., Kassir, A. F., Parida, C., & Granda, J. M. (2026). Reinforcement learning guided robotic platform that investigates and discovers asymmetric reactions. *Nature Communications*. https://doi.org/10.1038/s41467-026-78271-9
 
 Koch, Z., Wassie, A. T., Valdés-Alemán, J., et al. (2026). BixBench3: Benchmarking AI agents on research-study-scale computational biology tasks. *arXiv preprint arXiv:2608.25286*.
 
