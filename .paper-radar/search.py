@@ -1147,6 +1147,35 @@ def future_dated(rec, grace_days=120):
     return date[:10] > limit
 
 
+CANDIDATE_ARCHIVE = os.path.join(HERE, "candidates")
+
+
+def seen_entry(rec, paper_key, today, prior=None):
+    """The seen.json record for a candidate. Carries the channel that found it
+    and its identifiers, so yield per channel can be measured later
+    (yield_report.py); keeps the original first_seen if already known."""
+    return {
+        "first_seen": (prior or {}).get("first_seen") or today,
+        "paper": paper_key,
+        "title": (rec.get("title") or "")[:120],
+        "found_via": (rec.get("found_via") or "")[:160],
+        "doi": rec.get("doi"),
+        "arxiv_id": rec.get("arxiv_id"),
+    }
+
+
+def archive_candidates(payload, today):
+    """Keep every completed sweep, gzipped, for yield_report.py. The 2026-10-22
+    radar audit could measure only one week because candidate files were
+    deleted after each run."""
+    import gzip
+    os.makedirs(CANDIDATE_ARCHIVE, exist_ok=True)
+    path = os.path.join(CANDIDATE_ARCHIVE, f"{today}.json.gz")
+    with gzip.open(path, "wt", encoding="utf-8") as fh:
+        json.dump(payload, fh, ensure_ascii=False)
+    log(f"candidates archived -> {path}")
+
+
 def mark_seen_from(path):
     """Record an already-completed sweep in seen.json without re-searching.
 
@@ -1171,14 +1200,12 @@ def mark_seen_from(path):
     for key, block in (payload.get("results") or {}).items():
         for rec in block.get("candidates", []):
             rk = rec.get("_key") or record_key(rec)
-            if rk not in seen.setdefault("keys", {}):
+            prior_entry = seen.setdefault("keys", {}).get(rk)
+            if prior_entry is None:
                 added += 1
-            seen["keys"][rk] = {
-                "first_seen": today,
-                "paper": key,
-                "title": (rec.get("title") or "")[:120],
-            }
+            seen["keys"][rk] = seen_entry(rec, key, today, prior_entry)
     seen["last_run"] = today
+    archive_candidates(payload, today)
     with open(SEEN_PATH, "w", encoding="utf-8") as fh:
         json.dump(seen, fh, indent=2, ensure_ascii=False)
     log(f"seen.json: +{added} new, {len(seen['keys'])} known total, last_run={today}")
@@ -1588,12 +1615,10 @@ def run(args):
         today = dt.date.today().isoformat()
         for key, block in results.items():
             for rec in block["candidates"]:
-                seen.setdefault("keys", {})[rec["_key"]] = {
-                    "first_seen": today,
-                    "paper": key,
-                    "title": rec["title"][:120],
-                }
+                keys = seen.setdefault("keys", {})
+                keys[rec["_key"]] = seen_entry(rec, key, today, keys.get(rec["_key"]))
         seen["last_run"] = today
+        archive_candidates(payload, today)
         with open(SEEN_PATH, "w", encoding="utf-8") as fh:
             json.dump(seen, fh, indent=2, ensure_ascii=False)
         log(f"seen.json updated: {len(seen['keys'])} known records")

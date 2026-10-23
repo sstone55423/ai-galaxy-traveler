@@ -16,6 +16,9 @@ leaving you a diff to review first.
   queries.json        hand-curated queries + exclude lists, per paper   <- tune this
   seen.json           dedup ledger; why most mornings are quiet
   digests/            YYYY-MM-DD.md, one per run (+ .patch on the fallback path)
+  candidates/         YYYY-MM-DD.json.gz, every completed sweep (written on --mark-seen)
+  yield_report.py     which channels and queries find what gets inserted; run monthly
+  arxiv_week.json     gitignored: today's cache of the arXiv weekly listings
   check_freshness.py  dead-man's switch: has the radar stopped running?
   send_digest_email.py  emails the morning summary (Step 7)
   skill/paper-radar/  the skill source; rebuild the .skill bundle from here
