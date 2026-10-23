@@ -979,6 +979,14 @@ def backfill_abstracts(results, budget_s=30, s2_cap=25):
         nonlocal filled
         if not abstract:
             return
+        # A backfilled abstract is as untrusted as a harvested one, and it
+        # arrives after the intake-time quarantine has already run.
+        score, why = abstract_injection_score(abstract)
+        if score >= 2:
+            for rec in by_doi.get(doi, []):
+                rec["abstract_quarantined"] = "backfill: " + "; ".join(why)
+            log(f"  ! backfilled abstract quarantined for {doi} ({'; '.join(why)})")
+            return
         filled += 1
         for rec in by_doi.get(doi, []):
             rec["abstract"] = abstract[:1500]
@@ -1009,22 +1017,31 @@ def backfill_abstracts(results, budget_s=30, s2_cap=25):
     still = [d for d, recs in by_doi.items()
              if not (recs[0].get("abstract") or "").strip()]
     if s2_key and still:
-        for doi in still[:s2_cap]:
+        # One POST to the batch endpoint (up to 500 ids) instead of one GET per
+        # DOI: the per-DOI loop spent the whole budget in 429 backoffs and
+        # filled nothing on the 2026-10-19 candidates; the batch call answered
+        # at once. Expect little from it either way -- S2 withholds the same
+        # publisher abstracts OpenAlex lacks (5 of 107 on that sweep).
+        for i in range(0, len(still), 500):
             if time.monotonic() - started > budget_s:
                 log(f"  [abstracts] {budget_s}s budget reached; "
-                    f"{len(still)} still without one")
+                    f"{len(still) - i} still without one")
                 break
-            body = fetch(
-                "https://api.semanticscholar.org/graph/v1/paper/"
-                f"DOI:{urllib.parse.quote(doi, safe='')}?fields=abstract",
-                headers={"x-api-key": s2_key})
-            if body:
-                try:
-                    apply(doi, clean_ws(json.loads(body).get("abstract") or ""),
-                          "semanticscholar")
-                except json.JSONDecodeError:
-                    pass
-            time.sleep(DELAY.get("s2", 1.1))
+            chunk = still[i:i + 500]
+            try:
+                req = urllib.request.Request(
+                    "https://api.semanticscholar.org/graph/v1/paper/batch?fields=abstract",
+                    data=json.dumps({"ids": ["DOI:" + d for d in chunk]}).encode(),
+                    headers={"x-api-key": s2_key, "Content-Type": "application/json",
+                             "User-Agent": UA})
+                with urllib.request.urlopen(req, timeout=TIMEOUT * 2) as resp:
+                    rows = json.loads(resp.read().decode("utf-8"))
+            except Exception as exc:  # noqa: BLE001 -- best-effort enrichment
+                log(f"  [abstracts] S2 batch failed ({exc}); skipping")
+                break
+            for doi, row in zip(chunk, rows):
+                if row:
+                    apply(doi, clean_ws(row.get("abstract") or ""), "semanticscholar")
 
     return len(by_doi), filled
 
