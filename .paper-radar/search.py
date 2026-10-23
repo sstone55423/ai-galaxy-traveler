@@ -84,6 +84,21 @@ def openalex_key():
     return (os.environ.get("OPENALEX_API_KEY") or "").strip()
 
 
+def oa_authors(w):
+    """Author names as printed on the work, not OpenAlex's profile names.
+
+    author.display_name is the disambiguated identity and can carry a former
+    name or a wrong merge: it gave "Markus C. Kolodziej" for a paper bylined
+    Markus Wagner, and "Cao Qing" for Qing Cao. raw_author_name is the byline
+    string, so prefer it and fall back to the profile only when it is absent.
+    """
+    out = []
+    for a in (w.get("authorships") or []):
+        name = (a.get("raw_author_name") or "").strip()
+        out.append(name or (a.get("author") or {}).get("display_name"))
+    return out
+
+
 def openalex_params(**kw):
     """Query params every OpenAlex call must carry: mailto plus the API key."""
     p = {"mailto": CONTACT}
@@ -413,10 +428,7 @@ def search_openalex(query, since, per_page=10):
     for w in data.get("results", []):
         loc = w.get("primary_location") or {}
         src = loc.get("source") or {}
-        authors = [
-            (a.get("author") or {}).get("display_name")
-            for a in (w.get("authorships") or [])
-        ]
+        authors = oa_authors(w)
         out.append({
             "source": "openalex",
             "title": clean_ws(w.get("title") or w.get("display_name")),
@@ -529,8 +541,7 @@ def search_openalex_cites(spec, since, per_page=15):
     for w in data.get("results", []):
         loc = w.get("primary_location") or {}
         src = loc.get("source") or {}
-        authors = [(a.get("author") or {}).get("display_name")
-                   for a in (w.get("authorships") or [])]
+        authors = oa_authors(w)
         out.append({
             "source": "cites",
             "title": clean_ws(w.get("title") or w.get("display_name")),

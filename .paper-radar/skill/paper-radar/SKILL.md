@@ -241,6 +241,25 @@ Confirm **author, year, and venue** match what the digest will claim -- this is
 CLAUDE.md's standing rule ("Verify any new reference by web search before
 citing"), applied here.
 
+**Take author names from the byline, never from an OpenAlex profile.** OpenAlex's
+`author.display_name` is a disambiguated identity, not the name printed on the
+work, and it has been wrong twice: "Markus C. Kolodziej" for a paper bylined
+Markus Wagner (a former name on the ORCID record), and "Cao Qing" for Qing Cao
+(given and family names swapped). It also adds middle initials the byline lacks.
+Check every author, in order, against the source that holds the byline:
+
+```bash
+# DOI: Crossref holds the publisher's deposited byline (given / family split)
+curl -s --max-time 20 "https://api.crossref.org/works/<DOI>"   | python3 -c "import sys,json; m=json.load(sys.stdin)['message']; print([(a.get('given'),a.get('family')) for a in m.get('author',[])], m.get('container-title'), m.get('volume'), m.get('issue'), m.get('article-number') or m.get('page'))"
+# Zenodo / other DataCite DOIs: https://api.datacite.org/dois/<DOI> (attributes.creators)
+# arXiv: the <name> elements from the arXiv API above are the byline
+```
+
+If OpenAlex is the only record, use `raw_author_name`, not `author.display_name`.
+Where sources disagree, the byline wins; record the disagreement in the digest
+rather than resolving it silently. Take volume, issue and article number from
+Crossref, too -- the candidate record usually lacks them.
+
 Drop anything that fails to resolve or whose metadata disagrees, and note the
 drop in the digest. **Downgrade `cite` -> `consider`** rather than guessing at a
 detail. Note that arXiv must be **https**: plain `http` 301s and returns an
