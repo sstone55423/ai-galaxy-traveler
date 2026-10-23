@@ -123,8 +123,20 @@ python3 .paper-radar/search.py --days 7 --out "$HOME/radar/candidates.json" --re
 
 Run it with `timeout_ms: 180000`. The last line of stdout is JSON:
 `{"status": "...", "remaining": [...]}`. **Repeat the identical command until
-`status` is `complete`** -- normally 1-2 calls at this budget on a good day.
-Do not proceed while papers remain.
+`status` is `complete`**. Since 2026-10-22 the first calls of the day load the
+week-scale sources -- arXiv's weekly listings with abstracts, then bioRxiv --
+and sweep no papers while they do (`[sources] week-scale sources still
+loading`); that is progress, saved to `arxiv_week.json` / `biorxiv_week.json`,
+not a stall. Expect several calls in all. Do not proceed while papers remain.
+
+**New hosts, not yet verified from the VM.** The 2026-09-05 egress check
+covered OpenAlex, arXiv's API, Crossref and SMTP. The radar now also calls
+`arxiv.org` (listing pages), `api.adsabs.harvard.edu`, `ntrs.nasa.gov`,
+`api.biorxiv.org` and `api.semanticscholar.org`. A blocked host makes its
+channel return nothing, quietly. On the first run after this change, check
+the `[arxiv] ... listed`, `[biorxiv]`, `ads` and `ntrs` lines; if a channel is
+empty across the board, report it in the digest's *Run conditions* rather than
+treating it as a quiet week.
 
 If it still will not complete after ~6 attempts, continue with what you have,
 but mark the digest **PARTIAL**, list the unswept papers in it, and **skip Step

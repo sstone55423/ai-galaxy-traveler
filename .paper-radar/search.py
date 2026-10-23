@@ -484,19 +484,29 @@ def fetch_arxiv_listing(cat):
     return out
 
 
-def fill_arxiv_abstracts(records, budget_s=300):
-    """Abstracts for listing records, in batches: OpenAlex first, then S2."""
-    started = time.monotonic()
-    need = [r for r in records.values() if not r.get("abstract")]
+def _past(deadline):
+    return deadline is not None and time.monotonic() > deadline
+
+
+def fill_arxiv_abstracts(records, deadline=None):
+    """Abstracts for listing records, in batches: OpenAlex first, then S2.
+
+    Resumable: each record is marked once a source has been asked about it, so
+    a call cut short by the deadline picks up where it stopped. Returns True
+    once both passes have covered every record."""
+    need = [r for r in records.values() if not r.get("abstract") and not r.get("_oa_tried")]
     for i in range(0, len(need), 50):
-        if time.monotonic() - started > budget_s:
-            break
-        chunk = {"10.48550/arxiv." + r["arxiv_id"]: r for r in need[i:i + 50]}
+        if _past(deadline):
+            return False
+        batch = need[i:i + 50]
+        chunk = {"10.48550/arxiv." + r["arxiv_id"]: r for r in batch}
         body = fetch("https://api.openalex.org/works?" + urllib.parse.urlencode(
             openalex_params(**{"filter": "doi:" + "|".join(chunk),
                                "select": "doi,abstract_inverted_index",
                                "per-page": 50})))
         time.sleep(0.3)
+        for r in batch:
+            r["_oa_tried"] = True
         if not body:
             continue
         try:
@@ -507,11 +517,13 @@ def fill_arxiv_abstracts(records, budget_s=300):
                         w.get("abstract_inverted_index")))[:1500]
         except json.JSONDecodeError:
             continue
-    still = [r for r in records.values() if not r.get("abstract")]
     s2_key = os.environ.get("S2_API_KEY")
+    still = [r for r in records.values() if not r.get("abstract") and not r.get("_s2_tried")]
     for i in range(0, len(still), 500):
-        if not s2_key or time.monotonic() - started > budget_s:
+        if not s2_key:
             break
+        if _past(deadline):
+            return False
         chunk = still[i:i + 500]
         rows = None
         for attempt in range(2):  # S2 allows 1 req/s; one retry after a 429
@@ -528,42 +540,71 @@ def fill_arxiv_abstracts(records, budget_s=300):
                 log(f"  [arxiv] S2 abstract batch failed ({exc})"
                     + ("; retrying" if attempt == 0 else ""))
                 time.sleep(5)
+        for r in chunk:
+            r["_s2_tried"] = True
         if rows is None:
             break
         for rec, row in zip(chunk, rows):
             if row and row.get("abstract"):
                 rec["abstract"] = clean_ws(row["abstract"])[:1500]
         time.sleep(1.1)
+    return True
 
 
-def load_arxiv_week(categories, refresh=False):
-    """The week's listings for `categories`, abstracts filled, cached per day."""
+def _save_arxiv_week(cache):
+    with open(ARXIV_WEEK_PATH, "w", encoding="utf-8") as fh:
+        json.dump(cache, fh, ensure_ascii=False)
+
+
+def load_arxiv_week(categories, refresh=False, deadline=None):
+    """The week's listings for `categories`, abstracts filled, cached per day.
+
+    Returns (records, failed_categories, ready). The scheduled run works in
+    slices of at most 180 s (device-shell limit), and a full load -- ~23
+    listings plus ~80 abstract batches -- takes several minutes, so progress is
+    saved after every category and abstract pass, and a slice that reaches its
+    deadline returns ready=False for the next --resume call to continue."""
     today = dt.date.today().isoformat()
-    cache = load_json(ARXIV_WEEK_PATH, {})
-    if not refresh and cache.get("fetched") == today and \
-            set(categories) <= set(cache.get("categories", [])):
-        return cache.get("records", {}), cache.get("failed", [])
-    records, failed = {}, []
-    for cat in sorted(categories):
+    cache = {} if refresh else load_json(ARXIV_WEEK_PATH, {})
+    if cache.get("fetched") != today or not set(categories) <= set(cache.get("wanted") or []):
+        cache = {"fetched": today, "wanted": sorted(set(categories)),
+                 "done": [], "failed": [], "records": {}, "complete": False}
+    if cache.get("complete"):
+        return cache["records"], cache["failed"], True
+    records = cache["records"]
+    for cat in cache["wanted"]:
+        if cat in cache["done"]:
+            continue
+        if _past(deadline):
+            _save_arxiv_week(cache)
+            log(f"  [arxiv] budget reached after {len(cache['done'])}/{len(cache['wanted'])} "
+                f"listings; resume to continue")
+            return records, cache["failed"], False
         got = fetch_arxiv_listing(cat)
         if not got:
-            failed.append(cat)
+            cache["failed"].append(cat)
         for aid, rec in got.items():
             if aid in records:
                 records[aid]["categories"] = sorted(
                     set(records[aid]["categories"]) | set(rec["categories"]))
             else:
                 records[aid] = rec
+        cache["done"].append(cat)
         log(f"  [arxiv] {cat:16s} {len(got):5d} listed")
         time.sleep(1.0)
-    fill_arxiv_abstracts(records)
+    _save_arxiv_week(cache)
+    if not fill_arxiv_abstracts(records, deadline):
+        _save_arxiv_week(cache)
+        with_abs = sum(1 for r in records.values() if r.get("abstract"))
+        log(f"  [arxiv] budget reached while filling abstracts ({with_abs}/{len(records)}); "
+            f"resume to continue")
+        return records, cache["failed"], False
+    cache["complete"] = True
+    _save_arxiv_week(cache)
     with_abs = sum(1 for r in records.values() if r.get("abstract"))
     log(f"  [arxiv] {len(records)} unique this week, {with_abs} with abstracts"
-        + (f"; listing FAILED for {', '.join(failed)}" if failed else ""))
-    with open(ARXIV_WEEK_PATH, "w", encoding="utf-8") as fh:
-        json.dump({"fetched": today, "categories": sorted(categories),
-                   "failed": failed, "records": records}, fh, ensure_ascii=False)
-    return records, failed
+        + (f"; listing FAILED for {', '.join(cache['failed'])}" if cache["failed"] else ""))
+    return records, cache["failed"], True
 
 
 def _norm_match_text(text):
@@ -642,7 +683,7 @@ def match_arxiv_week(paper, week, since):
         text = rec.get("title", "") + " " + rec.get("abstract", "")
         for q in paper.get("arxiv", []):
             if arxiv_query_matches(q, text):
-                hit = dict(rec)
+                hit = {k: v for k, v in rec.items() if not k.startswith("_")}
                 hit["matched_query"] = q
                 out.append(hit)
                 break
@@ -814,17 +855,36 @@ BIORXIV_CATEGORIES = {"bioinformatics", "synthetic biology", "bioengineering",
                       "systems biology", "biophysics", "molecular biology"}
 
 
-def load_biorxiv_week(since):
-    """The window's bioRxiv postings in BIORXIV_CATEGORIES, with abstracts."""
-    until = dt.date.today().isoformat()
-    out, cursor = {}, 0
-    while True:
-        body = fetch(f"https://api.biorxiv.org/details/biorxiv/{since}/{until}/{cursor}")
+BIORXIV_WEEK_PATH = os.path.join(HERE, "biorxiv_week.json")
+
+
+def load_biorxiv_week(since, deadline=None):
+    """The window's bioRxiv postings in BIORXIV_CATEGORIES, with abstracts.
+
+    Returns (records, ready). ~1,500 postings a week arrive 30 per request, so
+    the harvest outlasts one 180 s device-shell slice; the cursor and records
+    are cached per day and a slice that reaches its deadline returns
+    ready=False for the next --resume call to continue."""
+    today = dt.date.today().isoformat()
+    until = today
+    cache = load_json(BIORXIV_WEEK_PATH, {})
+    if cache.get("fetched") != today or cache.get("since") != since:
+        cache = {"fetched": today, "since": since, "cursor": 0, "records": {}, "complete": False}
+    out = cache["records"]
+    while not cache["complete"]:
+        if _past(deadline):
+            with open(BIORXIV_WEEK_PATH, "w", encoding="utf-8") as fh:
+                json.dump(cache, fh, ensure_ascii=False)
+            log(f"  [biorxiv] budget reached at posting {cache['cursor']}; resume to continue")
+            return out, False
+        body = fetch(f"https://api.biorxiv.org/details/biorxiv/{since}/{until}/{cache['cursor']}")
         if not body:
+            cache["complete"] = True
             break
         try:
             page = json.loads(body)
         except json.JSONDecodeError:
+            cache["complete"] = True
             break
         coll = page.get("collection") or []
         for c in coll:
@@ -844,12 +904,14 @@ def load_biorxiv_week(since):
             }
         msg = (page.get("messages") or [{}])[0]
         total = int(msg.get("total") or 0)
-        cursor += int(msg.get("count") or len(coll) or 0)
-        if not coll or cursor >= total:
-            break
+        cache["cursor"] += int(msg.get("count") or len(coll) or 0)
+        if not coll or cache["cursor"] >= total:
+            cache["complete"] = True
         time.sleep(0.5)
+    with open(BIORXIV_WEEK_PATH, "w", encoding="utf-8") as fh:
+        json.dump(cache, fh, ensure_ascii=False)
     log(f"  [biorxiv] {len(out)} postings in the watched categories since {since}")
-    return out
+    return out, True
 
 
 def match_local(paper, pool, queries_key):
@@ -859,7 +921,7 @@ def match_local(paper, pool, queries_key):
         text = rec.get("title", "") + " " + rec.get("abstract", "")
         for q in paper.get(queries_key, []):
             if arxiv_query_matches(q, text):
-                hit = dict(rec)
+                hit = {k: v for k, v in rec.items() if not k.startswith("_")}
                 hit["matched_query"] = q
                 out.append(hit)
                 break
@@ -1651,16 +1713,25 @@ def run(args):
     # arXiv: the week's listings, evaluated locally (see load_arxiv_week). The
     # search API stays only as a fallback -- for categories whose listing
     # failed, or a window reaching back past what the listings cover.
+    # The week-scale loaders (arXiv listings, bioRxiv) outlast one 180 s
+    # device-shell slice, so they work to the same --budget as the sweep, save
+    # their progress, and hold the paper loop back until they are complete.
+    deadline = (started + args.budget) if args.budget else None
+    sources_loading = False
     arxiv_week, arxiv_api_needed = None, False
     arxiv_cats = sorted({c for p in papers if p.get("arxiv")
                          for c in (p.get("arxiv_categories") or [])})
     if arxiv_cats and not args.arxiv_api:
-        arxiv_week, failed = load_arxiv_week(arxiv_cats, refresh=args.arxiv_refresh)
+        arxiv_week, failed, arxiv_ready = load_arxiv_week(
+            arxiv_cats, refresh=args.arxiv_refresh, deadline=deadline)
+        sources_loading = not arxiv_ready
         listed_from = min((r["date"] for r in arxiv_week.values() if r.get("date")),
                           default=None)
         stats["arxiv_listed"] = len(arxiv_week)
         stats["arxiv_listing_failed"] = failed
-        if not arxiv_week:
+        if sources_loading:
+            pass
+        elif not arxiv_week:
             log("  ! arXiv listings returned NOTHING -- falling back to the search API")
             arxiv_week, arxiv_api_needed = None, True
         # The listing dates are announcement days (five a week), which cover
@@ -1675,10 +1746,18 @@ def run(args):
         arxiv_api_needed = True
 
     arxiv_index = arxiv_index_freshness(since) if arxiv_api_needed else None
-    coupling = {} if args.no_coupling else search_coupling(since)
+    coupling, biorxiv = {}, {}
+    if not sources_loading and any(p.get("biorxiv") for p in papers):
+        biorxiv, biorxiv_ready = load_biorxiv_week(since, deadline=deadline)
+        sources_loading = not biorxiv_ready
+    if not sources_loading and not args.no_coupling:
+        coupling = search_coupling(since)
     stats["coupling_kept"] = sum(len(v) for v in coupling.values())
-    biorxiv = load_biorxiv_week(since) if any(p.get("biorxiv") for p in papers) else {}
     stats["biorxiv_listed"] = len(biorxiv)
+    if sources_loading:
+        log("  [sources] week-scale sources still loading; no papers swept this call -- "
+            "re-run the same command with --resume")
+        papers = []
     if arxiv_index:
         stats["arxiv_index_newest"] = arxiv_index["newest"]
         stats["arxiv_index_lag_days"] = arxiv_index["lag_days"]
@@ -1690,7 +1769,7 @@ def run(args):
                 f"--since once it recovers.")
 
     results = dict(prior)
-    truncated = False
+    truncated = sources_loading
 
     for paper in papers:
         key = paper["key"]

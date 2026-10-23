@@ -25,3 +25,4 @@ code/stars_100ly.csv
 code/stars_100ly.json
 # Paper-radar's per-day cache of the arXiv weekly listings (regenerated each run)
 .paper-radar/arxiv_week.json
+.paper-radar/biorxiv_week.json
