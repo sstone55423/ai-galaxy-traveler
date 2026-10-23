@@ -522,9 +522,23 @@ If nothing was found, say so plainly. Do not apologise for a quiet day.
   a saturated 1000 req/s pool across all anonymous users and mostly returns 429;
   a key buys a private 1 req/s. Apply at
   https://www.semanticscholar.org/product/api#api-key-form
+- **Channels** (since 2026-10-22): arXiv comes from the weekly listing pages,
+  matched locally (`arxiv_week.json` caches the day's fetch; `--arxiv-api`
+  forces the old search API); `coupling` takes works citing the series' own
+  references (`series_refs.json`; rerun `build_series_refs.py` after reference
+  lists change); `ads`, `ntrs` and `biorxiv` are configured per paper in
+  `queries.json`; `s2_recommend` exists but is off -- see `_tuning_log`.
+- **Measure before tuning.** Once a month, run
+  `python3 .paper-radar/yield_report.py --by-query`: it reports, per channel,
+  paper and query, how many candidates reached a digest and how many are now
+  cited in the series. Retire queries that surface nothing for three months,
+  and when a paper is inserted, mine its title and abstract for phrases the
+  queries lack -- the literature's vocabulary, not the series'. Record every
+  change in `queries.json`'s `_tuning_log`.
 - **Quick health check** when a sweep is slow: from any shell,
-  `curl -s --max-time 30 -o /dev/null -w "%{http_code} %{time_total}s\n" "https://export.arxiv.org/api/query?search_query=all:probe&max_results=5"`.
-  A `000` after 30 s or a `429` means arXiv search is the problem for the day.
+  `curl -s --max-time 30 -o /dev/null -w "%{http_code} %{time_total}s\n" "https://arxiv.org/list/astro-ph.EP/pastweek?show=25"`.
+  The listing pages answer in under a second; the search API
+  (`export.arxiv.org/api/query`) is now only a fallback and often 429s.
 - **Backlog sweep**: `--baseline --since 2015-01-01` for a wide first pass, but
   expect thousands of candidates. Better done one paper at a time:
   `--paper fermi --since 2015-01-01`.

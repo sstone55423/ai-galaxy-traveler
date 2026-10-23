@@ -74,7 +74,11 @@
         "\"interstellar mission\" AND architecture",
         "\"solar Oberth\" AND maneuver",
         "\"electric sail\" AND deceleration",
-        "\"hypervelocity\" AND dust AND spacecraft"
+        "\"hypervelocity\" AND dust AND spacecraft",
+        "\"interstellar travel\" OR \"interstellar flight\" OR \"interstellar spacecraft\" OR \"interstellar mission\" OR \"interstellar probe\" OR \"interstellar probes\"",
+        "\"light sail\" OR lightsail OR \"laser sail\" OR \"solar sail\"",
+        "\"magnetic sail\" OR \"electric sail\" OR magsail",
+        "(\"interstellar dust\" OR \"interstellar medium\") AND (spacecraft OR impact OR erosion OR shielding)"
       ],
       "arxiv_categories": [
         "astro-ph.IM",
@@ -171,7 +175,10 @@
         "\"long-term autonomy\" AND spacecraft",
         "\"value alignment\" AND \"self-modification\"",
         "\"autonomous agent\" AND \"long horizon\" AND memory",
-        "\"spacecraft autonomy\" AND \"deep space\""
+        "\"spacecraft autonomy\" AND \"deep space\"",
+        "\"self-modifying\" OR \"recursive self-improvement\" OR \"self-modification\"",
+        "\"value alignment\" OR \"goal stability\" OR \"value drift\" OR \"goal drift\"",
+        "\"continual learning\" AND (\"catastrophic forgetting\" OR stability) AND agent"
       ],
       "arxiv_categories": [
         "cs.AI",
@@ -197,7 +204,11 @@
       "thesis": "Industrial closure: how a seed payload bootstraps a full manufacturing base from local material (the L1-L5 closure ladder, the ~3% vitamin fraction). Relevant work: self-replicating factories, ISRU, closure of manufacturing chains, lunar/asteroid industrial bootstrapping.",
       "arxiv": [
         "\"self-replicating\" AND manufacturing AND (\"material closure\" OR \"closure of the manufacturing\")",
-        "\"in-situ resource utilization\" AND manufacturing"
+        "\"in-situ resource utilization\" AND manufacturing",
+        "\"self-replicating\" OR \"self-replication\" OR \"self-reproducing\"",
+        "\"in-situ resource utilization\" OR ISRU",
+        "\"in-space manufacturing\" OR \"space manufacturing\" OR \"in-space assembly\"",
+        "\"additive manufacturing\" AND (regolith OR lunar OR space)"
       ],
       "arxiv_categories": [
         "astro-ph.IM",
@@ -259,7 +270,10 @@
       "arxiv": [
         "\"mass budget\" AND spacecraft AND \"self-replicating\"",
         "\"closure\" AND \"manufacturing\" AND \"space systems\"",
-        "\"magnetic sail\" AND braking"
+        "\"magnetic sail\" AND braking",
+        "\"self-replicating\" AND (system OR machine OR factory)",
+        "\"mass budget\" AND (spacecraft OR mission)",
+        "\"closure\" AND \"self-replicating\""
       ],
       "arxiv_categories": [
         "astro-ph.IM"
@@ -283,12 +297,17 @@
         "\"interstellar\" AND settlement AND \"branching process\"",
         "percolation AND \"galactic colonization\"",
         "\"Galton-Watson\" AND extinction",
-        "\"branching process\" AND colonization"
+        "\"branching process\" AND colonization",
+        "(\"branching process\" OR \"branching processes\" OR \"Galton-Watson\") AND (extinction OR survival OR colonization OR colonisation OR population)",
+        "\"galactic colonization\" OR \"interstellar colonization\" OR \"galactic settlement\" OR \"colonization wave\"",
+        "\"extinction probability\"",
+        "percolation AND (colonization OR galaxy OR galactic)"
       ],
       "arxiv_categories": [
         "astro-ph.EP",
         "astro-ph.GA",
-        "physics.soc-ph"
+        "physics.soc-ph",
+        "math.PR"
       ],
       "openalex": [
         "galactic colonization simulation model",
@@ -311,7 +330,10 @@
       "arxiv": [
         "\"DNA storage\" AND \"error correction\"",
         "\"DNA data storage\" AND archival",
-        "\"tamper-evident\" AND ledger AND integrity"
+        "\"tamper-evident\" AND ledger AND integrity",
+        "\"DNA storage\" OR \"DNA data storage\" OR \"molecular storage\" OR \"DNA-based storage\"",
+        "\"transparency log\" OR \"transparency logs\" OR \"hash chain\" OR \"append-only log\"",
+        "\"digital preservation\" OR \"long-term archival\""
       ],
       "arxiv_categories": [
         "cs.IT",
@@ -350,7 +372,10 @@
       "thesis": "The E0-E7 contact ladder; planetary protection and noninterference for an unsupervised autonomous probe; capability-yes/release-no on biology. Relevant work: planetary protection policy, SETI/METI post-detection protocols, noninterference ethics, space law for autonomous systems.",
       "arxiv": [
         "\"planetary protection\" AND policy",
-        "\"technosignature\" AND detection AND protocol"
+        "\"technosignature\" AND detection AND protocol",
+        "\"planetary protection\" OR \"forward contamination\" OR \"back contamination\"",
+        "(technosignature OR biosignature) AND (protocol OR ambiguity OR \"false positive\")",
+        "\"Outer Space Treaty\" OR \"space law\""
       ],
       "arxiv_categories": [
         "astro-ph.EP",
@@ -421,7 +446,11 @@
         "corrigibility AND \"artificial intelligence\"",
         "\"reward tampering\" OR \"mesa-optimization\"",
         "\"goal preservation\" AND \"self-modifying\"",
-        "\"value drift\" AND agents"
+        "\"value drift\" AND agents",
+        "corrigibility OR corrigible",
+        "\"value drift\" OR \"goal preservation\" OR \"goal-content integrity\" OR \"value lock-in\"",
+        "\"constitutional AI\" OR \"AI constitution\"",
+        "\"reward tampering\" OR \"reward hacking\""
       ],
       "arxiv_categories": [
         "cs.AI",
@@ -470,7 +499,11 @@
         "\"technosignature\" AND survey AND limits",
         "\"galactic colonization\" AND timescale",
         "\"von Neumann probe\"",
-        "\"quiet expansion\" AND Fermi"
+        "\"quiet expansion\" AND Fermi",
+        "technosignature OR technosignatures OR SETI OR \"extraterrestrial intelligence\"",
+        "\"Dyson sphere\" OR \"Dyson spheres\" OR \"Kardashev\"",
+        "\"galactic habitable zone\"",
+        "\"Fermi paradox\" OR \"Great Filter\" OR \"Hart-Tipler\""
       ],
       "arxiv_categories": [
         "astro-ph.EP",
@@ -577,7 +610,10 @@
       "arxiv": [
         "\"autonomous scientific discovery\"",
         "\"knowledge accumulation\" AND agents",
-        "\"AI scientist\" AND discovery"
+        "\"AI scientist\" AND discovery",
+        "\"self-driving laboratory\" OR \"self-driving lab\" OR \"autonomous laboratory\" OR \"closed-loop experimentation\"",
+        "\"AI scientist\" OR \"automated scientific discovery\" OR \"autonomous research\" OR \"research agent\"",
+        "\"scientific discovery\" AND (agent OR agents OR \"language model\")"
       ],
       "arxiv_categories": [
         "cs.AI",
@@ -610,7 +646,10 @@
         "\"delay tolerant network\" AND routing",
         "\"bundle protocol\" AND space",
         "\"spray and wait\" AND routing",
-        "\"interplanetary internet\""
+        "\"interplanetary internet\"",
+        "\"delay tolerant\" OR \"delay-tolerant\" OR \"disruption tolerant\" OR \"disruption-tolerant\"",
+        "\"bundle protocol\" OR \"contact graph routing\" OR \"store-and-forward\"",
+        "interplanetary AND (network OR networking OR communication)"
       ],
       "arxiv_categories": [
         "cs.NI",
@@ -658,7 +697,10 @@
       "arxiv": [
         "\"space nuclear reactor\" AND power",
         "\"spacecraft radiator\" AND \"thermal\" AND mass",
-        "\"specific power\" AND \"nuclear electric propulsion\""
+        "\"specific power\" AND \"nuclear electric propulsion\"",
+        "(\"space nuclear\" OR \"fission reactor\" OR \"nuclear reactor\") AND (space OR spacecraft OR lunar)",
+        "radiator AND spacecraft AND thermal",
+        "radioisotope AND (power OR generator) AND spacecraft"
       ],
       "arxiv_categories": [
         "astro-ph.IM",
@@ -687,12 +729,17 @@
         "\"random geometric graph\" AND connectivity AND robustness",
         "percolation AND colonization AND galaxy",
         "\"articulation point\" AND network AND failure",
-        "\"set cover\" AND scheduling AND dispatch"
+        "\"set cover\" AND scheduling AND dispatch",
+        "\"random geometric graph\" OR \"random geometric graphs\" OR \"geometric random graph\"",
+        "\"temporal connectivity\" OR \"temporal graph\" OR \"temporal network\"",
+        "\"network robustness\" OR \"articulation point\" OR \"cut vertex\" OR \"network dismantling\"",
+        "\"maximum coverage\" OR \"set cover\""
       ],
       "arxiv_categories": [
         "physics.soc-ph",
         "cs.DM",
-        "astro-ph.GA"
+        "astro-ph.GA",
+        "math.PR"
       ],
       "openalex": [
         "percolation threshold random geometric graph connectivity",
@@ -739,7 +786,11 @@
       "thesis": "Whether it is justified to launch an unsupervised self-replicating lineage that outlives its creators: consent (Rawls), non-identity (Parfit), commons (Hardin), value-imposition, moral status/legal personhood, dual-use risk, existential-risk justification. Relevant work: space ethics, non-identity problem, moral status of artificial agents, long-termism, dual-use/runaway replication risk.",
       "arxiv": [
         "\"moral status\" AND \"artificial agents\"",
-        "\"space ethics\" AND colonization"
+        "\"space ethics\" AND colonization",
+        "\"moral status\" OR \"moral patient\" OR \"moral patiency\"",
+        "\"space ethics\" OR astroethics OR \"ethics of space\" OR \"space colonization\"",
+        "longtermism OR \"future generations\" OR \"existential risk\"",
+        "personhood AND (AI OR artificial OR machine)"
       ],
       "arxiv_categories": [
         "cs.CY",
@@ -794,7 +845,10 @@
       "thesis": "Whether long-run divergence between settled branches is failure or success: taxonomy of divergence sources, D_critical boundary, drift-clock model, ring-species argument, adaptive radiation raising total R_eff and K. Relevant work: speciation theory, cultural/design drift in artificial populations, ring species, adaptive radiation, horizontal transfer, divergence in evolving machine populations.",
       "arxiv": [
         "\"open-ended evolution\" AND divergence",
-        "\"cultural evolution\" AND drift AND agents"
+        "\"cultural evolution\" AND drift AND agents",
+        "\"cultural evolution\" OR \"cultural drift\" OR \"cultural transmission\"",
+        "\"open-ended evolution\"",
+        "speciation OR \"reproductive isolation\" OR \"ring species\""
       ],
       "arxiv_categories": [
         "q-bio.PE",
@@ -836,7 +890,10 @@
         "\"articulation point\" AND graph AND (attack OR robustness)",
         "\"spatial network\" AND robustness AND attack",
         "\"self-replicating\" AND probe AND security",
-        "quarantine AND agents AND \"false positive\""
+        "quarantine AND agents AND \"false positive\"",
+        "(\"multi-agent\" OR agents) AND (\"prompt injection\" OR adversarial OR compromise) AND (security OR containment)",
+        "\"network dismantling\" OR \"targeted attack\" OR \"targeted attacks\"",
+        "\"blast radius\" OR \"least privilege\" OR quarantine AND agent"
       ],
       "arxiv_categories": [
         "cs.CR",
@@ -896,7 +953,12 @@
         "\"magnetic sail\" AND (drag OR braking OR deceleration)",
         "\"local interstellar cloud\" AND (ionization OR \"electron density\")",
         "(\"mass driver\" OR \"electromagnetic launcher\") AND space",
-        "\"technology readiness\" AND (space OR autonomous) AND manufacturing"
+        "\"technology readiness\" AND (space OR autonomous) AND manufacturing",
+        "\"in-situ resource utilization\" OR ISRU",
+        "asteroid AND (resource OR resources OR mining OR volatiles)",
+        "\"technology readiness\"",
+        "\"mass driver\" OR \"electromagnetic launch\" OR coilgun OR railgun",
+        "\"local interstellar cloud\" OR \"local interstellar medium\""
       ],
       "arxiv_categories": [
         "astro-ph.EP",
@@ -965,7 +1027,11 @@
         "(lunar OR Moon) AND (thorium OR KREEP) AND (abundance OR map)",
         "\"helium-3\" AND (regolith OR lunar)",
         "comet AND (lander OR rendezvous) AND (subsurface OR nucleus OR drilling)",
-        "\"space nuclear\" AND (reactor OR fission) AND (lunar OR surface)"
+        "\"space nuclear\" AND (reactor OR fission) AND (lunar OR surface)",
+        "\"interstellar object\" OR \"interstellar objects\" OR Oumuamua OR Borisov",
+        "(lunar OR Moon) AND (thorium OR KREEP OR uranium OR \"helium-3\")",
+        "(\"stellar encounter\" OR \"stellar encounters\" OR \"close encounter\") AND Gaia",
+        "comet AND (nucleus OR rendezvous OR lander)"
       ],
       "arxiv_categories": [
         "astro-ph.EP",
@@ -1042,6 +1108,7 @@
     "2026-10-12 (second pass, after live checks): routing's anchored queries were tested and collapsed raw yield to 0-2 hits each, so the five domain-free generators are restored and the astronomy-anchored queries ADDED alongside rather than substituted -- the digest's theory that anchoring would raise yield is true only as an extra channel. The Acta Astronautica gate was widened after a live sweep showed the probe-only term list dropped the Chang'e-5 regolith nanoindentation paper and a space-tokamak fusion-power paper, both live subjects elsewhere in the series; Acta is the series' only window into that journal, so its gate has to serve every paper. Also excluded environmental-contamination work from governance and generic Industry-4.0/5.0 work from bootstrap.",
     "2026-10-22: author names now come from the byline. search.py's OpenAlex candidates used author.display_name (the disambiguated profile), which gave 'Markus C. Kolodziej' for a paper bylined Markus Wagner and 'Cao Qing' for Qing Cao, and added a middle initial (Sheryl L. Sanchez) the byline lacks; it now prefers raw_author_name via oa_authors(). SKILL.md Step 3 now verifies authors against Crossref (DOIs), DataCite (Zenodo) or the arXiv API, never an OpenAlex profile, and records disagreements in the digest.",
     "2026-10-22: acted on the 2026-10-19 digest's query notes, after a live 30-day OpenAlex comparison of old and new forms. network: only 'interplanetary internet architecture' was the polluter (10 of 10 blockchain/IoT hits unquoted); now the quoted phrase, plus title excludes for blockchain-based/enabled, IoT security, smart home, EHR, Kubernetes and the like. The other two OpenAlex queries were productive (they found El Gemayel and the ns-3 DTN paper), so they stay unquoted -- quoting 'delay tolerant' 'bundle protocol' lost the ns-3 paper. speciation: the barcode-gap query returned only DNA-barcoding taxonomy and is replaced by a reproductive-isolation model query, which in the live test returned Hissa et al. and Higaki et al.; 'ring species' is now quoted; the Crossref query that drew 'vibration isolation' is reworded; excludes for barcoding, germplasm and new-taxon descriptions. home_programme: dropped the Crossref 'interstellar object intercept mission' query (random-intercept panel studies, Protestant missions, mission-oriented policy; arXiv and OpenAlex already cover interstellar-object missions) and excluded those senses.",
-    "2026-10-22 (radar audit, items 3-4): new channels, each live-tested over a 30-day window before configuring. coupling (all papers, automatic): works citing >= 2 series references, or 1 reference with < 300 citations, from series_refs.json (build_series_refs.py: 311 unique references, 228 resolved, title matches require the first author in the byline); 13 kept in the 10-15..22 test, incl. Ryugu/Bennu water studies for roadmap/home_programme. ads: probe, fermi, computational, roadmap, home_programme, subsystem, governance; the ADS phrase \"mass driver\" is dropped because in astronomy it matches \"main driver of mass loss\" (starburst and protostar noise), and roadmap/governance are limited to the astronomy collection. ntrs: bootstrap (\"in-space manufacturing\": 6 relevant NASA reports in 30 days), roadmap ISRU; every other NTRS query returned 0 and was not configured. biorxiv: dna_ledger (both 14-day hits were Funke and Perry, papers the radar had surfaced via other channels), speciation (10 theory/genomics preprints). s2_recommend tested and left OFF: the endpoint 429s on a third of calls even at 4 s spacing, and quality is unstable (dna_ledger was excellent seeded with 6 DOIs, junk seeded with 23); fermi and home_programme looked reasonable if trialled later. PhilArchive OAI refuses automated access (403)."
+    "2026-10-22 (radar audit, items 3-4): new channels, each live-tested over a 30-day window before configuring. coupling (all papers, automatic): works citing >= 2 series references, or 1 reference with < 300 citations, from series_refs.json (build_series_refs.py: 311 unique references, 228 resolved, title matches require the first author in the byline); 13 kept in the 10-15..22 test, incl. Ryugu/Bennu water studies for roadmap/home_programme. ads: probe, fermi, computational, roadmap, home_programme, subsystem, governance; the ADS phrase \"mass driver\" is dropped because in astronomy it matches \"main driver of mass loss\" (starburst and protostar noise), and roadmap/governance are limited to the astronomy collection. ntrs: bootstrap (\"in-space manufacturing\": 6 relevant NASA reports in 30 days), roadmap ISRU; every other NTRS query returned 0 and was not configured. biorxiv: dna_ledger (both 14-day hits were Funke and Perry, papers the radar had surfaced via other channels), speciation (10 theory/genomics preprints). s2_recommend tested and left OFF: the endpoint 429s on a third of calls even at 4 s spacing, and quality is unstable (dna_ledger was excellent seeded with 6 DOIs, junk seeded with 23); fermi and home_programme looked reasonable if trialled later. PhilArchive OAI refuses automated access (403).",
+    "2026-10-22 (radar audit, item 5): 64 arXiv queries added across all 18 papers, written in the vocabulary the literature uses rather than the series' own ('light sail', 'self-driving laboratory', 'recursive self-improvement', 'disruption tolerant', 'Galton-Watson', 'transparency log', 'reward hacking'). Tested offline against the cached week of listings (4,041 papers): matches rose from 3 to ~95, the bulk on payload (20), knowledge_growth (22) and security (13). Trimmed before adoption: a bare interstellar AND (probe OR ...) query that caught ISM astronomy, 'self-improving' and a long-horizon-memory query (payload ran to 39), and generic 'tamper-evident' (crypto noise; 'transparency log' keeps the fork-resistant-log paper). math.PR added to computational and routing, where branching-process and random-geometric-graph work lives; computational's branching query requires extinction/survival/colonization so pure probability theory stays out. Old queries kept; judge new ones by yield_report.py --by-query after a month."
   ]
 }
