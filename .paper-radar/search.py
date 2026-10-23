@@ -403,6 +403,250 @@ def search_arxiv(query, since, categories=None, max_results=50):
     return out
 
 
+# --- arXiv via the weekly listings ------------------------------------------
+#
+# The search API was the radar's arXiv channel until 2026-10-22, when an audit
+# of the 2026-10-19 sweep found it had delivered 1 of 413 candidates. It times
+# out or 429s from this host far more often than not, and the circuit breaker
+# then drops arXiv silently for the rest of the run; the papers that lean on it
+# hardest (computational, Fermi, vehicle) were the ones starved. The listing
+# pages at arxiv.org/list/<cat>/pastweek answer in under a second with every
+# announcement of the past five announcement days, so the channel now is:
+#   1. fetch each configured category's listing once per run (cached to disk,
+#      because a sweep is resumed across several invocations);
+#   2. fetch abstracts in batches -- OpenAlex by arXiv DOI (37 of 40 of a
+#      week's new papers had one on the test day), S2's batch endpoint for the
+#      rest;
+#   3. evaluate each paper's existing `arxiv` queries locally against title and
+#      abstract. The queries keep their meaning; only the evaluator moved.
+# This is the arXiv query, run here instead of on arXiv's server, not a
+# relevance gate: the screening agents still judge everything it returns.
+
+ARXIV_WEEK_PATH = os.path.join(HERE, "arxiv_week.json")
+_LIST_ENTRY = re.compile(
+    r"<h3>(?P<day>[^<]*)</h3>|<dt>.*?/abs/(?P<id>\d{4}\.\d{4,5})\".*?</dt>\s*<dd>(?P<dd>.*?)</dd>",
+    re.S)
+
+
+def _listing_day(h3):
+    """'Fri, 23 Oct 2026 (showing ...)' -> '2026-10-23', or ''."""
+    m = re.search(r"(\d{1,2}) (\w{3}) (\d{4})", h3 or "")
+    if not m:
+        return ""
+    try:
+        return dt.datetime.strptime(" ".join(m.groups()), "%d %b %Y").date().isoformat()
+    except ValueError:
+        return ""
+
+
+def fetch_arxiv_listing(cat):
+    """Every entry announced in `cat` over the past week: {id: record}."""
+    out = {}
+    skip = 0
+    while True:
+        body = fetch(f"https://arxiv.org/list/{cat}/pastweek?skip={skip}&show=2000")
+        if not body:
+            break
+        day = ""
+        n = 0
+        for m in _LIST_ENTRY.finditer(body):
+            if m.group("day") is not None:
+                day = _listing_day(m.group("day"))
+                continue
+            n += 1
+            dd = m.group("dd")
+            t = re.search(r"list-title[^>]*>.*?</span>(.*?)</div>", dd, re.S)
+            a = re.search(r"list-authors[^>]*>(.*?)</div>", dd, re.S)
+            s = re.search(r"list-subjects[^>]*>.*?</span>(.*?)</div>", dd, re.S)
+            aid = m.group("id")
+            out.setdefault(aid, {
+                "source": "arxiv",
+                "title": clean_ws(strip_tags(t.group(1))) if t else "",
+                "authors": [clean_ws(strip_tags(x)) for x in
+                            re.findall(r"<a [^>]*>(.*?)</a>", a.group(1))] if a else [],
+                "date": day,
+                "year": int(day[:4]) if day[:4].isdigit() else None,
+                "venue": "arXiv preprint",
+                "doi": None,
+                "arxiv_id": aid,
+                "url": f"https://arxiv.org/abs/{aid}",
+                "abstract": "",
+                "categories": re.findall(r"\(([a-z\-]+(?:\.[A-Za-z\-]+)?)\)",
+                                         strip_tags(s.group(1))) if s else [cat],
+            })
+        total = re.search(r"Total of (\d+) entries", body)
+        skip += 2000
+        if not total or skip >= int(total.group(1)) or n == 0:
+            break
+        time.sleep(1.0)
+    return out
+
+
+def fill_arxiv_abstracts(records, budget_s=300):
+    """Abstracts for listing records, in batches: OpenAlex first, then S2."""
+    started = time.monotonic()
+    need = [r for r in records.values() if not r.get("abstract")]
+    for i in range(0, len(need), 50):
+        if time.monotonic() - started > budget_s:
+            break
+        chunk = {"10.48550/arxiv." + r["arxiv_id"]: r for r in need[i:i + 50]}
+        body = fetch("https://api.openalex.org/works?" + urllib.parse.urlencode(
+            openalex_params(**{"filter": "doi:" + "|".join(chunk),
+                               "select": "doi,abstract_inverted_index",
+                               "per-page": 50})))
+        time.sleep(0.3)
+        if not body:
+            continue
+        try:
+            for w in json.loads(body).get("results", []):
+                rec = chunk.get(norm_doi(w.get("doi")) or "")
+                if rec is not None:
+                    rec["abstract"] = clean_ws(reconstruct_abstract(
+                        w.get("abstract_inverted_index")))[:1500]
+        except json.JSONDecodeError:
+            continue
+    still = [r for r in records.values() if not r.get("abstract")]
+    s2_key = os.environ.get("S2_API_KEY")
+    for i in range(0, len(still), 500):
+        if not s2_key or time.monotonic() - started > budget_s:
+            break
+        chunk = still[i:i + 500]
+        rows = None
+        for attempt in range(2):  # S2 allows 1 req/s; one retry after a 429
+            try:
+                req = urllib.request.Request(
+                    "https://api.semanticscholar.org/graph/v1/paper/batch?fields=abstract",
+                    data=json.dumps({"ids": ["ARXIV:" + r["arxiv_id"] for r in chunk]}).encode(),
+                    headers={"x-api-key": s2_key, "Content-Type": "application/json",
+                             "User-Agent": UA})
+                with urllib.request.urlopen(req, timeout=TIMEOUT * 2) as resp:
+                    rows = json.loads(resp.read().decode("utf-8"))
+                break
+            except Exception as exc:  # noqa: BLE001 -- best-effort enrichment
+                log(f"  [arxiv] S2 abstract batch failed ({exc})"
+                    + ("; retrying" if attempt == 0 else ""))
+                time.sleep(5)
+        if rows is None:
+            break
+        for rec, row in zip(chunk, rows):
+            if row and row.get("abstract"):
+                rec["abstract"] = clean_ws(row["abstract"])[:1500]
+        time.sleep(1.1)
+
+
+def load_arxiv_week(categories, refresh=False):
+    """The week's listings for `categories`, abstracts filled, cached per day."""
+    today = dt.date.today().isoformat()
+    cache = load_json(ARXIV_WEEK_PATH, {})
+    if not refresh and cache.get("fetched") == today and \
+            set(categories) <= set(cache.get("categories", [])):
+        return cache.get("records", {}), cache.get("failed", [])
+    records, failed = {}, []
+    for cat in sorted(categories):
+        got = fetch_arxiv_listing(cat)
+        if not got:
+            failed.append(cat)
+        for aid, rec in got.items():
+            if aid in records:
+                records[aid]["categories"] = sorted(
+                    set(records[aid]["categories"]) | set(rec["categories"]))
+            else:
+                records[aid] = rec
+        log(f"  [arxiv] {cat:16s} {len(got):5d} listed")
+        time.sleep(1.0)
+    fill_arxiv_abstracts(records)
+    with_abs = sum(1 for r in records.values() if r.get("abstract"))
+    log(f"  [arxiv] {len(records)} unique this week, {with_abs} with abstracts"
+        + (f"; listing FAILED for {', '.join(failed)}" if failed else ""))
+    with open(ARXIV_WEEK_PATH, "w", encoding="utf-8") as fh:
+        json.dump({"fetched": today, "categories": sorted(categories),
+                   "failed": failed, "records": records}, fh, ensure_ascii=False)
+    return records, failed
+
+
+def _norm_match_text(text):
+    return " " + re.sub(r"[^a-z0-9]+", " ", (text or "").lower()) + " "
+
+
+def _arxiv_tokens(query):
+    return re.findall(r'\(|\)|"[^"]*"|[^\s()"]+', query)
+
+
+def arxiv_query_matches(query, text):
+    """Evaluate an arXiv-style boolean query (quoted phrases, bare words, AND,
+    OR, ANDNOT, parentheses; AND binds tighter than OR) against `text`.
+    Matching is case-insensitive, hyphens and punctuation count as spaces, and
+    a bare word also matches its plural/inflected forms (up to 3 trailing
+    letters), roughly as arXiv's own stemmer does."""
+    toks = _arxiv_tokens(query)
+    hay = _norm_match_text(text)
+    pos = 0
+
+    def term(tok):
+        words = _norm_match_text(tok.strip('"')).split()
+        if not words:
+            return False
+        # every word, in a phrase or bare, takes inflected endings, as arXiv's
+        # stemmed search does ("magnetic sail" finds "magnetic sails")
+        pat = " " + " ".join(re.escape(w) + "[a-z]{0,3}" for w in words) + " "
+        return re.search(pat, hay) is not None
+
+    def peek():
+        return toks[pos] if pos < len(toks) else None
+
+    def atom():
+        nonlocal pos
+        tok = peek()
+        if tok is None:
+            return False
+        pos += 1
+        if tok == "(":
+            v = expr()
+            if peek() == ")":
+                pos += 1
+            return v
+        return term(tok)
+
+    def conj():
+        nonlocal pos
+        v = atom()
+        while peek() in ("AND", "ANDNOT"):
+            op = toks[pos]
+            pos += 1
+            rhs = atom()
+            v = (v and rhs) if op == "AND" else (v and not rhs)
+        return v
+
+    def expr():
+        nonlocal pos
+        v = conj()
+        while peek() == "OR":
+            pos += 1
+            v = conj() or v
+        return v
+
+    return expr()
+
+
+def match_arxiv_week(paper, week, since):
+    """Records from the week's listings matching any of the paper's queries."""
+    cats = set(paper.get("arxiv_categories") or [])
+    out = []
+    for rec in week.values():
+        if rec.get("date") and rec["date"] < since:
+            continue
+        if cats and not cats & set(rec.get("categories") or []):
+            continue
+        text = rec.get("title", "") + " " + rec.get("abstract", "")
+        for q in paper.get("arxiv", []):
+            if arxiv_query_matches(q, text):
+                hit = dict(rec)
+                hit["matched_query"] = q
+                out.append(hit)
+                break
+    return out
+
+
 def search_openalex(query, since, per_page=10):
     # sort=relevance_score:desc is load-bearing. Sorting by publication_date
     # returns whatever is NEWEST rather than whatever is RELEVANT, which in
@@ -1110,7 +1354,33 @@ def run(args):
 
     stats = {"raw": 0, "excluded": 0, "future_dated": 0, "dupe_seen": 0, "dupe_run": 0,
              "quarantined": 0, "kept": 0, "abstract_tried": 0, "abstract_filled": 0}
-    arxiv_index = arxiv_index_freshness(since)
+    # arXiv: the week's listings, evaluated locally (see load_arxiv_week). The
+    # search API stays only as a fallback -- for categories whose listing
+    # failed, or a window reaching back past what the listings cover.
+    arxiv_week, arxiv_api_needed = None, False
+    arxiv_cats = sorted({c for p in papers if p.get("arxiv")
+                         for c in (p.get("arxiv_categories") or [])})
+    if arxiv_cats and not args.arxiv_api:
+        arxiv_week, failed = load_arxiv_week(arxiv_cats, refresh=args.arxiv_refresh)
+        listed_from = min((r["date"] for r in arxiv_week.values() if r.get("date")),
+                          default=None)
+        stats["arxiv_listed"] = len(arxiv_week)
+        stats["arxiv_listing_failed"] = failed
+        if not arxiv_week:
+            log("  ! arXiv listings returned NOTHING -- falling back to the search API")
+            arxiv_week, arxiv_api_needed = None, True
+        # The listing dates are announcement days (five a week), which cover
+        # the preceding week of submissions; only a window reaching back past
+        # that week needs the API.
+        elif failed or since < (dt.date.today() - dt.timedelta(days=8)).isoformat():
+            arxiv_api_needed = True
+            log(f"  [arxiv] also using the search API: "
+                + (f"listing failed for {', '.join(failed)}" if failed else
+                   f"window starts {since}, listings reach back only to {listed_from}"))
+    elif arxiv_cats:
+        arxiv_api_needed = True
+
+    arxiv_index = arxiv_index_freshness(since) if arxiv_api_needed else None
     if arxiv_index:
         stats["arxiv_index_newest"] = arxiv_index["newest"]
         stats["arxiv_index_lag_days"] = arxiv_index["lag_days"]
@@ -1146,7 +1416,9 @@ def run(args):
         # 12s of pure sleep per paper; across 15 papers that alone blew the
         # runtime past the point where the run could finish at all.
         arxiv_qs = paper.get("arxiv", [])
-        if arxiv_qs:
+        if arxiv_qs and arxiv_week is not None:
+            plan.append(("arxiv_list", "|".join(arxiv_qs)))
+        if arxiv_qs and arxiv_api_needed:
             plan.append(("arxiv", " OR ".join(f"({q})" for q in arxiv_qs)))
         for q in paper.get("openalex", []):
             plan.append(("openalex", q))
@@ -1167,7 +1439,9 @@ def run(args):
 
         for source, q in plan:
             try:
-                if source == "arxiv":
+                if source == "arxiv_list":
+                    found = match_arxiv_week(paper, arxiv_week, since)
+                elif source == "arxiv":
                     found = search_arxiv(q, since, paper.get("arxiv_categories"))
                 elif source == "openalex":
                     found = search_openalex(q, since)
@@ -1223,7 +1497,8 @@ def run(args):
                 if nt:
                     title_index[nt] = rk
                 rec["paper_key"] = key
-                rec["found_via"] = f"{source}: {q}"
+                rec["found_via"] = (f"{source}: {rec.pop('matched_query')}"
+                                    if rec.get("matched_query") else f"{source}: {q}")
                 rec["_key"] = rk
                 hits[rk] = rec
                 kept_here += 1
@@ -1349,6 +1624,10 @@ def main():
                     help="seconds for the abstract backfill pass (default 20); it "
                          "runs once, on the call that completes the sweep")
     ap.add_argument("--no-s2", action="store_true", help="force-skip Semantic Scholar")
+    ap.add_argument("--arxiv-api", action="store_true",
+                    help="use the arXiv search API instead of the weekly listings")
+    ap.add_argument("--arxiv-refresh", action="store_true",
+                    help="re-fetch the arXiv listings even if today's cache exists")
     ap.add_argument("--baseline", action="store_true", help="alias: wide first-run sweep")
     ap.add_argument("--mark-seen-from", metavar="PATH",
                     help="record a finished candidates.json in seen.json; no searching")

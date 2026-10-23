@@ -23,3 +23,5 @@ node_modules/
 # Regenerated beside the code by build_catalog runs; canonical copies live in docs/
 code/stars_100ly.csv
 code/stars_100ly.json
+# Paper-radar's per-day cache of the arXiv weekly listings (regenerated each run)
+.paper-radar/arxiv_week.json
