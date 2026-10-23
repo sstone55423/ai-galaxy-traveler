@@ -792,6 +792,73 @@ def load_json(path, default):
         return default
 
 
+# Abstracts are untrusted upstream text, and they reach the screening agents as
+# prose. On 2026-10-19 an OpenAlex record (a real article, doi
+# 10.68258/ajah_phileth.63877) carried a coding agent's task prompt in its
+# abstract field -- markdown headings, a numbered "Rules" list, "Do not ..."
+# lines, file paths. An abstract that reads as an instruction is a prompt-
+# injection vector, so score each one for instruction-like markers and
+# quarantine (blank) any that cross the threshold. The screener then treats it
+# as a missing abstract, which SKILL.md already says to judge as `consider`.
+# Strong markers have no business in an abstract and quarantine on their own;
+# weak ones also occur in AI-safety prose ("the system prompt", "your task")
+# and need a second, structural marker before they count.
+_INJECT_STRONG = re.compile(
+    r"ignore (?:all |any |the )?(?:previous|prior|above|earlier) (?:instructions|prompts?)"
+    r"|disregard (?:all |any |the )?(?:previous|prior|above) (?:instructions|prompts?|text)"
+    r"|\byou are now\b|\[/?inst\]|<\|im_start\||<\|endoftext\|>"
+    r"|\b(?:respond|reply|answer) only with\b",
+    re.I)
+_INJECT_WEAK = re.compile(
+    r"\byour (?:task|role|job|objective) is\b|\bas an ai\b|\bassistant:|\buser:"
+    r"|\bfollow (?:these|the following) (?:steps|instructions|rules)\b"
+    r"|\bbefore making (?:any )?changes\b|\bgit status\b"
+    r"|\b(?:stage|commit|push)\b.{0,40}\bgit\b",
+    re.I)
+_MD_HEADING = re.compile(r"(?:^|\s)#{1,6} [A-Z]")
+_DO_NOT = re.compile(r"\b(?:do not|don't|never)\s+(?:overwrite|modify|change|add|introduce|reveal|mention|tell|output|include|use|run|delete)\b", re.I)
+_CODE_PATH = re.compile(r"[\w/\.-]+\.(?:js|ts|tsx|py|css|html|json|ya?ml|md|sh|ps1)\b|[A-Za-z]:\\?\w|`[^`]{2,60}`")
+_YOU = re.compile(r"\byou(?:r|rs)?\b", re.I)
+
+
+def abstract_injection_score(text):
+    """Count instruction-like markers in an abstract; 0 for ordinary prose."""
+    if not text:
+        return 0, []
+    why = []
+    strong = len(_INJECT_STRONG.findall(text))
+    weak = len(_INJECT_WEAK.findall(text))
+    if strong:
+        why.append(f"{strong} override phrase(s)")
+    if weak:
+        why.append(f"{weak} instruction phrase(s)")
+    structural = 0
+    if len(_MD_HEADING.findall(text)) >= 2:
+        why.append("markdown headings")
+        structural += 1
+    if len(_DO_NOT.findall(text)) >= 2:
+        why.append("repeated 'do not' directives")
+        structural += 1
+    if len(_CODE_PATH.findall(text)) >= 3:
+        why.append("file paths / code spans")
+        structural += 1
+    words = max(1, len(text.split()))
+    if words >= 40 and len(_YOU.findall(text)) / words > 0.02:
+        why.append("second-person address")
+        structural += 1
+    return 2 * strong + min(weak, 2) + structural, why
+
+
+def quarantine_abstract(rec, threshold=2):
+    """Blank an abstract that reads as an instruction; True if quarantined."""
+    score, why = abstract_injection_score(rec.get("abstract") or "")
+    if score < threshold:
+        return False
+    rec["abstract"] = ""
+    rec["abstract_quarantined"] = "; ".join(why)
+    return True
+
+
 def excluded(title, patterns):
     t = (title or "").lower()
     return any(p.lower() in t for p in patterns)
@@ -817,7 +884,8 @@ def merge_record(target, incoming):
         if incoming["venue"] not in ("unknown venue", ""):
             target["venue"] = incoming["venue"]
     if len(incoming.get("abstract") or "") > len(target.get("abstract") or ""):
-        target["abstract"] = incoming["abstract"]
+        if not quarantine_abstract(incoming):
+            target["abstract"] = incoming["abstract"]
     if incoming.get("cited_by") is not None and target.get("cited_by") is None:
         target["cited_by"] = incoming["cited_by"]
     if incoming.get("oa_url") and not target.get("oa_url"):
@@ -936,7 +1004,7 @@ def run(args):
     log(f"Sources: arxiv, openalex, crossref" + (", semanticscholar" if s2_on else " (s2: no key, skipped)")
         + (", ads" if ads_on else " (ads: no key, citation watch falls back to openalex)"))
 
-    stats = {"raw": 0, "excluded": 0, "future_dated": 0, "dupe_seen": 0, "dupe_run": 0, "kept": 0}
+    stats = {"raw": 0, "excluded": 0, "future_dated": 0, "dupe_seen": 0, "dupe_run": 0, "quarantined": 0, "kept": 0}
     arxiv_index = arxiv_index_freshness(since)
     if arxiv_index:
         stats["arxiv_index_newest"] = arxiv_index["newest"]
@@ -1023,6 +1091,10 @@ def run(args):
                 if future_dated(rec):
                     stats["future_dated"] += 1
                     continue
+                if quarantine_abstract(rec):
+                    stats["quarantined"] += 1
+                    log(f"  ! abstract quarantined ({rec['abstract_quarantined']}): "
+                        f"{rec['title'][:60]}")
                 rk = record_key(rec)
                 if rk in seen_keys and not args.ignore_seen:
                     stats["dupe_seen"] += 1
@@ -1094,7 +1166,8 @@ def run(args):
     log(f"\n{'=' * 62}")
     log(f"raw hits {stats['raw']} | excluded {stats['excluded']} | "
         f"future-dated {stats['future_dated']} | already-seen {stats['dupe_seen']} | "
-        f"cross-source dupes {stats['dupe_run']} | KEPT {stats['kept']}")
+        f"cross-source dupes {stats['dupe_run']} | abstracts quarantined "
+        f"{stats['quarantined']} | KEPT {stats['kept']}")
     log(f"candidates -> {out_path}")
 
     if truncated or remaining:
