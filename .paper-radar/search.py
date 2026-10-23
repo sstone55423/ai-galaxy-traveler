@@ -47,6 +47,7 @@ Notes:
 """
 
 import argparse
+import collections
 import datetime as dt
 import json
 import os
@@ -68,7 +69,8 @@ CONTACT = "scott.stone@my.metrostate.edu"
 UA = f"paper-radar/1.0 (AI Galaxy Traveler; mailto:{CONTACT})"
 
 # Politeness delays (seconds). arXiv explicitly asks for >=3s between calls.
-DELAY = {"arxiv": 3.0, "openalex": 0.2, "crossref": 0.5, "s2": 1.1, "cites": 0.3, "venue": 0.6}
+DELAY = {"arxiv": 3.0, "openalex": 0.2, "crossref": 0.5, "s2": 1.1, "cites": 0.3, "venue": 0.6,
+         "ads": 0.5, "ntrs": 0.5, "s2_recommend": 4.0, "arxiv_list": 0, "coupling": 0, "biorxiv": 0}
 
 TIMEOUT = 30
 
@@ -644,6 +646,271 @@ def match_arxiv_week(paper, week, since):
                 hit["matched_query"] = q
                 out.append(hit)
                 break
+    return out
+
+
+# --- coupling: new works that cite the series' own references ---------------
+#
+# Keyword queries miss work phrased in another field's vocabulary; a paper that
+# cites what this series cites does not depend on wording. series_refs.json
+# (build_series_refs.py) holds the series' reference lists resolved to OpenAlex
+# ids. One sweep-wide pass asks OpenAlex for every work published in the window
+# that cites any of them, and keeps a work for a paper when it cites at least
+# two series references, or one niche reference (fewer than COUPLING_NICHE
+# citations): on the 2026-10-08..22 test that kept 17 of 128 citing works --
+# Perry et al. (citing six series references), Yang et al., Bennu and Ryugu
+# water studies, a speciation-continuum genomics paper citing Hissa -- while a
+# single citation of Shannon 1948 or Hardin 1968 is not taken as a signal.
+
+SERIES_REFS_PATH = os.path.join(HERE, "series_refs.json")
+COUPLING_NICHE = 300
+
+
+def search_coupling(since):
+    """{paper_key: [records]} for works in the window coupled to the series."""
+    seeds = {r["id"]: r for r in (load_json(SERIES_REFS_PATH, {}).get("refs") or [])
+             if r.get("id")}
+    if not seeds:
+        log("  [coupling] no series_refs.json -- run build_series_refs.py; skipped")
+        return {}
+    works = {}
+    ids = list(seeds)
+    for i in range(0, len(ids), 50):
+        cursor = "*"
+        while cursor:
+            body = fetch("https://api.openalex.org/works?" + urllib.parse.urlencode(
+                openalex_params(**{
+                    "filter": f"cites:{'|'.join(ids[i:i + 50])},from_publication_date:{since}",
+                    "select": "id,doi,title,publication_date,publication_year,authorships,"
+                              "primary_location,abstract_inverted_index,referenced_works,type",
+                    "per-page": 200, "cursor": cursor})))
+            time.sleep(DELAY["openalex"])
+            if not body:
+                break
+            try:
+                page = json.loads(body)
+            except json.JSONDecodeError:
+                break
+            for w in page.get("results", []):
+                works[w["id"]] = w
+            cursor = page.get("meta", {}).get("next_cursor") if page.get("results") else None
+
+    out = collections.defaultdict(list)
+    for w in works.values():
+        hit = [x.rsplit("/", 1)[-1] for x in (w.get("referenced_works") or [])]
+        hit = [x for x in hit if x in seeds]
+        niche = [x for x in hit if (seeds[x].get("cited_by") or 10 ** 9) < COUPLING_NICHE]
+        if len(hit) < 2 and not niche:
+            continue
+        loc = w.get("primary_location") or {}
+        src = loc.get("source") or {}
+        labels = ", ".join(f"{seeds[x]['author']} {seeds[x]['year']}" for x in hit[:4])
+        papers = sorted({p for x in hit for p in seeds[x].get("papers", [])})
+        for pk in papers:
+            out[pk].append({
+                "source": "coupling",
+                "title": clean_ws(w.get("title")),
+                "authors": oa_authors(w)[:12],
+                "date": w.get("publication_date") or "",
+                "year": w.get("publication_year"),
+                "venue": src.get("display_name") or "unknown venue",
+                "doi": norm_doi(w.get("doi")),
+                "arxiv_id": None,
+                "url": w.get("doi") or (loc.get("landing_page_url") or ""),
+                "abstract": reconstruct_abstract(w.get("abstract_inverted_index"))[:1500],
+                "coupling": len(hit),
+                "matched_query": f"cites {len(hit)} series ref(s): {labels}",
+            })
+    log(f"  [coupling] {len(works)} works cite a series reference since {since}; "
+        f"{sum(len(v) for v in out.values())} kept across {len(out)} papers")
+    return dict(out)
+
+
+# --- sources added 2026-10-22 (radar audit) ----------------------------------
+#
+# Each is configured per paper in queries.json and tested live before wiring:
+#   ads        ADS keyword search -- reaches JBIS, IAC, LPSC abstracts and NASA
+#              NIAC/contractor reports that no other channel indexes (30 days:
+#              a NIAC metamaterial-sail report, "Pulsars as natural launchers
+#              of interstellar probes", 28 technosignature papers). ADS syntax.
+#   ntrs       NASA Technical Reports Server -- engineering reports with real
+#              numbers (ISRU, fission surface power, mass drivers).
+#   biorxiv    the week's bioRxiv postings (~1,500, with abstracts), category-
+#              filtered and matched locally with arXiv-style queries, like the
+#              arXiv listings; preprints otherwise reach OpenAlex late and bare.
+#   s2_recommend  Semantic Scholar recommendations seeded with the paper's own
+#              DOI references; strong for the DNA mission-ledger paper (Perry
+#              et al., ProbeFS), weak for routing -- capped, and judged by
+#              yield_report.py over time.
+
+def search_ads(query, since, rows=20):
+    token = os.environ.get("ADS_API_TOKEN")
+    if not token:
+        return []
+    q = f"({query}) entdate:[{since} TO *]"
+    body = fetch("https://api.adsabs.harvard.edu/v1/search/query?" + urllib.parse.urlencode(
+        {"q": q, "rows": rows, "sort": "date desc",
+         "fl": "title,author,pubdate,doi,bibcode,abstract,pub,identifier"}),
+        headers={"Authorization": f"Bearer {token}"})
+    if not body:
+        return []
+    try:
+        docs = json.loads(body).get("response", {}).get("docs", [])
+    except json.JSONDecodeError:
+        return []
+    out = []
+    for d in docs:
+        pubdate = (d.get("pubdate") or "").replace("-00", "-01")
+        arxiv = next((x.split(":", 1)[1] for x in d.get("identifier") or []
+                      if x.lower().startswith("arxiv:")), None)
+        out.append({
+            "source": "ads",
+            "title": clean_ws((d.get("title") or [""])[0]),
+            "authors": (d.get("author") or [])[:12],
+            "date": pubdate,
+            "year": int(pubdate[:4]) if pubdate[:4].isdigit() else None,
+            "venue": d.get("pub") or "ADS",
+            "doi": norm_doi((d.get("doi") or [None])[0]),
+            "arxiv_id": arxiv,
+            "url": f"https://ui.adsabs.harvard.edu/abs/{d.get('bibcode')}",
+            "abstract": clean_ws(d.get("abstract") or "")[:1500],
+        })
+    return out
+
+
+def search_ntrs(query, since, size=15):
+    body = fetch("https://ntrs.nasa.gov/api/citations/search?" + urllib.parse.urlencode(
+        {"q": query, "published.gte": since, "page.size": size}))
+    if not body:
+        return []
+    try:
+        results = json.loads(body).get("results", [])
+    except json.JSONDecodeError:
+        return []
+    out = []
+    for r in results:
+        pubs = r.get("publications") or []
+        date = ((pubs[0].get("publicationDate") if pubs else None)
+                or r.get("distributionDate") or "")[:10]
+        authors = [((a.get("meta") or {}).get("author") or {}).get("name")
+                   for a in r.get("authorAffiliations") or []]
+        out.append({
+            "source": "ntrs",
+            "title": clean_ws(r.get("title")),
+            "authors": [a for a in authors if a][:12],
+            "date": date,
+            "year": int(date[:4]) if date[:4].isdigit() else None,
+            "venue": f"NASA NTRS ({r.get('stiTypeDetails') or r.get('stiType') or 'report'})",
+            "doi": norm_doi((pubs[0].get("doi") if pubs else None)),
+            "arxiv_id": None,
+            "url": f"https://ntrs.nasa.gov/citations/{r.get('id')}",
+            "abstract": clean_ws(r.get("abstract") or "")[:1500],
+        })
+    return out
+
+
+BIORXIV_CATEGORIES = {"bioinformatics", "synthetic biology", "bioengineering",
+                      "evolutionary biology", "genomics", "genetics", "ecology",
+                      "systems biology", "biophysics", "molecular biology"}
+
+
+def load_biorxiv_week(since):
+    """The window's bioRxiv postings in BIORXIV_CATEGORIES, with abstracts."""
+    until = dt.date.today().isoformat()
+    out, cursor = {}, 0
+    while True:
+        body = fetch(f"https://api.biorxiv.org/details/biorxiv/{since}/{until}/{cursor}")
+        if not body:
+            break
+        try:
+            page = json.loads(body)
+        except json.JSONDecodeError:
+            break
+        coll = page.get("collection") or []
+        for c in coll:
+            if (c.get("category") or "").lower() not in BIORXIV_CATEGORIES:
+                continue
+            out[c["doi"]] = {
+                "source": "biorxiv",
+                "title": clean_ws(c.get("title")),
+                "authors": [a.strip() for a in (c.get("authors") or "").split(";") if a.strip()][:12],
+                "date": c.get("date") or "",
+                "year": int(c["date"][:4]) if (c.get("date") or "")[:4].isdigit() else None,
+                "venue": f"bioRxiv preprint ({c.get('category')})",
+                "doi": norm_doi(c.get("doi")),
+                "arxiv_id": None,
+                "url": f"https://www.biorxiv.org/content/{c.get('doi')}",
+                "abstract": clean_ws(c.get("abstract") or "")[:1500],
+            }
+        msg = (page.get("messages") or [{}])[0]
+        total = int(msg.get("total") or 0)
+        cursor += int(msg.get("count") or len(coll) or 0)
+        if not coll or cursor >= total:
+            break
+        time.sleep(0.5)
+    log(f"  [biorxiv] {len(out)} postings in the watched categories since {since}")
+    return out
+
+
+def match_local(paper, pool, queries_key):
+    """Records from `pool` matching any of the paper's `queries_key` queries."""
+    out = []
+    for rec in pool.values():
+        text = rec.get("title", "") + " " + rec.get("abstract", "")
+        for q in paper.get(queries_key, []):
+            if arxiv_query_matches(q, text):
+                hit = dict(rec)
+                hit["matched_query"] = q
+                out.append(hit)
+                break
+    return out
+
+
+def search_s2_recommend(paper_key, since, limit=10):
+    """Recent papers S2 recommends from the paper's own DOI references."""
+    key = os.environ.get("S2_API_KEY")
+    refs = (load_json(SERIES_REFS_PATH, {}).get("refs") or [])
+    seeds = ["DOI:" + r["doi"] for r in refs if paper_key in r.get("papers", []) and r.get("doi")]
+    if not key or len(seeds) < 3:
+        return []
+    recs = None
+    # The recommendations endpoint 429s far more readily than the batch one:
+    # at 1.2 s spacing half the calls failed on the 2026-10-22 test. Back off.
+    for attempt in range(3):
+        try:
+            req = urllib.request.Request(
+                "https://api.semanticscholar.org/recommendations/v1/papers"
+                "?fields=title,authors,publicationDate,externalIds,venue,abstract&limit=40",
+                data=json.dumps({"positivePaperIds": seeds[:50]}).encode(),
+                headers={"x-api-key": key, "Content-Type": "application/json", "User-Agent": UA})
+            with urllib.request.urlopen(req, timeout=TIMEOUT * 2) as resp:
+                recs = json.loads(resp.read().decode("utf-8")).get("recommendedPapers", [])
+            break
+        except Exception as exc:  # noqa: BLE001
+            if attempt == 2:
+                log(f"  [s2_recommend] {paper_key}: {exc}; skipped")
+                return []
+            time.sleep(6 * (attempt + 1))
+    out = []
+    for p in recs:
+        date = p.get("publicationDate") or ""
+        if not date or date < since:
+            continue
+        ext = p.get("externalIds") or {}
+        out.append({
+            "source": "s2_recommend",
+            "title": clean_ws(p.get("title")),
+            "authors": [a.get("name") for a in p.get("authors") or [] if a.get("name")][:12],
+            "date": date,
+            "year": int(date[:4]),
+            "venue": p.get("venue") or "unknown venue",
+            "doi": norm_doi(ext.get("DOI")),
+            "arxiv_id": ext.get("ArXiv"),
+            "url": f"https://www.semanticscholar.org/paper/{p.get('paperId')}",
+            "abstract": clean_ws(p.get("abstract") or "")[:1500],
+        })
+        if len(out) >= limit:
+            break
     return out
 
 
@@ -1408,6 +1675,10 @@ def run(args):
         arxiv_api_needed = True
 
     arxiv_index = arxiv_index_freshness(since) if arxiv_api_needed else None
+    coupling = {} if args.no_coupling else search_coupling(since)
+    stats["coupling_kept"] = sum(len(v) for v in coupling.values())
+    biorxiv = load_biorxiv_week(since) if any(p.get("biorxiv") for p in papers) else {}
+    stats["biorxiv_listed"] = len(biorxiv)
     if arxiv_index:
         stats["arxiv_index_newest"] = arxiv_index["newest"]
         stats["arxiv_index_lag_days"] = arxiv_index["lag_days"]
@@ -1447,6 +1718,17 @@ def run(args):
             plan.append(("arxiv_list", "|".join(arxiv_qs)))
         if arxiv_qs and arxiv_api_needed:
             plan.append(("arxiv", " OR ".join(f"({q})" for q in arxiv_qs)))
+        if coupling.get(key):
+            plan.append(("coupling", "series references"))
+        if biorxiv and paper.get("biorxiv"):
+            plan.append(("biorxiv", "|".join(paper["biorxiv"])))
+        if paper.get("s2_recommend") and os.environ.get("S2_API_KEY"):
+            plan.append(("s2_recommend", "paper's DOI references"))
+        if ads_on:
+            for q in paper.get("ads", []):
+                plan.append(("ads", q))
+        for q in paper.get("ntrs", []):
+            plan.append(("ntrs", q))
         for q in paper.get("openalex", []):
             plan.append(("openalex", q))
         for q in paper.get("crossref", []):
@@ -1468,6 +1750,16 @@ def run(args):
             try:
                 if source == "arxiv_list":
                     found = match_arxiv_week(paper, arxiv_week, since)
+                elif source == "coupling":
+                    found = [dict(r) for r in coupling.get(key, [])]
+                elif source == "biorxiv":
+                    found = match_local(paper, biorxiv, "biorxiv")
+                elif source == "s2_recommend":
+                    found = search_s2_recommend(key, since)
+                elif source == "ads":
+                    found = search_ads(q, since)
+                elif source == "ntrs":
+                    found = search_ntrs(q, since)
                 elif source == "arxiv":
                     found = search_arxiv(q, since, paper.get("arxiv_categories"))
                 elif source == "openalex":
@@ -1651,6 +1943,8 @@ def main():
     ap.add_argument("--no-s2", action="store_true", help="force-skip Semantic Scholar")
     ap.add_argument("--arxiv-api", action="store_true",
                     help="use the arXiv search API instead of the weekly listings")
+    ap.add_argument("--no-coupling", action="store_true",
+                    help="skip the coupling channel (works citing the series' references)")
     ap.add_argument("--arxiv-refresh", action="store_true",
                     help="re-fetch the arXiv listings even if today's cache exists")
     ap.add_argument("--baseline", action="store_true", help="alias: wide first-run sweep")

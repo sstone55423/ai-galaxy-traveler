@@ -1,0 +1,3994 @@
+{
+ "_note": "Seed set for search.py's coupling channel; rebuild with build_series_refs.py after a paper's reference list changes.",
+ "refs": [
+  {
+   "doi": "10.31752/18859",
+   "author": "Abebe",
+   "year": 2026,
+   "title": "Annual Review of Constitution-Building: 2025. International IDEA",
+   "ref": "10.31752/18859",
+   "papers": [
+    "amendment"
+   ],
+   "id": "W7212029409",
+   "resolved_by": "doi",
+   "cited_by": 0
+  },
+  {
+   "doi": "10.1021/acs.chemrev.7b00355",
+   "author": "Abney",
+   "year": 2017,
+   "title": "Materials for the recovery of uranium from seawater",
+   "ref": "abney|2017|materials for the recovery of uranium from seawater",
+   "papers": [
+    "home_programme"
+   ],
+   "id": "W2770534062",
+   "resolved_by": "title (1.00)",
+   "cited_by": 1057
+  },
+  {
+   "doi": "10.1103/physrevlett.132.065102",
+   "author": "Abu-Shawareb",
+   "year": 2024,
+   "title": "Achievement of target gain larger than unity in an inertial fusion experiment",
+   "ref": "abu shawareb|2024|achievement of target gain larger than unity in an inertial ",
+   "papers": [
+    "home_programme"
+   ],
+   "id": "W4391530715",
+   "resolved_by": "title (1.00)",
+   "cited_by": 439
+  },
+  {
+   "doi": null,
+   "author": "Albert",
+   "year": 2000,
+   "title": "Error and attack tolerance of complex networks",
+   "ref": "albert|2000|error and attack tolerance of complex networks",
+   "papers": [
+    "security"
+   ],
+   "id": "W3103071483",
+   "resolved_by": "title (1.00)",
+   "cited_by": 6405
+  },
+  {
+   "doi": "10.1038/nature13285",
+   "author": "Alcaide",
+   "year": 2014,
+   "title": "Genomic divergence in a ring species complex",
+   "ref": "alcaide|2014|genomic divergence in a ring species complex",
+   "papers": [
+    "speciation"
+   ],
+   "id": "W2058294688",
+   "resolved_by": "title (1.00)",
+   "cited_by": 140
+  },
+  {
+   "doi": "10.1111/risa.70339",
+   "author": "Alfano",
+   "year": 2026,
+   "title": "When communication enables catastrophe: Nuclear risk and the short lifetimes of technological civilizations",
+   "ref": "10.1111/risa.70339",
+   "papers": [
+    "fermi"
+   ],
+   "id": "W7203896803",
+   "resolved_by": "doi",
+   "cited_by": 0
+  },
+  {
+   "doi": "10.32942/x2t11s",
+   "author": "Allen",
+   "year": 2026,
+   "title": "Genomic divergence between species identifies taxonomic outliers and establishes calibrated molecular clocks",
+   "ref": "10.32942/x2t11s",
+   "papers": [
+    "speciation"
+   ],
+   "id": "W7214950342",
+   "resolved_by": "doi",
+   "cited_by": 0
+  },
+  {
+   "doi": "10.1098/rspb.2012.1745",
+   "author": "Allentoft",
+   "year": 2012,
+   "title": "The half-life of DNA in bone: Measuring decay kinetics in 158 dated fossils",
+   "ref": "allentoft|2012|the half life of dna in bone measuring decay kinetics in 158",
+   "papers": [
+    "dna_ledger"
+   ],
+   "id": "W2126557729",
+   "resolved_by": "title (1.00)",
+   "cited_by": 631
+  },
+  {
+   "doi": null,
+   "author": "Andrews",
+   "year": 1990,
+   "title": "Magnetic sails and interstellar travel",
+   "ref": "andrews|1990|magnetic sails and interstellar travel",
+   "papers": [
+    "computational",
+    "engineering",
+    "fermi",
+    "probe",
+    "routing",
+    "subsystem"
+   ],
+   "id": "W2326377631",
+   "resolved_by": "title (1.00)",
+   "cited_by": 60
+  },
+  {
+   "doi": "10.48550/arxiv.2608.09673",
+   "author": "Anžel",
+   "year": 2026,
+   "title": "The unified evaluation app for DNA data storage codecs",
+   "ref": "an el|2026|the unified evaluation app for dna data storage codecs",
+   "papers": [
+    "dna_ledger"
+   ],
+   "id": "W7202216803",
+   "resolved_by": "title (1.00)",
+   "cited_by": 0
+  },
+  {
+   "doi": null,
+   "author": "Arrow",
+   "year": 1951,
+   "title": "Social Choice and Individual Values. John Wiley & Sons",
+   "ref": "arrow|1951|social choice and individual values john wiley sons",
+   "papers": [
+    "amendment"
+   ],
+   "id": null
+  },
+  {
+   "doi": null,
+   "author": "Arrow",
+   "year": 1951,
+   "title": "Social Choice and Individual Values. Wiley",
+   "ref": "arrow|1951|social choice and individual values wiley",
+   "papers": [
+    "ethics"
+   ],
+   "id": null
+  },
+  {
+   "doi": null,
+   "author": "BIPM (2019). *The International System of Units (SI)* (9th ed.). Bureau International des Poids et Mesures.",
+   "year": 2019,
+   "title": "The International System of Units (SI) (9th ed.)",
+   "ref": "bipm 2019 the international system of units si 9th ed bureau international des poids et mesures|2019|the international system of units si 9th ed",
+   "papers": [
+    "bootstrap"
+   ],
+   "id": null
+  },
+  {
+   "doi": null,
+   "author": "Bai",
+   "year": 2022,
+   "title": "Constitutional AI: Harmlessness from AI feedback",
+   "ref": "bai|2022|constitutional ai harmlessness from ai feedback",
+   "papers": [
+    "payload"
+   ],
+   "id": null
+  },
+  {
+   "doi": "10.1051/0004-6361/201833456",
+   "author": "Bailer-Jones",
+   "year": 2018,
+   "title": "New stellar encounters discovered in the second Gaia data release",
+   "ref": "bailer jones|2018|new stellar encounters discovered in the second gaia data re",
+   "papers": [
+    "home_programme"
+   ],
+   "id": "W2804378380",
+   "resolved_by": "title (1.00)",
+   "cited_by": 62
+  },
+  {
+   "doi": "10.48550/arxiv.2608.30047",
+   "author": "Bhushan",
+   "year": 2026,
+   "title": "Can LLM agents discover? Evaluating creativity on ML engineering tasks",
+   "ref": "bhushan|2026|can llm agents discover evaluating creativity on ml engineer",
+   "papers": [
+    "knowledge_growth"
+   ],
+   "id": "W7204868846",
+   "resolved_by": "title (1.00)",
+   "cited_by": 0
+  },
+  {
+   "doi": null,
+   "author": "Birch",
+   "year": 2024,
+   "title": "The Edge of Sentience: Risk and Precaution in Humans, Other Animals, and AI. Oxford University Press",
+   "ref": "birch|2024|the edge of sentience risk and precaution in humans other an",
+   "papers": [
+    "ethics"
+   ],
+   "id": null
+  },
+  {
+   "doi": "10.1017/s1473550407003709",
+   "author": "Bjørk",
+   "year": 2007,
+   "title": "Exploring the Galaxy using space probes",
+   "ref": "bj rk|2007|exploring the galaxy using space probes",
+   "papers": [
+    "routing"
+   ],
+   "id": "W2141487946",
+   "resolved_by": "title (1.00)",
+   "cited_by": 34
+  },
+  {
+   "doi": "10.1146/annurev-astro-081915-023441",
+   "author": "Bland-Hawthorn",
+   "year": 2016,
+   "title": "The Galaxy in context: Structural, kinematic, and integrated properties",
+   "ref": "bland hawthorn|2016|the galaxy in context structural kinematic and integrated pr",
+   "papers": [
+    "probe"
+   ],
+   "id": "W2216753448",
+   "resolved_by": "title (1.00)",
+   "cited_by": 1654
+  },
+  {
+   "doi": null,
+   "author": "Bond",
+   "year": 1978,
+   "title": "Project Daedalus: The final report on the BIS starship study",
+   "ref": "bond|1978|project daedalus the final report on the bis starship study",
+   "papers": [
+    "probe"
+   ],
+   "id": null
+  },
+  {
+   "doi": "10.1016/j.actaastro.2021.03.004",
+   "author": "Borgue",
+   "year": 2021,
+   "title": "Near-term self-replicating probes — A concept design",
+   "ref": "borgue|2021|near term self replicating probes a concept design",
+   "papers": [
+    "bootstrap",
+    "engineering",
+    "probe",
+    "roadmap"
+   ],
+   "id": "W3028855685",
+   "resolved_by": "title (1.00)",
+   "cited_by": 10
+  },
+  {
+   "doi": null,
+   "author": "Bostrom",
+   "year": 2002,
+   "title": "Existential risks: Analyzing human extinction scenarios and related hazards",
+   "ref": "bostrom|2002|existential risks analyzing human extinction scenarios and r",
+   "papers": [
+    "ethics"
+   ],
+   "id": "W1812041023",
+   "resolved_by": "title (1.00)",
+   "cited_by": 421
+  },
+  {
+   "doi": null,
+   "author": "Bostrom",
+   "year": 2011,
+   "title": "Information hazards: A typology of potential harms from knowledge",
+   "ref": "bostrom|2011|information hazards a typology of potential harms from knowl",
+   "papers": [
+    "governance"
+   ],
+   "id": "W2737986252",
+   "resolved_by": "title (1.00)",
+   "cited_by": 86
+  },
+  {
+   "doi": null,
+   "author": "Bostrom",
+   "year": 2014,
+   "title": "Superintelligence: Paths, Dangers, Strategies. Oxford University Press",
+   "ref": "bostrom|2014|superintelligence paths dangers strategies oxford university",
+   "papers": [
+    "amendment",
+    "ethics",
+    "fermi",
+    "governance",
+    "payload"
+   ],
+   "id": null
+  },
+  {
+   "doi": "10.1038/186670a0",
+   "author": "Bracewell",
+   "year": 1960,
+   "title": "Communications from superior galactic communities",
+   "ref": "bracewell|1960|communications from superior galactic communities",
+   "papers": [
+    "fermi",
+    "payload"
+   ],
+   "id": "W2082196580",
+   "resolved_by": "title (1.00)",
+   "cited_by": 140
+  },
+  {
+   "doi": "10.1017/jpr.2026.10129",
+   "author": "Brandenberger",
+   "year": 2026,
+   "title": "Temporal connectivity of random geometric graphs",
+   "ref": "10.1017/jpr.2026.10129",
+   "papers": [
+    "routing"
+   ],
+   "id": null
+  },
+  {
+   "doi": "10.1093/sysbio/syaf020",
+   "author": "Budd",
+   "year": 2025,
+   "title": "Evolutionary tempo, supertaxa, and living fossils",
+   "ref": "budd|2025|evolutionary tempo supertaxa and living fossils",
+   "papers": [
+    "speciation"
+   ],
+   "id": "W4410086953",
+   "resolved_by": "title (1.00)",
+   "cited_by": 7
+  },
+  {
+   "doi": "10.1007/3-540-44503-x_20",
+   "author": "Buneman",
+   "year": 2001,
+   "title": "Why and where: A characterization of data provenance",
+   "ref": "buneman|2001|why and where a characterization of data provenance",
+   "papers": [
+    "knowledge_growth",
+    "network"
+   ],
+   "id": "W1552694902",
+   "resolved_by": "title (1.00)",
+   "cited_by": 1333
+  },
+  {
+   "doi": "10.1109/mcom.2003.1204759",
+   "author": "Burleigh",
+   "year": 2003,
+   "title": "Delay-tolerant networking: An approach to interplanetary Internet",
+   "ref": "burleigh|2003|delay tolerant networking an approach to interplanetary inte",
+   "papers": [
+    "dna_ledger",
+    "fermi",
+    "network",
+    "payload"
+   ],
+   "id": "W2097625638",
+   "resolved_by": "title (1.00)",
+   "cited_by": 1418
+  },
+  {
+   "doi": null,
+   "author": "Bussard",
+   "year": 1960,
+   "title": "Galactic matter and interstellar flight",
+   "ref": "bussard|1960|galactic matter and interstellar flight",
+   "papers": [
+    "probe"
+   ],
+   "id": null
+  },
+  {
+   "doi": "10.1111/mec.70558",
+   "author": "Butlin",
+   "year": 2026,
+   "title": "Cline widths, barriers to gene flow and reproductive isolation: A comment on Gippner et al. 2026",
+   "ref": "10.1111/mec.70558",
+   "papers": [
+    "speciation"
+   ],
+   "id": "W7214717970",
+   "resolved_by": "doi",
+   "cited_by": 0
+  },
+  {
+   "doi": null,
+   "author": "CCSDS (2012). *Reference Model for an Open Archival Information System (OAIS)*. Recommended Practice CCSDS 650.0-M-2 (Magenta Book). Consultative Committee for Space Data Systems. (Equivalently ISO 14721:2012.)",
+   "year": 2012,
+   "title": "Reference Model for an Open Archival Information System (OAIS)",
+   "ref": "ccsds 2012 reference model for an open archival information system oais recommended practice ccsds 650 0 m 2 magenta book consultative committee for space data systems equivalently iso 14721 2012|2012|reference model for an open archival information system oais",
+   "papers": [
+    "knowledge_growth"
+   ],
+   "id": "W1957356093",
+   "resolved_by": "title (1.00)",
+   "cited_by": 354
+  },
+  {
+   "doi": null,
+   "author": "CEA (2025). *WEST sets a new plasma duration record.* CEA-IRFM press release",
+   "year": 2025,
+   "title": "WEST sets a new plasma duration record. CEA-IRFM press release, 12 February 2025",
+   "ref": "cea 2025 west sets a new plasma duration record cea irfm press release|2025|west sets a new plasma duration record cea irfm press releas",
+   "papers": [
+    "home_programme"
+   ],
+   "id": null
+  },
+  {
+   "doi": null,
+   "author": "COSPAR (2021). *COSPAR Policy on Planetary Protection.* Committee on Space Research.",
+   "year": 2021,
+   "title": "COSPAR Policy on Planetary Protection. Committee on Space Research",
+   "ref": "cospar 2021 cospar policy on planetary protection committee on space research|2021|cospar policy on planetary protection committee on space res",
+   "papers": [
+    "governance"
+   ],
+   "id": null
+  },
+  {
+   "doi": null,
+   "author": "Cerf",
+   "year": 2007,
+   "title": "Delay-Tolerant Networking Architecture (RFC 4838)",
+   "ref": "cerf|2007|delay tolerant networking architecture rfc 4838",
+   "papers": [
+    "dna_ledger",
+    "fermi",
+    "network",
+    "payload"
+   ],
+   "id": null
+  },
+  {
+   "doi": "10.1038/s41576-019-0125-3",
+   "author": "Ceze",
+   "year": 2019,
+   "title": "Molecular digital data storage using DNA",
+   "ref": "ceze|2019|molecular digital data storage using dna",
+   "papers": [
+    "dna_ledger"
+   ],
+   "id": "W2944582089",
+   "resolved_by": "title (1.00)",
+   "cited_by": 550
+  },
+  {
+   "doi": "10.1214/ss/1177009939",
+   "author": "Chaloner",
+   "year": 1995,
+   "title": "Bayesian experimental design: A review",
+   "ref": "chaloner|1995|bayesian experimental design a review",
+   "papers": [
+    "knowledge_growth"
+   ],
+   "id": "W2014018052",
+   "resolved_by": "title (1.00)",
+   "cited_by": 1846
+  },
+  {
+   "doi": "10.48550/arxiv.2608.06663",
+   "author": "Chen",
+   "year": 2026,
+   "title": "The horizon gap: Planning, memory, execution, training, and evaluation for long-horizon LLM agents",
+   "ref": "chen|2026|the horizon gap planning memory execution training and evalu",
+   "papers": [
+    "knowledge_growth"
+   ],
+   "id": "W7202143511",
+   "resolved_by": "title (1.00)",
+   "cited_by": 0
+  },
+  {
+   "doi": null,
+   "author": "Cheng",
+   "year": 2026,
+   "title": "Can fine-tuning erase your edits? On the fragile coexistence of knowledge editing and adaptation",
+   "ref": "cheng|2026|can fine tuning erase your edits on the fragile coexistence ",
+   "papers": [
+    "security"
+   ],
+   "id": null
+  },
+  {
+   "doi": "10.1007/s43681-026-01434-3",
+   "author": "Cheung",
+   "year": 2026,
+   "title": "Accountability in smart contracts and agentic AI: How to address the responsibility gap and retain meaningful human control?",
+   "ref": "10.1007/s43681-026-01434-3",
+   "papers": [
+    "ethics"
+   ],
+   "id": "W7221064485",
+   "resolved_by": "doi",
+   "cited_by": 0
+  },
+  {
+   "doi": "10.1007/s11127-026-01447-w",
+   "author": "Chilton",
+   "year": 2026,
+   "title": "Constitutional drafting processes and constitutional success",
+   "ref": "10.1007/s11127-026-01447-w",
+   "papers": [
+    "amendment"
+   ],
+   "id": "W4414630503",
+   "resolved_by": "doi",
+   "cited_by": 0
+  },
+  {
+   "doi": "10.1016/j.ijcip.2026.100882",
+   "author": "Chiu",
+   "year": 2026,
+   "title": "From backup restoration to minimum viable factory recovery: A systematization of ransomware recovery in manufacturing systems",
+   "ref": "10.1016/j.ijcip.2026.100882",
+   "papers": [
+    "security"
+   ],
+   "id": "W7202086312",
+   "resolved_by": "doi",
+   "cited_by": 0
+  },
+  {
+   "doi": "10.48550/arxiv.2608.23691",
+   "author": "Chung",
+   "year": 2026,
+   "title": "Autonomous mathematical discovery in an open-world multi-agent environment",
+   "ref": "chung|2026|autonomous mathematical discovery in an open world multi age",
+   "papers": [
+    "knowledge_growth"
+   ],
+   "id": "W7204225452",
+   "resolved_by": "title (1.00)",
+   "cited_by": 0
+  },
+  {
+   "doi": "10.1126/science.1226355",
+   "author": "Church",
+   "year": 2012,
+   "title": "Next-generation digital information storage in DNA",
+   "ref": "church|2012|next generation digital information storage in dna",
+   "papers": [
+    "bootstrap",
+    "dna_ledger"
+   ],
+   "id": "W2025383314",
+   "resolved_by": "title (1.00)",
+   "cited_by": 1433
+  },
+  {
+   "doi": "10.1126/science.1123061",
+   "author": "Ciccarelli",
+   "year": 2006,
+   "title": "Toward automatic reconstruction of a highly resolved tree of life",
+   "ref": "ciccarelli|2006|toward automatic reconstruction of a highly resolved tree of",
+   "papers": [
+    "speciation"
+   ],
+   "id": "W2078969200",
+   "resolved_by": "title (1.00)",
+   "cited_by": 1660
+  },
+  {
+   "doi": null,
+   "author": "Citron",
+   "year": 2008,
+   "title": "Technological due process",
+   "ref": "citron|2008|technological due process",
+   "papers": [
+    "ethics"
+   ],
+   "id": "W1545608014",
+   "resolved_by": "title (1.00)",
+   "cited_by": 277
+  },
+  {
+   "doi": "10.1038/184844a0",
+   "author": "Cocconi",
+   "year": 1959,
+   "title": "Searching for interstellar communications",
+   "ref": "cocconi|1959|searching for interstellar communications",
+   "papers": [
+    "payload"
+   ],
+   "id": "W2084226242",
+   "resolved_by": "title (1.00)",
+   "cited_by": 549
+  },
+  {
+   "doi": "10.1016/j.spacepol.2005.08.003",
+   "author": "Cockell",
+   "year": 2005,
+   "title": "Planetary protection—A microbial ethics approach",
+   "ref": "cockell|2005|planetary protection a microbial ethics approach",
+   "papers": [
+    "ethics"
+   ],
+   "id": "W2021406566",
+   "resolved_by": "title (1.00)",
+   "cited_by": 57
+  },
+  {
+   "doi": "10.1016/j.spacepol.2006.08.006",
+   "author": "Cockell",
+   "year": 2006,
+   "title": "Planetary parks — Formulating a wilderness policy for planetary bodies",
+   "ref": "cockell|2006|planetary parks formulating a wilderness policy for planetar",
+   "papers": [
+    "ethics"
+   ],
+   "id": "W2006443929",
+   "resolved_by": "title (1.00)",
+   "cited_by": 71
+  },
+  {
+   "doi": "10.48550/arxiv.0907.0345",
+   "author": "Cotta",
+   "year": 2009,
+   "title": "A computational analysis of galactic exploration with space probes: Implications for the Fermi paradox",
+   "ref": "cotta|2009|a computational analysis of galactic exploration with space ",
+   "papers": [
+    "routing"
+   ],
+   "id": "W3009098301",
+   "resolved_by": "title (1.00)",
+   "cited_by": 11
+  },
+  {
+   "doi": "10.1111/j.1365-2966.2008.13048.x",
+   "author": "Cox",
+   "year": 2008,
+   "title": "The collision between the Milky Way and Andromeda",
+   "ref": "cox|2008|the collision between the milky way and andromeda",
+   "papers": [
+    "probe"
+   ],
+   "id": "W2106957395",
+   "resolved_by": "title (1.00)",
+   "cited_by": 105
+  },
+  {
+   "doi": null,
+   "author": "Crawford",
+   "year": 1990,
+   "title": "Interstellar travel: A review for astronomers",
+   "ref": "crawford|1990|interstellar travel a review for astronomers",
+   "papers": [
+    "engineering",
+    "probe"
+   ],
+   "id": "W1626076892",
+   "resolved_by": "title (1.00)",
+   "cited_by": 34
+  },
+  {
+   "doi": null,
+   "author": "Crawford",
+   "year": 2000,
+   "title": "Where are they? Maybe we are alone in the Galaxy after all",
+   "ref": "crawford|2000|where are they maybe we are alone in the galaxy after all",
+   "papers": [
+    "fermi"
+   ],
+   "id": null
+  },
+  {
+   "doi": "10.1016/j.actaastro.2010.10.016",
+   "author": "Crawford",
+   "year": 2011,
+   "title": "Project Icarus: A review of local interstellar medium properties of relevance for space missions to the nearest stars",
+   "ref": "crawford|2011|project icarus a review of local interstellar medium propert",
+   "papers": [
+    "probe"
+   ],
+   "id": "W2155057264",
+   "resolved_by": "title (1.00)",
+   "cited_by": 25
+  },
+  {
+   "doi": "10.1017/s0022377820001257",
+   "author": "Creely",
+   "year": 2020,
+   "title": "Overview of the SPARC tokamak",
+   "ref": "creely|2020|overview of the sparc tokamak",
+   "papers": [
+    "home_programme"
+   ],
+   "id": "W3090280031",
+   "resolved_by": "title (1.00)",
+   "cited_by": 466
+  },
+  {
+   "doi": null,
+   "author": "Crick",
+   "year": 1973,
+   "title": "Directed panspermia",
+   "ref": "crick|1973|directed panspermia",
+   "papers": [
+    "bootstrap",
+    "governance"
+   ],
+   "id": null
+  },
+  {
+   "doi": "10.48550/arxiv.2608.12458",
+   "author": "Curtis",
+   "year": 2026,
+   "title": "The Ĝ infrared search for extraterrestrial civilizations with large energy supplies. V. When galaxies glow with industry",
+   "ref": "curtis|2026|the infrared search for extraterrestrial civilizations with ",
+   "papers": [
+    "fermi"
+   ],
+   "id": "W7203451256",
+   "resolved_by": "title (1.00)",
+   "cited_by": 0
+  },
+  {
+   "doi": "10.1177/15311074261484864",
+   "author": "Davila",
+   "year": 2026,
+   "title": "The abiotic background: Challenges and opportunities in the search for evidence of life beyond Earth",
+   "ref": "10.1177/15311074261484864",
+   "papers": [
+    "governance"
+   ],
+   "id": "W7213246903",
+   "resolved_by": "doi",
+   "cited_by": 1
+  },
+  {
+   "doi": "10.1007/s10845-026-02931-2",
+   "author": "Debnath",
+   "year": 2026,
+   "title": "Artificial intelligence for quality control and monitoring in directed energy deposition metal additive manufacturing: Applications, challenges, and opportunities",
+   "ref": "10.1007/s10845-026-02931-2",
+   "papers": [
+    "bootstrap"
+   ],
+   "id": "W7204226074",
+   "resolved_by": "doi",
+   "cited_by": 0
+  },
+  {
+   "doi": null,
+   "author": "Dobzhansky",
+   "year": 1937,
+   "title": "Genetics and the Origin of Species. Columbia University Press",
+   "ref": "dobzhansky|1937|genetics and the origin of species columbia university press",
+   "papers": [
+    "speciation"
+   ],
+   "id": null
+  },
+  {
+   "doi": "10.1007/s11214-015-0223-2",
+   "author": "Dones",
+   "year": 2015,
+   "title": "Origin and evolution of the cometary reservoirs",
+   "ref": "dones|2015|origin and evolution of the cometary reservoirs",
+   "papers": [
+    "home_programme"
+   ],
+   "id": "W2270335152",
+   "resolved_by": "title (1.00)",
+   "cited_by": 168
+  },
+  {
+   "doi": "10.1126/science.284.5423.2124",
+   "author": "Doolittle",
+   "year": 1999,
+   "title": "Phylogenetic classification and the universal tree",
+   "ref": "doolittle|1999|phylogenetic classification and the universal tree",
+   "papers": [
+    "speciation"
+   ],
+   "id": "W2098558111",
+   "resolved_by": "title (1.00)",
+   "cited_by": 1886
+  },
+  {
+   "doi": null,
+   "author": "Drexler",
+   "year": 1986,
+   "title": "Engines of Creation: The Coming Era of Nanotechnology. Anchor Press/Doubleday",
+   "ref": "drexler|1986|engines of creation the coming era of nanotechnology anchor ",
+   "papers": [
+    "ethics"
+   ],
+   "id": null
+  },
+  {
+   "doi": "10.48550/arxiv.2610.08927",
+   "author": "Du",
+   "year": 2026,
+   "title": "Can AI agents make open-ended scientific discovery? Evidence from Station",
+   "ref": "du|2026|can ai agents make open ended scientific discovery evidence ",
+   "papers": [
+    "knowledge_growth"
+   ],
+   "id": "W7220950862",
+   "resolved_by": "title (1.00)",
+   "cited_by": 0
+  },
+  {
+   "doi": "10.2307/j.ctv1v7zdq5.19",
+   "author": "Duncan",
+   "year": 2004,
+   "title": "Dynamical evolution of ecliptic comets",
+   "ref": "duncan|2004|dynamical evolution of ecliptic comets",
+   "papers": [
+    "home_programme"
+   ],
+   "id": "W12349737",
+   "resolved_by": "title (1.00)",
+   "cited_by": 118
+  },
+  {
+   "doi": null,
+   "author": "ESA (2024). *ESA 3D prints first metal part on the International Space Station* (Press Release N° 49–2024",
+   "year": 2024,
+   "title": "ESA 3D prints first metal part on the International Space Station (Press Release N° 49–2024, 6 September 2024). European Space Agency",
+   "ref": "esa 2024 esa 3d prints first metal part on the international space station press release n 49 2024|2024|esa 3d prints first metal part on the international space st",
+   "papers": [
+    "bootstrap"
+   ],
+   "id": null
+  },
+  {
+   "doi": null,
+   "author": "EUROfusion (2024). *JET's final fusion campaigns set a new energy record and hand ITER a legacy of irreplaceable data.* Press release",
+   "year": 2024,
+   "title": "JET's final fusion campaigns set a new energy record and hand ITER a legacy of irreplaceable data. Press release, 8 February 2024",
+   "ref": "eurofusion 2024 jet s final fusion campaigns set a new energy record and hand iter a legacy of irreplaceable data press release|2024|jet s final fusion campaigns set a new energy record and han",
+   "papers": [
+    "home_programme"
+   ],
+   "id": null
+  },
+  {
+   "doi": "10.3390/network6040086",
+   "author": "El Gemayel",
+   "year": 2026,
+   "title": "Resilient quorum consensus over disruption-tolerant multi-transport networks for distributed acoustic sensing",
+   "ref": "10.3390/network6040086",
+   "papers": [
+    "network"
+   ],
+   "id": "W7221196386",
+   "resolved_by": "doi",
+   "cited_by": 0
+  },
+  {
+   "doi": null,
+   "author": "Eldredge",
+   "year": 1972,
+   "title": "Punctuated equilibria: An alternative to phyletic gradualism",
+   "ref": "eldredge|1972|punctuated equilibria an alternative to phyletic gradualism",
+   "papers": [
+    "speciation"
+   ],
+   "id": "W3135630760",
+   "resolved_by": "title (1.00)",
+   "cited_by": 3261
+  },
+  {
+   "doi": null,
+   "author": "Elkins",
+   "year": 2009,
+   "title": "The Endurance of National Constitutions. Cambridge University Press",
+   "ref": "elkins|2009|the endurance of national constitutions cambridge university",
+   "papers": [
+    "amendment"
+   ],
+   "id": null
+  },
+  {
+   "doi": "10.1007/s11214-022-00880-9",
+   "author": "Elkins-Tanton",
+   "year": 2022,
+   "title": "Distinguishing the origin of asteroid (16) Psyche",
+   "ref": "elkins tanton|2022|distinguishing the origin of asteroid 16 psyche",
+   "papers": [
+    "roadmap"
+   ],
+   "id": "W4223472636",
+   "resolved_by": "title (1.00)",
+   "cited_by": 56
+  },
+  {
+   "doi": "10.2514/1.a33409",
+   "author": "Ellery",
+   "year": 2016,
+   "title": "Are self-replicating machines feasible?",
+   "ref": "ellery|2016|are self replicating machines feasible",
+   "papers": [
+    "bootstrap",
+    "roadmap"
+   ],
+   "id": "W2274955000",
+   "resolved_by": "title (1.00)",
+   "cited_by": 36
+  },
+  {
+   "doi": "10.1016/j.pss.2013.11.008",
+   "author": "Elvis",
+   "year": 2014,
+   "title": "How many ore-bearing asteroids?",
+   "ref": "elvis|2014|how many ore bearing asteroids",
+   "papers": [
+    "roadmap"
+   ],
+   "id": "W2124330905",
+   "resolved_by": "title (1.00)",
+   "cited_by": 107
+  },
+  {
+   "doi": "10.2458/azu_uapress_9780816532131-ch011",
+   "author": "Emery",
+   "year": 2015,
+   "title": "The complex history of Trojan asteroids",
+   "ref": "emery|2015|the complex history of trojan asteroids",
+   "papers": [
+    "home_programme"
+   ],
+   "id": "W3103816358",
+   "resolved_by": "title (1.00)",
+   "cited_by": 43
+  },
+  {
+   "doi": "10.1126/science.aaj2038",
+   "author": "Erlich",
+   "year": 2017,
+   "title": "DNA Fountain enables a robust and efficient storage architecture",
+   "ref": "erlich|2017|dna fountain enables a robust and efficient storage architec",
+   "papers": [
+    "dna_ledger"
+   ],
+   "id": "W2592122940",
+   "resolved_by": "title (1.00)",
+   "cited_by": 896
+  },
+  {
+   "doi": "10.3390/signals3040049",
+   "author": "Ezell",
+   "year": 2022,
+   "title": "A lunar backup record of humanity",
+   "ref": "ezell|2022|a lunar backup record of humanity",
+   "papers": [
+    "ethics"
+   ],
+   "id": "W4308527407",
+   "resolved_by": "title (1.00)",
+   "cited_by": 0
+  },
+  {
+   "doi": "10.1145/863955.863960",
+   "author": "Fall",
+   "year": 2003,
+   "title": "A delay-tolerant network architecture for challenged internets",
+   "ref": "fall|2003|a delay tolerant network architecture for challenged interne",
+   "papers": [
+    "network"
+   ],
+   "id": "W2112316694",
+   "resolved_by": "title (1.00)",
+   "cited_by": 3102
+  },
+  {
+   "doi": "10.1017/err.2026.10152",
+   "author": "Faroldi",
+   "year": 2026,
+   "title": "Risk for AI agents",
+   "ref": "10.1017/err.2026.10152",
+   "papers": [
+    "ethics"
+   ],
+   "id": "W7214591320",
+   "resolved_by": "doi",
+   "cited_by": 0
+  },
+  {
+   "doi": "10.5281/zenodo.23189604",
+   "author": "Folco",
+   "year": 2026,
+   "title": "EO Space Associated Information Preservation System",
+   "ref": "10.5281/zenodo.23189604",
+   "papers": [
+    "knowledge_growth"
+   ],
+   "id": "W7220650897",
+   "resolved_by": "doi",
+   "cited_by": 0
+  },
+  {
+   "doi": null,
+   "author": "Forgan",
+   "year": 2013,
+   "title": "Slingshot dynamics for self-replicating probes and the effect on exploration timescales",
+   "ref": "forgan|2013|slingshot dynamics for self replicating probes and the effec",
+   "papers": [
+    "routing"
+   ],
+   "id": "W3101094900",
+   "resolved_by": "title (1.00)",
+   "cited_by": 24
+  },
+  {
+   "doi": null,
+   "author": "Freeland",
+   "year": 2015,
+   "title": "Mathematics of magsails",
+   "ref": "freeland|2015|mathematics of magsails",
+   "papers": [
+    "computational",
+    "engineering"
+   ],
+   "id": "W3192710269",
+   "resolved_by": "title (1.00)",
+   "cited_by": 3
+  },
+  {
+   "doi": null,
+   "author": "Freitas",
+   "year": 1980,
+   "title": "A self-reproducing interstellar probe",
+   "ref": "freitas|1980|a self reproducing interstellar probe",
+   "papers": [
+    "bootstrap",
+    "computational",
+    "engineering",
+    "fermi",
+    "governance",
+    "payload",
+    "probe",
+    "subsystem"
+   ],
+   "id": "W1644249174",
+   "resolved_by": "title (1.00)",
+   "cited_by": 109
+  },
+  {
+   "doi": null,
+   "author": "Freitas",
+   "year": 1982,
+   "title": "Advanced Automation for Space Missions: Proceedings of the 1980 NASA/ASEE Summer Study. NASA Conference Publication 2255",
+   "ref": "freitas|1982|advanced automation for space missions proceedings of the 19",
+   "papers": [
+    "roadmap"
+   ],
+   "id": null
+  },
+  {
+   "doi": null,
+   "author": "Freitas",
+   "year": 2000,
+   "title": "Some Limits to Global Ecophagy by Biovorous Nanoreplicators, with Public Policy Recommendations. Foresight Institute",
+   "ref": "freitas|2000|some limits to global ecophagy by biovorous nanoreplicators ",
+   "papers": [
+    "ethics"
+   ],
+   "id": null
+  },
+  {
+   "doi": null,
+   "author": "Freitas",
+   "year": 2004,
+   "title": "Kinematic Self-Replicating Machines. Landes Bioscience",
+   "ref": "freitas|2004|kinematic self replicating machines landes bioscience",
+   "papers": [
+    "bootstrap",
+    "computational",
+    "engineering",
+    "fermi",
+    "knowledge_growth",
+    "subsystem"
+   ],
+   "id": null
+  },
+  {
+   "doi": null,
+   "author": "Fricker",
+   "year": 2007,
+   "title": "Epistemic Injustice: Power and the Ethics of Knowing. Oxford University Press",
+   "ref": "fricker|2007|epistemic injustice power and the ethics of knowing oxford u",
+   "papers": [
+    "ethics",
+    "security"
+   ],
+   "id": null
+  },
+  {
+   "doi": "10.1146/annurev-astro-081710-102613",
+   "author": "Frisch",
+   "year": 2011,
+   "title": "The interstellar medium surrounding the Sun",
+   "ref": "frisch|2011|the interstellar medium surrounding the sun",
+   "papers": [
+    "computational",
+    "engineering",
+    "probe",
+    "roadmap",
+    "routing",
+    "subsystem"
+   ],
+   "id": "W2099738663",
+   "resolved_by": "title (1.00)",
+   "cited_by": 234
+  },
+  {
+   "doi": null,
+   "author": "Fuller",
+   "year": 1964,
+   "title": "The Morality of Law. Yale University Press",
+   "ref": "fuller|1964|the morality of law yale university press",
+   "papers": [
+    "ethics"
+   ],
+   "id": null
+  },
+  {
+   "doi": "10.64898/2026.10.08.757515",
+   "author": "Funke",
+   "year": 2026,
+   "title": "High-throughput in vivo DNA data encoding by multiplexed conjugation and orthogonal base editing",
+   "ref": "10.64898/2026.10.08.757515",
+   "papers": [
+    "dna_ledger"
+   ],
+   "id": "W7221155651",
+   "resolved_by": "doi",
+   "cited_by": 0
+  },
+  {
+   "doi": "10.1038/s41467-026-75703-4",
+   "author": "Furlong",
+   "year": 2026,
+   "title": "Compositional neurosymbolic representations enable efficient active exploration",
+   "ref": "10.1038/s41467-026-75703-4",
+   "papers": [
+    "payload"
+   ],
+   "id": "W7167810098",
+   "resolved_by": "doi",
+   "cited_by": 0
+  },
+  {
+   "doi": "10.48550/arxiv.2208.00211",
+   "author": "Gaia Collaboration; Vallenari",
+   "year": 2023,
+   "title": "Gaia Data Release 3: Summary of the content and survey properties",
+   "ref": "gaia collaboration vallenari|2023|gaia data release 3 summary of the content and survey proper",
+   "papers": [
+    "computational",
+    "knowledge_growth",
+    "probe",
+    "routing"
+   ],
+   "id": "W4289644636",
+   "resolved_by": "title (1.00)",
+   "cited_by": 116
+  },
+  {
+   "doi": "10.48550/arxiv.2608.11436",
+   "author": "Gans",
+   "year": 2026,
+   "title": "When agents talk: Honeytokens under shared memory",
+   "ref": "gans|2026|when agents talk honeytokens under shared memory",
+   "papers": [
+    "security"
+   ],
+   "id": "W7202404149",
+   "resolved_by": "title (1.00)",
+   "cited_by": 0
+  },
+  {
+   "doi": "10.48550/arxiv.2608.17501",
+   "author": "Gharat",
+   "year": 2026,
+   "title": "SGHA: Evidence-grounded research problem discovery with local language models",
+   "ref": "gharat|2026|sgha evidence grounded research problem discovery with local",
+   "papers": [
+    "knowledge_growth"
+   ],
+   "id": "W7203768868",
+   "resolved_by": "title (1.00)",
+   "cited_by": 0
+  },
+  {
+   "doi": "10.48550/arxiv.2609.35659",
+   "author": "Ghosh",
+   "year": 2026,
+   "title": "Tracekit: Tamper-evident intent-reasoning-action auditing for autonomous coding agents",
+   "ref": "ghosh|2026|tracekit tamper evident intent reasoning action auditing for",
+   "papers": [
+    "dna_ledger"
+   ],
+   "id": "W7214709302",
+   "resolved_by": "title (1.00)",
+   "cited_by": 0
+  },
+  {
+   "doi": "10.1007/s11214-006-9140-8",
+   "author": "Glassmeier",
+   "year": 2007,
+   "title": "The Rosetta mission: Flying towards the origin of the solar system",
+   "ref": "glassmeier|2007|the rosetta mission flying towards the origin of the solar s",
+   "papers": [
+    "home_programme"
+   ],
+   "id": "W1981351218",
+   "resolved_by": "title (1.00)",
+   "cited_by": 595
+  },
+  {
+   "doi": "10.1023/a:1005095907503",
+   "author": "Gloeckler",
+   "year": 1998,
+   "title": "Measurement of the abundance of helium-3 in the Sun and in the local interstellar cloud with SWICS on Ulysses",
+   "ref": "gloeckler|1998|measurement of the abundance of helium 3 in the sun and in t",
+   "papers": [
+    "probe"
+   ],
+   "id": "W4234335010",
+   "resolved_by": "title (1.00)",
+   "cited_by": 86
+  },
+  {
+   "doi": "10.1038/nature11875",
+   "author": "Goldman",
+   "year": 2013,
+   "title": "Towards practical, high-capacity, low-maintenance information storage in synthesized DNA",
+   "ref": "goldman|2013|towards practical high capacity low maintenance information ",
+   "papers": [
+    "bootstrap",
+    "dna_ledger"
+   ],
+   "id": "W2162980030",
+   "resolved_by": "title (1.00)",
+   "cited_by": 1217
+  },
+  {
+   "doi": "10.48550/arxiv.2608.16330",
+   "author": "Gomez",
+   "year": 2026,
+   "title": "Towards the interplanetary internet: An IoT perspective",
+   "ref": "gomez|2026|towards the interplanetary internet an iot perspective",
+   "papers": [
+    "network"
+   ],
+   "id": "W7203675595",
+   "resolved_by": "title (1.00)",
+   "cited_by": 0
+  },
+  {
+   "doi": "10.1017/apa.2019.12",
+   "author": "Gottlieb",
+   "year": 2019,
+   "title": "Space colonization and existential risk",
+   "ref": "gottlieb|2019|space colonization and existential risk",
+   "papers": [
+    "ethics"
+   ],
+   "id": "W2974192409",
+   "resolved_by": "title (1.00)",
+   "cited_by": 30
+  },
+  {
+   "doi": "10.1016/j.spacepol.2022.101486",
+   "author": "Gottlieb",
+   "year": 2022,
+   "title": "Discounting, buck-passing, and existential risk mitigation: The case of space colonization",
+   "ref": "gottlieb|2022|discounting buck passing and existential risk mitigation the",
+   "papers": [
+    "ethics"
+   ],
+   "id": "W4220885210",
+   "resolved_by": "title (1.00)",
+   "cited_by": 8
+  },
+  {
+   "doi": "10.1002/anie.201411378",
+   "author": "Grass",
+   "year": 2015,
+   "title": "Robust chemical preservation of digital information on DNA in silica with error-correcting codes",
+   "ref": "grass|2015|robust chemical preservation of digital information on dna i",
+   "papers": [
+    "dna_ledger"
+   ],
+   "id": "W2114487425",
+   "resolved_by": "title (1.00)",
+   "cited_by": 754
+  },
+  {
+   "doi": "10.1088/2399-6528/aa927e",
+   "author": "Gros",
+   "year": 2017,
+   "title": "Universal scaling relation for magnetic sails: Momentum braking in the limit of dilute interstellar media",
+   "ref": "gros|2017|universal scaling relation for magnetic sails momentum braki",
+   "papers": [
+    "computational",
+    "engineering",
+    "probe",
+    "roadmap"
+   ],
+   "id": "W2735339056",
+   "resolved_by": "title (1.00)",
+   "cited_by": 13
+  },
+  {
+   "doi": null,
+   "author": "Gunkel",
+   "year": 2012,
+   "title": "The Machine Question: Critical Perspectives on AI, Robots, and Ethics. MIT Press",
+   "ref": "gunkel|2012|the machine question critical perspectives on ai robots and ",
+   "papers": [
+    "ethics"
+   ],
+   "id": null
+  },
+  {
+   "doi": null,
+   "author": "Gunkel",
+   "year": 2018,
+   "title": "Robot Rights. MIT Press",
+   "ref": "gunkel|2018|robot rights mit press",
+   "papers": [
+    "ethics"
+   ],
+   "id": null
+  },
+  {
+   "doi": null,
+   "author": "Gunkel",
+   "year": 2023,
+   "title": "Person, Thing, Robot: A Moral and Legal Ontology for the 21st Century and Beyond. MIT Press",
+   "ref": "gunkel|2023|person thing robot a moral and legal ontology for the 21st c",
+   "papers": [
+    "ethics"
+   ],
+   "id": null
+  },
+  {
+   "doi": "10.48550/arxiv.2609.35237",
+   "author": "Gurses",
+   "year": 2026,
+   "title": "A technological capability scale for civilizations from the Kardashev and Barrow scales",
+   "ref": "gurses|2026|a technological capability scale for civilizations from the ",
+   "papers": [
+    "fermi"
+   ],
+   "id": "W7214732599",
+   "resolved_by": "title (1.00)",
+   "cited_by": 0
+  },
+  {
+   "doi": "10.1007/bf00196791",
+   "author": "Haber",
+   "year": 1991,
+   "title": "How to time-stamp a digital document",
+   "ref": "haber|1991|how to time stamp a digital document",
+   "papers": [
+    "amendment",
+    "dna_ledger",
+    "governance",
+    "network"
+   ],
+   "id": "W1997911919",
+   "resolved_by": "title (1.00)",
+   "cited_by": 1483
+  },
+  {
+   "doi": "10.48550/arxiv.0906.0568",
+   "author": "Haqq-Misra",
+   "year": 2009,
+   "title": "The sustainability solution to the Fermi paradox",
+   "ref": "haqq misra|2009|the sustainability solution to the fermi paradox",
+   "papers": [
+    "fermi"
+   ],
+   "id": "W3005552398",
+   "resolved_by": "title (1.00)",
+   "cited_by": 42
+  },
+  {
+   "doi": "10.1016/j.spacepol.2012.11.006",
+   "author": "Haqq-Misra",
+   "year": 2013,
+   "title": "The benefits and harm of transmitting into space",
+   "ref": "haqq misra|2013|the benefits and harm of transmitting into space",
+   "papers": [
+    "ethics"
+   ],
+   "id": "W2092770815",
+   "resolved_by": "title (1.00)",
+   "cited_by": 31
+  },
+  {
+   "doi": "10.1002/9781119711186.ch13",
+   "author": "Haramia",
+   "year": 2021,
+   "title": "An ethical assessment of SETI, METI, and the value of our planetary home",
+   "ref": "haramia|2021|an ethical assessment of seti meti and the value of our plan",
+   "papers": [
+    "ethics"
+   ],
+   "id": "W3200721760",
+   "resolved_by": "title (1.00)",
+   "cited_by": 5
+  },
+  {
+   "doi": "10.1126/science.162.3859.1243",
+   "author": "Hardin",
+   "year": 1968,
+   "title": "The tragedy of the commons",
+   "ref": "hardin|1968|the tragedy of the commons",
+   "papers": [
+    "ethics"
+   ],
+   "id": "W2226396244",
+   "resolved_by": "title (1.00)",
+   "cited_by": 25139
+  },
+  {
+   "doi": null,
+   "author": "Harris",
+   "year": 1963,
+   "title": "The Theory of Branching Processes. Springer-Verlag (Grundlehren der mathematischen Wissenschaften, Band 119)",
+   "ref": "harris|1963|the theory of branching processes springer verlag grundlehre",
+   "papers": [
+    "computational",
+    "engineering"
+   ],
+   "id": null
+  },
+  {
+   "doi": null,
+   "author": "Harris",
+   "year": 1963,
+   "title": "The Theory of Branching Processes. Springer",
+   "ref": "harris|1963|the theory of branching processes springer",
+   "papers": [
+    "fermi"
+   ],
+   "id": null
+  },
+  {
+   "doi": null,
+   "author": "Harris",
+   "year": 1963,
+   "title": "The Theory of Branching Processes. Springer-Verlag",
+   "ref": "harris|1963|the theory of branching processes springer verlag",
+   "papers": [
+    "routing"
+   ],
+   "id": null
+  },
+  {
+   "doi": null,
+   "author": "Hart",
+   "year": 1975,
+   "title": "An explanation for the absence of extraterrestrials on Earth",
+   "ref": "hart|1975|an explanation for the absence of extraterrestrials on earth",
+   "papers": [
+    "computational",
+    "engineering",
+    "fermi",
+    "governance",
+    "payload",
+    "probe"
+   ],
+   "id": null
+  },
+  {
+   "doi": "10.1098/rsta.2024.0429",
+   "author": "Hedman",
+   "year": 2026,
+   "title": "The COSPAR Panel on Planetary Protection and the COSPAR policy on planetary protection: An overview of governance and activities",
+   "ref": "hedman|2026|the cospar panel on planetary protection and the cospar poli",
+   "papers": [
+    "ethics"
+   ],
+   "id": "W7128683316",
+   "resolved_by": "title (1.00)",
+   "cited_by": 1
+  },
+  {
+   "doi": null,
+   "author": "Helion Energy (2026). *Helion achieves new industry-first fusion energy milestones",
+   "year": 2026,
+   "title": "Helion achieves new industry-first fusion energy milestones, accelerating path to commercial fusion. Newsroom release",
+   "ref": "helion energy 2026 helion achieves new industry first fusion energy milestones|2026|helion achieves new industry first fusion energy milestones ",
+   "papers": [
+    "home_programme"
+   ],
+   "id": null
+  },
+  {
+   "doi": "10.1038/s41598-026-69101-5",
+   "author": "Higaki",
+   "year": 2026,
+   "title": "Dual northward overseas radiation from Japanese islands shaped the phylogeography of North-East Asian tree frog",
+   "ref": "10.1038/s41598-026-69101-5",
+   "papers": [
+    "speciation"
+   ],
+   "id": "W7214162800",
+   "resolved_by": "doi",
+   "cited_by": 0
+  },
+  {
+   "doi": "10.31234/osf.io/ve6c5_v3",
+   "author": "Hirschhorn",
+   "year": 2026,
+   "title": "The perceived role of consciousness in moral status attributions",
+   "ref": "10.31234/osf.io/ve6c5_v3",
+   "papers": [
+    "ethics"
+   ],
+   "id": "W7154889228",
+   "resolved_by": "title (1.00)",
+   "cited_by": 0
+  },
+  {
+   "doi": "10.1093/evolut/qpag179",
+   "author": "Hissa",
+   "year": 2026,
+   "title": "Speciation by local adaptation and isolation by distance in extended environments",
+   "ref": "hissa|2026|speciation by local adaptation and isolation by distance in ",
+   "papers": [
+    "speciation"
+   ],
+   "id": "W4415194109",
+   "resolved_by": "title (1.00)",
+   "cited_by": 1
+  },
+  {
+   "doi": "10.3847/1538-4357/aa5da6",
+   "author": "Hoang",
+   "year": 2017,
+   "title": "The interaction of relativistic spacecrafts with the interstellar medium",
+   "ref": "hoang|2017|the interaction of relativistic spacecrafts with the interst",
+   "papers": [
+    "probe"
+   ],
+   "id": "W2509488157",
+   "resolved_by": "title (1.00)",
+   "cited_by": 50
+  },
+  {
+   "doi": "10.1126/sciadv.abp8636",
+   "author": "Hoffman",
+   "year": 2022,
+   "title": "Mars Oxygen ISRU Experiment (MOXIE) — Preparing for human Mars exploration",
+   "ref": "hoffman|2022|mars oxygen isru experiment moxie preparing for human mars e",
+   "papers": [
+    "roadmap"
+   ],
+   "id": "W4293783070",
+   "resolved_by": "title (1.00)",
+   "cited_by": 111
+  },
+  {
+   "doi": "10.3847/psj/ac58fe",
+   "author": "Hoover",
+   "year": 2022,
+   "title": "The population of interstellar objects detectable with the LSST and accessible for in situ rendezvous with various mission designs",
+   "ref": "hoover|2022|the population of interstellar objects detectable with the l",
+   "papers": [
+    "home_programme",
+    "roadmap"
+   ],
+   "id": "W4220804251",
+   "resolved_by": "title (1.00)",
+   "cited_by": 52
+  },
+  {
+   "doi": "10.1109/tssc.1966.300074",
+   "author": "Howard",
+   "year": 1966,
+   "title": "Information value theory",
+   "ref": "howard|1966|information value theory",
+   "papers": [
+    "knowledge_growth"
+   ],
+   "id": "W2001863269",
+   "resolved_by": "title (1.00)",
+   "cited_by": 1004
+  },
+  {
+   "doi": null,
+   "author": "IAA SETI Committee (1989). *Declaration of Principles Concerning Activities Following the Detection of Extraterrestrial Intelligence.* International Academy of Astronautics.",
+   "year": 1989,
+   "title": "Declaration of Principles Concerning Activities Following the Detection of Extraterrestrial Intelligence. International Academy of Astronautics",
+   "ref": "iaa seti committee 1989 declaration of principles concerning activities following the detection of extraterrestrial intelligence international academy of astronautics|1989|declaration of principles concerning activities following th",
+   "papers": [
+    "governance"
+   ],
+   "id": null
+  },
+  {
+   "doi": null,
+   "author": "ITER Organization (2024). *New baseline to prioritize robust start to exploitation.* Press release",
+   "year": 2024,
+   "title": "New baseline to prioritize robust start to exploitation. Press release, July 2024",
+   "ref": "iter organization 2024 new baseline to prioritize robust start to exploitation press release|2024|new baseline to prioritize robust start to exploitation pres",
+   "papers": [
+    "home_programme"
+   ],
+   "id": null
+  },
+  {
+   "doi": null,
+   "author": "International Panel on Fissile Materials (2022). *Global Fissile Material Report 2022: Fifty Years of the Nuclear Non-Proliferation Treaty.* IPFM.",
+   "year": 2022,
+   "title": "Global Fissile Material Report 2022: Fifty Years of the Nuclear Non-Proliferation Treaty. IPFM",
+   "ref": "international panel on fissile materials 2022 global fissile material report 2022 fifty years of the nuclear non proliferation treaty ipfm|2022|global fissile material report 2022 fifty years of the nucle",
+   "papers": [
+    "home_programme"
+   ],
+   "id": null
+  },
+  {
+   "doi": "10.1038/35053059",
+   "author": "Irwin",
+   "year": 2001,
+   "title": "Speciation in a ring",
+   "ref": "irwin|2001|speciation in a ring",
+   "papers": [
+    "speciation"
+   ],
+   "id": "W1792530476",
+   "resolved_by": "title (1.00)",
+   "cited_by": 360
+  },
+  {
+   "doi": "10.48550/arxiv.2606.13914",
+   "author": "Ivliev",
+   "year": 2026,
+   "title": "Autonomous AI-cosmoindustry and the quiet expansion filter: A threshold-based resolution of the Fermi paradox",
+   "ref": "ivliev|2026|autonomous ai cosmoindustry and the quiet expansion filter a",
+   "papers": [
+    "fermi"
+   ],
+   "id": "W7164843363",
+   "resolved_by": "title (1.00)",
+   "cited_by": 0
+  },
+  {
+   "doi": "10.1029/1999je001103",
+   "author": "Jolliff",
+   "year": 2000,
+   "title": "Major lunar crustal terranes: Surface expressions and crust-mantle origins",
+   "ref": "jolliff|2000|major lunar crustal terranes surface expressions and crust m",
+   "papers": [
+    "home_programme"
+   ],
+   "id": "W2071619825",
+   "resolved_by": "title (1.00)",
+   "cited_by": 939
+  },
+  {
+   "doi": null,
+   "author": "Jonas",
+   "year": 1984,
+   "title": "The Imperative of Responsibility: In Search of an Ethics for the Technological Age. University of Chicago Press",
+   "ref": "jonas|1984|the imperative of responsibility in search of an ethics for ",
+   "papers": [
+    "ethics"
+   ],
+   "id": null
+  },
+  {
+   "doi": "10.1017/s026357471000069x",
+   "author": "Jones",
+   "year": 2011,
+   "title": "RepRap — the replicating rapid prototyper",
+   "ref": "jones|2011|reprap the replicating rapid prototyper",
+   "papers": [
+    "bootstrap",
+    "roadmap"
+   ],
+   "id": "W2135660333",
+   "resolved_by": "title (1.00)",
+   "cited_by": 739
+  },
+  {
+   "doi": "10.26434/chemrxiv.15009660/v1",
+   "author": "Kalinin",
+   "year": 2026,
+   "title": "From publications to physical knowledge models: Transferable physical understanding for AI-native experimental science",
+   "ref": "10.26434/chemrxiv.15009660/v1",
+   "papers": [
+    "knowledge_growth"
+   ],
+   "id": "W7214807782",
+   "resolved_by": "doi",
+   "cited_by": 0
+  },
+  {
+   "doi": "10.1051/0004-6361/201525964",
+   "author": "Keller",
+   "year": 2015,
+   "title": "Insolation, erosion, and morphology of comet 67P/Churyumov-Gerasimenko",
+   "ref": "keller|2015|insolation erosion and morphology of comet 67p churyumov ger",
+   "papers": [
+    "home_programme"
+   ],
+   "id": "W2175335689",
+   "resolved_by": "title (1.00)",
+   "cited_by": 230
+  },
+  {
+   "doi": "10.48550/arxiv.2609.23957",
+   "author": "Kim",
+   "year": 2026,
+   "title": "Divergent strategies and convergent outcomes in autonomous materials discovery",
+   "ref": "kim|2026|divergent strategies and convergent outcomes in autonomous m",
+   "papers": [
+    "knowledge_growth"
+   ],
+   "id": "W7214048595",
+   "resolved_by": "title (1.00)",
+   "cited_by": 0
+  },
+  {
+   "doi": null,
+   "author": "Kim",
+   "year": 2026,
+   "title": "Meta^n: Recursive self-improvement through emergent depth",
+   "ref": "kim|2026|meta n recursive self improvement through emergent depth",
+   "papers": [
+    "payload"
+   ],
+   "id": "W7204500065",
+   "resolved_by": "title (1.00)",
+   "cited_by": 0
+  },
+  {
+   "doi": "10.1038/217624a0",
+   "author": "Kimura",
+   "year": 1968,
+   "title": "Evolutionary rate at the molecular level",
+   "ref": "kimura|1968|evolutionary rate at the molecular level",
+   "papers": [
+    "speciation"
+   ],
+   "id": "W1993351732",
+   "resolved_by": "title (1.00)",
+   "cited_by": 3745
+  },
+  {
+   "doi": "10.1038/nature02236",
+   "author": "King",
+   "year": 2004,
+   "title": "Functional genomic hypothesis generation and experimentation by a robot scientist",
+   "ref": "king|2004|functional genomic hypothesis generation and experimentation",
+   "papers": [
+    "knowledge_growth"
+   ],
+   "id": "W2136636278",
+   "resolved_by": "title (1.00)",
+   "cited_by": 661
+  },
+  {
+   "doi": "10.1126/science.1165620",
+   "author": "King",
+   "year": 2009,
+   "title": "The automation of science",
+   "ref": "king|2009|the automation of science",
+   "papers": [
+    "knowledge_growth"
+   ],
+   "id": "W2114804859",
+   "resolved_by": "title (1.00)",
+   "cited_by": 677
+  },
+  {
+   "doi": "10.48550/arxiv.2608.14407",
+   "author": "King",
+   "year": 2026,
+   "title": "The past and future of AI scientists",
+   "ref": "king|2026|the past and future of ai scientists",
+   "papers": [
+    "knowledge_growth"
+   ],
+   "id": "W7203641917",
+   "resolved_by": "title (1.00)",
+   "cited_by": 0
+  },
+  {
+   "doi": "10.1038/s41467-026-78271-9",
+   "author": "Klochowicz",
+   "year": 2026,
+   "title": "Reinforcement learning guided robotic platform that investigates and discovers asymmetric reactions",
+   "ref": "10.1038/s41467-026-78271-9",
+   "papers": [
+    "knowledge_growth"
+   ],
+   "id": "W7169594671",
+   "resolved_by": "doi",
+   "cited_by": 0
+  },
+  {
+   "doi": "10.1007/s13347-026-01176-4",
+   "author": "Klotz",
+   "year": 2026,
+   "title": "Smart enough to go extinct? An evolutionary challenge to the value of general intelligence and its ethical implications for AGI",
+   "ref": "10.1007/s13347-026-01176-4",
+   "papers": [
+    "ethics",
+    "fermi"
+   ],
+   "id": "W7202258205",
+   "resolved_by": "doi",
+   "cited_by": 0
+  },
+  {
+   "doi": "10.48550/arxiv.2608.25286",
+   "author": "Koch",
+   "year": 2026,
+   "title": "BixBench3: Benchmarking AI agents on research-study-scale computational biology tasks",
+   "ref": "koch|2026|bixbench3 benchmarking ai agents on research study scale com",
+   "papers": [
+    "knowledge_growth"
+   ],
+   "id": "W7204493988",
+   "resolved_by": "title (1.00)",
+   "cited_by": 0
+  },
+  {
+   "doi": null,
+   "author": "Kolm",
+   "year": 1979,
+   "title": "Mass drivers",
+   "ref": "kolm|1979|mass drivers",
+   "papers": [
+    "home_programme"
+   ],
+   "id": null
+  },
+  {
+   "doi": "10.1016/j.actaastro.2014.07.005",
+   "author": "Korbitz",
+   "year": 2014,
+   "title": "Toward understanding the active SETI debate: Insights from risk communication and perception",
+   "ref": "korbitz|2014|toward understanding the active seti debate insights from ri",
+   "papers": [
+    "ethics"
+   ],
+   "id": "W2082725552",
+   "resolved_by": "title (1.00)",
+   "cited_by": 10
+  },
+  {
+   "doi": "10.48550/arxiv.2610.09906",
+   "author": "Koutidis",
+   "year": 2026,
+   "title": "Constrained-action AI remediation for SIEM/XDR via a NeMo-Guardrails proxy",
+   "ref": "koutidis|2026|constrained action ai remediation for siem xdr via a nemo gu",
+   "papers": [
+    "security"
+   ],
+   "id": "W7220962837",
+   "resolved_by": "title (1.00)",
+   "cited_by": 0
+  },
+  {
+   "doi": "10.1145/3837358.3837366",
+   "author": "Lagwankar",
+   "year": 2026,
+   "title": "Simulating delay tolerant networking with ns-3",
+   "ref": "10.1145/3837358.3837366",
+   "papers": [
+    "network"
+   ],
+   "id": "W7220701699",
+   "resolved_by": "doi",
+   "cited_by": 0
+  },
+  {
+   "doi": "10.3847/1538-3881/ae8ba9",
+   "author": "Lam",
+   "year": 2026,
+   "title": "An increase in the Galactic planet-host fraction fails to reproduce the Galactic height trend in planet occurrence",
+   "ref": "lam|2026|an increase in the galactic planet host fraction fails to re",
+   "papers": [
+    "fermi"
+   ],
+   "id": "W7202089468",
+   "resolved_by": "title (1.00)",
+   "cited_by": 0
+  },
+  {
+   "doi": "10.1145/357172.357176",
+   "author": "Lamport",
+   "year": 1982,
+   "title": "The Byzantine Generals Problem",
+   "ref": "lamport|1982|the byzantine generals problem",
+   "papers": [
+    "amendment",
+    "dna_ledger",
+    "governance",
+    "knowledge_growth",
+    "network",
+    "payload"
+   ],
+   "id": "W3137092842",
+   "resolved_by": "title (1.00)",
+   "cited_by": 6021
+  },
+  {
+   "doi": null,
+   "author": "Landis",
+   "year": 1998,
+   "title": "The Fermi paradox: An approach based on percolation theory",
+   "ref": "landis|1998|the fermi paradox an approach based on percolation theory",
+   "papers": [
+    "engineering",
+    "routing"
+   ],
+   "id": null
+  },
+  {
+   "doi": "10.48550/arxiv.2105.14111",
+   "author": "Langosco",
+   "year": 2022,
+   "title": "Goal misgeneralization in deep reinforcement learning",
+   "ref": "langosco|2022|goal misgeneralization in deep reinforcement learning",
+   "papers": [
+    "payload"
+   ],
+   "id": "W4287164755",
+   "resolved_by": "title (1.00)",
+   "cited_by": 23
+  },
+  {
+   "doi": "10.1111/maps.14227",
+   "author": "Lauretta",
+   "year": 2024,
+   "title": "Asteroid (101955) Bennu in the laboratory: Properties of the sample collected by OSIRIS-REx",
+   "ref": "lauretta|2024|asteroid 101955 bennu in the laboratory properties of the sa",
+   "papers": [
+    "roadmap"
+   ],
+   "id": "W4400034266",
+   "resolved_by": "title (1.00)",
+   "cited_by": 239
+  },
+  {
+   "doi": "10.1126/science.281.5382.1484",
+   "author": "Lawrence",
+   "year": 1998,
+   "title": "Global elemental maps of the Moon: The Lunar Prospector gamma-ray spectrometer",
+   "ref": "lawrence|1998|global elemental maps of the moon the lunar prospector gamma",
+   "papers": [
+    "home_programme"
+   ],
+   "id": "W2006594189",
+   "resolved_by": "title (1.00)",
+   "cited_by": 347
+  },
+  {
+   "doi": "10.1029/1999je001177",
+   "author": "Lawrence",
+   "year": 2000,
+   "title": "Thorium abundances on the lunar surface",
+   "ref": "lawrence|2000|thorium abundances on the lunar surface",
+   "papers": [
+    "home_programme"
+   ],
+   "id": "W2118401328",
+   "resolved_by": "title (1.00)",
+   "cited_by": 229
+  },
+  {
+   "doi": null,
+   "author": "Lawrence Livermore National Laboratory (2025). *National Ignition Facility: 2025 annual report.* LLNL.",
+   "year": 2025,
+   "title": "National Ignition Facility: 2025 annual report. LLNL",
+   "ref": "lawrence livermore national laboratory 2025 national ignition facility 2025 annual report llnl|2025|national ignition facility 2025 annual report llnl",
+   "papers": [
+    "home_programme"
+   ],
+   "id": null
+  },
+  {
+   "doi": "10.1038/s42256-026-01296-8",
+   "author": "Lee",
+   "year": 2026,
+   "title": "Life-inspired interoceptive artificial intelligence for autonomous and adaptive agents",
+   "ref": "10.1038/s42256-026-01296-8",
+   "papers": [
+    "payload"
+   ],
+   "id": "W4386721710",
+   "resolved_by": "doi",
+   "cited_by": 4
+  },
+  {
+   "doi": null,
+   "author": "Lewis",
+   "year": 1996,
+   "title": "Mining the Sky: Untold Riches from the Asteroids, Comets, and Planets. Addison-Wesley",
+   "ref": "lewis|1996|mining the sky untold riches from the asteroids comets and p",
+   "papers": [
+    "roadmap"
+   ],
+   "id": null
+  },
+  {
+   "doi": "10.1073/pnas.1802345115",
+   "author": "Li",
+   "year": 2018,
+   "title": "Direct evidence of surface exposed water ice in the lunar polar regions",
+   "ref": "li|2018|direct evidence of surface exposed water ice in the lunar po",
+   "papers": [
+    "home_programme"
+   ],
+   "id": "W2888388222",
+   "resolved_by": "title (1.00)",
+   "cited_by": 623
+  },
+  {
+   "doi": "10.1038/s41467-026-77024-y",
+   "author": "Li",
+   "year": 2026,
+   "title": "Towards density-optimal DNA storage with practical bijective coding",
+   "ref": "10.1038/s41467-026-77024-y",
+   "papers": [
+    "dna_ledger"
+   ],
+   "id": "W7168236403",
+   "resolved_by": "doi",
+   "cited_by": 0
+  },
+  {
+   "doi": "10.48550/arxiv.2609.19822",
+   "author": "Li",
+   "year": 2026,
+   "title": "Identifying damage pathways linking sequence composition to storage failure in DNA data storage via high-dimensional mediation analysis",
+   "ref": "li|2026|identifying damage pathways linking sequence composition to ",
+   "papers": [
+    "dna_ledger"
+   ],
+   "id": "W7213602194",
+   "resolved_by": "title (1.00)",
+   "cited_by": 0
+  },
+  {
+   "doi": "10.48550/arxiv.2608.13417",
+   "author": "Li",
+   "year": 2026,
+   "title": "Beyond final scores: A systematic evaluation of agents for long-horizon AI research and development",
+   "ref": "li|2026|beyond final scores a systematic evaluation of agents for lo",
+   "papers": [
+    "payload"
+   ],
+   "id": "W7203448602",
+   "resolved_by": "title (1.00)",
+   "cited_by": 0
+  },
+  {
+   "doi": "10.48550/arxiv.2608.14825",
+   "author": "Li",
+   "year": 2026,
+   "title": "Emergent misaligned communication in long-horizon multi-agent LLM commerce",
+   "ref": "li|2026|emergent misaligned communication in long horizon multi agen",
+   "papers": [
+    "security"
+   ],
+   "id": "W7203690994",
+   "resolved_by": "title (1.00)",
+   "cited_by": 0
+  },
+  {
+   "doi": "10.1016/j.actaastro.2026.08.004",
+   "author": "Likavčan",
+   "year": 2026,
+   "title": "The grass of the universe: Rethinking technosphere, planetary history, and sustainability with Fermi paradox",
+   "ref": "10.1016/j.actaastro.2026.08.004",
+   "papers": [
+    "fermi"
+   ],
+   "id": "W4404406716",
+   "resolved_by": "doi",
+   "cited_by": 1
+  },
+  {
+   "doi": "10.48550/arxiv.2610.16960",
+   "author": "Lin",
+   "year": 2026,
+   "title": "Wireless energy transfer for space applications: A review of technologies, mission architectures, energy routing, and system integration",
+   "ref": "lin|2026|wireless energy transfer for space applications a review of ",
+   "papers": [
+    "roadmap"
+   ],
+   "id": "W7221796748",
+   "resolved_by": "title (1.00)",
+   "cited_by": 0
+  },
+  {
+   "doi": "10.1086/375492",
+   "author": "Lodders",
+   "year": 2003,
+   "title": "Solar system abundances and condensation temperatures of the elements",
+   "ref": "lodders|2003|solar system abundances and condensation temperatures of the",
+   "papers": [
+    "bootstrap",
+    "home_programme"
+   ],
+   "id": "W2096471541",
+   "resolved_by": "title (1.00)",
+   "cited_by": 4787
+  },
+  {
+   "doi": "10.48550/arxiv.2610.00422",
+   "author": "Loevenich",
+   "year": 2026,
+   "title": "Learning to cover locally: Graph neural combinatorial optimization under a hard information horizon",
+   "ref": "loevenich|2026|learning to cover locally graph neural combinatorial optimiz",
+   "papers": [
+    "routing"
+   ],
+   "id": "W7215931250",
+   "resolved_by": "title (1.00)",
+   "cited_by": 0
+  },
+  {
+   "doi": "10.48550/arxiv.1604.01356",
+   "author": "Lubin",
+   "year": 2016,
+   "title": "A roadmap to interstellar flight",
+   "ref": "lubin|2016|a roadmap to interstellar flight",
+   "papers": [
+    "probe"
+   ],
+   "id": "W2339235661",
+   "resolved_by": "title (1.00)",
+   "cited_by": 135
+  },
+  {
+   "doi": "10.48550/arxiv.2609.36630",
+   "author": "Luo",
+   "year": 2026,
+   "title": "Distilling agentic systems: A roadmap across models, artifacts, and harnesses",
+   "ref": "luo|2026|distilling agentic systems a roadmap across models artifacts",
+   "papers": [
+    "knowledge_growth"
+   ],
+   "id": "W7214944626",
+   "resolved_by": "title (1.00)",
+   "cited_by": 0
+  },
+  {
+   "doi": "10.1186/s41935-026-00576-z",
+   "author": "Luvanga",
+   "year": 2026,
+   "title": "Methodological advances and computational frameworks in ancient DNA research: A narrative review",
+   "ref": "10.1186/s41935-026-00576-z",
+   "papers": [
+    "dna_ledger"
+   ],
+   "id": "W7203830761",
+   "resolved_by": "doi",
+   "cited_by": 0
+  },
+  {
+   "doi": null,
+   "author": "MacAskill",
+   "year": 2022,
+   "title": "What We Owe the Future. Basic Books",
+   "ref": "macaskill|2022|what we owe the future basic books",
+   "papers": [
+    "ethics"
+   ],
+   "id": null
+  },
+  {
+   "doi": "10.48550/arxiv.2609.24851",
+   "author": "Maghrbi",
+   "year": 2026,
+   "title": "The Sun can flip the shielding effect of added spacecraft mass",
+   "ref": "maghrbi|2026|the sun can flip the shielding effect of added spacecraft ma",
+   "papers": [
+    "probe"
+   ],
+   "id": "W7214021985",
+   "resolved_by": "title (1.00)",
+   "cited_by": 0
+  },
+  {
+   "doi": "10.1126/science.1237966",
+   "author": "Mahaffy",
+   "year": 2013,
+   "title": "Abundance and isotopic composition of gases in the Martian atmosphere from the Curiosity rover",
+   "ref": "mahaffy|2013|abundance and isotopic composition of gases in the martian a",
+   "papers": [
+    "home_programme"
+   ],
+   "id": "W2027082523",
+   "resolved_by": "title (1.00)",
+   "cited_by": 428
+  },
+  {
+   "doi": "10.1016/j.compositesb.2026.114013",
+   "author": "Malekpour",
+   "year": 2026,
+   "title": "Circular additive manufacturing of recycled PEKK–regolith composites for sacrificial structures in lunar in-situ resource utilization",
+   "ref": "10.1016/j.compositesb.2026.114013",
+   "papers": [
+    "bootstrap"
+   ],
+   "id": "W7169869059",
+   "resolved_by": "doi",
+   "cited_by": 0
+  },
+  {
+   "doi": "10.1080/0020174x.2026.2720904",
+   "author": "Mamak",
+   "year": 2026,
+   "title": "AI agency and criminal responsibility: A category mistake",
+   "ref": "10.1080/0020174x.2026.2720904",
+   "papers": [
+    "ethics"
+   ],
+   "id": "W7203828115",
+   "resolved_by": "doi",
+   "cited_by": 0
+  },
+  {
+   "doi": null,
+   "author": "Mankins",
+   "year": 1995,
+   "title": "Technology Readiness Levels: A White Paper. NASA Office of Space Access and Technology, Advanced Concepts Office",
+   "ref": "mankins|1995|technology readiness levels a white paper nasa office of spa",
+   "papers": [
+    "roadmap"
+   ],
+   "id": null
+  },
+  {
+   "doi": "10.48550/arxiv.2608.12851",
+   "author": "Mao",
+   "year": 2026,
+   "title": "Practice makes unsafe: Skill misevolution in self-improving LLM agents",
+   "ref": "mao|2026|practice makes unsafe skill misevolution in self improving l",
+   "papers": [
+    "knowledge_growth",
+    "security"
+   ],
+   "id": "W7203492321",
+   "resolved_by": "title (1.00)",
+   "cited_by": 0
+  },
+  {
+   "doi": "10.48550/arxiv.2608.11113",
+   "author": "Maraqten",
+   "year": 2026,
+   "title": "High-temperature photovoltaics for solar-electric Oberth maneuvers: Ton-class payload feasibility for interstellar-precursor missions",
+   "ref": "maraqten|2026|high temperature photovoltaics for solar electric oberth man",
+   "papers": [
+    "probe",
+    "roadmap"
+   ],
+   "id": "W7202286172",
+   "resolved_by": "title (1.00)",
+   "cited_by": 0
+  },
+  {
+   "doi": null,
+   "author": "Martin",
+   "year": 1978,
+   "title": "Bombardment by interstellar material and its effects on the vehicle",
+   "ref": "martin|1978|bombardment by interstellar material and its effects on the ",
+   "papers": [
+    "probe"
+   ],
+   "id": "W3129575493",
+   "resolved_by": "title (0.83)",
+   "cited_by": 9
+  },
+  {
+   "doi": "10.1088/1741-4326/ace2d8",
+   "author": "Maslov",
+   "year": 2023,
+   "title": "JET D-T scenario with optimized non-thermal fusion",
+   "ref": "maslov|2023|jet d t scenario with optimized non thermal fusion",
+   "papers": [
+    "home_programme"
+   ],
+   "id": "W4387572638",
+   "resolved_by": "title (1.00)",
+   "cited_by": 89
+  },
+  {
+   "doi": "10.48550/arxiv.2610.22266",
+   "author": "Mason",
+   "year": 2026,
+   "title": "Millimetre/sub-millimetre SETI: Expanding the radio technosignature parameter space with ALMA2040",
+   "ref": "mason|2026|millimetre sub millimetre seti expanding the radio technosig",
+   "papers": [
+    "fermi"
+   ],
+   "id": "W7222601150",
+   "resolved_by": "title (1.00)",
+   "cited_by": 0
+  },
+  {
+   "doi": null,
+   "author": "Mayr",
+   "year": 1942,
+   "title": "Systematics and the Origin of Species, from the Viewpoint of a Zoologist. Columbia University Press",
+   "ref": "mayr|1942|systematics and the origin of species from the viewpoint of ",
+   "papers": [
+    "speciation"
+   ],
+   "id": null
+  },
+  {
+   "doi": "10.1038/s44334-026-00111-x",
+   "author": "McCallum",
+   "year": 2026,
+   "title": "Additive manufacturing of lunar regolith for reconfigurable building blocks toward lunar habitation",
+   "ref": "10.1038/s44334-026-00111-x",
+   "papers": [
+    "bootstrap"
+   ],
+   "id": "W4417116205",
+   "resolved_by": "doi",
+   "cited_by": 2
+  },
+  {
+   "doi": "10.1038/nature25020",
+   "author": "Meech",
+   "year": 2017,
+   "title": "A brief visit from a red and extremely elongated interstellar asteroid",
+   "ref": "meech|2017|a brief visit from a red and extremely elongated interstella",
+   "papers": [
+    "home_programme",
+    "roadmap"
+   ],
+   "id": "W2770422854",
+   "resolved_by": "title (1.00)",
+   "cited_by": 425
+  },
+  {
+   "doi": "10.1007/3-540-48184-2_32",
+   "author": "Merkle",
+   "year": 1987,
+   "title": "A digital signature based on a conventional encryption function",
+   "ref": "merkle|1987|a digital signature based on a conventional encryption funct",
+   "papers": [
+    "dna_ledger",
+    "fermi",
+    "payload"
+   ],
+   "id": "W1600255172",
+   "resolved_by": "title (1.00)",
+   "cited_by": 1990
+  },
+  {
+   "doi": "10.1061/(asce)as.1943-5525.0000236",
+   "author": "Metzger",
+   "year": 2013,
+   "title": "Affordable, rapid bootstrapping of the space industry and solar system civilization",
+   "ref": "metzger|2013|affordable rapid bootstrapping of the space industry and sol",
+   "papers": [
+    "bootstrap",
+    "computational",
+    "engineering",
+    "roadmap",
+    "subsystem"
+   ],
+   "id": "W2135062463",
+   "resolved_by": "title (1.00)",
+   "cited_by": 74
+  },
+  {
+   "doi": null,
+   "author": "Milligan",
+   "year": 2015,
+   "title": "Nobody Owns the Moon: The Ethics of Space Exploitation. McFarland",
+   "ref": "milligan|2015|nobody owns the moon the ethics of space exploitation mcfarl",
+   "papers": [
+    "ethics"
+   ],
+   "id": null
+  },
+  {
+   "doi": "10.1146/annurev-control-071819-010010",
+   "author": "Moses",
+   "year": 2020,
+   "title": "Robotic self-replication",
+   "ref": "10.1146/annurev-control-071819-010010",
+   "papers": [
+    "bootstrap"
+   ],
+   "id": "W2982586642",
+   "resolved_by": "doi",
+   "cited_by": 12
+  },
+  {
+   "doi": "10.1016/s0004-3702(98)00068-x",
+   "author": "Muscettola",
+   "year": 1998,
+   "title": "Remote Agent: To boldly go where no AI system has gone before",
+   "ref": "muscettola|1998|remote agent to boldly go where no ai system has gone before",
+   "papers": [
+    "roadmap"
+   ],
+   "id": "W2049934619",
+   "resolved_by": "title (1.00)",
+   "cited_by": 699
+  },
+  {
+   "doi": "10.1016/j.actaastro.2026.08.032",
+   "author": "Myburgh",
+   "year": 2026,
+   "title": "The VLA and high-frequency SETI: Expanding the search for life",
+   "ref": "10.1016/j.actaastro.2026.08.032",
+   "papers": [
+    "fermi"
+   ],
+   "id": "W7124429514",
+   "resolved_by": "doi",
+   "cited_by": 0
+  },
+  {
+   "doi": null,
+   "author": "NAIC Staff (1975). The Arecibo message of November 1974. *Icarus*",
+   "year": 1975,
+   "title": "The Arecibo message of November 1974",
+   "ref": "naic staff 1975 the arecibo message of november 1974 icarus|1975|the arecibo message of november 1974",
+   "papers": [
+    "payload"
+   ],
+   "id": null
+  },
+  {
+   "doi": null,
+   "author": "NASA (1982). *Advanced Automation for Space Missions* (R. A. Freitas & W. P. Gilbreath",
+   "year": 1982,
+   "title": "Advanced Automation for Space Missions (R",
+   "ref": "nasa 1982 advanced automation for space missions r a freitas w p gilbreath|1982|advanced automation for space missions r",
+   "papers": [
+    "bootstrap",
+    "computational",
+    "engineering"
+   ],
+   "id": null
+  },
+  {
+   "doi": "10.48550/arxiv.2608.09069",
+   "author": "Nagaraj",
+   "year": 2026,
+   "title": "Telemetry and concealment in self-adapting generative AI: Logging architecture, adversarial model hiding, and the limits of detection",
+   "ref": "nagaraj|2026|telemetry and concealment in self adapting generative ai log",
+   "papers": [
+    "dna_ledger",
+    "security"
+   ],
+   "id": "W7202171825",
+   "resolved_by": "title (1.00)",
+   "cited_by": 0
+  },
+  {
+   "doi": null,
+   "author": "Nagel",
+   "year": 1979,
+   "title": "Moral luck",
+   "ref": "nagel|1979|moral luck",
+   "papers": [
+    "ethics"
+   ],
+   "id": null
+  },
+  {
+   "doi": null,
+   "author": "Nakamoto",
+   "year": 2008,
+   "title": "Bitcoin: A peer-to-peer electronic cash system. (White paper.)",
+   "ref": "nakamoto|2008|bitcoin a peer to peer electronic cash system white paper",
+   "papers": [
+    "dna_ledger"
+   ],
+   "id": null
+  },
+  {
+   "doi": null,
+   "author": "Nash",
+   "year": null,
+   "title": "",
+   "ref": "nash|None|",
+   "papers": [
+    "probe"
+   ],
+   "id": null
+  },
+  {
+   "doi": "10.1103/physrevlett.100.138701",
+   "author": "Newman",
+   "year": 2008,
+   "title": "Bicomponents and the robustness of networks to failure",
+   "ref": "newman|2008|bicomponents and the robustness of networks to failure",
+   "papers": [
+    "routing"
+   ],
+   "id": "W2043530395",
+   "resolved_by": "title (1.00)",
+   "cited_by": 77
+  },
+  {
+   "doi": null,
+   "author": "Niemann",
+   "year": 2005,
+   "title": "The abundances of constituents of Titan's atmosphere from the GCMS instrument on the Huygens probe",
+   "ref": "niemann|2005|the abundances of constituents of titan s atmosphere from th",
+   "papers": [
+    "home_programme"
+   ],
+   "id": null
+  },
+  {
+   "doi": "10.48550/arxiv.2607.19749",
+   "author": "Nijjer",
+   "year": 2026,
+   "title": "The world model remembers, the actor forgets: Dream rehearsal for continual model-based RL",
+   "ref": "nijjer|2026|the world model remembers the actor forgets dream rehearsal ",
+   "papers": [
+    "payload"
+   ],
+   "id": "W7170193605",
+   "resolved_by": "title (1.00)",
+   "cited_by": 0
+  },
+  {
+   "doi": "10.1007/s11067-026-09785-4",
+   "author": "Noguchi",
+   "year": 2026,
+   "title": "Connectivity, redundancy, and resilience in freight transport networks under disruptive shocks",
+   "ref": "10.1007/s11067-026-09785-4",
+   "papers": [
+    "security"
+   ],
+   "id": "W7203763808",
+   "resolved_by": "doi",
+   "cited_by": 1
+  },
+  {
+   "doi": "10.1063/1.3128863",
+   "author": "O'Neill",
+   "year": 1974,
+   "title": "The colonization of space",
+   "ref": "o neill|1974|the colonization of space",
+   "papers": [
+    "home_programme"
+   ],
+   "id": "W2044990845",
+   "resolved_by": "title (1.00)",
+   "cited_by": 220
+  },
+  {
+   "doi": null,
+   "author": "Oberth",
+   "year": 1929,
+   "title": "Wege zur Raumschiffahrt [Ways to Spaceflight]",
+   "ref": "oberth|1929|wege zur raumschiffahrt ways to spaceflight",
+   "papers": [
+    "probe"
+   ],
+   "id": null
+  },
+  {
+   "doi": "10.1038/246096a0",
+   "author": "Ohta",
+   "year": 1973,
+   "title": "Slightly deleterious mutant substitutions in evolution",
+   "ref": "ohta|1973|slightly deleterious mutant substitutions in evolution",
+   "papers": [
+    "speciation"
+   ],
+   "id": "W2007325254",
+   "resolved_by": "title (1.00)",
+   "cited_by": 1128
+  },
+  {
+   "doi": null,
+   "author": "Omohundro",
+   "year": 2008,
+   "title": "The basic AI drives",
+   "ref": "omohundro|2008|the basic ai drives",
+   "papers": [
+    "amendment",
+    "fermi",
+    "governance",
+    "payload"
+   ],
+   "id": null
+  },
+  {
+   "doi": null,
+   "author": "Ord",
+   "year": 2020,
+   "title": "The Precipice: Existential Risk and the Future of Humanity. Hachette Books",
+   "ref": "ord|2020|the precipice existential risk and the future of humanity ha",
+   "papers": [
+    "ethics"
+   ],
+   "id": null
+  },
+  {
+   "doi": "10.1038/nbt.4079",
+   "author": "Organick",
+   "year": 2018,
+   "title": "Random access in large-scale DNA data storage",
+   "ref": "organick|2018|random access in large scale dna data storage",
+   "papers": [
+    "dna_ledger"
+   ],
+   "id": "W2788257106",
+   "resolved_by": "title (1.00)",
+   "cited_by": 774
+  },
+  {
+   "doi": "10.48550/arxiv.2608.23452",
+   "author": "Orsula",
+   "year": 2026,
+   "title": "Reward-free continual adaptation for resilient space robots",
+   "ref": "orsula|2026|reward free continual adaptation for resilient space robots",
+   "papers": [
+    "payload"
+   ],
+   "id": "W7204182445",
+   "resolved_by": "title (1.00)",
+   "cited_by": 0
+  },
+  {
+   "doi": "10.1002/anie.5128253",
+   "author": "Ossowski",
+   "year": 2026,
+   "title": "Dynamic operations in macromolecular data storage",
+   "ref": "10.1002/anie.5128253",
+   "papers": [
+    "dna_ledger"
+   ],
+   "id": "W7204126227",
+   "resolved_by": "doi",
+   "cited_by": 0
+  },
+  {
+   "doi": null,
+   "author": "Ostrom",
+   "year": 1990,
+   "title": "Governing the Commons: The Evolution of Institutions for Collective Action. Cambridge University Press",
+   "ref": "ostrom|1990|governing the commons the evolution of institutions for coll",
+   "papers": [
+    "ethics"
+   ],
+   "id": null
+  },
+  {
+   "doi": "10.48550/arxiv.2608.10218",
+   "author": "Papadopoulos",
+   "year": 2026,
+   "title": "Mind viruses: Self-propagating ideas in multi-agent LLM systems",
+   "ref": "papadopoulos|2026|mind viruses self propagating ideas in multi agent llm syste",
+   "papers": [
+    "payload",
+    "security"
+   ],
+   "id": "W7202256946",
+   "resolved_by": "title (1.00)",
+   "cited_by": 0
+  },
+  {
+   "doi": null,
+   "author": "Parfit",
+   "year": 1984,
+   "title": "Reasons and Persons. Oxford University Press",
+   "ref": "parfit|1984|reasons and persons oxford university press",
+   "papers": [
+    "amendment",
+    "ethics"
+   ],
+   "id": null
+  },
+  {
+   "doi": "10.48550/arxiv.2608.12963",
+   "author": "Parisi",
+   "year": 2026,
+   "title": "Scalable production of nuclear battery alpha emitters using fusion neutrons",
+   "ref": "parisi|2026|scalable production of nuclear battery alpha emitters using ",
+   "papers": [
+    "home_programme",
+    "probe"
+   ],
+   "id": "W7203497488",
+   "resolved_by": "title (1.00)",
+   "cited_by": 0
+  },
+  {
+   "doi": "10.1016/j.actaastro.2018.08.035",
+   "author": "Parkin",
+   "year": 2018,
+   "title": "The Breakthrough Starshot system model",
+   "ref": "parkin|2018|the breakthrough starshot system model",
+   "papers": [
+    "probe"
+   ],
+   "id": "W2798280775",
+   "resolved_by": "title (1.00)",
+   "cited_by": 135
+  },
+  {
+   "doi": "10.70483/kp.179544",
+   "author": "Patomäki",
+   "year": 2026,
+   "title": "Suuri kosminen hiljaisuus: Mitä Fermin paradoksi kertoo ihmiskunnan tulevaisuudesta? Osa 1 [The great cosmic silence: What does the Fermi paradox tell us about the future of humanity? Part 1]",
+   "ref": "10.70483/kp.179544",
+   "papers": [
+    "fermi"
+   ],
+   "id": "W7214114930",
+   "resolved_by": "doi",
+   "cited_by": 0
+  },
+  {
+   "doi": "10.70483/kp.188908",
+   "author": "Patomäki",
+   "year": 2026,
+   "title": "Suuri kosminen hiljaisuus: Mitä Fermin paradoksi kertoo ihmiskunnan tulevaisuudesta? Osa 2 [The great cosmic silence: What does the Fermi paradox tell us about the future of humanity? Part 2]",
+   "ref": "10.70483/kp.188908",
+   "papers": [
+    "fermi"
+   ],
+   "id": "W7214121790",
+   "resolved_by": "doi",
+   "cited_by": 0
+  },
+  {
+   "doi": null,
+   "author": "Paxton",
+   "year": 1987,
+   "title": "Critical Dimensions of Systems Containing ²³⁵U, ²³⁹Pu, and ²³³U, 1986 Revision (LA-10860-MS)",
+   "ref": "paxton|1987|critical dimensions of systems containing u pu and u 1986 re",
+   "papers": [
+    "home_programme"
+   ],
+   "id": null
+  },
+  {
+   "doi": "10.2514/1.a36693",
+   "author": "Pederson",
+   "year": 2026,
+   "title": "Multifunctional lightweight radiators for small-satellite thermal control",
+   "ref": "10.2514/1.a36693",
+   "papers": [
+    "subsystem"
+   ],
+   "id": "W4416157963",
+   "resolved_by": "doi",
+   "cited_by": 2
+  },
+  {
+   "doi": "10.1111/1468-2230.70064",
+   "author": "Peftinas",
+   "year": 2026,
+   "title": "The doctrine of state necessity",
+   "ref": "10.1111/1468-2230.70064",
+   "papers": [
+    "amendment"
+   ],
+   "id": "W7215124986",
+   "resolved_by": "doi",
+   "cited_by": 0
+  },
+  {
+   "doi": "10.1016/j.actaastro.2016.07.005",
+   "author": "Perakis",
+   "year": 2016,
+   "title": "Combining magnetic and electric sails for interstellar deceleration",
+   "ref": "perakis|2016|combining magnetic and electric sails for interstellar decel",
+   "papers": [
+    "engineering",
+    "probe"
+   ],
+   "id": "W2295743069",
+   "resolved_by": "title (1.00)",
+   "cited_by": 31
+  },
+  {
+   "doi": "10.1177/20539517261473358",
+   "author": "Peterson",
+   "year": 2026,
+   "title": "Remaking the landscape of scientific expertise: The emergent research program of total automation in science",
+   "ref": "peterson|2026|remaking the landscape of scientific expertise the emergent ",
+   "papers": [
+    "knowledge_growth"
+   ],
+   "id": "W7204132417",
+   "resolved_by": "title (1.00)",
+   "cited_by": 0
+  },
+  {
+   "doi": "10.1080/20508840.2026.2712192",
+   "author": "Pietrzyk",
+   "year": 2026,
+   "title": "Reinterpreting constitutional amendment procedures through political philosophies",
+   "ref": "10.1080/20508840.2026.2712192",
+   "papers": [
+    "amendment"
+   ],
+   "id": "W7204276073",
+   "resolved_by": "doi",
+   "cited_by": 0
+  },
+  {
+   "doi": "10.1134/s1063773718090050",
+   "author": "Pitjeva",
+   "year": 2018,
+   "title": "Masses of the main asteroid belt and the Kuiper belt from the motions of planets and spacecraft",
+   "ref": "pitjeva|2018|masses of the main asteroid belt and the kuiper belt from th",
+   "papers": [
+    "roadmap"
+   ],
+   "id": "W2898740501",
+   "resolved_by": "title (1.00)",
+   "cited_by": 57
+  },
+  {
+   "doi": "10.1080/00295450.2020.1730673",
+   "author": "Poston",
+   "year": 2020,
+   "title": "Results of the KRUSTY nuclear system test",
+   "ref": "poston|2020|results of the krusty nuclear system test",
+   "papers": [
+    "computational",
+    "engineering",
+    "probe",
+    "roadmap",
+    "subsystem"
+   ],
+   "id": "W3033607441",
+   "resolved_by": "title (1.00)",
+   "cited_by": 98
+  },
+  {
+   "doi": "10.1186/jbiol159",
+   "author": "Puigbò",
+   "year": 2009,
+   "title": "Search for a 'Tree of Life' in the thicket of the phylogenetic forest",
+   "ref": "puigb|2009|search for a tree of life in the thicket of the phylogenetic",
+   "papers": [
+    "speciation"
+   ],
+   "id": "W2140360847",
+   "resolved_by": "title (1.00)",
+   "cited_by": 290
+  },
+  {
+   "doi": "10.1093/mnras/sty3171",
+   "author": "Pätzold",
+   "year": 2019,
+   "title": "The nucleus of comet 67P/Churyumov-Gerasimenko – Part I: The global view – nucleus mass, mass-loss, porosity, and implications",
+   "ref": "p tzold|2019|the nucleus of comet 67p churyumov gerasimenko part i the gl",
+   "papers": [
+    "home_programme"
+   ],
+   "id": "W2903062374",
+   "resolved_by": "title (1.00)",
+   "cited_by": 112
+  },
+  {
+   "doi": "10.2514/1.i011774",
+   "author": "Quevedo Mantovani",
+   "year": 2026,
+   "title": "Safety and performance considerations in shielded autonomous spacecraft tasking",
+   "ref": "10.2514/1.i011774",
+   "papers": [
+    "payload"
+   ],
+   "id": "W7203839180",
+   "resolved_by": "doi",
+   "cited_by": 0
+  },
+  {
+   "doi": "10.1016/0273-1177(95)00826-z",
+   "author": "Race",
+   "year": 1996,
+   "title": "Planetary protection, legal ambiguity, and the decision making process for Mars sample return",
+   "ref": "race|1996|planetary protection legal ambiguity and the decision making",
+   "papers": [
+    "ethics"
+   ],
+   "id": "W2016486141",
+   "resolved_by": "title (1.00)",
+   "cited_by": 24
+  },
+  {
+   "doi": "10.3390/ma19183927",
+   "author": "Ramasamy",
+   "year": 2026,
+   "title": "Ex-situ and in-situ hybrid processing opportunities in metal additive manufacturing",
+   "ref": "10.3390/ma19183927",
+   "papers": [
+    "subsystem"
+   ],
+   "id": "W7213265451",
+   "resolved_by": "doi",
+   "cited_by": 0
+  },
+  {
+   "doi": null,
+   "author": "Rawls",
+   "year": 1971,
+   "title": "A Theory of Justice. Harvard University Press",
+   "ref": "rawls|1971|a theory of justice harvard university press",
+   "papers": [
+    "ethics"
+   ],
+   "id": null
+  },
+  {
+   "doi": "10.1086/524002",
+   "author": "Redfield",
+   "year": 2008,
+   "title": "The structure of the local interstellar medium. IV. Dynamics, morphology, physical properties, and implications of cloud-cloud interactions",
+   "ref": "redfield|2008|the structure of the local interstellar medium iv dynamics m",
+   "papers": [
+    "computational",
+    "engineering",
+    "probe",
+    "roadmap",
+    "routing",
+    "subsystem"
+   ],
+   "id": "W1982331924",
+   "resolved_by": "title (1.00)",
+   "cited_by": 357
+  },
+  {
+   "doi": "10.5281/zenodo.22868534",
+   "author": "Reinl",
+   "year": 2026,
+   "title": "Transitional alignment: The moving-target, differential-rate, and successor-transport problems in transformative AI [Working paper]. Zenodo",
+   "ref": "10.5281/zenodo.22868534",
+   "papers": [
+    "amendment"
+   ],
+   "id": "W7213906519",
+   "resolved_by": "doi",
+   "cited_by": 0
+  },
+  {
+   "doi": "10.1051/0004-6361/202140985",
+   "author": "Reylé",
+   "year": 2021,
+   "title": "The 10 parsec sample in the Gaia era",
+   "ref": "reyl|2021|the 10 parsec sample in the gaia era",
+   "papers": [
+    "routing"
+   ],
+   "id": "W3157364195",
+   "resolved_by": "title (1.00)",
+   "cited_by": 142
+  },
+  {
+   "doi": null,
+   "author": "Roberts",
+   "year": 2026,
+   "title": "Two dogmas of population ethics: MacAskill's existentially unrestricted form of longtermism and the value of existence",
+   "ref": "roberts|2026|two dogmas of population ethics macaskill s existentially un",
+   "papers": [
+    "ethics"
+   ],
+   "id": null
+  },
+  {
+   "doi": null,
+   "author": "Roznai",
+   "year": 2017,
+   "title": "Unconstitutional Constitutional Amendments: The Limits of Amendment Powers. Oxford University Press",
+   "ref": "roznai|2017|unconstitutional constitutional amendments the limits of ame",
+   "papers": [
+    "amendment",
+    "security"
+   ],
+   "id": null
+  },
+  {
+   "doi": "10.4324/9781003740186",
+   "author": "Rubenstein",
+   "year": 2026,
+   "title": "Legal Personhood and the Rights of Nature: Beyond Anthropocentrism. Routledge",
+   "ref": "10.4324/9781003740186",
+   "papers": [
+    "ethics"
+   ],
+   "id": "W7202266543",
+   "resolved_by": "doi",
+   "cited_by": 0
+  },
+  {
+   "doi": "10.1016/b0-08-043751-6/03016-4",
+   "author": "Rudnick",
+   "year": 2003,
+   "title": "Composition of the continental crust",
+   "ref": "rudnick|2003|composition of the continental crust",
+   "papers": [
+    "home_programme"
+   ],
+   "id": "W2581834115",
+   "resolved_by": "title (1.00)",
+   "cited_by": 9387
+  },
+  {
+   "doi": "10.1126/science.aaf4219",
+   "author": "Russell",
+   "year": 2016,
+   "title": "Dawn arrives at Ceres: Exploration of a small, volatile-rich world",
+   "ref": "russell|2016|dawn arrives at ceres exploration of a small volatile rich w",
+   "papers": [
+    "roadmap"
+   ],
+   "id": "W2514424123",
+   "resolved_by": "title (1.00)",
+   "cited_by": 220
+  },
+  {
+   "doi": null,
+   "author": "Sagan",
+   "year": 1978,
+   "title": "Murmurs of Earth: The Voyager Interstellar Record. Random House",
+   "ref": "sagan|1978|murmurs of earth the voyager interstellar record random hous",
+   "papers": [
+    "payload"
+   ],
+   "id": null
+  },
+  {
+   "doi": null,
+   "author": "Sagan",
+   "year": 1983,
+   "title": "The solipsist approach to extraterrestrial intelligence",
+   "ref": "sagan|1983|the solipsist approach to extraterrestrial intelligence",
+   "papers": [
+    "fermi",
+    "governance"
+   ],
+   "id": null
+  },
+  {
+   "doi": null,
+   "author": "Sanchez",
+   "year": 2008,
+   "title": "Criticality of a ²³⁷Np sphere",
+   "ref": "sanchez|2008|criticality of a np sphere",
+   "papers": [
+    "home_programme"
+   ],
+   "id": null
+  },
+  {
+   "doi": "10.2514/1.49851",
+   "author": "Sanchez",
+   "year": 2011,
+   "title": "Asteroid resource map for near-Earth space",
+   "ref": "sanchez|2011|asteroid resource map for near earth space",
+   "papers": [
+    "roadmap"
+   ],
+   "id": "W1981639291",
+   "resolved_by": "title (1.00)",
+   "cited_by": 87
+  },
+  {
+   "doi": "10.1038/s41550-025-02563-1",
+   "author": "Sawala",
+   "year": 2025,
+   "title": "No certainty of a Milky Way–Andromeda collision",
+   "ref": "sawala|2025|no certainty of a milky way andromeda collision",
+   "papers": [
+    "probe"
+   ],
+   "id": "W4401306938",
+   "resolved_by": "title (1.00)",
+   "cited_by": 14
+  },
+  {
+   "doi": null,
+   "author": "Schluter",
+   "year": 2000,
+   "title": "The Ecology of Adaptive Radiation. Oxford University Press",
+   "ref": "schluter|2000|the ecology of adaptive radiation oxford university press",
+   "papers": [
+    "speciation"
+   ],
+   "id": null
+  },
+  {
+   "doi": null,
+   "author": "Schmidhuber",
+   "year": 2007,
+   "title": "Gödel machines: Fully self-referential optimal universal self-improvers",
+   "ref": "schmidhuber|2007|g del machines fully self referential optimal universal self",
+   "papers": [
+    "amendment",
+    "knowledge_growth",
+    "payload"
+   ],
+   "id": null
+  },
+  {
+   "doi": null,
+   "author": "Schwartz",
+   "year": 2016,
+   "title": "The Ethics of Space Exploration. Springer",
+   "ref": "schwartz|2016|the ethics of space exploration springer",
+   "papers": [
+    "ethics"
+   ],
+   "id": null
+  },
+  {
+   "doi": null,
+   "author": "Schwartz",
+   "year": 2020,
+   "title": "The Value of Science in Space Exploration. Oxford University Press",
+   "ref": "schwartz|2020|the value of science in space exploration oxford university ",
+   "papers": [
+    "ethics"
+   ],
+   "id": null
+  },
+  {
+   "doi": "10.1111/misp.12032",
+   "author": "Schwitzgebel",
+   "year": 2015,
+   "title": "A defense of the rights of artificial intelligences",
+   "ref": "schwitzgebel|2015|a defense of the rights of artificial intelligences",
+   "papers": [
+    "ethics"
+   ],
+   "id": "W2180168674",
+   "resolved_by": "title (1.00)",
+   "cited_by": 172
+  },
+  {
+   "doi": null,
+   "author": "Sebeok",
+   "year": 1984,
+   "title": "Communication measures to bridge ten millennia (Report No",
+   "ref": "sebeok|1984|communication measures to bridge ten millennia report no",
+   "papers": [
+    "dna_ledger"
+   ],
+   "id": null
+  },
+  {
+   "doi": "10.48550/arxiv.2608.24839",
+   "author": "Sensintaffar",
+   "year": 2026,
+   "title": "HORIZON: A read-efficient firmware for DNA storage with horizontal layout",
+   "ref": "sensintaffar|2026|horizon a read efficient firmware for dna storage with horiz",
+   "papers": [
+    "dna_ledger"
+   ],
+   "id": "W7204274609",
+   "resolved_by": "title (1.00)",
+   "cited_by": 0
+  },
+  {
+   "doi": null,
+   "author": "Settles",
+   "year": 2012,
+   "title": "Active Learning. Morgan & Claypool Publishers",
+   "ref": "settles|2012|active learning morgan claypool publishers",
+   "papers": [
+    "knowledge_growth"
+   ],
+   "id": null
+  },
+  {
+   "doi": "10.48550/arxiv.2608.05810",
+   "author": "Shang",
+   "year": 2026,
+   "title": "When self-evolution backfires: Pre-commit gating against skill contamination in LLM agents",
+   "ref": "shang|2026|when self evolution backfires pre commit gating against skil",
+   "papers": [
+    "security"
+   ],
+   "id": "W7201834752",
+   "resolved_by": "title (1.00)",
+   "cited_by": 0
+  },
+  {
+   "doi": "10.1002/j.1538-7305.1948.tb00917.x",
+   "author": "Shannon",
+   "year": 1948,
+   "title": "A mathematical theory of communication",
+   "ref": "shannon|1948|a mathematical theory of communication",
+   "papers": [
+    "knowledge_growth"
+   ],
+   "id": "W2041404167",
+   "resolved_by": "title (1.00)",
+   "cited_by": 48978
+  },
+  {
+   "doi": "10.65844/2442-9899.1261",
+   "author": "Shatnawi",
+   "year": 2026,
+   "title": "Judicial departure and legal certainty: A comparative study of US and French law",
+   "ref": "shatnawi|2026|judicial departure and legal certainty a comparative study o",
+   "papers": [
+    "amendment"
+   ],
+   "id": "W7203535271",
+   "resolved_by": "title (1.00)",
+   "cited_by": 0
+  },
+  {
+   "doi": null,
+   "author": "Shenderov",
+   "year": 2026,
+   "title": "Panbiotic ethics as an evolutionary adaptation",
+   "ref": "shenderov|2026|panbiotic ethics as an evolutionary adaptation",
+   "papers": [
+    "governance"
+   ],
+   "id": null
+  },
+  {
+   "doi": "10.1016/j.icarus.2026.117278",
+   "author": "Sheng",
+   "year": 2026,
+   "title": "Non-mare glasses from the Chang'e-5 landing site: Evidence for local crustal KREEP-rich reservoirs?",
+   "ref": "10.1016/j.icarus.2026.117278",
+   "papers": [
+    "home_programme"
+   ],
+   "id": "W7170032090",
+   "resolved_by": "doi",
+   "cited_by": 0
+  },
+  {
+   "doi": "10.1038/nature23017",
+   "author": "Shipman",
+   "year": 2017,
+   "title": "CRISPR–Cas encoding of a digital movie into the genomes of a population of living bacteria",
+   "ref": "shipman|2017|crispr cas encoding of a digital movie into the genomes of a",
+   "papers": [
+    "bootstrap",
+    "dna_ledger"
+   ],
+   "id": "W2735589681",
+   "resolved_by": "title (1.00)",
+   "cited_by": 361
+  },
+  {
+   "doi": "10.48550/arxiv.2608.16141",
+   "author": "Si",
+   "year": 2026,
+   "title": "Continual-learning rules shape representational drift",
+   "ref": "si|2026|continual learning rules shape representational drift",
+   "papers": [
+    "payload"
+   ],
+   "id": "W7203728228",
+   "resolved_by": "title (1.00)",
+   "cited_by": 0
+  },
+  {
+   "doi": "10.1051/0004-6361:20078101",
+   "author": "Slavin",
+   "year": 2008,
+   "title": "The boundary conditions of the heliosphere: Photoionization models constrained by interstellar and in situ data",
+   "ref": "slavin|2008|the boundary conditions of the heliosphere photoionization m",
+   "papers": [
+    "computational",
+    "engineering",
+    "probe",
+    "roadmap"
+   ],
+   "id": "W2138533349",
+   "resolved_by": "title (1.00)",
+   "cited_by": 138
+  },
+  {
+   "doi": null,
+   "author": "Snodgrass",
+   "year": 2019,
+   "title": "The European Space Agency's Comet Interceptor lies in wait",
+   "ref": "snodgrass|2019|the european space agency s comet interceptor lies in wait",
+   "papers": [
+    "roadmap"
+   ],
+   "id": null
+  },
+  {
+   "doi": null,
+   "author": "Soares",
+   "year": 2015,
+   "title": "Corrigibility",
+   "ref": "soares|2015|corrigibility",
+   "papers": [
+    "amendment"
+   ],
+   "id": null
+  },
+  {
+   "doi": "10.3847/1538-3881/ae8516",
+   "author": "Song",
+   "year": 2026,
+   "title": "A deep SETI search for technosignatures in the TRAPPIST-1 system with FAST",
+   "ref": "10.3847/1538-3881/ae8516",
+   "papers": [
+    "fermi"
+   ],
+   "id": "W4414756588",
+   "resolved_by": "doi",
+   "cited_by": 0
+  },
+  {
+   "doi": "10.1016/j.actaastro.2025.03.025",
+   "author": "Soryl",
+   "year": 2025,
+   "title": "To seed or not to seed: Estimating the ethical value of directed panspermia",
+   "ref": "soryl|2025|to seed or not to seed estimating the ethical value of direc",
+   "papers": [
+    "governance"
+   ],
+   "id": "W4408734554",
+   "resolved_by": "title (1.00)",
+   "cited_by": 2
+  },
+  {
+   "doi": null,
+   "author": "Spyropoulos",
+   "year": 2005,
+   "title": "Spray and wait: An efficient routing scheme for intermittently connected mobile networks",
+   "ref": "spyropoulos|2005|spray and wait an efficient routing scheme for intermittentl",
+   "papers": [
+    "network"
+   ],
+   "id": null
+  },
+  {
+   "doi": "10.1126/science.1236408",
+   "author": "Stone",
+   "year": 2013,
+   "title": "Voyager 1 observes low-energy galactic cosmic rays in a region depleted of heliospheric ions",
+   "ref": "stone|2013|voyager 1 observes low energy galactic cosmic rays in a regi",
+   "papers": [
+    "home_programme"
+   ],
+   "id": "W1981455005",
+   "resolved_by": "title (1.00)",
+   "cited_by": 593
+  },
+  {
+   "doi": "10.48550/arxiv.2609.14293",
+   "author": "Stoops",
+   "year": 2026,
+   "title": "Cryothermal measurements of variable-emittance coatings with lower phase transition temperatures for space thermal control",
+   "ref": "stoops|2026|cryothermal measurements of variable emittance coatings with",
+   "papers": [
+    "subsystem"
+   ],
+   "id": "W7213335612",
+   "resolved_by": "title (1.00)",
+   "cited_by": 0
+  },
+  {
+   "doi": "10.1007/s13347-026-01158-6",
+   "author": "Suzuki",
+   "year": 2026,
+   "title": "Artificial externality: A three-layer model of reality from substrate to smart contract",
+   "ref": "10.1007/s13347-026-01158-6",
+   "papers": [
+    "ethics"
+   ],
+   "id": "W7202169310",
+   "resolved_by": "doi",
+   "cited_by": 2
+  },
+  {
+   "doi": "10.1007/s44205-026-00219-4",
+   "author": "Tabata",
+   "year": 2026,
+   "title": "Development and testing of the DESTINY+ microwave discharge ion engine system",
+   "ref": "10.1007/s44205-026-00219-4",
+   "papers": [
+    "subsystem"
+   ],
+   "id": "W7204864160",
+   "resolved_by": "doi",
+   "cited_by": 0
+  },
+  {
+   "doi": null,
+   "author": "Talmon",
+   "year": 2026,
+   "title": "Cardano's Voltaire governance: Complete specification and research program",
+   "ref": "talmon|2026|cardano s voltaire governance complete specification and res",
+   "papers": [
+    "amendment"
+   ],
+   "id": null
+  },
+  {
+   "doi": "10.48550/arxiv.2609.24130",
+   "author": "Tayebati",
+   "year": 2026,
+   "title": "Self-healing harness for runtime oversight of agent self-modification",
+   "ref": "tayebati|2026|self healing harness for runtime oversight of agent self mod",
+   "papers": [
+    "payload"
+   ],
+   "id": "W7214019896",
+   "resolved_by": "title (1.00)",
+   "cited_by": 0
+  },
+  {
+   "doi": "10.1029/2005je002645",
+   "author": "Taylor",
+   "year": 2006,
+   "title": "Bulk composition and early differentiation of Mars",
+   "ref": "taylor|2006|bulk composition and early differentiation of mars",
+   "papers": [
+    "home_programme"
+   ],
+   "id": "W2167672910",
+   "resolved_by": "title (1.00)",
+   "cited_by": 151
+  },
+  {
+   "doi": "10.1098/rsta.2016.0262",
+   "author": "Taylor",
+   "year": 2017,
+   "title": "The Rosetta mission orbiter science overview: The comet phase",
+   "ref": "taylor|2017|the rosetta mission orbiter science overview the comet phase",
+   "papers": [
+    "home_programme"
+   ],
+   "id": "W2619136954",
+   "resolved_by": "title (1.00)",
+   "cited_by": 136
+  },
+  {
+   "doi": "10.1063/1.2914542",
+   "author": "Tipler",
+   "year": 1980,
+   "title": "Extraterrestrial intelligent beings do not exist",
+   "ref": "tipler|1980|extraterrestrial intelligent beings do not exist",
+   "papers": [
+    "computational",
+    "engineering",
+    "fermi",
+    "governance",
+    "payload",
+    "probe"
+   ],
+   "id": "W2056795477",
+   "resolved_by": "title (1.00)",
+   "cited_by": 105
+  },
+  {
+   "doi": "10.1007/s11948-020-00243-z",
+   "author": "Totschnig",
+   "year": 2020,
+   "title": "Fully autonomous AI",
+   "ref": "totschnig|2020|fully autonomous ai",
+   "papers": [
+    "amendment"
+   ],
+   "id": "W3045839913",
+   "resolved_by": "title (1.00)",
+   "cited_by": 55
+  },
+  {
+   "doi": null,
+   "author": "Tsiolkovsky",
+   "year": 1903,
+   "title": "The exploration of cosmic space by means of reaction devices",
+   "ref": "tsiolkovsky|1903|the exploration of cosmic space by means of reaction devices",
+   "papers": [
+    "probe"
+   ],
+   "id": null
+  },
+  {
+   "doi": "10.48550/arxiv.2608.27499",
+   "author": "Turyshev",
+   "year": 2026,
+   "title": "Operations, maintenance, and industrial scaling of MW-class orbital data centers",
+   "ref": "turyshev|2026|operations maintenance and industrial scaling of mw class or",
+   "papers": [
+    "engineering",
+    "subsystem"
+   ],
+   "id": "W7204779623",
+   "resolved_by": "title (1.00)",
+   "cited_by": 0
+  },
+  {
+   "doi": "10.48550/arxiv.2609.34394",
+   "author": "Ugurlu",
+   "year": 2026,
+   "title": "Objective transfer in single-node network criticality: Optimal constants and exact separation thresholds",
+   "ref": "ugurlu|2026|objective transfer in single node network criticality optima",
+   "papers": [
+    "security"
+   ],
+   "id": "W7214768065",
+   "resolved_by": "title (1.00)",
+   "cited_by": 0
+  },
+  {
+   "doi": null,
+   "author": "United Nations (1967). *Treaty on Principles Governing the Activities of States in the Exploration and Use of Outer Space",
+   "year": 1967,
+   "title": "Treaty on Principles Governing the Activities of States in the Exploration and Use of Outer Space, including the Moon and Other Celestial Bodies (Outer Space Treaty), Article IX",
+   "ref": "united nations 1967 treaty on principles governing the activities of states in the exploration and use of outer space|1967|treaty on principles governing the activities of states in t",
+   "papers": [
+    "governance"
+   ],
+   "id": null
+  },
+  {
+   "doi": "10.1016/j.actaastro.2010.01.008",
+   "author": "Vakoch",
+   "year": 2011,
+   "title": "Responsibility, capability, and Active SETI: Policy, law, ethics, and communication with extraterrestrial intelligence",
+   "ref": "vakoch|2011|responsibility capability and active seti policy law ethics ",
+   "papers": [
+    "ethics"
+   ],
+   "id": "W1969419140",
+   "resolved_by": "title (1.00)",
+   "cited_by": 17
+  },
+  {
+   "doi": "10.1017/s2045381726100501",
+   "author": "Verovšek",
+   "year": 2026,
+   "title": "Liberal first, democratic second: Moving the EU from militant liberalism to supranational democratic defense",
+   "ref": "10.1017/s2045381726100501",
+   "papers": [
+    "amendment"
+   ],
+   "id": "W7221593833",
+   "resolved_by": "doi",
+   "cited_by": 0
+  },
+  {
+   "doi": null,
+   "author": "Vogels",
+   "year": 2009,
+   "title": "Eventually consistent",
+   "ref": "vogels|2009|eventually consistent",
+   "papers": [
+    "network"
+   ],
+   "id": null
+  },
+  {
+   "doi": "10.1007/s43681-026-01362-2",
+   "author": "Wagner",
+   "year": 2026,
+   "title": "Triarchic corrigibility: A role-separated governance design pattern for AI-assisted decision-making",
+   "ref": "10.1007/s43681-026-01362-2",
+   "papers": [
+    "amendment"
+   ],
+   "id": "W7214898500",
+   "resolved_by": "doi",
+   "cited_by": 0
+  },
+  {
+   "doi": "10.1126/science.aai8703",
+   "author": "Waite",
+   "year": 2017,
+   "title": "Cassini finds molecular hydrogen in the Enceladus plume: Evidence for hydrothermal processes",
+   "ref": "waite|2017|cassini finds molecular hydrogen in the enceladus plume evid",
+   "papers": [
+    "home_programme"
+   ],
+   "id": "W2606994638",
+   "resolved_by": "title (1.00)",
+   "cited_by": 579
+  },
+  {
+   "doi": null,
+   "author": "Walter",
+   "year": 2010,
+   "title": "Revisiting the parallax of the isolated neutron star RX J185635−3754 using HST/ACS imaging",
+   "ref": "walter|2010|revisiting the parallax of the isolated neutron star rx j185",
+   "papers": [
+    "probe"
+   ],
+   "id": null
+  },
+  {
+   "doi": "10.21203/rs.3.rs-11364432/v1",
+   "author": "Wang",
+   "year": 2026,
+   "title": "Mechanist: AI as a scientific instrument for discovering the mechanisms of intelligence",
+   "ref": "wang|2026|mechanist ai as a scientific instrument for discovering the ",
+   "papers": [
+    "knowledge_growth"
+   ],
+   "id": "W7222065124",
+   "resolved_by": "title (1.00)",
+   "cited_by": 0
+  },
+  {
+   "doi": "10.48550/arxiv.2609.36043",
+   "author": "Wang",
+   "year": 2026,
+   "title": "SAGE: A statistical acceptance gate for self-evolving agents",
+   "ref": "wang|2026|sage a statistical acceptance gate for self evolving agents",
+   "papers": [
+    "payload"
+   ],
+   "id": "W7214961830",
+   "resolved_by": "title (1.00)",
+   "cited_by": 0
+  },
+  {
+   "doi": "10.1126/science.aav8032",
+   "author": "Watanabe",
+   "year": 2019,
+   "title": "Hayabusa2 arrives at the carbonaceous asteroid 162173 Ryugu — A spinning top-shaped rubble pile",
+   "ref": "watanabe|2019|hayabusa2 arrives at the carbonaceous asteroid 162173 ryugu ",
+   "papers": [
+    "roadmap"
+   ],
+   "id": "W2924760942",
+   "resolved_by": "title (1.00)",
+   "cited_by": 646
+  },
+  {
+   "doi": "10.1017/pasa.2026.10230",
+   "author": "Watters",
+   "year": 2026,
+   "title": "Critical evaluation of studies alleging evidence for technosignatures in the POSS1-E photographic plates",
+   "ref": "10.1017/pasa.2026.10230",
+   "papers": [
+    "fermi"
+   ],
+   "id": "W7170151684",
+   "resolved_by": "doi",
+   "cited_by": 0
+  },
+  {
+   "doi": null,
+   "author": "Webb",
+   "year": 2015,
+   "title": "If the Universe Is Teeming with Aliens",
+   "ref": "webb|2015|if the universe is teeming with aliens",
+   "papers": [
+    "fermi"
+   ],
+   "id": null
+  },
+  {
+   "doi": "10.1002/advs.76675",
+   "author": "Wehr",
+   "year": 2026,
+   "title": "Closing the empirical loop: Autonomous AI agents conduct end-to-end research with human participants",
+   "ref": "10.1002/advs.76675",
+   "papers": [
+    "knowledge_growth"
+   ],
+   "id": "W7213206525",
+   "resolved_by": "doi",
+   "cited_by": 0
+  },
+  {
+   "doi": "10.1145/3834768",
+   "author": "Wei",
+   "year": 2026,
+   "title": "VL-DNA: Enhance DNA storage capacity with variable payload/strand lengths",
+   "ref": "10.1145/3834768",
+   "papers": [
+    "dna_ledger"
+   ],
+   "id": "W4393118536",
+   "resolved_by": "doi",
+   "cited_by": 0
+  },
+  {
+   "doi": "10.48550/arxiv.2610.18449",
+   "author": "Wen",
+   "year": 2026,
+   "title": "Autonomous Science Bench: Evaluating AI agents for autonomous scientific discovery",
+   "ref": "wen|2026|autonomous science bench evaluating ai agents for autonomous",
+   "papers": [
+    "knowledge_growth"
+   ],
+   "id": "W7221804992",
+   "resolved_by": "title (1.00)",
+   "cited_by": 0
+  },
+  {
+   "doi": null,
+   "author": "Williams",
+   "year": 1981,
+   "title": "Moral Luck. Cambridge University Press",
+   "ref": "williams|1981|moral luck cambridge university press",
+   "papers": [
+    "ethics"
+   ],
+   "id": null
+  },
+  {
+   "doi": null,
+   "author": "Wittenberg",
+   "year": 1986,
+   "title": "Lunar source of ³He for commercial fusion power",
+   "ref": "wittenberg|1986|lunar source of he for commercial fusion power",
+   "papers": [
+    "home_programme"
+   ],
+   "id": "W1603438994",
+   "resolved_by": "title (0.80)",
+   "cited_by": 2
+  },
+  {
+   "doi": "10.1073/pnas.87.12.4576",
+   "author": "Woese",
+   "year": 1990,
+   "title": "Towards a natural system of organisms: Proposal for the domains Archaea, Bacteria, and Eucarya",
+   "ref": "woese|1990|towards a natural system of organisms proposal for the domai",
+   "papers": [
+    "speciation"
+   ],
+   "id": "W2166865790",
+   "resolved_by": "title (1.00)",
+   "cited_by": 6123
+  },
+  {
+   "doi": "10.1007/s10676-026-09919-9",
+   "author": "Wong",
+   "year": 2026,
+   "title": "Office and unowned architecture: Public judgment in the age of algorithmic governance",
+   "ref": "10.1007/s10676-026-09919-9",
+   "papers": [
+    "ethics"
+   ],
+   "id": "W7214477826",
+   "resolved_by": "doi",
+   "cited_by": 1
+  },
+  {
+   "doi": "10.48550/arxiv.2609.40011",
+   "author": "Worden",
+   "year": 2026,
+   "title": "Project CERES: Nuclear thermal transportation and in-situ propellant production — a foundational architecture for solar system logistics",
+   "ref": "worden|2026|project ceres nuclear thermal transportation and in situ pro",
+   "papers": [
+    "home_programme"
+   ],
+   "id": "W7215065720",
+   "resolved_by": "title (1.00)",
+   "cited_by": 0
+  },
+  {
+   "doi": "10.1007/978-3-319-55333-7_186",
+   "author": "Wright",
+   "year": 2018,
+   "title": "Exoplanets and SETI",
+   "ref": "wright|2018|exoplanets and seti",
+   "papers": [
+    "fermi"
+   ],
+   "id": "W2732673745",
+   "resolved_by": "title (1.00)",
+   "cited_by": 13
+  },
+  {
+   "doi": "10.48550/arxiv.2608.27141",
+   "author": "Wu",
+   "year": 2026,
+   "title": "Safety does not compose: Non-decaying loop state for autonomous LLM agents",
+   "ref": "wu|2026|safety does not compose non decaying loop state for autonomo",
+   "papers": [
+    "amendment"
+   ],
+   "id": "W7204671280",
+   "resolved_by": "title (1.00)",
+   "cited_by": 0
+  },
+  {
+   "doi": "10.1038/s41378-026-01456-1",
+   "author": "Yang",
+   "year": 2026,
+   "title": "Enhanced electrochemically-directed oligonucleotide synthesis via porous silica thin-film for DNA data storage",
+   "ref": "10.1038/s41378-026-01456-1",
+   "papers": [
+    "dna_ledger"
+   ],
+   "id": "W7221459798",
+   "resolved_by": "doi",
+   "cited_by": 0
+  },
+  {
+   "doi": "10.1007/s11948-026-00627-7",
+   "author": "Yang",
+   "year": 2026,
+   "title": "The embodiment criterion for moral status in virtual reality",
+   "ref": "10.1007/s11948-026-00627-7",
+   "papers": [
+    "ethics"
+   ],
+   "id": "W7204154003",
+   "resolved_by": "doi",
+   "cited_by": 0
+  },
+  {
+   "doi": "10.1126/science.abn7850",
+   "author": "Yokoyama",
+   "year": 2023,
+   "title": "Samples returned from the asteroid Ryugu are similar to Ivuna-type carbonaceous meteorites",
+   "ref": "yokoyama|2023|samples returned from the asteroid ryugu are similar to ivun",
+   "papers": [
+    "home_programme"
+   ],
+   "id": "W4281709976",
+   "resolved_by": "title (1.00)",
+   "cited_by": 351
+  },
+  {
+   "doi": "10.48550/arxiv.2608.26753",
+   "author": "Yu",
+   "year": 2026,
+   "title": "Beyond execution: Auditing experimental fidelity in LLM-driven scientific research",
+   "ref": "yu|2026|beyond execution auditing experimental fidelity in llm drive",
+   "papers": [
+    "knowledge_growth"
+   ],
+   "id": "W7204539997",
+   "resolved_by": "title (1.00)",
+   "cited_by": 0
+  },
+  {
+   "doi": null,
+   "author": "Yudkowsky",
+   "year": 2004,
+   "title": "Coherent Extrapolated Volition. Singularity Institute for Artificial Intelligence (Machine Intelligence Research Institute)",
+   "ref": "yudkowsky|2004|coherent extrapolated volition singularity institute for art",
+   "papers": [
+    "amendment"
+   ],
+   "id": null
+  },
+  {
+   "doi": "10.1017/s2047102526100405",
+   "author": "Zha",
+   "year": 2026,
+   "title": "The obligation to conduct environmental impact assessments in the sustainable development of mega-constellations",
+   "ref": "10.1017/s2047102526100405",
+   "papers": [
+    "governance"
+   ],
+   "id": "W7222038240",
+   "resolved_by": "doi",
+   "cited_by": 0
+  },
+  {
+   "doi": "10.48550/arxiv.2608.01679",
+   "author": "Zhan",
+   "year": 2026,
+   "title": "When memory becomes authority: Benchmarking authority collapse at the memory consolidation boundary",
+   "ref": "zhan|2026|when memory becomes authority benchmarking authority collaps",
+   "papers": [
+    "payload",
+    "security"
+   ],
+   "id": "W7172446784",
+   "resolved_by": "title (1.00)",
+   "cited_by": 0
+  },
+  {
+   "doi": "10.2139/ssrn.7559338",
+   "author": "Zhu",
+   "year": 2026,
+   "title": "Authorization for self-modifying AI agent populations: Conserving authority across replacement, forking, and rollback",
+   "ref": "zhu|2026|authorization for self modifying ai agent populations conser",
+   "papers": [
+    "network"
+   ],
+   "id": "W7216178004",
+   "resolved_by": "title (1.00)",
+   "cited_by": 0
+  },
+  {
+   "doi": "10.48550/arxiv.2608.13030",
+   "author": "Zou",
+   "year": 2026,
+   "title": "InterSAGE: The secure and verifiable interoperability protocol for an internet of agents",
+   "ref": "zou|2026|intersage the secure and verifiable interoperability protoco",
+   "papers": [
+    "security"
+   ],
+   "id": "W7203483857",
+   "resolved_by": "title (1.00)",
+   "cited_by": 0
+  },
+  {
+   "doi": "10.1016/b978-1-4832-2734-4.50017-6",
+   "author": "Zuckerkandl",
+   "year": 1965,
+   "title": "Evolutionary divergence and convergence in proteins",
+   "ref": "zuckerkandl|1965|evolutionary divergence and convergence in proteins",
+   "papers": [
+    "speciation"
+   ],
+   "id": "W1534406401",
+   "resolved_by": "title (1.00)",
+   "cited_by": 3020
+  },
+  {
+   "doi": "10.1119/1.18440",
+   "author": "Zuckerman",
+   "year": 1995,
+   "title": "Extraterrestrials: Where Are They? (2nd ed.)",
+   "ref": "zuckerman|1995|extraterrestrials where are they 2nd ed",
+   "papers": [
+    "fermi"
+   ],
+   "id": "W1999847944",
+   "resolved_by": "title (1.00)",
+   "cited_by": 5
+  },
+  {
+   "doi": "10.1007/s44163-026-01905-w",
+   "author": "Zwitter",
+   "year": 2026,
+   "title": "The embodied ethics alignment problem of AI",
+   "ref": "10.1007/s44163-026-01905-w",
+   "papers": [
+    "ethics"
+   ],
+   "id": "W7160938385",
+   "resolved_by": "doi",
+   "cited_by": 0
+  },
+  {
+   "doi": null,
+   "author": "Ćirković",
+   "year": 2008,
+   "title": "Against the empire",
+   "ref": "irkovi|2008|against the empire",
+   "papers": [
+    "fermi"
+   ],
+   "id": null
+  },
+  {
+   "doi": null,
+   "author": "Ćirković",
+   "year": 2009,
+   "title": "Fermi's paradox — The last challenge for Copernicanism?",
+   "ref": "irkovi|2009|fermi s paradox the last challenge for copernicanism",
+   "papers": [
+    "fermi"
+   ],
+   "id": null
+  }
+ ]
+}

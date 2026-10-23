@@ -10,7 +10,11 @@
     "openalex": "list of OpenAlex search strings",
     "crossref": "list of Crossref bibliographic queries -- keep these VERY specific, Crossref is the noisiest source",
     "exclude": "substrings that, if present in a title, drop the hit outright (precision guardrails)",
-    "exclude_allow": "optional: entries of defaults.exclude that do NOT apply to this paper (a global homonym guard that is on-topic here, e.g. 'interstellar object' for the home-programme rider)"
+    "exclude_allow": "optional: entries of defaults.exclude that do NOT apply to this paper (a global homonym guard that is on-topic here, e.g. 'interstellar object' for the home-programme rider)",
+    "ads": "optional: ADS search queries (ADS syntax; the window is added as entdate). Reaches JBIS, IAC, LPSC and NASA NIAC/contractor reports. Needs ADS_API_TOKEN.",
+    "ntrs": "optional: NASA Technical Reports Server queries (plain text).",
+    "biorxiv": "optional: arXiv-style boolean queries matched locally against the window's bioRxiv postings in BIORXIV_CATEGORIES (search.py).",
+    "s2_recommend": "optional, true/false: Semantic Scholar recommendations seeded with the paper's DOI references (series_refs.json). Off everywhere as of 2026-10-22 -- see _tuning_log."
   },
   "_exclude_note": "These are homonym guardrails, each one added after it actually polluted a live run. 'Fermi' is a physics surname before it is a paradox; 'probe' is a lab reagent before it is a spacecraft; 'Neumann' is an operator before it is a self-replicator. Add to this list rather than narrowing the queries -- broad query + sharp exclude preserves recall.",
   "defaults": {
@@ -152,6 +156,10 @@
           "year": 1980,
           "bibcode": "1980JBIS...33..251F"
         }
+      ],
+      "ads": [
+        "abs:(\"interstellar probe\" OR \"interstellar mission\" OR \"interstellar precursor\" OR \"magnetic sail\" OR \"electric sail\" OR \"self-replicating probe\" OR \"von Neumann probe\") doctype:(article OR eprint OR inproceedings OR techreport OR abstract)",
+        "bibstem:JBIS"
       ]
     },
     {
@@ -238,6 +246,9 @@
           ],
           "name": "npj Advanced Manufacturing"
         }
+      ],
+      "ntrs": [
+        "in-space manufacturing"
       ]
     },
     {
@@ -287,7 +298,10 @@
       "crossref": [
         "galactic colonization simulation probe replication"
       ],
-      "exclude": []
+      "exclude": [],
+      "ads": [
+        "abs:(\"galactic colonization\" OR \"interstellar colonization\" OR \"colonization front\" OR \"colonization wave\") collection:(astronomy OR physics) doctype:(article OR eprint OR inproceedings OR techreport OR abstract)"
+      ]
     },
     {
       "key": "dna_ledger",
@@ -324,6 +338,9 @@
         "fluorescent probe",
         "image encryption",
         "molecular probe assay"
+      ],
+      "biorxiv": [
+        "\"DNA data storage\" OR \"DNA storage\" OR \"DNA-based storage\" OR \"molecular data storage\" OR (DNA AND archival AND (storage OR data))"
       ]
     },
     {
@@ -390,6 +407,9 @@
           ],
           "name": "Astrobiology"
         }
+      ],
+      "ads": [
+        "abs:(\"planetary protection\" OR \"forward contamination\" OR \"back contamination\") collection:astronomy doctype:(article OR eprint OR inproceedings OR techreport OR abstract)"
       ]
     },
     {
@@ -544,6 +564,9 @@
           "year": 2008,
           "bibcode": "2008JBIS...61..246C"
         }
+      ],
+      "ads": [
+        "abs:(\"Fermi paradox\" OR \"Great Filter\" OR technosignature OR technosignatures OR \"galactic colonization\" OR \"interstellar colonization\") doctype:(article OR eprint OR inproceedings OR techreport OR abstract)"
       ]
     },
     {
@@ -650,7 +673,10 @@
         "space fission reactor electric power spacecraft",
         "spacecraft radiator thermal design mass"
       ],
-      "exclude": []
+      "exclude": [],
+      "ads": [
+        "abs:(\"space nuclear reactor\" OR \"fission surface power\" OR \"spacecraft radiator\" OR \"nuclear electric propulsion\") doctype:(article OR eprint OR inproceedings OR techreport OR abstract)"
+      ]
     },
     {
       "key": "routing",
@@ -796,6 +822,9 @@
         "germplasm",
         "new species of",
         "new subspecies"
+      ],
+      "biorxiv": [
+        "(speciation AND (model OR simulation OR threshold OR \"gene flow\" OR theory)) OR \"ring species\" OR \"reproductive isolation\""
       ]
     },
     {
@@ -917,7 +946,13 @@
           "year": 2008
         }
       ],
-      "_added_note": "2026-10-12: added with the home-programme set; the radar had covered only the first sixteen papers. Canon DOIs verified via Crossref 2026-10-12; ids left null for resolve_canon.py."
+      "_added_note": "2026-10-12: added with the home-programme set; the radar had covered only the first sixteen papers. Canon DOIs verified via Crossref 2026-10-12; ids left null for resolve_canon.py.",
+      "ads": [
+        "abs:(\"in-situ resource utilization\" OR \"space resources\" OR \"asteroid mining\" OR \"local interstellar cloud\") collection:astronomy doctype:(article OR eprint OR inproceedings OR techreport OR abstract)"
+      ],
+      "ntrs": [
+        "in-situ resource utilization"
+      ]
     },
     {
       "key": "home_programme",
@@ -994,7 +1029,11 @@
           "year": 2018
         }
       ],
-      "_added_note": "2026-10-12: added with the roadmap set. 'interstellar object' is a global exclude (an ISM-astronomy guard) but is the rider's subject here, so it is allowed back via exclude_allow; '3i/atlas' stays excluded (observation papers). Canon DOIs verified via Crossref 2026-10-12; ids left null for resolve_canon.py."
+      "_added_note": "2026-10-12: added with the roadmap set. 'interstellar object' is a global exclude (an ISM-astronomy guard) but is the rider's subject here, so it is allowed back via exclude_allow; '3i/atlas' stays excluded (observation papers). Canon DOIs verified via Crossref 2026-10-12; ids left null for resolve_canon.py.",
+      "ads": [
+        "abs:((lunar OR Moon) AND (thorium OR KREEP OR \"helium-3\")) doctype:(article OR eprint OR inproceedings OR techreport OR abstract)",
+        "abs:(\"interstellar object\" AND (mission OR rendezvous OR intercept OR spacecraft)) doctype:(article OR eprint OR inproceedings OR techreport OR abstract)"
+      ]
     }
   ],
   "_watch_note": "venue_watch sweeps whole journals by ISSN via Crossref; an optional subject_gate list keeps only hits whose title or abstract contains one of its terms (added 2026-09-05 after the Futures feed supplied 4 of 4 Fermi candidates as foresight-methodology ToC noise) -- omit it for a narrow journal, set it for a broad one; cites_watch sweeps new works citing a canon paper via OpenAlex filter=cites:. Entries with id:null are skipped by the sweep; run .paper-radar/resolve_canon.py once (OpenAlex quota permitting) to fill them from the stored doi/title/year hints. ISSNs verified via Crossref journals API 2026-08-30.",
@@ -1002,6 +1041,7 @@
     "2026-10-12: first entry. Acted on the four feed notes in the 2026-10-12 digest, which had no home before this field existed. (1) Acta Astronautica was running keyword-blind on the probe paper -- it is a broad journal and had no subject_gate, so the whole ToC arrived; gated now, the way Futures was gated on 2026-09-05. (2) governance's \"post-detection protocol ... contact\" was dominated by medical protocol registrations; replaced with COSPAR planetary protection, forward/back contamination, OST Article IX and METI ethics, plus an exclude list for review/trial protocols. (3) routing's queries were domain-free and pulled almost no astronomy; each now carries an astrophysical anchor (stellar neighbourhood, Gaia distances, galactic colonisation front). (4) bootstrap's unqualified \"closure\" is now \"material closure\"/\"manufacturing closure\" with an exclude list for the surgical, algebraic and mine-closure senses; security's spatial-network Crossref query lost the statistics and metrology noise the same way.",
     "2026-10-12 (second pass, after live checks): routing's anchored queries were tested and collapsed raw yield to 0-2 hits each, so the five domain-free generators are restored and the astronomy-anchored queries ADDED alongside rather than substituted -- the digest's theory that anchoring would raise yield is true only as an extra channel. The Acta Astronautica gate was widened after a live sweep showed the probe-only term list dropped the Chang'e-5 regolith nanoindentation paper and a space-tokamak fusion-power paper, both live subjects elsewhere in the series; Acta is the series' only window into that journal, so its gate has to serve every paper. Also excluded environmental-contamination work from governance and generic Industry-4.0/5.0 work from bootstrap.",
     "2026-10-22: author names now come from the byline. search.py's OpenAlex candidates used author.display_name (the disambiguated profile), which gave 'Markus C. Kolodziej' for a paper bylined Markus Wagner and 'Cao Qing' for Qing Cao, and added a middle initial (Sheryl L. Sanchez) the byline lacks; it now prefers raw_author_name via oa_authors(). SKILL.md Step 3 now verifies authors against Crossref (DOIs), DataCite (Zenodo) or the arXiv API, never an OpenAlex profile, and records disagreements in the digest.",
-    "2026-10-22: acted on the 2026-10-19 digest's query notes, after a live 30-day OpenAlex comparison of old and new forms. network: only 'interplanetary internet architecture' was the polluter (10 of 10 blockchain/IoT hits unquoted); now the quoted phrase, plus title excludes for blockchain-based/enabled, IoT security, smart home, EHR, Kubernetes and the like. The other two OpenAlex queries were productive (they found El Gemayel and the ns-3 DTN paper), so they stay unquoted -- quoting 'delay tolerant' 'bundle protocol' lost the ns-3 paper. speciation: the barcode-gap query returned only DNA-barcoding taxonomy and is replaced by a reproductive-isolation model query, which in the live test returned Hissa et al. and Higaki et al.; 'ring species' is now quoted; the Crossref query that drew 'vibration isolation' is reworded; excludes for barcoding, germplasm and new-taxon descriptions. home_programme: dropped the Crossref 'interstellar object intercept mission' query (random-intercept panel studies, Protestant missions, mission-oriented policy; arXiv and OpenAlex already cover interstellar-object missions) and excluded those senses."
+    "2026-10-22: acted on the 2026-10-19 digest's query notes, after a live 30-day OpenAlex comparison of old and new forms. network: only 'interplanetary internet architecture' was the polluter (10 of 10 blockchain/IoT hits unquoted); now the quoted phrase, plus title excludes for blockchain-based/enabled, IoT security, smart home, EHR, Kubernetes and the like. The other two OpenAlex queries were productive (they found El Gemayel and the ns-3 DTN paper), so they stay unquoted -- quoting 'delay tolerant' 'bundle protocol' lost the ns-3 paper. speciation: the barcode-gap query returned only DNA-barcoding taxonomy and is replaced by a reproductive-isolation model query, which in the live test returned Hissa et al. and Higaki et al.; 'ring species' is now quoted; the Crossref query that drew 'vibration isolation' is reworded; excludes for barcoding, germplasm and new-taxon descriptions. home_programme: dropped the Crossref 'interstellar object intercept mission' query (random-intercept panel studies, Protestant missions, mission-oriented policy; arXiv and OpenAlex already cover interstellar-object missions) and excluded those senses.",
+    "2026-10-22 (radar audit, items 3-4): new channels, each live-tested over a 30-day window before configuring. coupling (all papers, automatic): works citing >= 2 series references, or 1 reference with < 300 citations, from series_refs.json (build_series_refs.py: 311 unique references, 228 resolved, title matches require the first author in the byline); 13 kept in the 10-15..22 test, incl. Ryugu/Bennu water studies for roadmap/home_programme. ads: probe, fermi, computational, roadmap, home_programme, subsystem, governance; the ADS phrase \"mass driver\" is dropped because in astronomy it matches \"main driver of mass loss\" (starburst and protostar noise), and roadmap/governance are limited to the astronomy collection. ntrs: bootstrap (\"in-space manufacturing\": 6 relevant NASA reports in 30 days), roadmap ISRU; every other NTRS query returned 0 and was not configured. biorxiv: dna_ledger (both 14-day hits were Funke and Perry, papers the radar had surfaced via other channels), speciation (10 theory/genomics preprints). s2_recommend tested and left OFF: the endpoint 429s on a third of calls even at 4 s spacing, and quality is unstable (dna_ledger was excellent seeded with 6 DOIs, junk seeded with 23); fermi and home_programme looked reasonable if trialled later. PhilArchive OAI refuses automated access (403)."
   ]
 }

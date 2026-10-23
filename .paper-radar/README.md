@@ -18,6 +18,9 @@ leaving you a diff to review first.
   digests/            YYYY-MM-DD.md, one per run (+ .patch on the fallback path)
   candidates/         YYYY-MM-DD.json.gz, every completed sweep (written on --mark-seen)
   yield_report.py     which channels and queries find what gets inserted; run monthly
+  build_series_refs.py  resolves the papers' reference lists to OpenAlex ids; rerun
+                      after reference lists change (feeds the coupling channel)
+  series_refs.json    its output: the series' references, ids, DOIs, citation counts
   arxiv_week.json     gitignored: today's cache of the arXiv weekly listings
   check_freshness.py  dead-man's switch: has the radar stopped running?
   send_digest_email.py  emails the morning summary (Step 7)
