@@ -26905,7 +26905,1932 @@
       "first_seen": "2026-10-12",
       "paper": "security",
       "title": "Systemic approaches in human factors and ergonomics for analysing team dynamics: A systematic review"
+    },
+    "doi:10.1016/j.actaastro.2026.10.033": {
+      "first_seen": "2026-10-19",
+      "paper": "home_programme",
+      "title": "Thermal property engineering of lunar regolith via spark plasma sintering"
+    },
+    "doi:10.1016/j.ast.2026.114047": {
+      "first_seen": "2026-10-19",
+      "paper": "probe",
+      "title": "Online trajectory planning with self-triggered model predictive control for multi-spacecraft systems"
+    },
+    "doi:10.5114/biolsport.2027.164646": {
+      "first_seen": "2026-10-19",
+      "paper": "roadmap",
+      "title": "Horizontal deceleration-oriented training in multidirectional-sport athletes: a systematic review and exploratory meta-a"
+    },
+    "doi:10.4271/2026-99-2926": {
+      "first_seen": "2026-10-19",
+      "paper": "roadmap",
+      "title": "Graphene Solar Sail for LEO Deorbiting Based on Experimental Light Propulsion Modeling"
+    },
+    "doi:10.1093/mnras/stag1972": {
+      "first_seen": "2026-10-19",
+      "paper": "probe",
+      "title": "Tracing the Cosmic Origins: Machine Learning Reconstruction of the Primordial Density Field from EoR Observations"
+    },
+    "arxiv:2610.19462": {
+      "first_seen": "2026-10-19",
+      "paper": "probe",
+      "title": "BIER-DC: Stateless Multicast for In-Orbit Space Data Centers in LEO Constellations"
+    },
+    "arxiv:2610.20601": {
+      "first_seen": "2026-10-19",
+      "paper": "probe",
+      "title": "Transient PULSE: Code for the Transient Propagation of UltraLight (pseudo)Scalars to Earth"
+    },
+    "doi:10.1021/acscentsci.6c01683": {
+      "first_seen": "2026-10-19",
+      "paper": "home_programme",
+      "title": "How Interstellar Gas and Ice Build Organic Molecules"
+    },
+    "arxiv:2610.18142": {
+      "first_seen": "2026-10-19",
+      "paper": "probe",
+      "title": "FlowCred: Hierarchical Credit Assignment and Functional Coordination for Joint Text-to-Video Post-Training"
+    },
+    "doi:10.1145/3805696.3846016": {
+      "first_seen": "2026-10-19",
+      "paper": "probe",
+      "title": "Same Problem, Different Field: Cross-Domain Solution Import via Domain-Stripped Computational Fingerprints"
+    },
+    "doi:10.1117/1.jatis.12.4.041043": {
+      "first_seen": "2026-10-19",
+      "paper": "probe",
+      "title": "Possible observational survey strategies to maximize exoplanet yields: a report from the survey strategies task group in"
+    },
+    "arxiv:2610.16194": {
+      "first_seen": "2026-10-19",
+      "paper": "probe",
+      "title": "Detectability of 21-cm Power Spectra from the Epoch of Reionization using Modern Radio Telescopes"
+    },
+    "doi:10.51582/interconf.19-20.10.2026.027": {
+      "first_seen": "2026-10-19",
+      "paper": "payload",
+      "title": "Methodology for the application of generative artificial intelligence tools in higher design education"
+    },
+    "doi:10.1007/s10291-026-02168-9": {
+      "first_seen": "2026-10-19",
+      "paper": "subsystem",
+      "title": "Hardware-in-the-loop verification of GNSS-based orbit determination, time synchronization, and oscillator disciplining f"
+    },
+    "doi:10.3389/fphys.2026.1887848": {
+      "first_seen": "2026-10-19",
+      "paper": "payload",
+      "title": "Foundations of operator state monitoring system development in aviation"
+    },
+    "doi:10.31127/tuje.1962552": {
+      "first_seen": "2026-10-19",
+      "paper": "payload",
+      "title": "Connectivity optimization of artificial neural network with evolutionary computation algorithms"
+    },
+    "doi:10.1111/phin.70039": {
+      "first_seen": "2026-10-19",
+      "paper": "payload",
+      "title": "Language Games About Language Games: Wittgensteinian Hermeneutics Between Imaginative Participation and Analysis"
+    },
+    "doi:10.1057/s41599-026-09496-8": {
+      "first_seen": "2026-10-19",
+      "paper": "payload",
+      "title": "“Creatures of the symbolic ocean”: toward a structure-mapped apperception of synthetic cognition"
+    },
+    "doi:10.1080/23311886.2026.2749212": {
+      "first_seen": "2026-10-19",
+      "paper": "payload",
+      "title": "Collectivism meets self-optimization: Thai cultural values and the paradox of self-development"
+    },
+    "doi:10.1038/s41526-026-00654-5": {
+      "first_seen": "2026-10-19",
+      "paper": "payload",
+      "title": "A systematic literature review on dietary intake and nutrition-related adaptations across isolation and confinement"
+    },
+    "arxiv:2610.21517": {
+      "first_seen": "2026-10-19",
+      "paper": "subsystem",
+      "title": "Space Sustainability: The Global Commons"
+    },
+    "doi:10.5281/zenodo.2339079x": {
+      "first_seen": "2026-10-19",
+      "paper": "payload",
+      "title": "Continual Lifelong Learning in Foundation Models: Mitigating Catastrophic Forgetting, Model Editing, and Dynamic Modular"
+    },
+    "doi:10.1007/s44354-026-00056-9": {
+      "first_seen": "2026-10-19",
+      "paper": "payload",
+      "title": "A systematic review of machine learning technologies and intelligent architectures toward AI-native 6G communication eco"
+    },
+    "arxiv:2610.21170": {
+      "first_seen": "2026-10-19",
+      "paper": "payload",
+      "title": "MemScope: Evolving Agent Memory Architectures through Localized Code Repair"
+    },
+    "arxiv:2610.21804": {
+      "first_seen": "2026-10-19",
+      "paper": "payload",
+      "title": "Co2In: a Bi-level Memory Incremental Learning Framework with Knowledge Encoding, Consolidation, and Integration"
+    },
+    "doi:10.21203/rs.3.rs-11084191/v1": {
+      "first_seen": "2026-10-19",
+      "paper": "payload",
+      "title": "Artificial Intelligence and Machine Learning for Stock Market Prediction: A Systematic Literature Review of Methods, Eme"
+    },
+    "arxiv:2610.21974": {
+      "first_seen": "2026-10-19",
+      "paper": "payload",
+      "title": "Time to Fake It: Continual Machine Learning Intensifies Unfairness in Deepfake Detection"
+    },
+    "arxiv:2610.22084": {
+      "first_seen": "2026-10-19",
+      "paper": "payload",
+      "title": "Learning Changes the World and Then What Was Learned has Changed: Training and Deploying Neural Networks in the Control "
+    },
+    "doi:10.1038/s41598-026-76057-z": {
+      "first_seen": "2026-10-19",
+      "paper": "payload",
+      "title": "Interactive team cognition during Apollo 11’s first crewed lunar landing under life-or-death conditions"
+    },
+    "arxiv:2610.20431": {
+      "first_seen": "2026-10-19",
+      "paper": "payload",
+      "title": "SwarmRSI: Recursive Self-Improvement through Evolving Scientific Agent Swarm"
+    },
+    "doi:10.1002/advs.78082": {
+      "first_seen": "2026-10-19",
+      "paper": "roadmap",
+      "title": "The Potential of Self‐Maintainable Living Materials"
+    },
+    "doi:10.1002/app.71629": {
+      "first_seen": "2026-10-19",
+      "paper": "payload",
+      "title": "A Combined Molecular Dynamics and Experimental Study on the Processing and Property Modification of UHMWPE / HDPE Blends"
+    },
+    "arxiv:2610.20399": {
+      "first_seen": "2026-10-19",
+      "paper": "payload",
+      "title": "Cortex: Consolidating Context into Parametric Memory"
+    },
+    "doi:10.3389/frobt.2026.1832982": {
+      "first_seen": "2026-10-19",
+      "paper": "payload",
+      "title": "Learning-enabled collaborative intelligence in search and rescue robotics: a survey of paradigms, models, and challenges"
+    },
+    "arxiv:2610.20442": {
+      "first_seen": "2026-10-19",
+      "paper": "payload",
+      "title": "Towards Agentic Robots: Model, Data, Environment, and Harness"
+    },
+    "arxiv:2610.20419": {
+      "first_seen": "2026-10-19",
+      "paper": "payload",
+      "title": "Analyzing performance of Retrieval Augmented Generation models for Question Answering Tasks"
+    },
+    "doi:10.3389/feduc.2026.1917470": {
+      "first_seen": "2026-10-19",
+      "paper": "payload",
+      "title": "Does psychology have a truth-telling problem? Survivance as truth-telling pedagogy in psychology education"
+    },
+    "doi:10.1049/sbew583e_ch1": {
+      "first_seen": "2026-10-19",
+      "paper": "payload",
+      "title": "Space radiation environment and its implications for spacecraft design"
+    },
+    "doi:10.18623/rvd.v23.8605": {
+      "first_seen": "2026-10-19",
+      "paper": "payload",
+      "title": "LEGAL ISSUES OF ARTIFICIAL INTELLIGENCE APPLICATIONS"
+    },
+    "doi:10.1002/adma.75354": {
+      "first_seen": "2026-10-19",
+      "paper": "knowledge_growth",
+      "title": "Breaking Bottlenecks in Solid Electrolyte Discovery With Large Artificial Intelligence Models"
+    },
+    "arxiv:2610.19298": {
+      "first_seen": "2026-10-19",
+      "paper": "payload",
+      "title": "Verifier-Grounded Agentic RL for Provably Correct Code"
+    },
+    "doi:10.3389/fonc.2026.1885312": {
+      "first_seen": "2026-10-19",
+      "paper": "knowledge_growth",
+      "title": "Artificial intelligence and anti-cancer drugs: advancing discovery, personalization, and precision oncology"
+    },
+    "arxiv:2610.18790": {
+      "first_seen": "2026-10-19",
+      "paper": "payload",
+      "title": "EqC: Equilibrium Energy Control for Introspective Lifelong Robot Learning"
+    },
+    "arxiv:2610.18186": {
+      "first_seen": "2026-10-19",
+      "paper": "payload",
+      "title": "Reinforcement Learning for Large-Scale Lifelong Multi-Agent Path Finding with Shared Spatial Fields"
+    },
+    "arxiv:2610.18024": {
+      "first_seen": "2026-10-19",
+      "paper": "payload",
+      "title": "Rewiring of adult neural networks - learning from structural plasticity across multiple scales"
+    },
+    "arxiv:2610.18105": {
+      "first_seen": "2026-10-19",
+      "paper": "payload",
+      "title": "Chain of Thought Monitoring Can Fail Even When CoT Is Necessary"
+    },
+    "doi:10.82348/our-archive.00405": {
+      "first_seen": "2026-10-19",
+      "paper": "payload",
+      "title": "Return to ꞌAvaiki - Te tangā o te ai Tupuna"
+    },
+    "doi:10.48577/jpl.yffqky": {
+      "first_seen": "2026-10-19",
+      "paper": "payload",
+      "title": "Safety Engineering Challenges for Long‑Duration Human Missions in Deep Space"
+    },
+    "doi:10.58830/ozgur.pub1473.c5888": {
+      "first_seen": "2026-10-19",
+      "paper": "payload",
+      "title": "Deep Learning and Artificial Intelligence: Conceptual Foundations of Pattern Recognition and Security Applications"
+    },
+    "arxiv:2610.16664": {
+      "first_seen": "2026-10-19",
+      "paper": "payload",
+      "title": "Making LoRA Identifiable: Orthogonal Alignment for Continual Learning"
+    },
+    "arxiv:2610.16015": {
+      "first_seen": "2026-10-19",
+      "paper": "payload",
+      "title": "Computational Reflective Equilibrium for Agentic AI: A Rawlsian Alignment Scaffold for Governance"
+    },
+    "doi:10.1080/2331186x.2026.2745275": {
+      "first_seen": "2026-10-19",
+      "paper": "payload",
+      "title": "Post-pandemic assessment policies in Nova Scotia: ideals of students amid centralization and economic priorities"
+    },
+    "doi:10.1016/j.rcim.2026.103375": {
+      "first_seen": "2026-10-19",
+      "paper": "bootstrap",
+      "title": "Closed-loop intelligent quality control for robotic welding: A survey on architecture, technologies, and system integrat"
+    },
+    "doi:10.1016/j.rcim.2026.103363": {
+      "first_seen": "2026-10-19",
+      "paper": "bootstrap",
+      "title": "An executable machine-tool-level digital twin for closed-loop CNC milling"
+    },
+    "doi:10.7150/thno.141624": {
+      "first_seen": "2026-10-19",
+      "paper": "bootstrap",
+      "title": "Piezoelectric hydrogels empowering closed-loop smart medicine: from self-powered sensing to autonomous therapy"
+    },
+    "doi:10.1016/j.cie.2026.112443": {
+      "first_seen": "2026-10-19",
+      "paper": "bootstrap",
+      "title": "Impacts of recycled content and collection mandates on battery manufacturing, repurposing, and recycling in closed-loop "
+    },
+    "doi:10.1016/j.porgcoat.2026.110664": {
+      "first_seen": "2026-10-19",
+      "paper": "bootstrap",
+      "title": "Bio-based non-isocyanate polyurethane with clusteroluminescence, self-healing, and closed-loop recyclability"
+    },
+    "doi:10.1016/j.addlet.2026.100409": {
+      "first_seen": "2026-10-19",
+      "paper": "bootstrap",
+      "title": "Influence of spatter formation on interfacial material mixing in multi-material laser powder bed fusion via in situ sync"
+    },
+    "doi:10.1016/j.measurement.2026.123465": {
+      "first_seen": "2026-10-19",
+      "paper": "bootstrap",
+      "title": "Modeling and design of a Closed-Loop Self-Oscillating fluxgate current sensor"
+    },
+    "doi:10.1016/j.compositesa.2026.110097": {
+      "first_seen": "2026-10-19",
+      "paper": "bootstrap",
+      "title": "Effects of discrete in-situ consolidation parameters on the microstructure of unidirectional continuous fiber composites"
+    },
+    "doi:10.1016/j.jmapro.2026.09.081": {
+      "first_seen": "2026-10-19",
+      "paper": "bootstrap",
+      "title": "Toward quality-assured intelligent welding processes for aerospace structures: From process monitoring to digital closed"
+    },
+    "doi:10.24377/ljmu.t.00029491": {
+      "first_seen": "2026-10-19",
+      "paper": "bootstrap",
+      "title": "An Empirical Investigation of Supply Chain Sustainability: Practice, Pressure, and Performance within Large and Medium M"
+    },
+    "doi:10.4324/9781042032662-2": {
+      "first_seen": "2026-10-19",
+      "paper": "bootstrap",
+      "title": "Material Systems"
+    },
+    "doi:10.1007/s11023-026-09804-w": {
+      "first_seen": "2026-10-19",
+      "paper": "bootstrap",
+      "title": "Why Large Language Models will Never be Embodied: A Categorical, Not Engineering, Impossibility"
+    },
+    "arxiv:2610.16960": {
+      "first_seen": "2026-10-19",
+      "paper": "home_programme",
+      "title": "Wireless Energy Transfer for Space Applications: A Review of Technologies, Mission Architectures, Energy Routing, and Sy"
+    },
+    "doi:10.1016/j.ress.2026.113462": {
+      "first_seen": "2026-10-19",
+      "paper": "engineering",
+      "title": "Reliability analysis and maintenance optimization for functional self-healing systems with dependent main and auxiliary "
+    },
+    "doi:10.1186/s43046-026-00418-y": {
+      "first_seen": "2026-10-19",
+      "paper": "engineering",
+      "title": "Cancer nanomedicine and RNA/Lipid nanoparticle platforms in oncology: developmental evolution, translational barriers, a"
+    },
+    "arxiv:2610.21939": {
+      "first_seen": "2026-10-19",
+      "paper": "engineering",
+      "title": "De-Risking Robotic Welding for In-Space Metal Joining Through Physics-Grounded Digital Twins"
+    },
+    "arxiv:2610.21705": {
+      "first_seen": "2026-10-19",
+      "paper": "subsystem",
+      "title": "WALTzER: Wide-band Atmospheric Laboratory for Transiting Exoplanet Research"
+    },
+    "doi:10.5281/zenodo.2333051x": {
+      "first_seen": "2026-10-19",
+      "paper": "engineering",
+      "title": "Digital-Green Integration and Supply-Chain Resilience in Bangladesh's Footwear Industry: The Mediating Role of Circular-"
+    },
+    "doi:10.1093/rb/rbag227": {
+      "first_seen": "2026-10-19",
+      "paper": "engineering",
+      "title": "Satin weave as a programmable anisotropic cue for directing cell alignment and accelerating tissue repair"
+    },
+    "doi:10.1111/ffe.70493": {
+      "first_seen": "2026-10-19",
+      "paper": "engineering",
+      "title": "A Fatigue Life Prediction Method Based on Optimized Data Augmentation Algorithm and Adaptive Sampling Model"
+    },
+    "arxiv:2610.20298": {
+      "first_seen": "2026-10-19",
+      "paper": "engineering",
+      "title": "Geometrical and Optical Design of the GUEST Laser-Ranged Test Masses for the Detection of Gravitational Waves in the $μ$"
+    },
+    "doi:10.1002/bkcs.70227": {
+      "first_seen": "2026-10-19",
+      "paper": "roadmap",
+      "title": "Accelerating green heterocyclic synthesis: Convergence of AI , automation, and sustainable chemistry"
+    },
+    "doi:10.1007/s44291-026-00301-z": {
+      "first_seen": "2026-10-19",
+      "paper": "subsystem",
+      "title": "Smart fault detection in a nanosatellite electrical power system"
+    },
+    "doi:10.1140/epjp/s13360-026-08227-x": {
+      "first_seen": "2026-10-19",
+      "paper": "engineering",
+      "title": "Lagrangian extensions of Newtonian gravity constrained by solar system tests"
+    },
+    "doi:10.3389/fmech.2026.1978898": {
+      "first_seen": "2026-10-19",
+      "paper": "engineering",
+      "title": "Additive manufacturing of metallic implants: a comprehensive review of material selection, porous architecture, and hybr"
+    },
+    "doi:10.36348/gajeb.2026.v08i05.060": {
+      "first_seen": "2026-10-19",
+      "paper": "engineering",
+      "title": "Predictive Maintenance Framework for Smart Electrical Distribution Infrastructure Using Artificial Intelligence and Data"
+    },
+    "doi:10.1007/s11948-026-00613-z": {
+      "first_seen": "2026-10-19",
+      "paper": "ethics",
+      "title": "How Utilitarian are OpenAI’s Models Really? Replicating and Reinterpreting Pfeffer, Krügel, and Uhl (2025)"
+    },
+    "arxiv:2610.16807": {
+      "first_seen": "2026-10-19",
+      "paper": "engineering",
+      "title": "Venusian Radio Occultation Constellation Design and Reconfiguration Problems: A Benders Decomposition Approach"
+    },
+    "arxiv:2610.17468": {
+      "first_seen": "2026-10-19",
+      "paper": "engineering",
+      "title": "From Orbit Matching to Docking: A Hierarchical Reinforcement-Learning Approach to Multiphase Rendezvous Trajectory Desig"
+    },
+    "arxiv:2610.17345": {
+      "first_seen": "2026-10-19",
+      "paper": "engineering",
+      "title": "Vanishing Events and Regularity-Conditioned Reachability in Linear Stieltjes Systems"
+    },
+    "arxiv:2610.16231": {
+      "first_seen": "2026-10-19",
+      "paper": "roadmap",
+      "title": "Learning to GUIDE the Group: Self-Learning LLM Facilitation Across Multi-Party Tasks"
+    },
+    "doi:10.1038/s44386-026-00080-3": {
+      "first_seen": "2026-10-19",
+      "paper": "engineering",
+      "title": "Proportionate evidence in biosimilar development: when a comparative efficacy study can still change the regulatory conc"
+    },
+    "arxiv:2610.16374": {
+      "first_seen": "2026-10-19",
+      "paper": "engineering",
+      "title": "From Nominal Capacity to Deliverable Compute: Design, Calibration and Validation of the D-PIN SCU Dynamic Metering Syste"
+    },
+    "doi:10.54531/rsqc6356": {
+      "first_seen": "2026-10-19",
+      "paper": "computational",
+      "title": "Insights from Transformative Simulation over time: from replication to collective inquiry"
+    },
+    "doi:10.1016/j.ensm.2026.105591": {
+      "first_seen": "2026-10-19",
+      "paper": "dna_ledger",
+      "title": "Unlocking the longevity of graphite-based batteries in ether electrolytes through solvent-Co-intercalation-resistant ele"
+    },
+    "doi:10.34133/csbj.0254": {
+      "first_seen": "2026-10-19",
+      "paper": "dna_ledger",
+      "title": "Computational Frameworks, System-Level Platforms, and Emerging Trends in DNA Data Storage​"
+    },
+    "doi:10.25258/ijddt.16.88s.10": {
+      "first_seen": "2026-10-19",
+      "paper": "dna_ledger",
+      "title": "IMPACT OF CYBER-SECURE BLOCK CHAIN SYSTEMS ON TRUST, REPAYMENT BEHAVIOUR, AND GOVERNANCE IN MICROFINANCE INSTITUTIONS"
+    },
+    "doi:10.64898/2026.10.15.759472": {
+      "first_seen": "2026-10-19",
+      "paper": "dna_ledger",
+      "title": "Sunflower sea star (Pycnopodia helianthoides) environmental DNA (eDNA) shedding and decay: Influence of sunlight and com"
+    },
+    "doi:10.64898/2026.10.12.758671": {
+      "first_seen": "2026-10-19",
+      "paper": "dna_ledger",
+      "title": "Molecular Characterization of Gene-Product Relationships in the Wheat Gluten Complex for Reduced Immunogenicity Wheat De"
+    },
+    "doi:10.3389/fimmu.2026.1979969": {
+      "first_seen": "2026-10-19",
+      "paper": "dna_ledger",
+      "title": "Immune-checkpoint blockade and candidate predictive biomarkers in HIV-negative Kaposi sarcoma: current evidence and a pr"
+    },
+    "doi:10.1093/clinchem/hvag153": {
+      "first_seen": "2026-10-19",
+      "paper": "dna_ledger",
+      "title": "Correction: Long-Term Storage of Formalin-Fixed Paraffin-Embedded Tissues Negatively Impacts Next-Generation Sequencing:"
+    },
+    "doi:10.17504/protocols.io.6qpvrwjwzlmk/v2": {
+      "first_seen": "2026-10-19",
+      "paper": "dna_ledger",
+      "title": "Generating validated double-digest restriction-site associated DNA sequencing libraries for variant loci discovery in Af"
+    },
+    "doi:10.1186/s12864-026-13455-7": {
+      "first_seen": "2026-10-19",
+      "paper": "dna_ledger",
+      "title": "Systematic assessment of sequencing depth requirements for Hi-C-derived metrics"
+    },
+    "doi:10.48175/ijarsct-38877": {
+      "first_seen": "2026-10-19",
+      "paper": "dna_ledger",
+      "title": "Secure Students Records in Block-chain Technology Using Role-Based Access Control Model"
+    },
+    "doi:10.21203/rs.3.rs-11353583/v1": {
+      "first_seen": "2026-10-19",
+      "paper": "dna_ledger",
+      "title": "Tax Evasion in Integrated Fiscal and Electronic Payment Systems: Vulnerabilities, Detection, and Mitigation in the Greek"
+    },
+    "doi:10.1038/s41598-026-75069-z": {
+      "first_seen": "2026-10-19",
+      "paper": "dna_ledger",
+      "title": "Vision-spectroscopy cooperative sensing and cold atmospheric plasma inactivation for early warning and management of agr"
+    },
+    "doi:10.21203/rs.3.rs-11170656/v1": {
+      "first_seen": "2026-10-19",
+      "paper": "dna_ledger",
+      "title": "Trustworthy Cross-Organizational Federated Fine-Tuning of Large Language Models via Blockchain Certification and Resilie"
+    },
+    "doi:10.21203/rs.3.rs-11144191/v1": {
+      "first_seen": "2026-10-19",
+      "paper": "dna_ledger",
+      "title": "Confidential Pulse: Authorisation-Preserving Conversational Access to Federated Confidential Government Records"
+    },
+    "doi:10.15849/ijasca.202": {
+      "first_seen": "2026-10-19",
+      "paper": "dna_ledger",
+      "title": "LEXCAP: Transaction-Consistent State-Bound Capabilities for Auditable Legal-Resource Access"
+    },
+    "doi:10.64898/2026.10.12.758707": {
+      "first_seen": "2026-10-19",
+      "paper": "dna_ledger",
+      "title": "Archival data storage using DNA proximity graphs"
+    },
+    "doi:10.64898/2026.10.12.758561": {
+      "first_seen": "2026-10-19",
+      "paper": "dna_ledger",
+      "title": "Reversible fixation of microbial cells for targeted genomics"
+    },
+    "doi:10.64898/2026.10.12.758474": {
+      "first_seen": "2026-10-19",
+      "paper": "dna_ledger",
+      "title": "Genomic and physiological characterization of Neobacillus ammoniipjilus sp. nov. reveals versatile inorganic nitrogen ut"
+    },
+    "doi:10.36548/jaicn.2026.4.002": {
+      "first_seen": "2026-10-19",
+      "paper": "dna_ledger",
+      "title": "A Two-Tier Blockchain Architecture for Verifiable Explainable-AI Audit Trails: Individual and Merkle-Batched Commitment "
+    },
+    "doi:10.14445/22315381/ijett-v74i9p132": {
+      "first_seen": "2026-10-19",
+      "paper": "dna_ledger",
+      "title": "The Integration of Quantum Key Distribution and Zero Trust Security in 5G Networks: A Comprehensive Review"
+    },
+    "arxiv:2610.17167": {
+      "first_seen": "2026-10-19",
+      "paper": "dna_ledger",
+      "title": "PRIM: Energy- and Endurance-Aware Compiler Optimization for Digital Compute in Non-volatile Memory"
+    },
+    "doi:10.1038/s41378-026-01456-1": {
+      "first_seen": "2026-10-19",
+      "paper": "dna_ledger",
+      "title": "Enhanced electrochemically-directed oligonucleotide synthesis via porous silica thin-film for DNA data storage"
+    },
+    "doi:10.64898/2026.10.09.757916": {
+      "first_seen": "2026-10-19",
+      "paper": "dna_ledger",
+      "title": "Probabilistic Modelling of Base Editing Efficiency and Bystander Outcome Composition"
+    },
+    "doi:10.66838/sauc.6511": {
+      "first_seen": "2026-10-19",
+      "paper": "dna_ledger",
+      "title": "A Blockchain-Based Framework for Enhancing Data Integrity and Privacy Protection in Cloud Storage Networks"
+    },
+    "doi:10.18623/rvd.v23.8591": {
+      "first_seen": "2026-10-19",
+      "paper": "dna_ledger",
+      "title": "AI-ENABLED BLOCKCHAIN ARCHITECTURE FOR TRUSTED IoT DATA MANAGEMENT ACROSS THE CHEMICAL LIFECYCLE: A REFERENCE FRAMEWORK "
+    },
+    "doi:10.66950/rp6wk212": {
+      "first_seen": "2026-10-19",
+      "paper": "network",
+      "title": "Transforming Clinical Data Security and Management through Blockchain"
+    },
+    "doi:10.68258/pajps_clinpharm.63834": {
+      "first_seen": "2026-10-19",
+      "paper": "dna_ledger",
+      "title": "Clinical Lexicon-Guided Error Correction as an AI Safety Layer for Handwritten Prescriptions: Reducing Word Error and Fl"
+    },
+    "doi:10.1016/j.enpol.2026.115654": {
+      "first_seen": "2026-10-19",
+      "paper": "governance",
+      "title": "Geopolitical energy shocks and consumer protection under fiscal constraints"
+    },
+    "doi:10.1515/9781779401618-002": {
+      "first_seen": "2026-10-19",
+      "paper": "governance",
+      "title": "Illustrations"
+    },
+    "doi:10.3366/9781399520034-002": {
+      "first_seen": "2026-10-19",
+      "paper": "governance",
+      "title": "Acknowledgements"
+    },
+    "doi:10.1515/9780691281292-001": {
+      "first_seen": "2026-10-19",
+      "paper": "governance",
+      "title": "Preface"
+    },
+    "doi:10.7312/gall21566-004": {
+      "first_seen": "2026-10-19",
+      "paper": "governance",
+      "title": "2 Neoliberal Ecologists in Outer Space"
+    },
+    "doi:10.1515/9781503644793-001": {
+      "first_seen": "2026-10-19",
+      "paper": "governance",
+      "title": "ACKNOWLEDGMENTS"
+    },
+    "doi:10.3366/9781399561365-002": {
+      "first_seen": "2026-10-19",
+      "paper": "governance",
+      "title": "Notes on Text"
+    },
+    "doi:10.1515/9780691277899-031": {
+      "first_seen": "2026-10-19",
+      "paper": "governance",
+      "title": "Index"
+    },
+    "doi:10.1515/9780691277899-toc": {
+      "first_seen": "2026-10-19",
+      "paper": "governance",
+      "title": "Contents"
+    },
+    "doi:10.1016/j.wss.2026.100467": {
+      "first_seen": "2026-10-19",
+      "paper": "governance",
+      "title": "Living with contamination: Place-based wellbeing in the long aftermath of the Sidoarjo mudflow"
+    },
+    "doi:10.1016/j.asr.2026.08.047": {
+      "first_seen": "2026-10-19",
+      "paper": "governance",
+      "title": "Exploration-related contamination of lunar polar regions: consequences and considerations for lunar science in the conte"
+    },
+    "doi:10.1016/j.jfp.2026.100935": {
+      "first_seen": "2026-10-19",
+      "paper": "governance",
+      "title": "An Electrostatic Dry Surface Inoculation Method for Low-Moisture Food Contamination Experiments"
+    },
+    "doi:10.1016/j.psep.2026.109614": {
+      "first_seen": "2026-10-19",
+      "paper": "governance",
+      "title": "A field‑deployable microbial consortium for treating surfactant‑phenol Co‑contamination in decentralized WASH systems"
+    },
+    "doi:10.1016/j.jfp.2026.100910": {
+      "first_seen": "2026-10-19",
+      "paper": "governance",
+      "title": "Exploring a Possible Association Between Salmonella Contamination in Liver Abscesses, Lymph Nodes, and Carcasses of Beef"
+    },
+    "doi:10.1016/s0921-8181(26)00420-0": {
+      "first_seen": "2026-10-19",
+      "paper": "governance",
+      "title": "Editorial Board"
+    },
+    "doi:10.1093/9780197851500.003.0313": {
+      "first_seen": "2026-10-19",
+      "paper": "governance",
+      "title": "Planetary Constraints on Prebiotic Chemistry"
+    },
+    "doi:10.1007/s43681-026-01447-y": {
+      "first_seen": "2026-10-19",
+      "paper": "governance",
+      "title": "AI still has a vocabulary problem: toward terminological accountability in artificial intelligence"
+    },
+    "title:public health emergency preparedness implications of nuclear small modular reactor deployment in alberta": {
+      "first_seen": "2026-10-19",
+      "paper": "governance",
+      "title": "Public Health & Emergency Preparedness Implications of Nuclear Small Modular Reactor Deployment in Alberta"
+    },
+    "arxiv:2610.22312": {
+      "first_seen": "2026-10-19",
+      "paper": "governance",
+      "title": "Grid-Bench: Can LLMs Predict How Discrete Worlds Change?"
+    },
+    "doi:10.69841/igee.2026.020": {
+      "first_seen": "2026-10-19",
+      "paper": "governance",
+      "title": "Where the Effort Disappears: Opacity, Reciprocity, and Household Organic Waste Practice in Hyderabad, India†"
+    },
+    "doi:10.1017/s2047102526100405": {
+      "first_seen": "2026-10-19",
+      "paper": "governance",
+      "title": "The Obligation to Conduct Environmental Impact Assessments in the Sustainable Development of Mega-Constellations"
+    },
+    "arxiv:2610.20675": {
+      "first_seen": "2026-10-19",
+      "paper": "governance",
+      "title": "AlphaDiana: A Measurement System for Agents in Verifiable Reasoning Tasks"
+    },
+    "doi:10.1007/s10661-026-15975-x": {
+      "first_seen": "2026-10-19",
+      "paper": "knowledge_growth",
+      "title": "From smart sensing to adaptive remediation: artificial intelligence and Internet of Things for persistent organic pollut"
+    },
+    "doi:10.3389/fsysb.2026.1890380": {
+      "first_seen": "2026-10-19",
+      "paper": "governance",
+      "title": "One health perspectives on pharmaceutical and clinical effluents driving multidrug resistance in aquatic ecosystems: a c"
+    },
+    "doi:10.2172/17273364": {
+      "first_seen": "2026-10-19",
+      "paper": "governance",
+      "title": "Annual Summary Report (FY 2024): Composite Analysis for Low Level Waste Disposal in the Central Plateau of the Hanford S"
+    },
+    "doi:10.7488/era/7861": {
+      "first_seen": "2026-10-19",
+      "paper": "governance",
+      "title": "Sociotheological exploration of what freedom means to carers in the context of dementia caring: the liberating impact of"
+    },
+    "doi:10.5281/zenodo.2335469x": {
+      "first_seen": "2026-10-19",
+      "paper": "governance",
+      "title": "Cosmological and Thermodynamic Inviolability of the Lunar Surface: Unifying the \"Tsukuyomi\" Principle of Non-Self-Lumino"
+    },
+    "doi:10.59350/sgevm-gqy74": {
+      "first_seen": "2026-10-19",
+      "paper": "governance",
+      "title": "Whitening protection: Trump and the unmaking of U.S. refugee policy"
+    },
+    "doi:10.1177/15311074261499439": {
+      "first_seen": "2026-10-19",
+      "paper": "governance",
+      "title": "Ancient Endorheic Lake Basins: Promising Sampling Sites for the Tianwen-3 Mars Sample Return Mission"
+    },
+    "doi:10.1177/15311074261499019": {
+      "first_seen": "2026-10-19",
+      "paper": "governance",
+      "title": "Astroecology: Theory and Models of the Universal Structure and Distribution of Life"
+    },
+    "doi:10.61784/jcsee3158": {
+      "first_seen": "2026-10-19",
+      "paper": "governance",
+      "title": "A THREE-CHANNEL NEURAL NETWORK DETECTION FRAMEWORK INTEGRATING SCENE, OBJECT, AND BEHAVIOR ANALYSIS"
+    },
+    "arxiv:2610.17867": {
+      "first_seen": "2026-10-19",
+      "paper": "governance",
+      "title": "RT-J: Large-Scale Pretraining of Relational Transformers for Context-Efficient Predictions"
+    },
+    "doi:10.64628/ab.j3gd3ee4x": {
+      "first_seen": "2026-10-19",
+      "paper": "governance",
+      "title": "Air conditioners contribute to climate change – this 40-year-old treaty aims to limit the harm"
+    },
+    "doi:10.1007/s43681-026-01444-1": {
+      "first_seen": "2026-10-19",
+      "paper": "governance",
+      "title": "Governing artificial intelligence in criminal justice systems: ethical, legal, and policy challenges"
+    },
+    "doi:10.1177/15311074261499442": {
+      "first_seen": "2026-10-19",
+      "paper": "governance",
+      "title": "A Proposal to Make Mars Sample Return a Collaborative NASA, ESA, and CNSA Effort"
+    },
+    "doi:10.12987/9780300304749-009": {
+      "first_seen": "2026-10-19",
+      "paper": "amendment",
+      "title": "Chapter 7 Death, Progress and Eternity"
+    },
+    "doi:10.1016/j.engappai.2026.116267": {
+      "first_seen": "2026-10-19",
+      "paper": "amendment",
+      "title": "Conflict-aware dual-level coordination in distributed multi-agent path finding"
+    },
+    "doi:10.1007/s13347-026-01216-z": {
+      "first_seen": "2026-10-19",
+      "paper": "amendment",
+      "title": "From Agency to Subjectivity: Phenomenological Conditions for Normative Standing in Embodied AI"
+    },
+    "doi:10.1007/s13347-026-01206-1": {
+      "first_seen": "2026-10-19",
+      "paper": "amendment",
+      "title": "Pax Digitalis: When Competition Becomes Partition"
+    },
+    "doi:10.1007/s13347-026-01210-5": {
+      "first_seen": "2026-10-19",
+      "paper": "amendment",
+      "title": "Practical Mimicry and Modal Integration: Know-How, Large Language Models, and Human–AI Collaboration"
+    },
+    "doi:10.1007/s13347-026-01212-3": {
+      "first_seen": "2026-10-19",
+      "paper": "amendment",
+      "title": "Marx and the Machine Revisited: Rethinking Exploitation Beyond Technological Fetishism"
+    },
+    "doi:10.1007/s13347-026-01214-1": {
+      "first_seen": "2026-10-19",
+      "paper": "amendment",
+      "title": "The Artificial View from Somewhere: Or How AI Could Undermine Scientific Objectivity"
+    },
+    "doi:10.1007/s13347-026-01213-2": {
+      "first_seen": "2026-10-19",
+      "paper": "amendment",
+      "title": "Don’t Blame the Code! AI Paternalism Reconsidered"
+    },
+    "doi:10.1007/s13347-026-01207-0": {
+      "first_seen": "2026-10-19",
+      "paper": "knowledge_growth",
+      "title": "Everything but the Signature: A Proposal for AI-Born Journals"
+    },
+    "doi:10.1007/s13347-026-01205-2": {
+      "first_seen": "2026-10-19",
+      "paper": "amendment",
+      "title": "The Quality of Presence: Embodied Access in Clinical Virtual Reality"
+    },
+    "doi:10.1017/s2045381726100501": {
+      "first_seen": "2026-10-19",
+      "paper": "amendment",
+      "title": "Liberal first, democratic second: Moving the EU from militant liberalism to supranational democratic defense"
+    },
+    "doi:10.3311/celisr.43231": {
+      "first_seen": "2026-10-19",
+      "paper": "amendment",
+      "title": "Possibilities of Applying Artificial Intelligence in Cultural Heritage Preservation"
+    },
+    "doi:10.1007/s13347-026-01202-5": {
+      "first_seen": "2026-10-19",
+      "paper": "amendment",
+      "title": "Externalizing Epistemic Governance from Stateless Clinical LLMs: Why It Is Necessary and Why It Must Be Constrained"
+    },
+    "arxiv:2610.22266": {
+      "first_seen": "2026-10-19",
+      "paper": "fermi",
+      "title": "Millimetre/Sub-Millimetre SETI: Expanding the Radio Technosignature Parameter Space with ALMA2040"
+    },
+    "doi:10.37284/eajis.9.4.6015": {
+      "first_seen": "2026-10-19",
+      "paper": "fermi",
+      "title": "Discerning the Nature of the Complex Universe: Following Evidence Where It Leads"
+    },
+    "doi:10.5281/zenodo.2335533x": {
+      "first_seen": "2026-10-19",
+      "paper": "fermi",
+      "title": "LUNAR TECHNOSIGNATURES AND INTERNATIONAL SPACE LAW Toward a Precautionary Framework for Detection, Verification, Preserv"
+    },
+    "doi:10.5281/zenodo.2333097x": {
+      "first_seen": "2026-10-19",
+      "paper": "fermi",
+      "title": "倒扣斗笠,是 一套基于双公立的,关于费米悖论的科学假说"
+    },
+    "doi:10.5281/zenodo.2345211x": {
+      "first_seen": "2026-10-19",
+      "paper": "knowledge_growth",
+      "title": "Autonomous Laboratories and Foundry Scientific Discovery at the Limit A machine does not discover a mechanism until it c"
+    },
+    "doi:10.68442/ajsbs/2026/v16i8.004": {
+      "first_seen": "2026-10-19",
+      "paper": "knowledge_growth",
+      "title": "Perceived Challenges and Strategies for Digital Preservation at the National Space Research and Development Agency (NASR"
+    },
+    "doi:10.56201/ijemt.vol.11.no4.2025.pg266.303": {
+      "first_seen": "2026-10-19",
+      "paper": "knowledge_growth",
+      "title": "Python's Indispensability in Artificial Intelligence and Machine Learning: A Review"
+    },
+    "doi:10.64898/2026.10.09.758138": {
+      "first_seen": "2026-10-19",
+      "paper": "knowledge_growth",
+      "title": "CucurbitAgent: An AI agent for exploring cucurbit multi-omics resources"
+    },
+    "doi:10.1080/14796708.2026.2747365": {
+      "first_seen": "2026-10-19",
+      "paper": "knowledge_growth",
+      "title": "The glymphatic connectome: a hypothesis for how metabolic waste accumulation may contribute to preferential network dege"
+    },
+    "doi:10.1038/s40494-026-03055-9": {
+      "first_seen": "2026-10-19",
+      "paper": "knowledge_growth",
+      "title": "Digital preservation and automated roof damage detection for traditional village heritage in Guangdong using UAV photogr"
+    },
+    "doi:10.3389/fsufs.2026.1942487": {
+      "first_seen": "2026-10-19",
+      "paper": "knowledge_growth",
+      "title": "Biopolymer-based coatings for egg preservation: recent advances, current challenges, and future prospects"
+    },
+    "doi:10.1111/andr.70414": {
+      "first_seen": "2026-10-19",
+      "paper": "knowledge_growth",
+      "title": "Sperm Motility Stability During Long‐Term Cryopreservation: A Paired‐Sample Study on 101 Fertility Preservation Patients"
+    },
+    "doi:10.5617/dhnbpub.12894": {
+      "first_seen": "2026-10-19",
+      "paper": "knowledge_growth",
+      "title": "From Archive to Interface: Positioning the Digital Catalogue Raisonné within Nordic Digital Humanities Infrastructure"
+    },
+    "doi:10.47989/ir31363394": {
+      "first_seen": "2026-10-19",
+      "paper": "knowledge_growth",
+      "title": "AI-assisted predictive appraisal and preservation prioritisation in television audiovisual archives: a theoretical frame"
+    },
+    "doi:10.5281/zenodo.2340367x": {
+      "first_seen": "2026-10-19",
+      "paper": "knowledge_growth",
+      "title": "THE EL-RAKHAWI PHYSICO-CHEMICAL ARTIFICIAL INTELLIGENCE FRAMEWORK: AI-DRIVEN DISCOVERY OF ECO-FRIENDLY CATALYSTS AND ADV"
+    },
+    "doi:10.68050/jams.2026.738": {
+      "first_seen": "2026-10-19",
+      "paper": "knowledge_growth",
+      "title": "From Chemistry 4.0 to Chemistry 5.0: Digital Transformation, Sustainability, and Human-Centred Innovation"
+    },
+    "doi:10.1007/s10814-026-09230-7": {
+      "first_seen": "2026-10-19",
+      "paper": "knowledge_growth",
+      "title": "Social Resistance in Bronze Age Iberia"
+    },
+    "doi:10.1186/s42483-026-00468-z": {
+      "first_seen": "2026-10-19",
+      "paper": "knowledge_growth",
+      "title": "Long-term fertilization shapes root rot resistance in Apocynum venetum through coordinated physiological and transcripto"
+    },
+    "doi:10.1007/s44493-026-00028-z": {
+      "first_seen": "2026-10-19",
+      "paper": "knowledge_growth",
+      "title": "Artificial intelligence and machine learning for sustainable polymeric marine antifouling coatings: current evidence, ch"
+    },
+    "title:aria runtime inspection and amendment for multi agent systems": {
+      "first_seen": "2026-10-19",
+      "paper": "knowledge_growth",
+      "title": "ARIA: Runtime Inspection and Amendment for Multi-Agent Systems"
+    },
+    "arxiv:2610.19725": {
+      "first_seen": "2026-10-19",
+      "paper": "knowledge_growth",
+      "title": "TimeRSI: Towards Self-Improved Agentic Deployment for Time-Series Foundation Models"
+    },
+    "arxiv:2610.20902": {
+      "first_seen": "2026-10-19",
+      "paper": "knowledge_growth",
+      "title": "Thinking in Graphs: Neo4j-Backed Exploit-Chain Reasoning for LLM Penetration-Testing Agents"
+    },
+    "title:ergonomic workplace design for workers with disabilities and their long term employment": {
+      "first_seen": "2026-10-19",
+      "paper": "knowledge_growth",
+      "title": "Ergonomic workplace design for workers with disabilities and their long-term employment"
+    },
+    "arxiv:2610.20278": {
+      "first_seen": "2026-10-19",
+      "paper": "knowledge_growth",
+      "title": "A Valid Watermark Is Not a Valid Identity: Spatial-Spectral Adversarial Face Evasion with Watermark Preservation"
+    },
+    "arxiv:2610.19780": {
+      "first_seen": "2026-10-19",
+      "paper": "knowledge_growth",
+      "title": "LabOPBench: A Multimodal Benchmark for Evidence-Grounded Laboratory Decision Making"
+    },
+    "doi:10.4324/9781003270423": {
+      "first_seen": "2026-10-19",
+      "paper": "knowledge_growth",
+      "title": "Introduction to Archaeological Science"
+    },
+    "doi:10.1007/s43832-026-00464-6": {
+      "first_seen": "2026-10-19",
+      "paper": "knowledge_growth",
+      "title": "A perspective and roadmap for emerging toxic flood hazards affecting ecosystems and society"
+    },
+    "doi:10.1142/9789819831111_0009": {
+      "first_seen": "2026-10-19",
+      "paper": "knowledge_growth",
+      "title": "Conclusion"
+    },
+    "doi:10.1142/9789819831111_bmatter": {
+      "first_seen": "2026-10-19",
+      "paper": "knowledge_growth",
+      "title": "BACK MATTER"
+    },
+    "doi:10.1142/9789819831111_fmatter": {
+      "first_seen": "2026-10-19",
+      "paper": "knowledge_growth",
+      "title": "FRONT MATTER"
+    },
+    "arxiv:2610.18449": {
+      "first_seen": "2026-10-19",
+      "paper": "knowledge_growth",
+      "title": "Autonomous Science Bench: Evaluating AI Agents for Autonomous Scientific Discovery"
+    },
+    "doi:10.1016/j.nexres.2026.102569": {
+      "first_seen": "2026-10-19",
+      "paper": "knowledge_growth",
+      "title": "Artificial intelligence as a disruptive tool in interdisciplinary research: current trends and emerging applications"
+    },
+    "doi:10.1038/s44321-026-00527-0": {
+      "first_seen": "2026-10-19",
+      "paper": "knowledge_growth",
+      "title": "Artificial intelligence in central nervous system autoimmune diseases: from clinical decision support to mechanistic dis"
+    },
+    "doi:10.26599/commtr.2026.9640059": {
+      "first_seen": "2026-10-19",
+      "paper": "knowledge_growth",
+      "title": "Reflections on Transportation Engineering Research in the Age of Artificial Intelligence"
+    },
+    "doi:10.35712/aig.127380": {
+      "first_seen": "2026-10-19",
+      "paper": "knowledge_growth",
+      "title": "Artificial intelligence in functional gastrointestinal disorders: From symptom recognition to personalised management"
+    },
+    "arxiv:2610.17528": {
+      "first_seen": "2026-10-19",
+      "paper": "knowledge_growth",
+      "title": "ATTUNE: Agentic Throughput Tuning for LLM Training"
+    },
+    "arxiv:2610.17685": {
+      "first_seen": "2026-10-19",
+      "paper": "knowledge_growth",
+      "title": "LatentRiskBench: Measuring State-Dependent Risks in Enterprise Agents"
+    },
+    "doi:10.1038/s41467-026-78271-9": {
+      "first_seen": "2026-10-19",
+      "paper": "knowledge_growth",
+      "title": "Reinforcement learning guided robotic platform that investigates and discovers asymmetric reactions"
+    },
+    "doi:10.14445/22315381/ijett-v74i9p118": {
+      "first_seen": "2026-10-19",
+      "paper": "knowledge_growth",
+      "title": "Towards Automation and Elimination of Subjectivity in Industrial Risk Management Based on Artificial Intelligence"
+    },
+    "arxiv:2610.16039": {
+      "first_seen": "2026-10-19",
+      "paper": "knowledge_growth",
+      "title": "When Agents Talk, Secrets Travel: Topology-Driven Leakage and Recipient-Conditioned Sanitization in Multi-Agent LLM Syst"
+    },
+    "arxiv:2610.16397": {
+      "first_seen": "2026-10-19",
+      "paper": "knowledge_growth",
+      "title": "Recursive Environment Scaling for General Long-Horizon Agents"
+    },
+    "arxiv:2610.16543": {
+      "first_seen": "2026-10-19",
+      "paper": "knowledge_growth",
+      "title": "Overtaught, Underlearned: Learner-Centered Distillation from Multi-Agent Discussion"
+    },
+    "doi:10.15673/fst.v20i3.3617": {
+      "first_seen": "2026-10-19",
+      "paper": "knowledge_growth",
+      "title": "CULINARY HERITAGE OF UKRAINE: POST-WAR TRANSFORMATION AND DIGITAL APPROACHES TO PRESERVATION"
+    },
+    "doi:10.4171/owr/2026/26": {
+      "first_seen": "2026-10-19",
+      "paper": "knowledge_growth",
+      "title": "Mathematical Foundation of Digital Twins"
+    },
+    "doi:10.1007/s43926-026-00510-8": {
+      "first_seen": "2026-10-19",
+      "paper": "knowledge_growth",
+      "title": "Digital inheritance and innovative development of music based on deep learning and the Internet of Things"
+    },
+    "doi:10.1002/adfm.78438": {
+      "first_seen": "2026-10-19",
+      "paper": "knowledge_growth",
+      "title": "Optimizing NiMo Electrocatalyst Coatings for Hydrogen Evolution in Alkaline Electrolysis With The Machine Learning‐Guide"
+    },
+    "doi:10.1038/s44386-026-00075-0": {
+      "first_seen": "2026-10-19",
+      "paper": "knowledge_growth",
+      "title": "The rise of agentic AI in drug discovery from static tools to autonomous virtual scientists"
+    },
+    "doi:10.1016/j.osn.2026.100901": {
+      "first_seen": "2026-10-19",
+      "paper": "network",
+      "title": "Link-budget-based capacity evaluation for space-ground integrated optical networks"
+    },
+    "doi:10.1109/tmc.2026.3722250": {
+      "first_seen": "2026-10-19",
+      "paper": "network",
+      "title": "Task-Oriented Intelligent Bundle Protocol in Large-Scale Heterogeneous Satellite Networks: A Large Language Model Approa"
+    },
+    "doi:10.1007/s44163-026-02500-9": {
+      "first_seen": "2026-10-19",
+      "paper": "network",
+      "title": "A cross-domain review of artificial intelligence techniques for iot security, computer networks, image processing and sm"
+    },
+    "doi:10.22266/ijies2026.1130.35": {
+      "first_seen": "2026-10-19",
+      "paper": "network",
+      "title": "ZKP-PAC: Accountable and Attribute-private Access Control for EHRs with Batch-verifiable Zero-knowledge Proofs and Prova"
+    },
+    "doi:10.21203/rs.3.rs-11205153/v1": {
+      "first_seen": "2026-10-19",
+      "paper": "network",
+      "title": "Enhancing Road Safety with Privacy-Preserving Blockchain-Based Mobile Crowdsensing"
+    },
+    "doi:10.1007/s10586-026-06669-7": {
+      "first_seen": "2026-10-19",
+      "paper": "network",
+      "title": "Toward adaptive workload scheduling in Kubernetes across the edge-cloud continuum"
+    },
+    "doi:10.3390/computers15100716": {
+      "first_seen": "2026-10-19",
+      "paper": "network",
+      "title": "Blockchain and Biometrics: Survey, GDPR Analysis, and Future Directions"
+    },
+    "arxiv:2610.20396": {
+      "first_seen": "2026-10-19",
+      "paper": "network",
+      "title": "From Human Corrections to Learned Segmentations: A Critical Mathematical Review of Information, Learning, and Human Effo"
+    },
+    "doi:10.3389/fmicb.2026.1965652": {
+      "first_seen": "2026-10-19",
+      "paper": "network",
+      "title": "Reptiles in the One Health ecology of antimicrobial resistance, with insights into zoonotic pathogens: reservoirs, trans"
+    },
+    "doi:10.54254/2755-2721/2026.ld37588": {
+      "first_seen": "2026-10-19",
+      "paper": "network",
+      "title": "Artificial Intelligence-Driven Smart Home Systems: Technologies, Applications and Future Challenges"
+    },
+    "doi:10.59261/jequi.v8i4.403": {
+      "first_seen": "2026-10-19",
+      "paper": "network",
+      "title": "Green Dam Based on the Envision Sustainability Rating System and Blockchain-BIM"
+    },
+    "doi:10.1038/s41598-026-67308-0": {
+      "first_seen": "2026-10-19",
+      "paper": "network",
+      "title": "Landscape fragmentation and carbon storage dynamics under co-evolving governance in the Shaanxi Yellow River wetland"
+    },
+    "doi:10.1007/s44163-026-02109-y": {
+      "first_seen": "2026-10-19",
+      "paper": "network",
+      "title": "Explainable deep learning framework for real-time insect pest detection in smart agriculture"
+    },
+    "doi:10.1016/j.icheatmasstransfer.2026.112765": {
+      "first_seen": "2026-10-19",
+      "paper": "subsystem",
+      "title": "Thermal design, analysis, and experimental testing of a sun sensor for communications satellites"
+    },
+    "doi:10.66104/dz8ngh08": {
+      "first_seen": "2026-10-19",
+      "paper": "subsystem",
+      "title": "ORBITAL SELECTION FOR SPACE-BASED DATA CENTERS: A COMPARATIVE MULTI-PHYSICAL AND TECHNICAL PERFORMANCE TRADE-OFF AMONG L"
+    },
+    "doi:10.1201/9781003791973": {
+      "first_seen": "2026-10-19",
+      "paper": "home_programme",
+      "title": "Human Factors and the Moon"
+    },
+    "doi:10.1103/34v5-pqzp": {
+      "first_seen": "2026-10-19",
+      "paper": "subsystem",
+      "title": "Prospects for direct detection of ultralight dark matter candidates in deci-Hz band with IndIGO-D"
+    },
+    "doi:10.61440/jsra.2026.v1.02": {
+      "first_seen": "2026-10-19",
+      "paper": "subsystem",
+      "title": "Moonraker: The Moon with High Resolution LiDAR"
+    },
+    "doi:10.3389/frspt.2026.1975023": {
+      "first_seen": "2026-10-19",
+      "paper": "subsystem",
+      "title": "A casimir piezoelectric drive (CPD) architecture for supplementary MPD propulsion: a concept study"
+    },
+    "doi:10.31224/8500": {
+      "first_seen": "2026-10-19",
+      "paper": "subsystem",
+      "title": "Attitude Determination and Control System Simulation for Low Earth Orbit CubeSats"
+    },
+    "doi:10.1016/j.ins.2026.124205": {
+      "first_seen": "2026-10-19",
+      "paper": "routing",
+      "title": "Gravity-inspired key node identification in complex networks using entropy-weighted shortest path analysis"
+    },
+    "doi:10.1016/j.patrec.2026.10.018": {
+      "first_seen": "2026-10-19",
+      "paper": "routing",
+      "title": "Sensitive area-guided adversarial attack via Transformer-based generative network"
+    },
+    "doi:10.1038/s41598-026-73910-z": {
+      "first_seen": "2026-10-19",
+      "paper": "routing",
+      "title": "Stochastic SEIR dynamics via graph Laplacian diffusion under transmission uncertainty"
+    },
+    "doi:10.5281/zenodo.2343544x": {
+      "first_seen": "2026-10-19",
+      "paper": "routing",
+      "title": "GREEDY APPROXIMATION AND EXACT OPTIMISATION OF HISTORICAL LIGHTHOUSE COVERAGE IN ENGLAND, WALES AND FRANCE"
+    },
+    "doi:10.64898/2026.10.11.758347": {
+      "first_seen": "2026-10-19",
+      "paper": "routing",
+      "title": "Source-Decomposed Multimodal Graph Connectivity: A Temporal Mixture-Manifold Pipeline for Tracking Ischemic Injury and T"
+    },
+    "doi:10.1186/s40164-026-00840-x": {
+      "first_seen": "2026-10-19",
+      "paper": "routing",
+      "title": "Intratumoral microbiota in cancer immunotherapy: metabolic-epigenetic crosstalk and engineered bacterial therapeutics"
+    },
+    "doi:10.1596/45733": {
+      "first_seen": "2026-10-19",
+      "paper": "routing",
+      "title": "International Centre for Settlement of Investment Disputes (ICSID) Annual Report 2026"
+    },
+    "arxiv:2610.21631": {
+      "first_seen": "2026-10-19",
+      "paper": "routing",
+      "title": "Finite-size geometric crossover toward fragmentation of the potential energy shell in the quantum random energy model"
+    },
+    "arxiv:2610.22357": {
+      "first_seen": "2026-10-19",
+      "paper": "routing",
+      "title": "Stability of Quantum LDPC States under Local Pauli Noise"
+    },
+    "doi:10.1016/j.jnoncrysol.2026.124394": {
+      "first_seen": "2026-10-19",
+      "paper": "routing",
+      "title": "Atomistic insights into the structural, thermal, and mechanical evolution of Zr47.5Cu47.5Ag5 bulk metallic glass"
+    },
+    "arxiv:2610.22341": {
+      "first_seen": "2026-10-19",
+      "paper": "routing",
+      "title": "3DCodeVerse: Exploring 3D Worlds as Code"
+    },
+    "title:a study of the major challenges facing satellite ground stations": {
+      "first_seen": "2026-10-19",
+      "paper": "routing",
+      "title": "A Study of the Major Challenges Facing Satellite Ground Stations"
+    },
+    "doi:10.1007/s44595-026-00008-2": {
+      "first_seen": "2026-10-19",
+      "paper": "routing",
+      "title": "Coverage aware access point placement for hybrid WiFi and LiFi indoor networks via MHCP guided constrained soft actor cr"
+    },
+    "arxiv:2610.22085": {
+      "first_seen": "2026-10-19",
+      "paper": "routing",
+      "title": "Coverage-Preserving Self-Healing in Partially Observable 3D UAV Swarm Networks via an Advection-Diffusion Graph Transfor"
+    },
+    "doi:10.69622/33368473": {
+      "first_seen": "2026-10-19",
+      "paper": "routing",
+      "title": "Tracing B cells in rheumatoid arthritis : from risk to the inflamed joint"
+    },
+    "doi:10.26434/chemrxiv.15010469/v1": {
+      "first_seen": "2026-10-19",
+      "paper": "routing",
+      "title": "Multiscale modelling of acrylate networks"
+    },
+    "doi:10.1016/j.chaos.2026.119307": {
+      "first_seen": "2026-10-19",
+      "paper": "routing",
+      "title": "Critical behavior of stochastic rumors on the one-dimensional integer lattice"
+    },
+    "doi:10.32942/x2340x": {
+      "first_seen": "2026-10-19",
+      "paper": "routing",
+      "title": "Wildlife crime moves in spatial pulses"
+    },
+    "doi:10.1371/journal.pone.0360622": {
+      "first_seen": "2026-10-19",
+      "paper": "routing",
+      "title": "Talca no es Santiago: Moral geography, rurality, and infrastructure of possibility in LGBTIQA+ violence and survival"
+    },
+    "doi:10.21203/rs.3.rs-11155947/v1": {
+      "first_seen": "2026-10-19",
+      "paper": "routing",
+      "title": "Deep Learning-Based Sex Classification and Chronological Age-Group Estimation from Knee Radiographs Using a Multi-Task F"
+    },
+    "doi:10.54600/igdirsosbilder.1874156": {
+      "first_seen": "2026-10-19",
+      "paper": "routing",
+      "title": "The Organization of Turkic States through the Lens of Ontological Security and Security Governance: A Five-Stage Mechani"
+    },
+    "arxiv:2610.20070": {
+      "first_seen": "2026-10-19",
+      "paper": "routing",
+      "title": "SPARC: Substation-to-Peering Assessment of Resilience and Cascades"
+    },
+    "doi:10.3389/fimmu.2026.1987126": {
+      "first_seen": "2026-10-19",
+      "paper": "routing",
+      "title": "Decoding molecular heterogeneity in lupus nephritis: integrating single-cell and spatial multi-omics for endotype-driven"
+    },
+    "doi:10.1080/14756366.2026.2744392": {
+      "first_seen": "2026-10-19",
+      "paper": "routing",
+      "title": "Research progress on ATP-citrate lyase and its inhibitors: a metabolic-epigenetic perspective"
+    },
+    "arxiv:2610.20532": {
+      "first_seen": "2026-10-19",
+      "paper": "routing",
+      "title": "ActiveEvidence: Decision-Focused Evidence Graphs with Verifiable Acquisition Gaps"
+    },
+    "title:study of eosinophils in breast cancer response to anti pd 1 immunotherapy using murine models": {
+      "first_seen": "2026-10-19",
+      "paper": "routing",
+      "title": "Study of Eosinophils in Breast Cancer Response to Anti-PD-1 Immunotherapy Using Murine Models"
+    },
+    "doi:10.1088/2632-072x/aeb36a": {
+      "first_seen": "2026-10-19",
+      "paper": "routing",
+      "title": "Clusters in randomly-coloured spatial networks"
+    },
+    "arxiv:2610.18418": {
+      "first_seen": "2026-10-19",
+      "paper": "routing",
+      "title": "The role of dependency range in thermally coupled superconducting networks"
+    },
+    "arxiv:2610.17514": {
+      "first_seen": "2026-10-19",
+      "paper": "routing",
+      "title": "Matroid-Aware Spectral Certificates for Multiplicative Coverage Approximation"
+    },
+    "arxiv:2610.17512": {
+      "first_seen": "2026-10-19",
+      "paper": "routing",
+      "title": "Covariance-Rank Rounding and a Sharp Integrality Gap for a Matroid Edge-Coverage Moment Lift"
+    },
+    "arxiv:2610.18029": {
+      "first_seen": "2026-10-19",
+      "paper": "routing",
+      "title": "Lossless Reductions and Hybrid Sampling for Phylogeny Using the Maximum Compatibility Criterion"
+    },
+    "arxiv:2610.17680": {
+      "first_seen": "2026-10-19",
+      "paper": "routing",
+      "title": "Deficit-Driven Stratified Acquisition for Building STRATA-S12: An Open SAR-Optical Corpus for Self-Supervised Learning"
+    },
+    "doi:10.36922/gtm026350039": {
+      "first_seen": "2026-10-19",
+      "paper": "routing",
+      "title": "Recent advances in the pathogenesis, diagnosis, and management of sarcoidosis: A comprehensive narrative review"
+    },
+    "doi:10.3390/f17101219": {
+      "first_seen": "2026-10-19",
+      "paper": "routing",
+      "title": "Fragmented Networks, Detoured Access: A Nationwide Graph-Theoretic Analysis of Forest Road Connectivity in the Republic "
+    },
+    "doi:10.5194/egusphere-2026-5030": {
+      "first_seen": "2026-10-19",
+      "paper": "routing",
+      "title": "Theory of Recession Based on Concepts from Percolation Theory"
+    },
+    "doi:10.1088/1361-651x/aeb31c": {
+      "first_seen": "2026-10-19",
+      "paper": "routing",
+      "title": "4D percolation modeling of flexible conductive composite materials(FCCMs) for smart sensor applications: a Monte Carlo s"
+    },
+    "arxiv:2610.17356": {
+      "first_seen": "2026-10-19",
+      "paper": "routing",
+      "title": "Brain2Face: A Study on the Relation of EEG Signals and Spatio-temporal Head Avatars"
+    },
+    "arxiv:2610.16187": {
+      "first_seen": "2026-10-19",
+      "paper": "routing",
+      "title": "Exploration strategies for Gaussian process bandit optimization with inference regret guarantees"
+    },
+    "doi:10.1002/rob.70366": {
+      "first_seen": "2026-10-19",
+      "paper": "routing",
+      "title": "Slip‐Aware Coverage Path Planning Using a Turning Feasibility Table for an Orchard Robot Sprayer"
+    },
+    "doi:10.1038/s41598-026-72550-7": {
+      "first_seen": "2026-10-19",
+      "paper": "routing",
+      "title": "A statistical learning framework for explainable forest disturbance-agent attribution with provable guarantees and theor"
+    },
+    "doi:10.1186/s42400-026-00673-5": {
+      "first_seen": "2026-10-19",
+      "paper": "routing",
+      "title": "Star-ov: satellite-oriented trusted authorization and responsibility with stratified model encryption and ownership veri"
+    },
+    "arxiv:2610.16812": {
+      "first_seen": "2026-10-19",
+      "paper": "routing",
+      "title": "DASS: A Solver-Adaptable Dynamic Auxiliary Search Strategy for Symbolic Regression"
+    },
+    "doi:10.26434/chemrxiv.15010314/v1": {
+      "first_seen": "2026-10-19",
+      "paper": "routing",
+      "title": "Confinement-Controlled Cluster Percolation Shifts the Widom Crossover in Supercritical Methane"
+    },
+    "doi:10.1016/b978-0-443-29835-6.00007-1": {
+      "first_seen": "2026-10-19",
+      "paper": "ethics",
+      "title": "An overview of the new generations of probiotics and their future trend in industrial products (drugs, supplements, and "
+    },
+    "doi:10.9783/9781512829341-007": {
+      "first_seen": "2026-10-19",
+      "paper": "ethics",
+      "title": "Outro. Science Fiction and Racism: Decolonizing the White Problem"
+    },
+    "doi:10.1080/10848770.2026.2729630": {
+      "first_seen": "2026-10-19",
+      "paper": "ethics",
+      "title": "The Sources of Normativity in World Politics: Identity, History and Moral Obligation Towards Refugees"
+    },
+    "doi:10.68258/ajah_phileth.63877": {
+      "first_seen": "2026-10-19",
+      "paper": "ethics",
+      "title": "The Ghosts in the Machine: Reclaiming African Agency in the Politics of AI and Technological Futures"
+    },
+    "doi:10.21203/rs.3.rs-11212068/v1": {
+      "first_seen": "2026-10-19",
+      "paper": "ethics",
+      "title": "The Frozen Self: Psychological and Cultural Barriers to Agency in the Age of Tokenized Identity"
+    },
+    "doi:10.18697/ajfand.155.26605": {
+      "first_seen": "2026-10-19",
+      "paper": "ethics",
+      "title": "Blue accounting for flood disaster mitigation: an empirical study of a flood-prone Riverine area in Indonesia"
+    },
+    "doi:10.1163/17455243-bja10208": {
+      "first_seen": "2026-10-19",
+      "paper": "ethics",
+      "title": "The Ethics of Animal Beauty, written by S. Vice"
+    },
+    "doi:10.4324/9781042011070-23": {
+      "first_seen": "2026-10-19",
+      "paper": "ethics",
+      "title": "Moral and Legal Judgements of Acts of War"
+    },
+    "doi:10.1080/26895269.2026.2744393": {
+      "first_seen": "2026-10-19",
+      "paper": "ethics",
+      "title": "Experiences of obligation among transgender and non-binary young adults: a focus group study"
+    },
+    "doi:10.1007/s11948-026-00636-6": {
+      "first_seen": "2026-10-19",
+      "paper": "ethics",
+      "title": "Film as Ethical Experience in Engineering Education: Three Modes of Ethical Engagement"
+    },
+    "doi:10.59209/ircep.v6i17.178": {
+      "first_seen": "2026-10-19",
+      "paper": "ethics",
+      "title": "Possibility of Aporia as Experience in LLM Interaction"
+    },
+    "doi:10.1057/s41599-026-09423-x": {
+      "first_seen": "2026-10-19",
+      "paper": "ethics",
+      "title": "Being recognized as human by AI: algorithmic disrespect and the crisis of recognition in the digital age"
+    },
+    "doi:10.21953/researchonline.lse.ac.uk.00141392": {
+      "first_seen": "2026-10-19",
+      "paper": "ethics",
+      "title": "Economics and ethics for sustainable development in a changing world: risk, growth and public action"
+    },
+    "doi:10.3389/fmars.2026.1988578": {
+      "first_seen": "2026-10-19",
+      "paper": "ethics",
+      "title": "Reconsidering pathways to global shipping decarbonization: idealism vs. realism"
+    },
+    "doi:10.1177/09697330261490842": {
+      "first_seen": "2026-10-19",
+      "paper": "ethics",
+      "title": "Moral distress &amp; moral community: A narrative review of the literature"
+    },
+    "doi:10.17645/si.12700": {
+      "first_seen": "2026-10-19",
+      "paper": "ethics",
+      "title": "When the Carceral Web Slips: Digital Moral Labour Among Migrants in Legal Precarity"
+    },
+    "doi:10.18524/2411-2054.2026.62.371286": {
+      "first_seen": "2026-10-19",
+      "paper": "ethics",
+      "title": "THEORETICAL AND LEGAL ASPECTS OF THE CONCEPT OF A PERSON’S LEGAL STATUS UNDER THE NEW WORLD ORDER"
+    },
+    "doi:10.31219/osf.io/5mxk3_v1": {
+      "first_seen": "2026-10-19",
+      "paper": "ethics",
+      "title": "THE LEGAL STATUS OF DECENTRALIZED AUTONOMOUS ORGANIZATIONS (DAOs): PUBLIC ASSOCIATION ANALOGIES AND REGULATORY CHALLENGE"
+    },
+    "doi:10.31234/osf.io/ybne8_v1": {
+      "first_seen": "2026-10-19",
+      "paper": "ethics",
+      "title": "Identity in Tune? School Identity Development Predicts Declining Preferences for Non-Mainstream Music Preferences Across"
+    },
+    "doi:10.21203/rs.3.rs-10445068/v1": {
+      "first_seen": "2026-10-19",
+      "paper": "ethics",
+      "title": "Who gets to verify AI? Provenance, authority and accountability in digital government"
+    },
+    "doi:10.4324/9781003770855": {
+      "first_seen": "2026-10-19",
+      "paper": "ethics",
+      "title": "Daoism, Social Justice and Global Citizenship Education"
+    },
+    "doi:10.1177/09539468261498160": {
+      "first_seen": "2026-10-19",
+      "paper": "ethics",
+      "title": "Touchstones of Moral Possibility? Ethics, Idolatry, and the Christian Community"
+    },
+    "doi:10.1177/14777509261496182": {
+      "first_seen": "2026-10-19",
+      "paper": "ethics",
+      "title": "Knowledge and moral authority in decision-making for incapable children"
+    },
+    "doi:10.68018/jsshe.2026.010": {
+      "first_seen": "2026-10-19",
+      "paper": "ethics",
+      "title": "Reproductive Identity - Language, Reason, and Artificial Intelligence after Hegel and Marx - Augustine’s Psychological T"
+    },
+    "doi:10.1080/1369118x.2026.2750563": {
+      "first_seen": "2026-10-19",
+      "paper": "ethics",
+      "title": "Synthetic humanitarianism and algorithmic witnessing: generative AI and the politics of humanitarian representation"
+    },
+    "doi:10.1057/s41599-026-08746-z": {
+      "first_seen": "2026-10-19",
+      "paper": "ethics",
+      "title": "Synthetic spirituality: AI is reshaping religion"
+    },
+    "doi:10.5281/zenodo.2330751x": {
+      "first_seen": "2026-10-19",
+      "paper": "ethics",
+      "title": "When Does Automated Review Constitute Genuine Reconsideration?"
+    },
+    "doi:10.1007/s11229-026-05831-3": {
+      "first_seen": "2026-10-19",
+      "paper": "ethics",
+      "title": "Living with AI-extenders: ethical challenges to mental autonomy"
+    },
+    "doi:10.17613/ay213-jjf06": {
+      "first_seen": "2026-10-19",
+      "paper": "ethics",
+      "title": "University Hospital Commons: An Evolutionary Approach to Generative Relational Field Governance"
+    },
+    "doi:10.21203/rs.3.rs-10049132/v1": {
+      "first_seen": "2026-10-19",
+      "paper": "ethics",
+      "title": "PEA-ARS: Privacy-Enhanced and Arbitrable V2V Accident Reporting System with Fuzzy Consensus"
+    },
+    "doi:10.4324/9781003534235-5": {
+      "first_seen": "2026-10-19",
+      "paper": "ethics",
+      "title": "Moral Theory"
+    },
+    "doi:10.1080/14704994.2026.2736219": {
+      "first_seen": "2026-10-19",
+      "paper": "ethics",
+      "title": "<i>Ladingit</i> and <i>Nakem</i> : Grief, Personhood, and Moral Responsibility in Ilocano Rural Contextual Theology"
+    },
+    "doi:10.1007/s11948-026-00633-9": {
+      "first_seen": "2026-10-19",
+      "paper": "ethics",
+      "title": "Digitalisation, Use of Scientific Publications, and Research Output: Cross-Country Evidence"
+    },
+    "doi:10.1016/j.tws.2026.115762": {
+      "first_seen": "2026-10-19",
+      "paper": "speciation",
+      "title": "Vibration isolation in a pipe using a meta-ring based on the Timoshenko beam theory"
+    },
+    "doi:10.64898/2026.10.12.758086": {
+      "first_seen": "2026-10-19",
+      "paper": "speciation",
+      "title": "Testing Thirty Years of Hypotheses: Ancient Trout–Salmon Introgression and Limited Pre–Colonial Gene Flow Between Rainbo"
+    },
+    "doi:10.18097/bcadd2026": {
+      "first_seen": "2026-10-19",
+      "paper": "speciation",
+      "title": "PROCEEDINGS BOOK OF THE XXXII SYMPOSIUM “BIOINFORMATICS AND COMPUTER-AIDED DRUG DISCOVERY”"
+    },
+    "doi:10.1038/s41467-026-78810-4": {
+      "first_seen": "2026-10-19",
+      "paper": "speciation",
+      "title": "Survival and divergence of Arctic endemic cod species during 50,000 years of climate change"
+    },
+    "doi:10.22541/authorea.15010536/v1": {
+      "first_seen": "2026-10-19",
+      "paper": "speciation",
+      "title": "Alpine plant diversity across three major mountain systems: A comparative review of East Africa, the Tibet–Himalaya–Heng"
+    },
+    "doi:10.32942/x28q4v": {
+      "first_seen": "2026-10-19",
+      "paper": "speciation",
+      "title": "Elevation gradients shape morphology and acoustic phenotype across isolated songbird populations"
+    },
+    "doi:10.3389/fpls.2026.1971675": {
+      "first_seen": "2026-10-19",
+      "paper": "speciation",
+      "title": "Germplasm evaluation and differentiation in Polygonatum kingianum via chloroplast genome resources"
+    },
+    "doi:10.32942/x25x1v": {
+      "first_seen": "2026-10-19",
+      "paper": "speciation",
+      "title": "The Openness–Constraint Spectrum: Module Integrity and the Evolutionary Reversibility of Fungal Traits"
+    },
+    "doi:10.3389/fmicb.2026.1975171": {
+      "first_seen": "2026-10-19",
+      "paper": "speciation",
+      "title": "Two myxobacterial strains against Rhizoctonia solani: comparative genomics of antagonistic potential and phenotypic eval"
+    },
+    "doi:10.64898/2026.10.12.758704": {
+      "first_seen": "2026-10-19",
+      "paper": "speciation",
+      "title": "Sugarcane bZIP16 regulates internode elongation by targeting gibberellic acid biosynthesis pathway"
+    },
+    "doi:10.64898/2026.10.07.757289": {
+      "first_seen": "2026-10-19",
+      "paper": "speciation",
+      "title": "Salt-enhanced surface display in the halotolerant yeast Debaryomyces hansenii"
+    },
+    "doi:10.21203/rs.3.rs-10335838/v1": {
+      "first_seen": "2026-10-19",
+      "paper": "speciation",
+      "title": "Morpho-molecular Characterization and Phylogeny of Thrips Species from Crop Ecosystems of Tarai Region, Uttarakhand"
+    },
+    "doi:10.1111/jfb.70683": {
+      "first_seen": "2026-10-19",
+      "paper": "speciation",
+      "title": "A deeper look into the diversity of suckermouth catfishes (Mochockidae: Chiloglanis Peters 1868) of southern Africa, wit"
+    },
+    "doi:10.3389/fearc.2026.1915444": {
+      "first_seen": "2026-10-19",
+      "paper": "speciation",
+      "title": "Integrating multiple disciplines to locate the origins of domestication of crops"
+    },
+    "doi:10.3354/esr01566": {
+      "first_seen": "2026-10-19",
+      "paper": "speciation",
+      "title": "Piping plovers select similar fine-scale nest site features in disparate landscapes"
+    },
+    "doi:10.1093/brain/awag356": {
+      "first_seen": "2026-10-19",
+      "paper": "speciation",
+      "title": "Extracellular vesicle α-synuclein topology reveals disease-associated conformers in brain and blood"
+    },
+    "doi:10.14573/altex.2608271": {
+      "first_seen": "2026-10-19",
+      "paper": "roadmap",
+      "title": "A roadmap for modernizing vaccine safety assessment: Challenges and opportunities for new approach methodologies"
+    },
+    "doi:10.1111/icad.70143": {
+      "first_seen": "2026-10-19",
+      "paper": "speciation",
+      "title": "Hidden in the deadwood: Taxonomically curated barcode library reveals deep genetic divergence in Eurasian saproxylic bee"
+    },
+    "doi:10.11646/zootaxa.5889.4.5": {
+      "first_seen": "2026-10-19",
+      "paper": "speciation",
+      "title": "A new subspecies of the genus Eisenia from the Yan Mountains, China (Oligochaeta, Lumbricidae)"
+    },
+    "doi:10.1016/j.asoc.2026.116446": {
+      "first_seen": "2026-10-19",
+      "paper": "security",
+      "title": "A hybrid Fuzzy neural network approach for nonlinear control systems: Performance, adaptability, and robustness"
+    },
+    "doi:10.1016/j.robot.2026.105760": {
+      "first_seen": "2026-10-19",
+      "paper": "security",
+      "title": "An executive framework for distributed autonomous systems based on Message Interpreted Petri Nets"
+    },
+    "doi:10.1016/j.robot.2026.105794": {
+      "first_seen": "2026-10-19",
+      "paper": "security",
+      "title": "Multi-agent distributed coordination control method driven by heterogeneous perception neural network"
+    },
+    "doi:10.1016/j.robot.2026.105753": {
+      "first_seen": "2026-10-19",
+      "paper": "security",
+      "title": "Adaptive practical fixed-time cooperative control of UAVs under communication delays: Fully distributed observer-based a"
+    },
+    "doi:10.4018/979-8-2600-0363-3.ch001": {
+      "first_seen": "2026-10-19",
+      "paper": "security",
+      "title": "Adversarial Robustness in Deep Learning-Based Network Intrusion Detection Systems Attack Vectors, Defence Mechanisms, an"
+    },
+    "doi:10.1016/j.robot.2026.105704": {
+      "first_seen": "2026-10-19",
+      "paper": "security",
+      "title": "Dynamic memory event-triggered distributed practical predefined-time 3-D formation control for underactuated AUVs"
+    },
+    "doi:10.1016/j.neucom.2026.134474": {
+      "first_seen": "2026-10-19",
+      "paper": "security",
+      "title": "A reinforcement learning framework for network dismantling under defense constraints"
+    },
+    "doi:10.1117/12.3116618": {
+      "first_seen": "2026-10-19",
+      "paper": "security",
+      "title": "System level taxonomy of adversarial pressure in heterogeneous autonomous ground systems"
+    },
+    "doi:10.31127/tuje.1967750": {
+      "first_seen": "2026-10-19",
+      "paper": "security",
+      "title": "From Imperial Infrastructure to Transnational Industrial Heritage: Architectural Technology and Conservation in the Berl"
+    },
+    "doi:10.21203/rs.3.rs-9708604/v1": {
+      "first_seen": "2026-10-19",
+      "paper": "security",
+      "title": "Consensus backbones for directed economic and financial networks: sovereign risk spillovers and the emerging-market core"
+    },
+    "doi:10.3390/math14203746": {
+      "first_seen": "2026-10-19",
+      "paper": "security",
+      "title": "Radial–Angular Feature Shaping with an eXtra-Node and Prototype-Based Cosine Similarity Under Adversarial Perturbations"
+    },
+    "doi:10.1201/9781042033942-38": {
+      "first_seen": "2026-10-19",
+      "paper": "security",
+      "title": "Transformer-Multi Model-Guided Generative Adversarial Network for Face Occlusion Removal"
+    },
+    "doi:10.22541/authorea.15010265/v1": {
+      "first_seen": "2026-10-19",
+      "paper": "security",
+      "title": "Rare plants insure plant–microbe network robustness through functional redundancy across climatic gradients"
+    },
+    "doi:10.1038/s41598-026-75207-7": {
+      "first_seen": "2026-10-19",
+      "paper": "security",
+      "title": "Domain adaptation affects adversarial robustness in autonomous steering models"
+    },
+    "doi:10.1515/9798887198958-022": {
+      "first_seen": "2026-10-19",
+      "paper": "roadmap",
+      "title": "Chapter 19 Demonstration and Intimidation in the Mexican Pueblo; Laryssa’s Mission"
+    },
+    "doi:10.1016/j.icarus.2026.117260": {
+      "first_seen": "2026-10-19",
+      "paper": "roadmap",
+      "title": "Constraints on the internal mass distribution of asteroid (101955) Bennu from OSIRIS-REx mission data"
+    },
+    "title:roadmap for the prosperity of the parts manufacturing industry in iran": {
+      "first_seen": "2026-10-19",
+      "paper": "roadmap",
+      "title": "Roadmap for the Prosperity of the Parts Manufacturing Industry in Iran"
+    },
+    "doi:10.1016/j.icarus.2026.117207": {
+      "first_seen": "2026-10-19",
+      "paper": "roadmap",
+      "title": "Orbit determination of the Emirates Mission to the Asteroid Belt flyby target asteroids using Minor Planet Center (MPC) "
+    },
+    "doi:10.1016/j.actaastro.2026.05.062": {
+      "first_seen": "2026-10-19",
+      "paper": "roadmap",
+      "title": "A technology demonstration mission for active space debris removal combining tether towing and aerodynamic braking: Conc"
+    },
+    "doi:10.1007/s40812-026-00430-2": {
+      "first_seen": "2026-10-19",
+      "paper": "roadmap",
+      "title": "Harnessing space-derived technologies for agri-food system resilience"
+    },
+    "title:alma observations towards m83 reveal n2h tracing dense gas": {
+      "first_seen": "2026-10-19",
+      "paper": "roadmap",
+      "title": "ALMA observations towards M83 reveal N2H+ tracing dense gas"
+    },
+    "doi:10.25125/ijoear-oct-2026-6": {
+      "first_seen": "2026-10-19",
+      "paper": "roadmap",
+      "title": "Air-to-Water Condensation Farming and Fogponics for \"Zero-Watering\" Horticulture in India: A Review of Technologies, Cro"
+    },
+    "title:techno economic comparison of cryogenic and amine based carbon capture systems": {
+      "first_seen": "2026-10-19",
+      "paper": "roadmap",
+      "title": "Techno-Economic Comparison of Cryogenic and Amine-based Carbon Capture Systems"
+    },
+    "doi:10.3389/fmars.2026.1977051": {
+      "first_seen": "2026-10-19",
+      "paper": "roadmap",
+      "title": "DriftGuard: an agentic hybrid temporal transformer and graph attention network framework for autonomous calibration drif"
+    },
+    "doi:10.3389/fmats.2026.1950296": {
+      "first_seen": "2026-10-19",
+      "paper": "roadmap",
+      "title": "Recent advances in electrospun hydrogen-rich polymeric nanofiber composites for space radiation shielding"
+    },
+    "doi:10.21203/rs.3.rs-10878484/v1": {
+      "first_seen": "2026-10-19",
+      "paper": "roadmap",
+      "title": "A Data-Driven High-Sensitivity Biomimetic Whisker Sensor"
+    },
+    "doi:10.1146/annurev-physchem-090525-115603": {
+      "first_seen": "2026-10-19",
+      "paper": "roadmap",
+      "title": "Trends in Methylidyne Radical Reactions at Temperatures Relevant to the Interstellar Medium"
+    },
+    "arxiv:2610.19862": {
+      "first_seen": "2026-10-19",
+      "paper": "roadmap",
+      "title": "specwizard: A Public Python Framework for Creating Synthetic Absorption Spectra from Hydrodynamical Simulations"
+    },
+    "title:the impact of nonlinear landau damping on cosmic ray streaming and the role of external turbulence": {
+      "first_seen": "2026-10-19",
+      "paper": "roadmap",
+      "title": "The impact of nonlinear Landau damping on cosmic ray streaming and the role of external turbulence"
+    },
+    "arxiv:2610.19939": {
+      "first_seen": "2026-10-19",
+      "paper": "roadmap",
+      "title": "The physical and chemical structure of TMC-1. The spatial distribution and excitation conditions of carbon, oxygen, and "
+    },
+    "arxiv:2610.20722": {
+      "first_seen": "2026-10-19",
+      "paper": "roadmap",
+      "title": "An Attenuation Bump at z=9.3: Probing Dust Diversity at Cosmic Dawn"
+    },
+    "doi:10.38124/ijisrt/26apr2053": {
+      "first_seen": "2026-10-19",
+      "paper": "roadmap",
+      "title": "AI-Driven Multi-Dimensional Course Assessment and SHS Strand Recommendation System"
+    },
+    "doi:10.1002/ese3.70664": {
+      "first_seen": "2026-10-19",
+      "paper": "roadmap",
+      "title": "A Comprehensive Review of Fault‐Current Limiter Technologies for Smart and Resilient Power Systems"
+    },
+    "doi:10.1007/s44205-026-00226-5": {
+      "first_seen": "2026-10-19",
+      "paper": "roadmap",
+      "title": "Air-breathing electric propulsion developments at NewOrbit space"
+    },
+    "doi:10.5281/zenodo.2334949x": {
+      "first_seen": "2026-10-19",
+      "paper": "roadmap",
+      "title": "Project Prometheus: Ready For Development"
+    },
+    "doi:10.54254/2753-8818/2026.hz37582": {
+      "first_seen": "2026-10-19",
+      "paper": "roadmap",
+      "title": "Advancements in Enhancing Degrees of Freedom for Upper-Limb Prostheses: Mechanisms, Control, and Sensory Feedback"
+    },
+    "doi:10.1063/5.0344984": {
+      "first_seen": "2026-10-19",
+      "paper": "roadmap",
+      "title": "Lifetime Sample Tracking (LiST): A data platform for materials science"
+    },
+    "arxiv:2610.17577": {
+      "first_seen": "2026-10-19",
+      "paper": "roadmap",
+      "title": "Non-equilibrium chemistry and radiation hydrodynamics in metal-poor and metal-rich interstellar gas"
+    },
+    "doi:10.1051/0004-6361/202662016": {
+      "first_seen": "2026-10-19",
+      "paper": "roadmap",
+      "title": "Extended gamma-ray emission in the vicinity of the Westerlund 1 massive star cluster and Kes 41 supernova remnant seen b"
+    },
+    "doi:10.3390/molecules31203644": {
+      "first_seen": "2026-10-19",
+      "paper": "roadmap",
+      "title": "Sustainable Chemical Approaches for Wastewater Treatment and Resource Utilization"
+    },
+    "doi:10.3847/1538-4357/aea41c": {
+      "first_seen": "2026-10-19",
+      "paper": "roadmap",
+      "title": "Photodissociation Pathways of Vinylacetylene (C 4 H 4 ) and Implications for the Interstellar Hydrocarbon Chemistry"
+    },
+    "doi:10.1093/mnras/stag1942": {
+      "first_seen": "2026-10-19",
+      "paper": "roadmap",
+      "title": "Outflows in a super-Eddington quasar drive clumpy circumgalactic medium and extended Hα nebulae at z ≳ 6"
+    },
+    "title:strategic intelligence for emerging and critical technologies": {
+      "first_seen": "2026-10-19",
+      "paper": "roadmap",
+      "title": "Strategic intelligence for emerging and critical technologies"
+    },
+    "doi:10.21203/rs.3.rs-11124466/v1": {
+      "first_seen": "2026-10-19",
+      "paper": "roadmap",
+      "title": "Practical implementation of a Safe-by-Design framework: a proof of concept for early-phase hazard assessment of PFAS-fre"
+    },
+    "doi:10.1186/s12873-026-01784-5": {
+      "first_seen": "2026-10-19",
+      "paper": "roadmap",
+      "title": "Impact of frequent emergency department visits on resource utilization"
+    },
+    "doi:10.1163/9789004780095": {
+      "first_seen": "2026-10-19",
+      "paper": "home_programme",
+      "title": "Class, Coloniality and Crisis"
+    },
+    "doi:10.51644/9781771127363-004": {
+      "first_seen": "2026-10-19",
+      "paper": "home_programme",
+      "title": "Chapter Two Intercept: to seize en route"
+    },
+    "doi:10.24415/9789400605466-004": {
+      "first_seen": "2026-10-19",
+      "paper": "home_programme",
+      "title": "Chapter 2. Interconnected and Multifaceted Approaches to Protestant Mission Histories"
+    },
+    "doi:10.1016/j.icarus.2026.117278": {
+      "first_seen": "2026-10-19",
+      "paper": "home_programme",
+      "title": "Non-mare glasses from the Chang'e-5 landing site: Evidence for local crustal KREEP-rich reservoirs?"
+    },
+    "doi:10.1016/j.actaastro.2026.07.060": {
+      "first_seen": "2026-10-19",
+      "paper": "home_programme",
+      "title": "Three-dimensional stability analyses of lunar lava tubes: Assessing the possibility of reconstructing lunar pit geometry"
+    },
+    "doi:10.1016/j.jocn.2026.112248": {
+      "first_seen": "2026-10-19",
+      "paper": "home_programme",
+      "title": "Societal gender equality and spousal cognitive interdependence: A random-intercept cross-lagged analysis across 20 count"
+    },
+    "doi:10.1016/j.respol.2026.105631": {
+      "first_seen": "2026-10-19",
+      "paper": "home_programme",
+      "title": "How to craft a mission? A Theory of Action for the strategic public management of mission-oriented innovation policy"
+    },
+    "doi:10.1016/j.actaastro.2026.08.021": {
+      "first_seen": "2026-10-19",
+      "paper": "home_programme",
+      "title": "Durability assessment of sintered lunar regolith bricks under a simulated lunar coupled thermal-radiation environment"
+    },
+    "doi:10.1061/jaeeez.aseng-6545": {
+      "first_seen": "2026-10-19",
+      "paper": "home_programme",
+      "title": "Effects of Regolith Shielding on the Three-Dimensional Temperature Distribution of Lunar Habitat Structure"
+    },
+    "doi:10.1016/j.actaastro.2026.06.039": {
+      "first_seen": "2026-10-19",
+      "paper": "home_programme",
+      "title": "Polar-specific thermal model of lunar regolith to enhance rover instrument design for lunar polar night survival"
+    },
+    "doi:10.1016/j.energy.2026.142569": {
+      "first_seen": "2026-10-19",
+      "paper": "home_programme",
+      "title": "Configuration selection and lunar daytime off-design evaluation of power generation-refrigeration coupled systems for lu"
+    },
+    "doi:10.1016/j.actaastro.2026.05.063": {
+      "first_seen": "2026-10-19",
+      "paper": "home_programme",
+      "title": "From extraction to purification: A comprehensive review of oxygen production from lunar regolith for ISRU"
+    },
+    "doi:10.1016/j.pss.2026.106337": {
+      "first_seen": "2026-10-19",
+      "paper": "home_programme",
+      "title": "Fluorine plasma processing of lunar regolith simulant for lunar in-situ resource production"
+    },
+    "doi:10.1016/j.actaastro.2026.07.001": {
+      "first_seen": "2026-10-19",
+      "paper": "home_programme",
+      "title": "Strength assessment of testing samples produced from lunar regolith simulant by selective laser melting"
+    },
+    "doi:10.1201/9781003791973-9": {
+      "first_seen": "2026-10-19",
+      "paper": "home_programme",
+      "title": "The Lunar Human Environment"
+    },
+    "doi:10.1037/adb0001187.supp": {
+      "first_seen": "2026-10-19",
+      "paper": "home_programme",
+      "title": "Supplemental Material for Social Jetlag and Alcohol Use in Adolescents: A Random-Intercept Cross-Lagged Panel Analysis"
+    },
+    "doi:10.3389/fpsyg.2026.1989887": {
+      "first_seen": "2026-10-19",
+      "paper": "home_programme",
+      "title": "Longitudinal relationships between physical exercise, psychological resilience, and academic engagement in Chinese unive"
     }
   },
-  "last_run": "2026-10-12"
+  "last_run": "2026-10-19"
 }
