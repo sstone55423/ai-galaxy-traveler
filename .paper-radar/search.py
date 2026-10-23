@@ -942,6 +942,93 @@ def mark_seen_from(path):
     return 0
 
 
+def backfill_abstracts(results, budget_s=30, s2_cap=25):
+    """Fill in the abstracts Crossref never deposited, series-wide.
+
+    The venue sweep has enriched its own hits since 2026-08-31, but the
+    ordinary query paths never did, and the 2026-10-19 sweep said plainly what
+    that costs: "many Crossref records arrived with no abstract at all, which
+    forced otherwise-judgeable candidates down to flagged. Backfilling
+    abstracts from OpenAlex for Crossref-sourced records would raise screening
+    yield more than any query change." A screening agent cannot judge what it
+    cannot read, so an abstract-less record can only ever be flagged.
+
+    OpenAlex is asked in batches -- `filter=doi:a|b|c` takes 50 at a time, so
+    the whole sweep's backlog costs two or three requests. Only what OpenAlex
+    still lacks falls through to S2, one request each and therefore capped.
+    Filled records carry `abstract_backfilled` so the digest can say where it
+    came from.
+
+    The book radar has run the same pass since 2026-10-12, where it converted
+    a third to a half of its abstract-less records and took that week's reads
+    from 44 to 27 while cites rose from 26 to 37."""
+    by_doi = {}
+    for paper in results.values():
+        for rec in paper.get("candidates", []):
+            if (rec.get("abstract") or "").strip():
+                continue
+            if rec.get("doi"):
+                by_doi.setdefault(rec["doi"], []).append(rec)
+    if not by_doi:
+        return 0, 0
+
+    started = time.monotonic()
+    filled = 0
+
+    def apply(doi, abstract, src):
+        nonlocal filled
+        if not abstract:
+            return
+        filled += 1
+        for rec in by_doi.get(doi, []):
+            rec["abstract"] = abstract[:1500]
+            rec["abstract_backfilled"] = src
+
+    dois = list(by_doi)
+    for i in range(0, len(dois), 50):
+        if time.monotonic() - started > budget_s:
+            break
+        chunk = dois[i:i + 50]
+        body = fetch("https://api.openalex.org/works?" + urllib.parse.urlencode(
+            openalex_params(**{"filter": "doi:" + "|".join(chunk),
+                               "select": "doi,abstract_inverted_index",
+                               "per-page": 50})))
+        time.sleep(0.3)
+        if not body:
+            continue
+        try:
+            found = json.loads(body).get("results", [])
+        except json.JSONDecodeError:
+            continue
+        for w in found:
+            apply(norm_doi(w.get("doi")),
+                  clean_ws(reconstruct_abstract(w.get("abstract_inverted_index"))),
+                  "openalex")
+
+    s2_key = os.environ.get("S2_API_KEY")
+    still = [d for d, recs in by_doi.items()
+             if not (recs[0].get("abstract") or "").strip()]
+    if s2_key and still:
+        for doi in still[:s2_cap]:
+            if time.monotonic() - started > budget_s:
+                log(f"  [abstracts] {budget_s}s budget reached; "
+                    f"{len(still)} still without one")
+                break
+            body = fetch(
+                "https://api.semanticscholar.org/graph/v1/paper/"
+                f"DOI:{urllib.parse.quote(doi, safe='')}?fields=abstract",
+                headers={"x-api-key": s2_key})
+            if body:
+                try:
+                    apply(doi, clean_ws(json.loads(body).get("abstract") or ""),
+                          "semanticscholar")
+                except json.JSONDecodeError:
+                    pass
+            time.sleep(DELAY.get("s2", 1.1))
+
+    return len(by_doi), filled
+
+
 def run(args):
     load_env()
     cfg = load_json(QUERIES_PATH, None)
@@ -1004,7 +1091,8 @@ def run(args):
     log(f"Sources: arxiv, openalex, crossref" + (", semanticscholar" if s2_on else " (s2: no key, skipped)")
         + (", ads" if ads_on else " (ads: no key, citation watch falls back to openalex)"))
 
-    stats = {"raw": 0, "excluded": 0, "future_dated": 0, "dupe_seen": 0, "dupe_run": 0, "quarantined": 0, "kept": 0}
+    stats = {"raw": 0, "excluded": 0, "future_dated": 0, "dupe_seen": 0, "dupe_run": 0,
+             "quarantined": 0, "kept": 0, "abstract_tried": 0, "abstract_filled": 0}
     arxiv_index = arxiv_index_freshness(since)
     if arxiv_index:
         stats["arxiv_index_newest"] = arxiv_index["newest"]
@@ -1150,6 +1238,22 @@ def run(args):
     remaining = [k for k in all_keys if k not in results]
     complete = not remaining
 
+    # One abstract pass, on the call that finishes the sweep. `results` holds
+    # every paper accumulated under --resume by then, so a single pass covers
+    # the whole sweep; running it per call would blow the 45 s shell ceiling
+    # and re-ask DOIs already answered.
+    if complete and not args.no_abstract_fetch:
+        missing = sum(1 for pr in results.values() for r in pr.get("candidates", [])
+                      if r.get("doi") and not (r.get("abstract") or "").strip())
+        if missing:
+            log(f"\n[abstracts] {missing} candidate(s) have a DOI but no "
+                f"abstract; re-asking OpenAlex then S2")
+            tried, filled = backfill_abstracts(results, budget_s=args.abstract_budget)
+            stats["abstract_tried"], stats["abstract_filled"] = tried, filled
+            log(f"[abstracts] asked {tried}, filled {filled}")
+    elif not complete:
+        log("[abstracts] sweep incomplete; the backfill runs on the finishing call")
+
     payload = {
         "generated": dt.datetime.now().isoformat(timespec="seconds"),
         "since": since,
@@ -1222,6 +1326,11 @@ def main():
     ap.add_argument("--mark-seen", action="store_true",
                     help="record results in seen.json (refused unless the sweep is complete)")
     ap.add_argument("--ignore-seen", action="store_true", help="do not filter already-seen records")
+    ap.add_argument("--no-abstract-fetch", action="store_true",
+                    help="skip the post-sweep abstract backfill")
+    ap.add_argument("--abstract-budget", type=int, default=20,
+                    help="seconds for the abstract backfill pass (default 20); it "
+                         "runs once, on the call that completes the sweep")
     ap.add_argument("--no-s2", action="store_true", help="force-skip Semantic Scholar")
     ap.add_argument("--baseline", action="store_true", help="alias: wide first-run sweep")
     ap.add_argument("--mark-seen-from", metavar="PATH",
