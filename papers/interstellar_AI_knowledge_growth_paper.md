@@ -308,6 +308,8 @@ The accounting assumes that what an autonomous investigator adds to G is knowled
 
 - L_obsolescence: the natural decline in mission weight w_j of superseded models. A superseded climate model's ΔH_j is absorbed into its successor; the older item's w_j falls without the item being lost. This is the only L component that does not represent a genuine loss of information — it represents its refinement.
 
+One channel cuts across that list rather than sitting in it. Every pass that condenses the archive to fit storage or downlink is itself a loss event. KEEP-Bench measures how much of the evidence needed to support a conclusion survives context compression and finds that the best open-weight model preserves all required evidence in only 66.8% of cases and the best proprietary model in 61.6%, on inputs far shorter than the available context; evidence preserved per unit of inference compute peaks at moderate model scale, where recall remains low (Man et al., 2026). The measurements are on language models rather than on a mission archive, so the percentages do not transfer. The structural point does: condensation moves mass from G(t) into L(t), and a power-limited probe that summarizes to save storage pays in a term the integrity machinery cannot detect, because the surviving record still verifies.
+
 The loss term is bounded from below by zero (fully networked, lossless lineage) and, over any interval, its integral is bounded above by K_net at the start of that interval (total extinction). Full quantification of L(t) — attaching rates to each component from first-principles models — is the most important open problem in the K framework; we name it explicitly so that future work has a defined problem to attack.
 
 **K_accessible vs. K_total.** During cruise, K_accessible ≪ K_total for any individual probe because the cold DNA archive cannot be read without settlement infrastructure. At settlement, K_accessible rises to approach K_total. The network's K_accessible is always less than K_total because some nodes are in cruise at any given time. K_accessible grows discontinuously at each settlement event, even while K_total grows continuously.
@@ -513,6 +515,8 @@ Koch, Z., Wassie, A. T., Valdés-Alemán, J., et al. (2026). BixBench3: Benchmar
 Lamport, L., Shostak, R., & Pease, M. (1982). The Byzantine Generals Problem. *ACM Transactions on Programming Languages and Systems*, 4(3), 382–401.
 
 Luo, Z., Wang, S., Li, C., et al. (2026). Distilling agentic systems: A roadmap across models, artifacts, and harnesses. *arXiv preprint* arXiv:2609.36630.
+
+Man, Z., Wu, D., Gu, J.-C., Zhang, J., Chang, K.-W., & Peng, N. (2026). KEEP-Bench: Evaluating evidence preservation in context compression. *arXiv preprint* arXiv:2610.26827.
 
 Mao, X., Zhao, L., Zheng, X., & Wang, C. (2026). Practice makes unsafe: Skill misevolution in self-improving LLM agents. *arXiv preprint arXiv:2608.12851*.
 

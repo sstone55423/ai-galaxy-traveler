@@ -170,6 +170,8 @@ The sixth class is **negative signatures**. A noninterference lineage may avoid 
 
 The resulting observational program is difficult. It favors high-resolution surveys of small-body populations, searches for anomalous thermal emission, monitoring for transient narrow beams, characterization of interstellar objects, and technosignature models that include low-power autonomous industry (Wright 2018). This is not a replacement for SETI. It is a different branch of SETI: the search for quiet machines.
 
+One of those branches now has a method attached. Henrique, Sheikh & Fields (2026) argue that on geologically inactive surfaces such as the Moon and Mars, non-random artificial patterning could persist for hundreds of millions of years — the same span as the filling times of Section 7 — and that HiRISE-class imaging searched with machine-learning anomaly detection could yield the first quantitative upper limits on such patterning. Their subject is artificial design on terrain, not probes, and the connection to this architecture is ours rather than theirs. But it is the right shape for a quiet lineage, which predicts durable local traces rather than beacons, and a null result at achievable sensitivity would bound D instead of merely restating the silence.
+
 ---
 
 ## 9. Filters Implied by the Architecture
@@ -273,6 +275,8 @@ Haqq-Misra, J., & Baum, S. D. (2009). The sustainability solution to the Fermi p
 Harris, T. E. (1963). *The Theory of Branching Processes.* Springer.
 
 Hart, M. H. (1975). An explanation for the absence of extraterrestrials on Earth. *Quarterly Journal of the Royal Astronomical Society*, 16, 128–135.
+
+Henrique, A., Sheikh, S., & Fields, B. (2026). Solar System surface technosignatures: Searching for signs of artificial design on extraterrestrial terrain. *arXiv preprint* arXiv:2610.28687.
 
 Ivliev, S. (2026). Autonomous AI-cosmoindustry and the quiet expansion filter: A threshold-based resolution of the Fermi paradox. *arXiv preprint* arXiv:2606.13914.
 
