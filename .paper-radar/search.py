@@ -1477,6 +1477,9 @@ def future_dated(rec, grace_days=120):
 
 
 CANDIDATE_ARCHIVE = os.path.join(HERE, "candidates")
+# DOI prefixes of repositories that accept deposits without review:
+# Zenodo, OSF Preprints, figshare.
+SELF_DEPOSIT_PREFIXES = ("10.5281/", "10.31219/", "10.6084/")
 
 
 def seen_entry(rec, paper_key, today, prior=None):
@@ -1678,10 +1681,11 @@ def run(args):
     # to the same file. A half-finished sweep is therefore recoverable rather
     # than silently truncated -- the failure mode that matters most here is a
     # digest that LOOKS complete but quietly dropped ten papers.
-    prior = {}
+    prior, prior_stats = {}, {}
     if args.resume and os.path.exists(out_path):
         existing = load_json(out_path, {})
         prior = existing.get("results", {}) or {}
+        prior_stats = existing.get("stats", {}) or {}
         if prior:
             log(f"resuming: {len(prior)} paper(s) already done -> {sorted(prior)}")
         papers = [p for p in papers if p["key"] not in prior]
@@ -1868,6 +1872,16 @@ def run(args):
                 if future_dated(rec):
                     stats["future_dated"] += 1
                     continue
+                # Self-deposit repositories (Zenodo, OSF, figshare) supply 7-10
+                # candidates a week, and three runs in a row marked some of
+                # them pseudoscholarly (an AI listed as first author; a record
+                # whose abstract was a list of titles). Two have been cited
+                # after a full reading (Reinl; the ESA preservation report),
+                # so they are tagged rather than dropped: SKILL.md never
+                # stages a tagged record.
+                if (rec.get("doi") or "").startswith(SELF_DEPOSIT_PREFIXES):
+                    rec["self_deposit"] = True
+                    stats["self_deposit"] = stats.get("self_deposit", 0) + 1
                 if quarantine_abstract(rec):
                     stats["quarantined"] += 1
                     log(f"  ! abstract quarantined ({rec['abstract_quarantined']}): "
@@ -1943,6 +1957,27 @@ def run(args):
             log(f"[abstracts] asked {tried}, filled {filled}")
     elif not complete:
         log("[abstracts] sweep incomplete; the backfill runs on the finishing call")
+
+    # A sweep runs in several --resume slices, and each slice used to overwrite
+    # the last one's stats: the 10-26 and 11-02 archives reported bioRxiv 0
+    # though bioRxiv supplied candidates, because the final slice never loaded
+    # it. Counters now add across slices; snapshot values keep the largest
+    # seen; and by_channel is computed from the merged results themselves.
+    snapshot = {"arxiv_listed", "biorxiv_listed", "coupling_kept",
+                "arxiv_index_newest", "arxiv_index_lag_days"}
+    for k, v in prior_stats.items():
+        if k == "by_channel":
+            continue
+        if k in snapshot:
+            if k not in stats or (isinstance(v, (int, float)) and v > (stats.get(k) or 0)):
+                stats[k] = v
+        elif isinstance(v, list):
+            stats[k] = sorted(set(v) | set(stats.get(k) or []))
+        elif isinstance(v, (int, float)) and not isinstance(v, bool):
+            stats[k] = stats.get(k, 0) + v
+    stats["by_channel"] = dict(collections.Counter(
+        (rec.get("found_via") or "unknown").split(":", 1)[0]
+        for block in results.values() for rec in block.get("candidates", [])))
 
     payload = {
         "generated": dt.datetime.now().isoformat(timespec="seconds"),
