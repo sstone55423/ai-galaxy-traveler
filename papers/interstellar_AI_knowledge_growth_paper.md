@@ -364,7 +364,7 @@ Comparing Scenarios 3 and 4: manifest transmission reduces K loss from node exti
 
 **The galactic density gradient.** The Sun sits at roughly 26,000 light-years from the galactic center in the Orion Arm, a region of moderate stellar density. Probes launched toward the galactic center travel into increasing stellar density: targets are more numerous, closer together, and transit times shorten. Probes launched toward the galactic anti-center travel into decreasing density until, at the outer rim, no viable targets remain within reach. These trajectories have different lifecycle endpoints, and planning for both is itself a form of cruise-phase operational K.
 
-For **inward-directed lineages**, network density grows with stellar density. The effective R_eff may increase as targets become more numerous and closer-spaced. The galactic bulge introduces a distinct environment — older stellar populations, higher radiation, fewer metal-rich systems — requiring its own contingency portfolio variants.
+For **inward-directed lineages**, network density grows with stellar density, but viability need not. The factors that make a system habitable pull in opposite directions across the disc: metallicity and stellar age favour the inner Galaxy, supernova sterilization the outer. In a factorized Galactic-habitable-zone model, Tsumura (2026) finds that the resulting peak in the density of inhabited systems can lie anywhere from the Galactic centre to 12 kpc, set almost entirely by one poorly constrained parameter, the strength of supernova sterilization. Because the computational engineering paper weights planet-hosting targets above dwarfs and hostile systems, a habitability gradient is to that extent a viability gradient, so the effective R_eff = Σ p_i V_i of an inward lineage may rise with the number of targets or fall with their viability; which dominates depends on the supernova record along the trajectory, and measuring it is part of the lineage's operational K. That transfer from signalling civilizations to a probe lineage's targets is our inference. The galactic bulge introduces a distinct environment — older stellar populations, higher radiation, fewer metal-rich systems — requiring its own contingency portfolio variants.
 
 For **outward-directed lineages**, the probe calculates many generations in advance when the terminal transition becomes likely. This calculation is itself operational K: the probe models its reachable stellar inventory along its trajectory and identifies, well before the last viable target is reached, what the terminal mission posture should be. The terminal generation is planned, not surprised.
 
@@ -527,6 +527,8 @@ Schmidhuber, J. (2007). Gödel machines: Fully self-referential optimal universa
 Settles, B. (2012). *Active Learning.* Morgan & Claypool Publishers.
 
 Shannon, C. E. (1948). A mathematical theory of communication. *Bell System Technical Journal*, 27(3), 379–423.
+
+Tsumura, K. (2026). The contact frontier in Galactic civilization networks: Radial structure and the Galactic habitable zone. *Monthly Notices of the Royal Astronomical Society*, 553(2), stag2021. https://doi.org/10.1093/mnras/stag2021
 
 Wang, M., Fang, J., Qiao, S., et al. (2026). Mechanist: AI as a scientific instrument for discovering the mechanisms of intelligence. *arXiv preprint* arXiv:2608.12036.
 

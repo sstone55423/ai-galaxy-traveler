@@ -208,6 +208,8 @@ Sixth, the Solar System itself should not be excluded. Quiet probes, if any exis
 
 Finally, the absence of obvious probes should be interpreted against explicit models. It is not enough to say "we do not see them." We need to specify what signatures a given architecture predicts, at what intensity, in what locations, and under what governance rules. Fermi reasoning without detectability modeling is incomplete.
 
+Network models of the signal side already make the point quantitatively. Tsumura (2026) links civilizations whenever their separation is less than the distance a signal travels within a communicative lifetime, on an exponential stellar disc carrying a Galactic habitable zone, and finds that our own non-detection bounds only the local contactability — the expected number of partners within signal range, η(R0) ≲ 3 — and becomes a constraint on the whole Galaxy only when the zone's density peak lies near the solar radius; with the peak elsewhere, regions four to ten times more connected than ours survive the null result. The connectivity transitions are frontiers kiloparsecs wide rather than boundaries, and the number of civilizations alone does not fix the chance of contact. The model's link rule is a static, omnidirectional signal snapshot, and that is where this architecture parts from it: a quiet lineage spreads by travel rather than broadcast, and its settlements need not signal at all, so a bound on η(R0) constrains the detectability of signalling civilizations, not the presence of a low-D lineage. That reading is the series' inference, not Tsumura's.
+
 ---
 
 ## 11. Discussion
@@ -303,6 +305,8 @@ Sagan, C., & Newman, W. I. (1983). The solipsist approach to extraterrestrial in
 Song, G.-Y., Tao, Z.-Z., Huang, B.-L., Yu, B., & Zhang, T.-J. (2026). A deep SETI search for technosignatures in the TRAPPIST-1 system with FAST. *The Astronomical Journal*, 172(3), 181. https://doi.org/10.3847/1538-3881/ae8516
 
 Tipler, F. J. (1980). Extraterrestrial intelligent beings do not exist. *Quarterly Journal of the Royal Astronomical Society*, 21, 267–281.
+
+Tsumura, K. (2026). The contact frontier in Galactic civilization networks: Radial structure and the Galactic habitable zone. *Monthly Notices of the Royal Astronomical Society*, 553(2), stag2021. https://doi.org/10.1093/mnras/stag2021
 
 von Neumann, J., & Burks, A. W. (1966). *Theory of Self-Reproducing Automata.* University of Illinois Press.
 
