@@ -444,13 +444,11 @@
       "thesis": "Whether an immutable value core can ever be legitimately amended by the lineage that inherits it -- the series' deepest open problem, bracketed not solved. Relevant work: corrigibility, goal stability, constitutional amendment theory, AI value drift, mechanisms for legitimate rule change without central authority.",
       "arxiv": [
         "corrigibility AND \"artificial intelligence\"",
-        "\"reward tampering\" OR \"mesa-optimization\"",
         "\"goal preservation\" AND \"self-modifying\"",
         "\"value drift\" AND agents",
         "corrigibility OR corrigible",
         "\"value drift\" OR \"goal preservation\" OR \"goal-content integrity\" OR \"value lock-in\"",
-        "\"constitutional AI\" OR \"AI constitution\"",
-        "\"reward tampering\" OR \"reward hacking\""
+        "\"constitutional AI\" OR \"AI constitution\""
       ],
       "arxiv_categories": [
         "cs.AI",
@@ -461,10 +459,11 @@
         "\"corrigibility\" artificial agent shutdown problem",
         "\"goal-content integrity\" self-modification value preservation",
         "\"eternity clause\" OR \"constitutional entrenchment\" unamendable",
-        "\"value lock-in\" irreversible institutional"
+        "\"value lock-in\" irreversible institutional",
+        "\"shutdown problem\" OR \"off-switch\" OR shutdownability",
+        "\"successor\" \"value alignment\""
       ],
       "crossref": [
-        "corrigibility artificial agent goal preservation",
         "unamendability eternity clause constitutional entrenchment"
       ],
       "exclude": [
@@ -475,7 +474,10 @@
         "in-group",
         "coalition formation",
         "shibboleth",
-        "zimbabwe"
+        "zimbabwe",
+        "government shutdown",
+        "internet shutdown",
+        "shutdowns"
       ],
       "venue_watch": [
         {
@@ -621,15 +623,13 @@
         "astro-ph.IM"
       ],
       "openalex": [
-        "autonomous scientific discovery artificial intelligence",
         "knowledge accumulation measurement agent",
         "long-term digital preservation information loss",
         "closed-loop autonomous experimentation self-driving laboratory",
-        "archival storage media degradation century timescale"
+        "\"evidence preservation\" OR \"context compression\"",
+        "\"expected information gain\" experiment"
       ],
-      "crossref": [
-        "long-term digital preservation archival integrity bit rot"
-      ],
+      "crossref": [],
       "exclude": [
         "knowledge graph",
         "literature-based discovery",
@@ -656,9 +656,9 @@
         "cs.DC"
       ],
       "openalex": [
-        "delay tolerant networking bundle protocol deep space",
-        "opportunistic routing intermittent connectivity network",
-        "\"interplanetary internet\""
+        "\"interplanetary internet\"",
+        "\"bundle protocol\" OR \"delay-tolerant networking\"",
+        "\"failure detector\" distributed"
       ],
       "crossref": [
         "delay tolerant networking deep space bundle protocol"
@@ -743,12 +743,10 @@
       ],
       "openalex": [
         "percolation threshold random geometric graph connectivity",
-        "k-connectivity articulation point spatial network robustness",
-        "\"k-out-of-n\" system reliability redundancy",
         "maximum coverage problem greedy approximation guarantee",
-        "targeted versus random node removal attack tolerance",
         "galactic colonisation percolation interstellar settlement expansion",
-        "interstellar network connectivity stellar neighbourhood Gaia distances"
+        "interstellar network connectivity stellar neighbourhood Gaia distances",
+        "\"temporal graph\" exploration"
       ],
       "crossref": [
         "random geometric graph connectivity threshold",
@@ -798,14 +796,12 @@
       ],
       "openalex": [
         "space colonization ethics obligations planetary protection",
-        "moral status artificial agents machine personhood",
         "\"non-identity problem\" Parfit future generations",
-        "longtermism existential risk space settlement",
-        "directed panspermia ethics astrobiology moratorium"
+        "directed panspermia ethics astrobiology moratorium",
+        "\"moral status\" \"artificial agents\"",
+        "\"space ethics\" OR astroethics OR \"ethics of space exploration\""
       ],
       "crossref": [
-        "ethics space colonization moral obligation",
-        "moral status artificial agent legal personhood",
         "non-identity problem future generations obligation"
       ],
       "exclude": [
@@ -969,10 +965,9 @@
       "openalex": [
         "in-situ resource utilization demonstrator lunar regolith asteroid",
         "asteroid mining ore-bearing fraction resource census",
-        "autonomous in-space manufacturing closed-loop self-replication",
         "magnetic sail drag deceleration interstellar medium plasma",
-        "local interstellar cloud electron density ionization fraction",
-        "technology readiness level assessment space system roadmap"
+        "\"local interstellar cloud\" OR \"very local interstellar medium\" OR heliopause",
+        "\"in-space manufacturing\" OR \"space manufacturing\""
       ],
       "crossref": [
         "in-situ resource utilization asteroid demonstration mission",
@@ -1109,6 +1104,7 @@
     "2026-10-22: author names now come from the byline. search.py's OpenAlex candidates used author.display_name (the disambiguated profile), which gave 'Markus C. Kolodziej' for a paper bylined Markus Wagner and 'Cao Qing' for Qing Cao, and added a middle initial (Sheryl L. Sanchez) the byline lacks; it now prefers raw_author_name via oa_authors(). SKILL.md Step 3 now verifies authors against Crossref (DOIs), DataCite (Zenodo) or the arXiv API, never an OpenAlex profile, and records disagreements in the digest.",
     "2026-10-22: acted on the 2026-10-19 digest's query notes, after a live 30-day OpenAlex comparison of old and new forms. network: only 'interplanetary internet architecture' was the polluter (10 of 10 blockchain/IoT hits unquoted); now the quoted phrase, plus title excludes for blockchain-based/enabled, IoT security, smart home, EHR, Kubernetes and the like. The other two OpenAlex queries were productive (they found El Gemayel and the ns-3 DTN paper), so they stay unquoted -- quoting 'delay tolerant' 'bundle protocol' lost the ns-3 paper. speciation: the barcode-gap query returned only DNA-barcoding taxonomy and is replaced by a reproductive-isolation model query, which in the live test returned Hissa et al. and Higaki et al.; 'ring species' is now quoted; the Crossref query that drew 'vibration isolation' is reworded; excludes for barcoding, germplasm and new-taxon descriptions. home_programme: dropped the Crossref 'interstellar object intercept mission' query (random-intercept panel studies, Protestant missions, mission-oriented policy; arXiv and OpenAlex already cover interstellar-object missions) and excluded those senses.",
     "2026-10-22 (radar audit, items 3-4): new channels, each live-tested over a 30-day window before configuring. coupling (all papers, automatic): works citing >= 2 series references, or 1 reference with < 300 citations, from series_refs.json (build_series_refs.py: 311 unique references, 228 resolved, title matches require the first author in the byline); 13 kept in the 10-15..22 test, incl. Ryugu/Bennu water studies for roadmap/home_programme. ads: probe, fermi, computational, roadmap, home_programme, subsystem, governance; the ADS phrase \"mass driver\" is dropped because in astronomy it matches \"main driver of mass loss\" (starburst and protostar noise), and roadmap/governance are limited to the astronomy collection. ntrs: bootstrap (\"in-space manufacturing\": 6 relevant NASA reports in 30 days), roadmap ISRU; every other NTRS query returned 0 and was not configured. biorxiv: dna_ledger (both 14-day hits were Funke and Perry, papers the radar had surfaced via other channels), speciation (10 theory/genomics preprints). s2_recommend tested and left OFF: the endpoint 429s on a third of calls even at 4 s spacing, and quality is unstable (dna_ledger was excellent seeded with 6 DOIs, junk seeded with 23); fermi and home_programme looked reasonable if trialled later. PhilArchive OAI refuses automated access (403).",
-    "2026-10-22 (radar audit, item 5): 64 arXiv queries added across all 18 papers, written in the vocabulary the literature uses rather than the series' own ('light sail', 'self-driving laboratory', 'recursive self-improvement', 'disruption tolerant', 'Galton-Watson', 'transparency log', 'reward hacking'). Tested offline against the cached week of listings (4,041 papers): matches rose from 3 to ~95, the bulk on payload (20), knowledge_growth (22) and security (13). Trimmed before adoption: a bare interstellar AND (probe OR ...) query that caught ISM astronomy, 'self-improving' and a long-horizon-memory query (payload ran to 39), and generic 'tamper-evident' (crypto noise; 'transparency log' keeps the fork-resistant-log paper). math.PR added to computational and routing, where branching-process and random-geometric-graph work lives; computational's branching query requires extinction/survival/colonization so pure probability theory stays out. Old queries kept; judge new ones by yield_report.py --by-query after a month."
+    "2026-10-22 (radar audit, item 5): 64 arXiv queries added across all 18 papers, written in the vocabulary the literature uses rather than the series' own ('light sail', 'self-driving laboratory', 'recursive self-improvement', 'disruption tolerant', 'Galton-Watson', 'transparency log', 'reward hacking'). Tested offline against the cached week of listings (4,041 papers): matches rose from 3 to ~95, the bulk on payload (20), knowledge_growth (22) and security (13). Trimmed before adoption: a bare interstellar AND (probe OR ...) query that caught ISM astronomy, 'self-improving' and a long-horizon-memory query (payload ran to 39), and generic 'tamper-evident' (crypto noise; 'transparency log' keeps the fork-resistant-log paper). math.PR added to computational and routing, where branching-process and random-geometric-graph work lives; computational's branching query requires extinction/survival/colonization so pure probability theory stays out. Old queries kept; judge new ones by yield_report.py --by-query after a month.",
+    "2026-11-05: acted on the 10-26 and 11-02 digests' query notes, measured first. Per-query yield over the three archived sweeps (yield_report-style: candidates / surfaced in a digest / inserted) identified queries with 15-30 candidates and nothing surfaced; replacements were live-tested on OpenAlex over 21 days before adoption. Removed: ethics -- both Crossref queries, longtermism, and the unquoted moral-status query (bare 'moral' pulled clinical and professional-formation work); knowledge_growth -- 'autonomous scientific discovery artificial intelligence' (29/0), archival-media degradation, Crossref bit rot; network -- 'opportunistic routing...' (16/0) and the unquoted DTN query; routing -- k-connectivity/articulation point (26/0), k-out-of-n, targeted-vs-random removal (30/1; the Crossref targeted-attack query, 9/2/1, stays); amendment -- both arXiv reward-tampering/hacking queries (9/0) and the Crossref corrigibility query; roadmap -- the unquoted local-interstellar-cloud (29/0), in-space-manufacturing (30/0) and TRL (26/1) queries. Added (quoted phrases): '\"moral status\" \"artificial agents\"', space ethics/astroethics; '\"evidence preservation\" OR \"context compression\"' (first hit KEEP-Bench, already inserted), '\"expected information gain\" experiment'; bundle protocol/DTN, '\"failure detector\" distributed' (first hit: heartbeat failure detection); '\"temporal graph\" exploration'; shutdown/off-switch (first hit: a formal off-switch-game corrigibility paper) with excludes for government and internet shutdowns, '\"successor\" \"value alignment\"'; local interstellar cloud/VLISM/heliopause, in-space manufacturing. Tested and rejected: 'custody transfer' (petroleum metering), 'continuum percolation ... range' (alpha-particle ranges), 'self-model', quoted TRL."
   ]
 }
