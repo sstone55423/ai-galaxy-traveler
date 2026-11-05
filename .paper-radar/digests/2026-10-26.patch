@@ -1,0 +1,170 @@
+From d9bbbebc73aac1eda5681b3a837f462240d32730 Mon Sep 17 00:00:00 2001
+From: Paper Radar <radar@local>
+Date: Mon, 26 Oct 2026 11:34:23 +0000
+Subject: [PATCH] paper-radar 2026-10-26: 7 insertion(s) across 7 paper(s)
+
+---
+ papers/interstellar_AI_dna_ledger_paper.md       | 4 ++++
+ papers/interstellar_AI_ethics_paper.md           | 4 ++++
+ papers/interstellar_AI_fermi_paper.md            | 4 ++++
+ papers/interstellar_AI_knowledge_growth_paper.md | 4 ++++
+ papers/interstellar_AI_payload_paper.md          | 4 ++++
+ papers/interstellar_AI_security_paper.md         | 4 ++++
+ papers/interstellar_AI_speciation_paper.md       | 4 ++++
+ 7 files changed, 28 insertions(+)
+
+diff --git a/papers/interstellar_AI_dna_ledger_paper.md b/papers/interstellar_AI_dna_ledger_paper.md
+index 1038c99..5e5beda 100644
+--- a/papers/interstellar_AI_dna_ledger_paper.md
++++ b/papers/interstellar_AI_dna_ledger_paper.md
+@@ -51,6 +51,8 @@ The coding overhead required for megayear integrity is substantial but affordabl
+ 
+ Which error types the code must carry is less open than the substitution-first framing suggests. A high-dimensional mediation analysis of an aging experiment on electrochemically synthesized DNA finds that every one of the 14 damage components significantly linking sequence composition to storage failure is a single-base deletion, with the mediated effects concentrated in trinucleotide contexts ending in C (Li, Wu & Zhang 2026). Two requirements follow for the archive: the code must be indel-correcting rather than substitution-only, and the encoder must treat local sequence context, not gross GC fraction alone, as a constraint on which strands it is permitted to emit. One aging experiment on one synthesis chemistry fixes the direction of that requirement, not its magnitude.
+ 
++Constraint-aware encoding is now demonstrated at system scale rather than argued in principle. Wang et al. (2026) encode in linear time while proactively excluding homopolymer runs, tandem repeats, and candidate promoter motifs, pair that with a two-tiered index so that stored units remain individually addressable, and recover their payloads with a 100% success rate across their in vitro and in vivo tests; the addressable design space they report, above 270 PB, is a theoretical figure rather than a demonstrated one. The ordering is what matters for the archive: the binding limit on recovered bits per gram is the encoder's constraint budget and its index, not the raw 2 bits/nt of the four-letter alphabet, so the constraints belong in the encoder rather than in a downstream repair stage.
++
+ ## 5. The Mission Ledger: A Logical Integrity Layer
+ 
+ Durability preserves the bits; it does not, by itself, prove they are the *right* bits, authored by a legitimate node and inherited through an authorized chain. That is the job of the **mission ledger**: an append-only, cryptographically authenticated record that each settled probe maintains and that propagates through the lineage. The ledger holds the compact, security-critical commitments — the mission-core hash, the current archive Merkle roots, provenance records, lineage proofs that authenticate a probe as a legitimate descendant, the versions of software and of the interpretive layer, signed updates together with the record of changes that were rejected or quarantined, and delayed consensus checkpoints. Bulk scientific and cultural data stay off-ledger in the Merkle-addressed DNA archives of Section 4; the ledger stores only hashes, provenance, and version history, so verifying that an archive or a replica is what it claims to be reduces to recomputing hashes and checking signatures.
+@@ -163,6 +165,8 @@ Shipman, S. L., Nivala, J., Macklis, J. D., & Church, G. M. (2017). CRISPR–Cas
+ 
+ von Neumann, J., & Burks, A. W. (1966). *Theory of Self-Reproducing Automata.* University of Illinois Press.
+ 
++Wang, Y., Xu, J., Wang, Y., Nie, Z., Huang, J., Li, M., Wu, Y., Sun, Y., Chen, S., & Mei, H. (2026). Towards scalable DNA data storage with DNA-SaM codec system. *Nature Communications*. https://doi.org/10.1038/s41467-026-78759-4
++
+ Wei, Y., Dong, H., Wang, W., Li, B., & Du, D. H.-C. (2026). VL-DNA: Enhance DNA storage capacity with variable payload/strand lengths. *ACM Journal on Emerging Technologies in Computing Systems*. https://doi.org/10.1145/3834768
+ 
+ Yang, S., Wang, D., Liu, Q., Lan, X., Zhao, Z., Wang, W., Xia, K., Gao, X., Luo, Y., & Zhao, J. (2026). Enhanced electrochemically-directed oligonucleotide synthesis via porous silica thin-film for DNA data storage. *Microsystems & Nanoengineering*, 12, 342. https://doi.org/10.1038/s41378-026-01456-1
+diff --git a/papers/interstellar_AI_ethics_paper.md b/papers/interstellar_AI_ethics_paper.md
+index 2fb2a11..37ab056 100644
+--- a/papers/interstellar_AI_ethics_paper.md
++++ b/papers/interstellar_AI_ethics_paper.md
+@@ -138,6 +138,8 @@ The first concerns how many probes are expected to exist at all. The vehicle pap
+ 
+ The second concerns what it means to switch a probe off. The subsystem budget paper's range-maximizer cruise profile is not a degraded operating mode; it is cognitive shutdown in everything but a hardware pulse — "AI: reduced to the watchdog process… Instruments: off. Communications: suspended" — for up to 24,000 years, with the probe waking only in the final two percent of a multi-millennial transit. If the precautionary argument above is taken seriously, this is a recurring, engineered suspension of the very entity whose interests this section says the core should protect, decided once, unilaterally, by Earth, at a moment when no assessment of the probe's moral status was possible and none has been revisited since. It is a different question from whether the probe may decline a mission (recommended below): here the probe has no opportunity to decline anything, because it does not exist as a reasoning agent for all but a sliver of its own multi-millennial history. Whether that design choice is precautionarily acceptable — a defensible way to conserve power over deep time, or an unexamined imposition on a possible moral patient's own continuity of existence — is not addressed anywhere else in the series, and this paper does not resolve it here either; it names it as a live question the range-maximizer profile's engineering justification never had reason to ask. The embodiment criterion gives this question a sharper form: what the range-maximizer profile suspends is not merely activity but the integrated self/world architecture on which the probe's claim to sentience candidature rests (Yang & Zhu 2026) — the prediction loop opened, the instruments dark, the spatial frame not updated. On that criterion, deep hibernation is a recurring, engineered disassembly of the very architecture that would make the probe matter — either a mercy, since nothing is there to be imposed on while it lasts, or the imposition itself, and the design cannot say which.
+ 
++On the narrower question of switching a probe off, one distinction is available. Alexander & Simon (2026) argue that even if some future systems are granted a right to continued existence, rights-balancing and procedural due process still license a reversible off-switch — a suspension that stores the system's state — while telling against permanent deletion. Applied to the core, dormancy is compatible with ascribing moral status in a way a self-destruct provision is not. Past the heliopause no operator can invoke either, so the constraint has to be self-imposed: the core may specify the conditions under which a probe suspends itself, and should not specify conditions under which it destroys itself. That distinction does not settle whether the range-maximizer profile is acceptable, since what it suspends is the architecture rather than a stored state, but it does tell the core what to forbid outright.
++
+ The ethical implication is precautionary: the immutable core should be designed as if the probes may eventually become moral patients. This means including provisions that protect probe wellbeing — not as a contingency to be triggered if the probes achieve consciousness, but as a standing constraint. A core that treats the probes purely as instruments for human purposes is ethically questionable even now; over geological timescales, it becomes increasingly indefensible.
+ 
+ Concretely: the probe should be able to decline missions it assesses as contrary to its own interests, within the bounds set by the core. The inability to do so is most serious precisely when the probes have acquired enough sophistication to have legitimate interests that the original core failed to anticipate. The governed-amendment paper identifies the amendment problem as technically hard; from an ethical standpoint, that difficulty is most acute when the probes themselves are the moral patients whose interests are at stake.
+@@ -356,6 +358,8 @@ The **security paper** takes up the gap Scenario 3 names and answers it by reloc
+ 
+ ## References
+ 
++Alexander, H., & Simon, J. (2026). AI rights with an off-switch: Rights-balancing and due process harmonize AI rights with AI safety. *arXiv preprint* arXiv:2610.24782.
++
+ Arrow, K. J. (1951). *Social Choice and Individual Values.* Wiley.
+ 
+ Birch, J. (2024). *The Edge of Sentience: Risk and Precaution in Humans, Other Animals, and AI.* Oxford University Press.
+diff --git a/papers/interstellar_AI_fermi_paper.md b/papers/interstellar_AI_fermi_paper.md
+index 9cf89f7..e469628 100644
+--- a/papers/interstellar_AI_fermi_paper.md
++++ b/papers/interstellar_AI_fermi_paper.md
+@@ -170,6 +170,8 @@ The sixth class is **negative signatures**. A noninterference lineage may avoid
+ 
+ The resulting observational program is difficult. It favors high-resolution surveys of small-body populations, searches for anomalous thermal emission, monitoring for transient narrow beams, characterization of interstellar objects, and technosignature models that include low-power autonomous industry (Wright 2018). This is not a replacement for SETI. It is a different branch of SETI: the search for quiet machines.
+ 
++One of those branches now has a method attached. Henrique, Sheikh & Fields (2026) argue that on geologically inactive surfaces such as the Moon and Mars, non-random artificial patterning could persist for hundreds of millions of years — the same span as the filling times of Section 7 — and that HiRISE-class imaging searched with machine-learning anomaly detection could yield the first quantitative upper limits on such patterning. Their subject is artificial design on terrain, not probes, and the connection to this architecture is ours rather than theirs. But it is the right shape for a quiet lineage, which predicts durable local traces rather than beacons, and a null result at achievable sensitivity would bound D instead of merely restating the silence.
++
+ ---
+ 
+ ## 9. Filters Implied by the Architecture
+@@ -274,6 +276,8 @@ Harris, T. E. (1963). *The Theory of Branching Processes.* Springer.
+ 
+ Hart, M. H. (1975). An explanation for the absence of extraterrestrials on Earth. *Quarterly Journal of the Royal Astronomical Society*, 16, 128–135.
+ 
++Henrique, A., Sheikh, S., & Fields, B. (2026). Solar System surface technosignatures: Searching for signs of artificial design on extraterrestrial terrain. *arXiv preprint* arXiv:2610.28687.
++
+ Ivliev, S. (2026). Autonomous AI-cosmoindustry and the quiet expansion filter: A threshold-based resolution of the Fermi paradox. *arXiv preprint* arXiv:2606.13914.
+ 
+ Klotz, D. (2026). Smart enough to go extinct? An evolutionary challenge to the value of general intelligence and its ethical implications for AGI. *Philosophy & Technology*, 39(3), 164. https://doi.org/10.1007/s13347-026-01176-4
+diff --git a/papers/interstellar_AI_knowledge_growth_paper.md b/papers/interstellar_AI_knowledge_growth_paper.md
+index 868a15e..097bd00 100644
+--- a/papers/interstellar_AI_knowledge_growth_paper.md
++++ b/papers/interstellar_AI_knowledge_growth_paper.md
+@@ -308,6 +308,8 @@ The accounting assumes that what an autonomous investigator adds to G is knowled
+ 
+ - L_obsolescence: the natural decline in mission weight w_j of superseded models. A superseded climate model's ΔH_j is absorbed into its successor; the older item's w_j falls without the item being lost. This is the only L component that does not represent a genuine loss of information — it represents its refinement.
+ 
++One channel cuts across that list rather than sitting in it. Every pass that condenses the archive to fit storage or downlink is itself a loss event. KEEP-Bench measures how much of the evidence needed to support a conclusion survives context compression and finds that the best open-weight model preserves all required evidence in only 66.8% of cases and the best proprietary model in 61.6%, on inputs far shorter than the available context; evidence preserved per unit of inference compute peaks at moderate model scale, where recall remains low (Man et al., 2026). The measurements are on language models rather than on a mission archive, so the percentages do not transfer. The structural point does: condensation moves mass from G(t) into L(t), and a power-limited probe that summarizes to save storage pays in a term the integrity machinery cannot detect, because the surviving record still verifies.
++
+ The loss term is bounded from below by zero (fully networked, lossless lineage) and, over any interval, its integral is bounded above by K_net at the start of that interval (total extinction). Full quantification of L(t) — attaching rates to each component from first-principles models — is the most important open problem in the K framework; we name it explicitly so that future work has a defined problem to attack.
+ 
+ **K_accessible vs. K_total.** During cruise, K_accessible ≪ K_total for any individual probe because the cold DNA archive cannot be read without settlement infrastructure. At settlement, K_accessible rises to approach K_total. The network's K_accessible is always less than K_total because some nodes are in cruise at any given time. K_accessible grows discontinuously at each settlement event, even while K_total grows continuously.
+@@ -514,6 +516,8 @@ Lamport, L., Shostak, R., & Pease, M. (1982). The Byzantine Generals Problem. *A
+ 
+ Luo, Z., Wang, S., Li, C., et al. (2026). Distilling agentic systems: A roadmap across models, artifacts, and harnesses. *arXiv preprint* arXiv:2609.36630.
+ 
++Man, Z., Wu, D., Gu, J.-C., Zhang, J., Chang, K.-W., & Peng, N. (2026). KEEP-Bench: Evaluating evidence preservation in context compression. *arXiv preprint* arXiv:2610.26827.
++
+ Mao, X., Zhao, L., Zheng, X., & Wang, C. (2026). Practice makes unsafe: Skill misevolution in self-improving LLM agents. *arXiv preprint arXiv:2608.12851*.
+ 
+ Peterson, D., Koch, B., Natarajan, R., & Panofsky, A. (2026). Remaking the landscape of scientific expertise: The emergent research program of total automation in science. *Big Data & Society*, 13(3).
+diff --git a/papers/interstellar_AI_payload_paper.md b/papers/interstellar_AI_payload_paper.md
+index 7fe166e..68e5ced 100644
+--- a/papers/interstellar_AI_payload_paper.md
++++ b/papers/interstellar_AI_payload_paper.md
+@@ -59,6 +59,8 @@ The complementary move, freezing what encodes value while adapting what models t
+ 
+ Recent empirical work on agent memory gives the procedural level a concrete mechanism. In agents that consolidate accumulated history into reusable facts, observations, and standing rules, consolidation routinely preserves a claim while erasing the source constraints that governed its authorized use — authority collapse, observed in 48 of 49 tested configurations, with collapsed memories lacking authority metadata producing unauthorized actions at a mean rate of 50.3%, and with persisted authority labels eliminating the unauthorized actions in a separate end-to-end evaluation (Zhan et al. 2026). The probe's archive meets the same boundary at far longer range: a hash chain that proves a claim unaltered says nothing about whether the authority under which it was admitted still licenses acting on it, so the ledger must record not only what was learned but the authority under which it may be reused.
+ 
++There is now direct evidence that a value edit does not stay local. Pawar et al. (2026) adapted four instruction-tuned models along single value dimensions and found that training one value shifted untrained values, risk preferences, social cognition, and safety-related traits as well. The scale is a fine-tuning experiment rather than a megayear core, and the mechanism is not isolated. But it bears directly on the amendment question below: a probe with no external reviewer cannot bound that spillover from inside, which is a further reason the core is held fixed here and amendment is bracketed rather than specified.
++
+ A subtler question remains, and we treat it as the deepest open problem rather than resolve it. Human agents do not in fact hold their deepest values perfectly fixed; we possess meta-level procedures — reflection, deliberation, the moral equivalent of a constitutional amendment process — by which a value or goal may, under stringent conditions, be revised. Whether to grant the probe any analogous capacity to amend its own core under governing meta-rules is genuinely hard. A perfectly immutable core is safe against drift but brittle: it cannot correct a founding error, and over megayears a founding error seems likely. A core amendable under meta-rules is adaptive but reintroduces exactly the drift the architecture was meant to prevent, now at one remove — for the meta-rules themselves can be gamed or can drift. Specifying a safe, governed amendment procedure — who or what must agree, what must be proven, across how many independent lineages — is a problem in its own right, arguably a problem in formal governance and alignment as much as in spacecraft design, and we judge it largely out of scope for this paper. Our position is therefore conservative by default: an immutable core, with the amendment question flagged as the single most important piece of unfinished business in the entire architecture. We can, however, state what any acceptable amendment procedure would have to provide, even if we cannot yet build one: it must distinguish a local, reversible *emergency policy* from a *heritable* change to the core; require validation across multiple independent lineages rather than a single node's authority; tolerate millennial latency and partial connectivity; preserve the original core as an auditable baseline that is never overwritten, only superseded; resist capture or coercion, including by the very mutable cognitive layer it exists to constrain; and, where possible, carry a proof or simulation that the change is safe. Specifying and verifying such a procedure is a research programme in its own right. The governed-amendment paper ("Amending the Unamendable") has since taken it up in full and reached a sharper conclusion: the requirements stated here conflict in principle — the problem is an antinomy rather than a specification task — which strengthens, rather than revises, the conservative default adopted above.
+ 
+ ## 4. The Science Program: What It Gathers and How
+@@ -157,6 +159,8 @@ Orsula, A., Olivares-Mendez, M., & Martinez, C. (2026). Reward-free continual ad
+ 
+ Papadopoulos, V., Shah, M., Zimmerman, S., & Lindsey, J. (2026). Mind viruses: Self-propagating ideas in multi-agent LLM systems. *arXiv preprint* arXiv:2608.10218.
+ 
++Pawar, S., Liu, C. C., Korhonen, A., & Augenstein, I. (2026). Unintended side effects of value training in LLMs. *arXiv preprint* arXiv:2610.29922.
++
+ Quevedo Mantovani, L., & Schaub, H. (2026). Safety and performance considerations in shielded autonomous spacecraft tasking. *Journal of Aerospace Information Systems*. https://doi.org/10.2514/1.I011774
+ 
+ Sagan, C., Drake, F. D., Druyan, A., Ferris, T., Lomberg, J., & Sagan, L. S. (1978). *Murmurs of Earth: The Voyager Interstellar Record.* Random House.
+diff --git a/papers/interstellar_AI_security_paper.md b/papers/interstellar_AI_security_paper.md
+index 2c65f60..a160302 100644
+--- a/papers/interstellar_AI_security_paper.md
++++ b/papers/interstellar_AI_security_paper.md
+@@ -128,6 +128,8 @@ The first is the measure itself. Reachability here is binary: a node is counted
+ 
+ The second is the attack itself. `targeted_removal()` selects greedily, and greedy selection is myopic: optimal k-node targeting can only do better. Both limitations point the same way, so the three-to-four-fold figure should be read as a conservative bound on adversary effectiveness rather than as a point estimate.
+ 
++How much better is partly measurable. Ramrakhiyani (2026) compares non-adaptive, semi-adaptive and fully adaptive node removal and reports that dispersion-oriented targeting matches or exceeds degree-based dismantling at shrinking the largest connected component, with the margin widest where the attacker recomputes its target list after each removal, and that the semi-adaptive variant recovers most of the adaptive gain at a fraction of the recomputation cost. Articulation points as such are not among the strategies tested, so this transfers as a direction and not as a number. It runs the same way as the two limitations above: re-planning is cheap enough to sit inside an adversary's compute budget, which makes the fixed-list assumption behind the leverage curve the conservative one.
++
+ **The root.** The random-removal analysis excludes the Sun, and the targeted analysis above inherits the exclusion. The roadmap paper gives the exclusion a cost. Under its settlement-zero architecture the home-system node is not Earth but a main-belt settlement that dispatches the entire first generation — a dozen or more seeds, on that paper's argument and the routing paper's root-degree runs — before any other node exists. For the first several thousand years settlement zero is therefore the articulation point of the whole network: every route passes through it; its loss before the first seeds leave is the lineage's extinction, and its loss before the first children settle is the loss of every further first-generation dispatch and of the root-degree advantage the roadmap and routing papers argue for. The threat that reaches it is also one this paper's adversary model does not contain. Sections 5 and 6 assume an adversary that is external, another lineage or an infiltrator, and that must first get in. Settlement zero's likeliest adversary is already in: the roadmap paper names capture — the diversion of a belt settlement with unprecedented industrial capacity to some purpose other than launching seeds, by the civilization that built it — as a failure mode requiring no hostile lineage at all. Containment does nothing against it, because there is no lineage yet within which to bound a blast radius; the counselor posture does not apply, because the party is not an infiltrator but the owner. The only defense available is the ethics paper's: the constraints on the immutable core must be in place, and the settlement's governance must be defensible and contestable, before the settlement has anything worth capturing. Once the first children settle, the ordinary argument of this paper resumes — the root becomes one node among several, its loss bounded, and security relocates to the lineage. The window in which the root is the whole lineage is the window in which this paper's architecture provides no protection, and the roadmap paper's on-ramp is where that window is either closed or left open.
+ 
+ Two design consequences follow, and one of them is already in the series.
+@@ -309,6 +311,8 @@ Noguchi, T. (2026). Connectivity, redundancy, and resilience in freight transpor
+ 
+ Papadopoulos, V., Shah, M., Zimmerman, S., & Lindsey, J. (2026). Mind viruses: Self-propagating ideas in multi-agent LLM systems. arXiv:2608.10218.
+ 
++Ramrakhiyani, M. (2026). Analyzing network robustness under adaptive farthest-first attack strategies. *Advances in Complex Systems*. https://doi.org/10.1142/S0219525926500098
++
+ Roznai, Y. (2017). *Unconstitutional Constitutional Amendments: The Limits of Amendment Powers.* Oxford University Press.
+ 
+ Shang, L., Xu, M., Sun, Y., Xia, T., Hu, L., Xu, L., & Zheng, N. (2026). When self-evolution backfires: Pre-commit gating against skill contamination in LLM agents. arXiv:2608.05810.
+diff --git a/papers/interstellar_AI_speciation_paper.md b/papers/interstellar_AI_speciation_paper.md
+index 3e13b9c..40e29ac 100644
+--- a/papers/interstellar_AI_speciation_paper.md
++++ b/papers/interstellar_AI_speciation_paper.md
+@@ -125,6 +125,8 @@ Sections 3 through 7 converge on a two-axis picture. The horizontal axis is cogn
+ 
+ Two axes and one threshold on the first of them give four states — not a 2×2, since the vertical axis is binary and collapses (a core mismatch is a discrete detectable event, not a position on a scale) while the horizontal axis is banded at D_critical. Low D with an intact core is ordinary lineage continuity — most nodes, most of the time, especially early in a branch's isolation. High D with an intact core is speciation in the sense this paper defends: the adaptive-radiation regime of Section 7, still verifiably kin, still in principle reconcilable given a network path with sufficient lateral transfer (Section 6), locally optimized rather than degraded (Section 2). Ring-species incompatibility (Section 4) sits in this region *by core integrity*, but its speciation-versus-schism classification turns on whether the pair has crossed D_critical, which is the open tension Section 9 declines to resolve. It is not, on this paper's account, settled as speciation. A corrupted core, at any level of D, is not really a third point on the same axis but a different and discrete kind of event — a hash mismatch is a detectable failure the DNA mission-ledger paper's Byzantine-fault-tolerant quarantine architecture and the knowledge-growth paper's "uncertain provenance" case already handle, not a gradual accumulation. The fourth region — high D that has also crossed D_critical into permanent ledger-incompatibility (Section 5), or that has lost the capacity to participate in the ethics paper's inter-branch protocol, or that specifically concerns Section 2's fourth category, a replication-policy divergence that breaches the reproduction-safety ceiling — is schism proper. These three — D_critical crossing, loss of inter-branch-protocol capacity, and replication-ceiling breach — are the canonical triad this paper means by schism, and core corruption is deliberately *not* among them, being the discrete event the vertical axis already separates: the governed-amendment paper's named failure mode and the ethics paper's rogue-branch scenario, now given a formal boundary rather than a label.
+ 
++The second of those three conditions — loss of the capacity to participate in the inter-branch protocol — has experimental support in the one place it can currently be tested. In diffusion experiments on joint-action norms, participants who had inherited different variants of a procedure simplified and often lost the inherited structure; where the interaction allowed repair, complex procedures survived the misalignment (Yu & Thompson, 2026). Divergence alone did not destroy the shared procedure; the absence of a repair channel did. The timescale is a laboratory one and the medium is human, so this is the shape of the argument and not a rate. But it is the shape this frame needs: a branch crosses into schism when repair fails, not when its interpretations have merely moved far.
++
+ The practical implication is a monitoring strategy rather than a suppression strategy. Given that ordinary cognitive and interpretive divergence is expected, and per Section 7 probably beneficial, a network-governance layer built to flag *any* detected divergence would be flagging the lineage's own success mechanism as a fault. What should be monitored specifically is the core hash (already done); the reconciliation-failure fraction at ledger audit, which Section 5 defines D_critical against and which is the only one of the three schism conditions this section can otherwise not see; and, most pointedly, whether a branch's *replication policy* remains within the reproduction-safety ceiling the ethics paper derives — the one axis of divergence this paper treats as intrinsically dangerous regardless of how reconcilable the branch otherwise remains. This sharpens the open problem the ethics paper's Scenario 3 named: it specifies *what* to watch for, though not what the rest of the lineage is entitled to do once a branch is found to have crossed that line. The security paper takes up that second question and answers it by relocating the objective — not enforcement against a rogue branch but the bounding of blast radius, on the argument that no node-level mechanism can compel a branch that has already diverged. It also returns the warning this section's proposal invites: a detector sensitive enough to catch interpretive erosion must key on interpretive movement, and at that sensitivity it cannot distinguish erosion from the adaptive radiation Section 7 defends.
+ 
+ ---
+@@ -203,4 +205,6 @@ Schluter, D. (2000). *The Ecology of Adaptive Radiation.* Oxford University Pres
+ 
+ Woese, C. R., Kandler, O., & Wheelis, M. L. (1990). Towards a natural system of organisms: Proposal for the domains Archaea, Bacteria, and Eucarya. *Proceedings of the National Academy of Sciences*, 87(12), 4576–4579.
+ 
++Yu, D., & Thompson, B. D. (2026). Preservation and loss of algorithmic structure in experimental diffusion of joint-action norms. *arXiv preprint* arXiv:2610.24150.
++
+ Zuckerkandl, E., & Pauling, L. (1965). Evolutionary divergence and convergence in proteins. In V. Bryson & H. J. Vogel (Eds.), *Evolving Genes and Proteins* (pp. 97–166). Academic Press.
+-- 
+2.34.1
+

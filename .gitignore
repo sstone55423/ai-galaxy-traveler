@@ -26,3 +26,7 @@ code/stars_100ly.json
 # Paper-radar's per-day cache of the arXiv weekly listings (regenerated each run)
 .paper-radar/arxiv_week.json
 .paper-radar/biorxiv_week.json
+# Paper-radar: uncompressed candidate files and per-run screening scratch (the
+# archive keeps only candidates/YYYY-MM-DD.json.gz)
+.paper-radar/candidates/*.json
+.paper-radar/candidates/run-*/
